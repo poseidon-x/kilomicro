@@ -1,0 +1,76 @@
+﻿@{
+   ViewBag.Title = "My Transactions - Cashier";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 style="margin-top:10px;">View My Transactions</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-2 col-xs-2"><b>Fund Date:</b></div>
+        <div class="col-md-4 col-xs-4">
+            <input type="date" id="fundDate" />
+        </div>
+        <div class="col-md-2 col-xs-2"><b>Cashier Name:</b></div>
+        <div class="col-md-4 col-xs-4">
+            <input type="text" id="cashierName" readonly />
+        </div>
+    </div><br />
+    <div class="row">
+        <div class="col-md-2 col-xs-2"><b>Fund Amount:</b></div>
+        <div class="col-md-4 col-xs-4">
+            <input type="text" id="fundAmount" readonly />
+        </div>
+        <div class="col-md-2 col-xs-2"><b>Fund Balance:</b></div>
+        <div class="col-md-4 col-xs-4">
+            <input type="text" id="fundBalance" readonly />
+        </div>
+    </div><hr />
+    <div id="row">
+        <div id="tabs">
+            <ul>
+                <li class="k-state-active">Cashier Receivals</li>
+                <li>Cashier Withdrawals</li>
+            </ul>
+            <div>
+                <div id="receivalGrid"></div>
+                <script type="text/x-kendo-template" id="detail-template">
+                    <div class="tabstrip">
+                        <ul>
+                            <li class="k-state-active">Notes</li>
+                            <li>Coins</li>
+                        </ul>
+
+                        <div>
+                            <div class="notes"></div>
+                        </div>
+                        <div>
+                            <div class="coins"></div>
+                        </div>
+                    </div>
+                </script>
+            </div>
+            <div>
+                <div id="withdrawalGrid"></div>
+                <script type="text/x-kendo-template" id="detail-template">
+                    <div class="tabstrip">
+                        <ul>
+                            <li class="k-state-active">Notes</li>
+                            <li>Coins</li>
+                        </ul>
+
+                        <div>
+                            <div class="notes"></div>
+                        </div>
+                        <div>
+                            <div class="coins"></div>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div> <!--EndTab--><br />
+    </div>
+</div>
+
+@section FootScripts{
+    <script src="~/scripts/app/Loans/Cashier/MyTransaction.js"></script>
+}

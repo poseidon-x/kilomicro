@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using CrystalDecisions.ReportSource;
+using coreReports;
+using coreLogic;
+
+namespace coreERP.ln.savingReports
+{
+    public partial class savingPlan : corePage
+    {
+        ReportDocument rpt;
+                coreLoansEntities le = new coreLoansEntities();
+        public override string URL
+        {
+            get { return "~/ln/savingReports/savingPlan.aspx"; }
+        }
+
+        protected void Page_Unload(object sender, EventArgs e)
+        {
+            if (rpt != null)
+            {
+                try
+                {
+                    rpt.Dispose();
+                    rpt.Close();
+                    rpt = null;
+                }
+                catch (Exception) { }
+            }
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                Session["endDate"] = null; 
+            }
+        }
+
+        protected void btnRun_Click(object sender, EventArgs e)
+        { 
+            if (cboClient.SelectedValue != "")
+            {
+                var clientID = int.Parse(cboClient.SelectedValue); 
+                Bind(clientID);
+            } 
+        }
+
+        protected void rvw_DataBinding(object sender, EventArgs e)
+        {
+            if (cboClient.SelectedValue != "")
+            {
+                var clientID = int.Parse(cboClient.SelectedValue);
+                Bind(clientID);
+            } 
+        }
+
+        private void Bind(int? clientID)
+        {
+            rpt = new coreReports.ln4.rptSavingPlan(); 
+            var rent = new reportEntities();
+
+            //var res = rent.vwSavingPlans
+            //    .Where(p => p.clientID == clientID)
+            //    .OrderBy(p=> p.plannedDate)
+            //    .ToList();
+            //if (res.Count == 0)
+            //{
+            //    HtmlHelper.MessageBox("Report cannot be displaid because no data was found for the provided criteria", "coreERP©: No Data", IconType.deny);
+            //    return;
+            //} 
+
+            //rpt.Database.Tables[0].SetDataSource(res);                
+            rpt.Database.Tables[1].SetDataSource(rent.vwCompProfs.ToList()); 
+             
+            this.rvw.ReportSource = rpt;
+        }
+
+        protected void cboClient_ItemsRequested(object sender, Telerik.Web.UI.RadComboBoxItemsRequestedEventArgs e)
+        {
+            if (e.Text.Trim().Length > 2)
+            {
+                cboClient.Items.Add(new Telerik.Web.UI.RadComboBoxItem("", ""));
+                foreach (var cl in le.clients
+                        .Where(p => p.clientTypeID == 1
+                        || p.clientTypeID == 2 || p.clientTypeID == 5).Where(p =>
+                     (p.surName.Contains(e.Text) || p.otherNames.Contains(e.Text) || p.companyName.Contains(e.Text)
+                    || p.accountName.Contains(e.Text))).OrderBy(p => p.surName))
+                {
+                    cboClient.Items.Add(new Telerik.Web.UI.RadComboBoxItem((cl.clientTypeID == 3 || cl.clientTypeID == 4 || cl.clientTypeID == 5) ? cl.companyName : ((cl.clientTypeID == 6) ? cl.accountName : cl.surName +
+                    ", " + cl.otherNames) + " (" + cl.accountNumber + ")", cl.clientID.ToString()));
+                }
+            }
+        }
+         
+    }
+}

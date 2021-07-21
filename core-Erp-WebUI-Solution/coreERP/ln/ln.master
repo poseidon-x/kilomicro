@@ -1,0 +1,10 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/coreERP.Master" AutoEventWireup="true" CodeBehind="ln.master.cs" Inherits="coreERP.ln.ln" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="titlePlaceHolder" runat="server">
+<asp:ContentPlaceHolder runat="server" ID="titlePlaceHolder"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="headPlaceHolder" runat="server">
+<asp:ContentPlaceHolder runat="server" ID="headPlaceHolder"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="mainPlaceHolder" runat="server">
+<asp:ContentPlaceHolder runat="server" ID="mainPlaceHolder"></asp:ContentPlaceHolder>
+</asp:Content>

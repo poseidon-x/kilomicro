@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "View Savings Statement";
+    Layout = "~/Views/Shared/_AgencyLayout.cshtml";
+}
+
+ <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 80px;
+            right: 80px;
+            top: 300px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+</style> 
+
+<div class="page-content">
+    <!-- BEGIN PAGE HEADER-->
+    <h3 class="page-title">
+        Account Statement <small>Savings Account</small>
+    </h3>
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-bar-chart-o"></i><a href="#">Account Statement</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE HEADER-->
+    <div class="clearfix"></div>
+    <div class="row ">
+        <div class="col-md-12 col-sm-12">
+            <div class="portlet box blue-steel">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-bar-chart-o"></i>Account Statement
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="myform" class="form-horizontal">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <div class="col-md-4">
+                                    <label class="col-md-3">Account:</label>
+                                    <div class="input-group input-large">
+                                        <input type="text" id="saving" placeholder="Account"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-md-3 ">Start Date:</label>
+                                    <div class="input-group input-large">
+                                        <input type="text" id="startDate"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-md-3 ">End Date:</label>
+                                    <div class="input-group input-large">
+                                        <input type="text" id="endDate"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="k-widget" id="reportViewer1"></div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+@section scripts{
+   <!-- <script src="~/Content/reporting/js/telerikReportViewer-10.0.16.113.min.js"></script> -->
+    <script src="~/Scripts/app/account/savingStatement.js"></script>
+}

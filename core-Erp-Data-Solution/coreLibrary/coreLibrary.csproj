@@ -1,0 +1,1723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8748D2B0-9CAB-4195-8651-A2CF24DA61C4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreLogic</RootNamespace>
+    <AssemblyName>coreLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommerceEntities\actualPerfomance.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\arInvoice.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\arInvoiceLine.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\arPayment.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\arPaymentLine.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\assemblyLine.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\assemblyLineStaff.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\assemblyLineType.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\assemblyWorkStage.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\billOfMaterial.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\billOfMaterialDetail.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\brand.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\creditMemo.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\creditMemoLine.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\creditMemoReason.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\customer.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\customerBusinessAddress.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\customerContactPerson.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\customerEmail.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\customerPhone.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\customerShippingAddress.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\durationType.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\factory.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\factoryType.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\inventoryItem.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\inventoryItemDetail.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\inventoryMethod.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\inventoryTransfer.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\inventoryTransferDetail.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\inventoryTransferDetailLine.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\invoiceStatu.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\jobCard.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\jobCardLabourDetail.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\jobCardMaterialDetail.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\location.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\locationType.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\manufacturingCalender.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\manufacturingCalenderStaff.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\manufacturingScrap.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\openningBalance.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\openningBalanceBatch.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\paymentMethod.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\paymentTerm.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\product.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\productCategory.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\productMake.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\productStatu.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\productSubCategory.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\salesOrder.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\salesOrderBilling.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\salesOrderline.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\salesOrderShipping.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\salesType.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\scrapReason.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\shippingMethod.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\shrinkage.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\shrinkageBatch.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\shrinkageReason.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\speciality.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\specialityCategory.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\unitOfMeasurement.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\workOrder.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\workOrderActivity.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\workStageType.g.cs">
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\accts.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\acct_bals.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\acct_cats.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\acct_heads.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\acct_period.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\addr_types.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\banks.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\bank_accts.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\bank_branches.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\budget.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\cities.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\comp_prof.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\countries.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\currencies.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\custs.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\cust_addr.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\cust_phons.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\cust_types.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\def_accts.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\def_acct_names.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\districts.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\gl_ou.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\gl_ou_cat.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\interfacePreference.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\jnl.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\jnl_batch.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\jnl_batch_tmp.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\jnl_tmp.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\locations.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\ou.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\ou_cat.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\past_currency_rates.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\phon_types.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\regions.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\roleMenu.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\roleMenuItem.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\sups.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\sup_addr.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\sup_phons.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\sup_types.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\sys_no.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\user_gl_ou_gl_ou.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\vw_accounts.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\vw_cities.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\vw_gl_ou.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\vw_jnl.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\vw_jnl_tmp.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\vw_ou.g.cs">
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditUnionModel\creditUnionChapter.g.cs">
+      <DependentUpon>CreditUnionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditUnionModel\creditUnionMember.g.cs">
+      <DependentUpon>CreditUnionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditUnionModel\CreditUnionModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditUnionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreditUnionModel\creditUnionShareTransaction.g.cs">
+      <DependentUpon>CreditUnionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\jnl_batch_stg.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\jnl_stg.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\pc_dtl.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\pc_head.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\v_dtl.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\v_ftr.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GLModel\v_head.g.cs">
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\accountsSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\address.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\addressImage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\addressType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agent.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agentAddress.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agentDocument.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agentEmail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agentImage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agentNextOfKin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\agentPhone.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\allowanceType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\asset.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\assetCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\assetDepreciation.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\assetDocument.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\assetImage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\assetSubCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\bankAccountType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\benefitsInKind.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\bogReportsConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\bonusCalculationType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\bonusType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowing.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingDisbursement.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingDocument.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingFee.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingFeeType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingPenalty.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingRepayment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingRepaymentSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\borrowingType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\branch.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\businessType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierCashup.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierCashupCoin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierCashupNote.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierDisbursement.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierFund.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierFundCoin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierFundNote.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierFundsTransfer.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierReceipt.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierRemainingCoin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierRemainingNote.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashiersTill.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashiersTillDay.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTillConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTillConfigDetail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTransactionReceipt.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTransactionReceiptCurrency.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTransactionWithdrawal.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTransactionWithdrawalCurrency.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\cashierTransferType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\category.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\categoryCheckList.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\chargeType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\chargeTypeTier.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\checkType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\client.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientActivityLog.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientActivityType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientAddress.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientBankAccount.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientBusinessActivity.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientCompany.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientDocument.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientEmail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientImage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientInvestmentReceipt.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientInvestmentReceiptDetail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientLiability.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientMandateType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientPhone.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientServiceCharge.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\clientType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\collateralImage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\collateralType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\collection.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\config.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\controllerFile.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\controllerFileDetail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\controllerRemark.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\controllerRepaymentType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\creditUnionSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\currencyNote.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\currencyNoteType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\deductionType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\defaultAction.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\def_ln_accts.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\deposit.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositAdditional.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositAuthorization.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositCertificateConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositCharge.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositDisInvestmentConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositInterest.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositNextOfKin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositPeriodInDay.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositRateUpgrade.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositRepaymentMode.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositSignatory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositTemplate.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositTypeAllowedTenure.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositTypePlanRate.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositUpgrade.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depositWithdrawal.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\depreciationSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\document.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\dur_type.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\email.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\emailType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employeeCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employeeContractType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employeeDepartment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employer.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employerDepartment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employerDirector.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employmentStatu.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\employmentType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\financialType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\genericCheckList.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\getCollection_Result.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\getInvestmentReport_Result.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\getLoanBalanceByProduct_Result.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\group.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\groupCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\groupExec.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\holidayType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\idNo.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\idNoType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\id_prof.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\image.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\incentiveStructure.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\industry.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\institution.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\insuranceSetup.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\interestType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentAdditional.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentCharge.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentInterest.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentSignatory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\investmentWithdrawal.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\invoiceLoan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\invoiceLoanConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\invoiceLoanMaster.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\jobTitle.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\leaveType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\level.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\levelAllowance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\levelBenefitsInKind.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\levelDeduction.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\levelLeave.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\levelNotch.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\lienReason.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\lienReleaseReason.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\lineOfBusiness.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\ln_type.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanAdditionalInfo.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanApproval.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanApprovalStage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanApprovalStageOfficer.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanCheck.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanCheckList.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanClosure.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanClosureReason.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanCollateral.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanDocument.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanDocumentPlaceHolderType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanDocumentTemplate.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanDocumentTemplatePage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanDocumentTemplatePagePlaceHolder.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanFee.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanFeeType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanFinancial.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanGroup.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanGroupClient.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanGroupDay.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanGurantor.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanIncentive.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanInsurance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanIterestWriteOff.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanMetaData.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanNo_by_staffID.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanPenalty.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanPenaltyDisable.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanPenaltyEnable.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanProduct.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanProductHistory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanProvision.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanPurpose.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanPurposeDetail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanRepayment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanScheme.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanStatu.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanTemplate.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanTranch.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\loanType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\maritalStatu.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\metaDataType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\microBusinessCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\modeOfEntry.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\modeOfPayment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\month.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\multiPayment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\multiPaymentClient.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\nextOfKin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\notification.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\notificationRecipient.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\notificationSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\oneTimeDeductionType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\overTime.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\overTimeConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\ownerShipType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payCalendar.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMaster.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterAllowance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterBenefitsInKind.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterDeduction.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterLoan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterOneTimeDeduction.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterOverTime.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterPension.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterTax.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payMasterTaxRelief.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\payrollPostingAccount.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\penaltyType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\pensionType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceAppraisal.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceAppraisalScore.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceAppraisalType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceArea.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceContract.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceContractItem.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceContractStatu.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceContractTarget.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\performanceScore.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\phone.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\phoneType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\prAllowance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\prAllowanceType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\privateCompanyStaff.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\privateCompanyStaffAddress.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\privateCompanyStaffVerification.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\prLoanDetail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\productCode.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\provisionBatch.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\provisionClass.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\publicHoliday.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\qualificationSubject.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\qualificationType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\region.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\regularSusuAccount.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\regularSusuContribution.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\regularSusuContributionSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\regularSusuWithdrawal.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\relationshipType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\relationType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\repaymentMode.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\repaymentSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\repaymentType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\reservationType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\saving.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingAdditional.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingBalance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingCharge.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingDailyInterest.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingInterest.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingLien.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingLienRelease.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingNextOfKin.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingPlan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingPlanFlag.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingPlanInterval.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingReservationTransc.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingRollOver.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingSignatory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\savingWithdrawal.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\sector.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\shift.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\shiftAllowance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\smeCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\smeDirector.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\SpecialDay.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\SpecialDayType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staff.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffAddress.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffAllowance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffAttendance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffBenefit.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffBenefitsInKind.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffCalendar.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffCategory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffCategory1.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffCategoryDirector.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffDaysWorked.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffDeduction.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffDocument.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffEmail.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffImage.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLeave.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLeaveBalance.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLoan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLoanRepayment.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLoanSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLoanType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffLoanTypeLevel.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffManager.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffOneTimeDeduction.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffOvertime.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffPension.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffPhone.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffPromotion.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffQualification.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffRelation.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffSaving.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffShift.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\staffTaxRelief.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\supplier.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\supplierContact.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuAccount.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuConfig.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuContribution.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuContributionSchedule.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuGrade.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuGradePosition.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuGroup.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuGroupHistory.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuPosition.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuScheme.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\susuSystemDateChange.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\sv_type.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\systemDate.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\taxReliefType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\taxTable.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\tenor.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\tenureType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\transactionType.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\treasuryBillRate.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\vwActiveClient.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\vwFlaggedClient.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\vwOutstandingLoan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\vw_controllerFile_outstandingLoan.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoansModel\year.g.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ArCustomers\InvoiceDetailViewModel.cs" />
+    <Compile Include="Models\ArCustomers\InvoiceCustomersViewModel.cs" />
+    <Compile Include="Models\Borrowing\ClientBorrowingsViewModel.cs" />
+    <Compile Include="Models\Borrowing\BorrowingJnEntriesViewModel.cs" />
+    <Compile Include="Models\Borrowing\BorrowingAccountViewModel.cs" />
+    <Compile Include="Models\Client\ClientServiceChargeViewModel.cs" />
+    <Compile Include="Models\Client\ClientViewModel.cs" />
+    <Compile Include="Models\CompanyProfile\CompanyProfileViewModel.cs" />
+    <Compile Include="Models\Deposit\DepositCertificateViewModel.cs" />
+    <Compile Include="Models\Email\EmailViewModel.cs" />
+    <Compile Include="Models\Inventory\InventoryItemDetailsViewModel.cs" />
+    <Compile Include="Models\Inventory\InventoryLocationsViewModel.cs" />
+    <Compile Include="Models\Inventory\InventoryProductsViewModel.cs" />
+    <Compile Include="Models\Inventory\InventoryItemsViewModel.cs" />
+    <Compile Include="Models\Invoice\InvoiceLinesViewModel.cs" />
+    <Compile Include="Models\Invoice\InvoiceViewModel.cs" />
+    <Compile Include="Models\Loans\ControllerOutViewModel.cs" />
+    <Compile Include="Models\Loans\SalaryLoanRepaymentModel.cs" />
+    <Compile Include="Models\Loans\BankViewModel.cs" />
+    <Compile Include="Models\Loans\DailyCollectionSheetViewModel.cs" />
+    <Compile Include="Models\Loans\LoanBalanceByProductDetailViewModel.cs" />
+    <Compile Include="Models\Loans\LoanBalanceByProductViewModel.cs" />
+    <Compile Include="Models\Loans\LoanMetaDataViewModel.cs" />
+    <Compile Include="Models\Loans\LoanDocumentPageViewModel.cs" />
+    <Compile Include="Models\Loans\LoanDocumentViewModel.cs" />
+    <Compile Include="Models\Loans\LoanAgreementDocumentViewModel.cs" />
+    <Compile Include="Models\Loans\DisbursedLoanDetailViewModel.cs" />
+    <Compile Include="Models\Loans\DisbursedLoanViewModel.cs" />
+    <Compile Include="Models\Loans\OutstandingScheduleItemsViewModel.cs" />
+    <Compile Include="Models\NumberGenerator\NumberGenerator.cs" />
+    <Compile Include="Models\Payment\PaymentLinesViewModel.cs" />
+    <Compile Include="Models\Payment\PaymentViewModel.cs" />
+    <Compile Include="Models\RegularSusuAccountViewModel.cs" />
+    <Compile Include="Models\Savings\SavingsTransactionsViewModel.cs" />
+    <Compile Include="Models\Savings\SavingsTermSheetData.cs" />
+    <Compile Include="Models\Savings\SavingsStatementViewModel.cs" />
+    <Compile Include="Models\SavingWithdrawalCalcModel.cs" />
+    <Compile Include="Models\StockMasterViewModel.cs" />
+    <Compile Include="Models\SusuContributionViewModel.cs" />
+    <Compile Include="Models\ProductSummary.cs" />
+    <Compile Include="MomoModel\momoClient.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\momoProvider.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\momoService.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\momoServiceCharge.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\momoTransaction.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\momoWallet.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\walletCashup.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MomoModel\walletLoading.g.cs">
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommerceEntities\CommerceEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommerceEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonModel\CommonModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\accessLevel.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\authToken.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\coreSecurityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="GLModel\GLModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GLModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoanManager.cs" />
+    <Compile Include="LoansModel\LoansModel.cs">
+      <DependentUpon>LoansModel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="MomoModel\momoModels.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>momoModels.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SecurityModel\cuser.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\kerbero.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\modules.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\perms.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\roles.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\role_perms.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\userAudit.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\userError.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\users.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\user_login_attempts.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\user_perms.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\user_roles.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webApp.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppBank.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppContact.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppEmp.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppEmp2.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppID.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppMailAddr.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppPhoto.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppPhyAddr.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityModel\webAppSalary.g.cs">
+      <DependentUpon>coreSecurityModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="CommerceEntities\CommerceEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommerceEntities.cs</LastGenOutput>
+    </None>
+    <None Include="CommonModel\CommonModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommonModel.cs</LastGenOutput>
+    </None>
+    <None Include="CreditUnionModel\CreditUnionModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CreditUnionModel.cs</LastGenOutput>
+    </None>
+    <None Include="SecurityModel\coreSecurityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>coreSecurityModel.cs</LastGenOutput>
+    </None>
+    <None Include="GLModel\GLModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GLModel.cs</LastGenOutput>
+    </None>
+    <None Include="LoansModel\LoansModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LoansModel.cs</LastGenOutput>
+    </None>
+    <None Include="MomoModel\momoModels.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>momoModels.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

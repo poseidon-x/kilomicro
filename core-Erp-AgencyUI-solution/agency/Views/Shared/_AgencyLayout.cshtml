@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title | ERP - AGENCY</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/styles/kendo.bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="~/Content/assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/global/css/plugins.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/layout/css/layout.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/assets/layout/css/custom.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    @{
+        string action =
+            ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+        
+        string controller = 
+            ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+
+        if (agency.Settings.getToken() == "INVALID_TOKEN")
+        {
+            Response.Redirect("/Auth/Login");
+        }
+     }
+
+    <script type="text/javascript">
+        var agencyAPI_URL_Root = '@System.Configuration.ConfigurationManager.AppSettings["agencyAPI_URL_Root"]';
+        var agencyAPI_Token = '@agency.Settings.getToken()';
+    </script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-quick-sidebar-over-content page-sidebar-fixed page-footer-fixed page-full-width">
+    <!-- BEGIN HEADER -->
+    <div class="page-header navbar navbar-fixed-top">
+        <!-- BEGIN HEADER INNER -->
+        <div class="page-header-inner">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="#">
+                    <img src="~/Content/assets/pages/img/core-erp-agency-logo.png" style="max-height:40px; margin-top:3px" alt="coreERP AGENCY" class="logo-default" />
+                </a>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN HORIZANTAL MENU -->
+            <div class="hor-menu hidden-sm hidden-xs">
+                <ul class="nav navbar-nav">
+                    <li class="classic-menu-dropdown @if(action == "Dashboard") {<text> active </text>}">
+                        <a href="/Agent/Dashboard"><i class="fa fa-home"></i> HOME 
+                            @if (action == "Dashboard"){<span class="selected"></span>}
+                        </a>
+                    </li>
+                    <li class="classic-menu-dropdown @if (action == "ClientAccount" || action == "SavingsAccount" || action == "CheckBalance" 
+                                                        || action == "AccountStatement" || action == "PrintStatement" || action == "ViewDetail")
+                                                     {<text> active </text>}">
+                        <a data-toggle="dropdown" href="javascript:;" data-hover="megamenu-dropdown" data-close-others="true">
+                            <i class="fa fa-credit-card"></i> ACCOUNT @if (action == "ClientAccount" || action == "SavingsAccount" || action == "PrintStatement"
+                                                                         || action == "CheckBalance" || action == "AccountStatement" || action == "ViewDetail")
+                                                                      {<span class="selected"></span> } <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            <li class="@if(action == "ClientAccount") {<text> active </text>}">
+                                <a href="/Account/ClientAccount"><i class="fa fa-user-plus"></i> Client Account </a>
+                            </li>
+                            <li class="@if(action == "SavingsAccount") {<text> active </text>}">
+                                <a href="/Account/SavingsAccount"><i class="fa fa-user-plus"></i> Savings Account </a>
+                            </li>
+                            <li class="@if(action == "CheckBalance") {<text> active </text>}">
+                                <a href="/Account/CheckBalance"><i class="fa fa-bar-chart-o"></i> Check Balance </a>
+                            </li>
+                            <li class="@if(action == "PrintStatement") {<text> active </text>}">
+                                <a href="/Account/ViewStatement"><i class="fa fa-print"></i> Print Statement </a>
+                            </li>
+                            <li class="@if(action == "ViewDetail") {<text> active </text>}">
+                                <a href="/Account/ViewDetail"><i class="fa fa-eye"></i> View Account Detail </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="classic-menu-dropdown @if (action == "SavingsDeposit" || action == "SavingsWithdrawal")
+                                                     {<text> active </text>}">
+                        <a data-toggle="dropdown" href="javascript:;" data-hover="megamenu-dropdown" data-close-others="true">
+                           <i class="fa fa-credit-card"></i> TRANSACTION @if (action == "SavingsDeposit" || action == "SavingsWithdrawal")
+                            { <span class="selected"></span> }<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu pull-left">
+                            <li class="@if(action == "SavingsDeposit") {<text> active </text>}">
+                                <a href="/Transaction/SavingsDeposit"><i class="fa fa-user-plus"></i> Deposit Money </a>
+                            </li>
+                            <li class="@if(action == "SavingsWithdrawal") {<text> active </text>}">
+                                <a href="/Transaction/SavingsWidrawal"><i class="fa fa-bar-chart-o"></i> Withdraw Money </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- END HORIZANTAL MENU -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown dropdown-user dropdown-extended dropdown-dark">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="~/Content/assets/layout/img/avatar.png" />
+                            <span class="username username-hide-on-mobile"> @User.Identity.Name </span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="/Auth/ResetPassword"><i class="icon-lock"></i> Change Password </a>
+                            </li>
+                            <li>
+                                <a href="/Auth/Logout"><i class="icon-logout"></i> Log Out </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix"></div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container">
+        @RenderBody()
+    </div>
+    <!-- END CONTAINER -->
+
+    <!-- BEGIN FOOTER -->
+    <div class="page-footer">
+        <div class="page-footer-inner">
+            2015 &copy; coreERP AGENCY by <a href="#" title="coreERP AGENCY by ACS-GHANA" target="_blank">ACS - GHANA: It Is Possible!</a>
+        </div>
+        <div class="scroll-to-top"><i class="icon-arrow-up"></i></div>
+    </div>
+    <!-- END FOOTER -->
+    <!-- BEGIN JAVASCRIPTS -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="~/Content/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+    <!-- IMPORTANT! Load jquery-ui.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+    <script src="~/Content/assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="~/Content/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    <script src="~/Content/assets/global/scripts/app.js" type="text/javascript"></script>
+    <script src="~/Content/assets/layout/scripts/layout.js" type="text/javascript"></script>
+    <script src="~/Content/assets/layout/scripts/theme.js" type="text/javascript"></script>
+    <script src="~/Content/kendo/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/app/utilities.js"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+<!-- END JAVASCRIPTS -->
+    <script src="~/Content/reporting/js/telerikReportViewer-10.0.16.113.min.js"></script>
+
+</body>
+<!-- END BODY -->
+</html>

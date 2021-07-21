@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="coreLogic.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="creditUnionChapter">
+          <Key>
+            <PropertyRef Name="creditUnionChapterID" />
+          </Key>
+          <Property Name="creditUnionChapterID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="chapterName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="dateFormed" Type="datetime" Nullable="false" />
+          <Property Name="town" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="docRegistrationNumber" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="postalAddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="emailAddress" Type="nvarchar" MaxLength="255" />
+          <Property Name="telePhoneNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="pricePerShare" Type="float" Nullable="false" />
+          <Property Name="membersEquityAccountID" Type="int" Nullable="false" />
+          <Property Name="vaultAccountID" Type="int" Nullable="false" />
+          <Property Name="dividendsExpenseAccountID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creditUnionMember">
+          <Key>
+            <PropertyRef Name="creditUnionMemberID" />
+          </Key>
+          <Property Name="creditUnionMemberID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="joinedDate" Type="datetime" Nullable="false" />
+          <Property Name="sharesBalance" Type="float" Nullable="false" />
+          <Property Name="creditUnionChapterID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creditUnionShareTransaction">
+          <Key>
+            <PropertyRef Name="creditUnionShareTransactionID" />
+          </Key>
+          <Property Name="creditUnionShareTransactionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="creditUnionMemberID" Type="bigint" Nullable="false" />
+          <Property Name="transactionDate" Type="datetime" Nullable="false" />
+          <Property Name="transactionType" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="int" Nullable="false" />
+          <Property Name="checkNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="bankID" Type="int" />
+          <Property Name="numberOfShares" Type="float" Nullable="false" />
+          <Property Name="sharePrice" Type="float" Nullable="false" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="postingDate" Type="datetime" />
+          <Property Name="enteredBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="postedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="entryDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_creditUnionMember_creditUnionChapter">
+          <End Role="creditUnionChapter" Type="Self.creditUnionChapter" Multiplicity="1" />
+          <End Role="creditUnionMember" Type="Self.creditUnionMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="creditUnionChapter">
+              <PropertyRef Name="creditUnionChapterID" />
+            </Principal>
+            <Dependent Role="creditUnionMember">
+              <PropertyRef Name="creditUnionChapterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_creditUnionShareTransaction_creditUnionMember">
+          <End Role="creditUnionMember" Type="Self.creditUnionMember" Multiplicity="1" />
+          <End Role="creditUnionShareTransaction" Type="Self.creditUnionShareTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="creditUnionMember">
+              <PropertyRef Name="creditUnionMemberID" />
+            </Principal>
+            <Dependent Role="creditUnionShareTransaction">
+              <PropertyRef Name="creditUnionMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coreLogicStoreContainer">
+          <EntitySet Name="creditUnionChapter" EntityType="Self.creditUnionChapter" Schema="cu" store:Type="Tables" />
+          <EntitySet Name="creditUnionMember" EntityType="Self.creditUnionMember" Schema="cu" store:Type="Tables" />
+          <EntitySet Name="creditUnionShareTransaction" EntityType="Self.creditUnionShareTransaction" Schema="cu" store:Type="Tables" />
+          <AssociationSet Name="fk_creditUnionMember_creditUnionChapter" Association="Self.fk_creditUnionMember_creditUnionChapter">
+            <End Role="creditUnionChapter" EntitySet="creditUnionChapter" />
+            <End Role="creditUnionMember" EntitySet="creditUnionMember" />
+          </AssociationSet>
+          <AssociationSet Name="fk_creditUnionShareTransaction_creditUnionMember" Association="Self.fk_creditUnionShareTransaction_creditUnionMember">
+            <End Role="creditUnionMember" EntitySet="creditUnionMember" />
+            <End Role="creditUnionShareTransaction" EntitySet="creditUnionShareTransaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="coreLogic" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="creditUnionChapter">
+          <Key>
+            <PropertyRef Name="creditUnionChapterID" />
+          </Key>
+          <Property Name="creditUnionChapterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="chapterName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="dateFormed" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="town" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="docRegistrationNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="postalAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="emailAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="telePhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pricePerShare" Type="Double" Nullable="false" />
+          <Property Name="membersEquityAccountID" Type="Int32" Nullable="false" />
+          <Property Name="vaultAccountID" Type="Int32" Nullable="false" />
+          <Property Name="dividendsExpenseAccountID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="creditUnionMembers" Relationship="Self.fk_creditUnionMember_creditUnionChapter" FromRole="creditUnionChapter" ToRole="creditUnionMember" />
+        </EntityType>
+        <EntityType Name="creditUnionMember">
+          <Key>
+            <PropertyRef Name="creditUnionMemberID" />
+          </Key>
+          <Property Name="creditUnionMemberID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="joinedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sharesBalance" Type="Double" Nullable="false" />
+          <Property Name="creditUnionChapterID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="creditUnionChapter" Relationship="Self.fk_creditUnionMember_creditUnionChapter" FromRole="creditUnionMember" ToRole="creditUnionChapter" />
+          <NavigationProperty Name="creditUnionShareTransactions" Relationship="Self.fk_creditUnionShareTransaction_creditUnionMember" FromRole="creditUnionMember" ToRole="creditUnionShareTransaction" />
+        </EntityType>
+        <EntityType Name="creditUnionShareTransaction">
+          <Key>
+            <PropertyRef Name="creditUnionShareTransactionID" />
+          </Key>
+          <Property Name="creditUnionShareTransactionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="creditUnionMemberID" Type="Int64" Nullable="false" />
+          <Property Name="transactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="transactionType" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="Int32" Nullable="false" />
+          <Property Name="checkNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="bankID" Type="Int32" />
+          <Property Name="numberOfShares" Type="Double" Nullable="false" />
+          <Property Name="sharePrice" Type="Double" Nullable="false" />
+          <Property Name="posted" Type="Boolean" Nullable="false" />
+          <Property Name="postingDate" Type="DateTime" Precision="3" />
+          <Property Name="enteredBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="postedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="entryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="creditUnionMember" Relationship="Self.fk_creditUnionShareTransaction_creditUnionMember" FromRole="creditUnionShareTransaction" ToRole="creditUnionMember" />
+        </EntityType>
+        <Association Name="fk_creditUnionMember_creditUnionChapter">
+          <End Role="creditUnionChapter" Type="Self.creditUnionChapter" Multiplicity="1" />
+          <End Role="creditUnionMember" Type="Self.creditUnionMember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="creditUnionChapter">
+              <PropertyRef Name="creditUnionChapterID" />
+            </Principal>
+            <Dependent Role="creditUnionMember">
+              <PropertyRef Name="creditUnionChapterID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_creditUnionShareTransaction_creditUnionMember">
+          <End Role="creditUnionMember" Type="Self.creditUnionMember" Multiplicity="1" />
+          <End Role="creditUnionShareTransaction" Type="Self.creditUnionShareTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="creditUnionMember">
+              <PropertyRef Name="creditUnionMemberID" />
+            </Principal>
+            <Dependent Role="creditUnionShareTransaction">
+              <PropertyRef Name="creditUnionMemberID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CreditUnionModels" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="creditUnionChapters" EntityType="Self.creditUnionChapter" />
+          <EntitySet Name="creditUnionMembers" EntityType="Self.creditUnionMember" />
+          <EntitySet Name="creditUnionShareTransactions" EntityType="Self.creditUnionShareTransaction" />
+          <AssociationSet Name="fk_creditUnionMember_creditUnionChapter" Association="Self.fk_creditUnionMember_creditUnionChapter">
+            <End Role="creditUnionChapter" EntitySet="creditUnionChapters" />
+            <End Role="creditUnionMember" EntitySet="creditUnionMembers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_creditUnionShareTransaction_creditUnionMember" Association="Self.fk_creditUnionShareTransaction_creditUnionMember">
+            <End Role="creditUnionMember" EntitySet="creditUnionMembers" />
+            <End Role="creditUnionShareTransaction" EntitySet="creditUnionShareTransactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="coreLogicStoreContainer" CdmEntityContainer="CreditUnionModels">
+          <EntitySetMapping Name="creditUnionChapters">
+            <EntityTypeMapping TypeName="coreLogic.creditUnionChapter">
+              <MappingFragment StoreEntitySet="creditUnionChapter">
+                <ScalarProperty Name="creditUnionChapterID" ColumnName="creditUnionChapterID" />
+                <ScalarProperty Name="chapterName" ColumnName="chapterName" />
+                <ScalarProperty Name="dateFormed" ColumnName="dateFormed" />
+                <ScalarProperty Name="town" ColumnName="town" />
+                <ScalarProperty Name="docRegistrationNumber" ColumnName="docRegistrationNumber" />
+                <ScalarProperty Name="postalAddress" ColumnName="postalAddress" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="telePhoneNumber" ColumnName="telePhoneNumber" />
+                <ScalarProperty Name="pricePerShare" ColumnName="pricePerShare" />
+                <ScalarProperty Name="membersEquityAccountID" ColumnName="membersEquityAccountID" />
+                <ScalarProperty Name="vaultAccountID" ColumnName="vaultAccountID" />
+                <ScalarProperty Name="dividendsExpenseAccountID" ColumnName="dividendsExpenseAccountID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditUnionMembers">
+            <EntityTypeMapping TypeName="coreLogic.creditUnionMember">
+              <MappingFragment StoreEntitySet="creditUnionMember">
+                <ScalarProperty Name="creditUnionMemberID" ColumnName="creditUnionMemberID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="joinedDate" ColumnName="joinedDate" />
+                <ScalarProperty Name="sharesBalance" ColumnName="sharesBalance" />
+                <ScalarProperty Name="creditUnionChapterID" ColumnName="creditUnionChapterID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditUnionShareTransactions">
+            <EntityTypeMapping TypeName="coreLogic.creditUnionShareTransaction">
+              <MappingFragment StoreEntitySet="creditUnionShareTransaction">
+                <ScalarProperty Name="creditUnionShareTransactionID" ColumnName="creditUnionShareTransactionID" />
+                <ScalarProperty Name="creditUnionMemberID" ColumnName="creditUnionMemberID" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+                <ScalarProperty Name="transactionType" ColumnName="transactionType" />
+                <ScalarProperty Name="modeOfPaymentID" ColumnName="modeOfPaymentID" />
+                <ScalarProperty Name="checkNumber" ColumnName="checkNumber" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="numberOfShares" ColumnName="numberOfShares" />
+                <ScalarProperty Name="sharePrice" ColumnName="sharePrice" />
+                <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="postingDate" ColumnName="postingDate" />
+                <ScalarProperty Name="enteredBy" ColumnName="enteredBy" />
+                <ScalarProperty Name="postedBy" ColumnName="postedBy" />
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

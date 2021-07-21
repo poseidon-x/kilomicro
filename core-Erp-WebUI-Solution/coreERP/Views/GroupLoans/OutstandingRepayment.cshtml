@@ -1,0 +1,84 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Arrears Report";
+
+}
+
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Arrears Report</h3>
+    <br />
+    <br />
+    <div id="form-container" style="position: relative">
+
+        <div class="row">
+            <div class="col-md-2">Select Date :</div>
+            <div class="col-md-3">
+                <input type="text" id="paymentDate" />
+            </div>
+        </div><br />
+
+    </div>
+
+    <div class="form-horizontal">
+
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Arrears Report</li>
+                    @*<li>Over Paid Loans</li>*@
+                </ul>
+
+
+                <div>
+                    <button class="btn btn-primary" id="btnPdfExport">Export To PDF</button>
+                    <button class="btn btn-primary" id="btnExcelExport">Export To Excel</button>
+                    <div id="outstandingGrid"> </div>
+                </div>
+
+            </div> <!--EndTab--><br />
+        </div>
+
+    </div>
+</div>
+
+@section FootScripts{
+    <script src="~/scripts/app/Loans/GroupLoans/OustandingRepayment.js"></script>
+
+    <script type="x/kendo-template" id="page-template">
+        <div class="page-template">
+            <div class="header">
+                <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+                Multi-page grid with automatic page breaking
+            </div>
+            <div class="watermark">KENDO UI</div>
+            <div class="footer">
+                Page #: pageNum # of #: totalPages #
+            </div>
+        </div>
+    </script>
+    <script>
+        //function getPDF(selector) {
+        //    kendo.drawing.drawDOM($(selector)).then(function (group) {
+        //        kendo.drawing.pdf.saveAs(group, "Outstanding.pdf");
+        //    });
+        //}
+
+
+
+        $("#btnPdfExport").kendoButton({
+            click: function () {
+                $("#outstandingGrid").getKendoGrid().saveAsPDF();
+            }
+        });
+
+
+        $("#btnExcelExport").kendoButton({
+            click: function () {
+                $("#outstandingGrid").getKendoGrid().saveAsExcel();
+            }
+        });
+
+    </script>
+}

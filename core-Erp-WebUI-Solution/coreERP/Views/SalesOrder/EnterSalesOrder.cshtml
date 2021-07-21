@@ -1,0 +1,154 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Sales Order";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Enter Sales Order</h3>
+	<hr>
+	<br/>
+<div class="form-horizontal" type="form">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> Customer: </div>
+        <div class="col-md-3">
+            <input type="text" id="customer" class="form-control" placeholder="--------- Select Customer Here ---------" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> Sales Date: </div>
+        <div class="col-md-3">
+            <input type="text" id="saleDate" class="form-control" readonly/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> currency: </div>
+        <div class="col-md-3">
+            <input type="text" id="currency" class="form-control" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> Payment Term: </div>
+        <div class="col-md-3">
+            <input type="text" id="paymentTerm" class="form-control" required data-required-msg="Invalid"/>
+        </div>
+
+    </div>
+    <div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Sale Type: </div>
+            <div class="col-md-3">
+                <input type="text" id="salesType" class="form-control" required data-required-msg="Invalid"/>
+            </div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Date Required: </div>
+            <div class="col-md-3">
+                <input type="text" id="requiredDate" class="form-control" required data-required-msg="Invalid" />
+            </div>
+
+        </div>
+
+        <hr>
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Order Line</li>
+                    <li>Order Shipping</li>
+                    <li>Order Billing</li>
+                </ul>
+                <div>
+                    <div>
+                        <div id="salesOrderlineGrid"> </div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <br/>
+                        <div class="row">
+                            <br/>
+                            <div class="col-md-2">Ship To</div>
+                            <div class="col-md-3">
+                                <input type="text" id="shipTo"/>
+                            </div>
+                            <div class="col-md-2">Shipping Method</div>
+                            <div class="col-md-3">
+                                <input type="text" id="shippingMethod"/>
+                            </div>
+                        </div><br/>
+                        <div class="row">
+                            <div class="col-md-2">City</div>
+                            <div class="col-md-3">
+                                <input type="text" id="shippingCityName"/>
+                            </div>
+                            <div class="col-md-2"> Country </div>
+                            <div class="col-md-3">
+                                <input type="text" id="countryName"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-2">Address Line</div>
+                            <div class="col-md-3">
+                                <textarea class="form-control" id="shippingAddressLine1" rows="3" cols="80" style="width: 240px; height: 60px"></textarea>
+                            </div>
+                            <div class="col-md-2"> Address Line(Alternate) </div>
+                            <div class="col-md-3">
+                                <textarea class="form-control" id="shippingAddressLine2" rows="3" cols="80" style="width: 240px; height: 60px"></textarea>
+                            </div>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+                <div>
+                    <br/>
+                    <div class="row">
+                        <br/>
+                        <div class="col-md-2">Bill To</div>
+                        <div class="col-md-3">
+                            <input type="text" id="billTo"/>
+                        </div>
+                        <div class="col-md-2">City</div>
+                        <div class="col-md-3">
+                            <input type="text" id="cityName"/>
+                        </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-md-2">Address Line</div>
+                        <div class="col-md-3">
+                            <textarea class="form-control" id="addressLine1" rows="3" cols="80" style="width: 240px; height: 60px"></textarea>
+                        </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-3"></div>
+                    </div><br/>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-primary" id="save" value="Save Sales Order"/>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+    </div>
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var salesOrderId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/SaleOrder/enterSalesOrder.js"></script>
+}
+

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="455429b9569d4ea99e1237b48f4de9ba" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="coreCommerceEntities.arInvoice" Width="1.5" PointX="3" PointY="26.25" />
+        <EntityTypeShape EntityType="coreCommerceEntities.arInvoiceLine" Width="1.5" PointX="5.25" PointY="34.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.arPayment" Width="1.5" PointX="6" PointY="18.125" />
+        <EntityTypeShape EntityType="coreCommerceEntities.arPaymentLine" Width="1.5" PointX="8.25" PointY="25.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.creditMemo" Width="1.5" PointX="11.25" PointY="28" />
+        <EntityTypeShape EntityType="coreCommerceEntities.creditMemoReason" Width="1.5" PointX="9" PointY="22.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.invoiceStatu" Width="1.5" PointX="0.75" PointY="34" />
+        <EntityTypeShape EntityType="coreCommerceEntities.paymentTerm" Width="1.5" PointX="0.75" PointY="24.125" />
+        <EntityTypeShape EntityType="coreCommerceEntities.customer" Width="1.5" PointX="0.75" PointY="27.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.customerBusinessAddress" Width="1.5" PointX="3" PointY="40" />
+        <EntityTypeShape EntityType="coreCommerceEntities.customerContactPerson" Width="1.5" PointX="3" PointY="47.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.customerEmail" Width="1.5" PointX="3" PointY="44" />
+        <EntityTypeShape EntityType="coreCommerceEntities.customerPhone" Width="1.5" PointX="3" PointY="52.25" />
+        <EntityTypeShape EntityType="coreCommerceEntities.customerShippingAddress" Width="1.5" PointX="3" PointY="55.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.brand" Width="1.5" PointX="13.25" PointY="15" />
+        <EntityTypeShape EntityType="coreCommerceEntities.inventoryItem" Width="1.5" PointX="15.5" PointY="9" />
+        <EntityTypeShape EntityType="coreCommerceEntities.inventoryItemDetail" Width="1.5" PointX="17.75" PointY="14.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.inventoryMethod" Width="1.5" PointX="11" PointY="19.5" />
+        <EntityTypeShape EntityType="coreCommerceEntities.inventoryTransfer" Width="1.5" PointX="18.5" PointY="20.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.inventoryTransferDetail" Width="1.5" PointX="20.75" PointY="10" />
+        <EntityTypeShape EntityType="coreCommerceEntities.inventoryTransferDetailLine" Width="1.5" PointX="23" PointY="10.125" />
+        <EntityTypeShape EntityType="coreCommerceEntities.location" Width="1.5" PointX="13.25" PointY="0.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.locationType" Width="1.5" PointX="10.625" PointY="1.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.openningBalance" Width="1.5" PointX="17.75" PointY="9.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.openningBalanceBatch" Width="1.5" PointX="15.5" PointY="18.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.product" Width="1.5" PointX="13.25" PointY="9.5" />
+        <EntityTypeShape EntityType="coreCommerceEntities.productCategory" Width="1.5" PointX="8.75" PointY="10" />
+        <EntityTypeShape EntityType="coreCommerceEntities.productMake" Width="1.5" PointX="11" PointY="17.125" />
+        <EntityTypeShape EntityType="coreCommerceEntities.productStatu" Width="1.5" PointX="11" PointY="14.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.productSubCategory" Width="1.5" PointX="11" PointY="10.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.shrinkage" Width="1.5" PointX="17.75" PointY="4.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.shrinkageBatch" Width="1.5" PointX="15.5" PointY="3.25" />
+        <EntityTypeShape EntityType="coreCommerceEntities.shrinkageReason" Width="1.5" PointX="15.5" PointY="15.5" />
+        <EntityTypeShape EntityType="coreCommerceEntities.unitOfMeasurement" Width="1.5" PointX="11" PointY="5.5" />
+        <EntityTypeShape EntityType="coreCommerceEntities.paymentMethod" Width="1.5" PointX="3.75" PointY="19.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.salesOrder" Width="1.5" PointX="6" PointY="27.125" />
+        <EntityTypeShape EntityType="coreCommerceEntities.salesOrderBilling" Width="1.5" PointX="8.25" PointY="30.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.salesOrderline" Width="1.5" PointX="8.25" PointY="34.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.salesOrderShipping" Width="1.5" PointX="14.25" PointY="28.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.salesType" Width="1.5" PointX="3.75" PointY="23.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.shippingMethod" Width="1.5" PointX="12" PointY="24.75" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arInvoice_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arInvoice_custs" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arInvoice_invoiceStatus" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arInvoice_paymentTerm" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arInvoice_salesOrder" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arInvoiceLine_arInvoice" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arPaymentLine_arInvoice" />
+        <AssociationConnector Association="coreCommerceEntities.fk_creditMemo_arInvoice" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arPayment_paymentMethod" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arPaymentLine_arPayment" />
+        <AssociationConnector Association="coreCommerceEntities.fk_creditMemo_creditMemoReason" />
+        <AssociationConnector Association="coreCommerceEntities.fk_customerBusinessAddress_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_customerContactPerson_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_customerEmail_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_customerPhone_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_customerShippingAddress_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_salesOrder_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryItem_brand" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryItem_location" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryItem_product" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryItemDetail_inventoryItem" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryTransferDetail_inventoryItem" />
+        <AssociationConnector Association="coreCommerceEntities.fk_openningBalance_inventoryItem" />
+        <AssociationConnector Association="coreCommerceEntities.fk_shrinkage_inventoryItem" />
+        <AssociationConnector Association="coreCommerceEntities.fk_product_inventoryMethod" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryTransfer_fromLocation" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryTransfer_toLocation" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryTransferDetail_inventoryTransfer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_inventoryTransferDetailLine_inventoryTransferDetail" />
+        <AssociationConnector Association="coreCommerceEntities.fk_location_locationType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_locationType_locationType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_openningBalance_openningBalanceBatch" />
+        <AssociationConnector Association="coreCommerceEntities.fk_openningBalance_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_product_productMake" />
+        <AssociationConnector Association="coreCommerceEntities.fk_product_productStatus" />
+        <AssociationConnector Association="coreCommerceEntities.fk_product_productSubCategory" />
+        <AssociationConnector Association="coreCommerceEntities.fk_product_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_productSubCategory_productCategory" />
+        <AssociationConnector Association="coreCommerceEntities.fk_shrinkage_batch" />
+        <AssociationConnector Association="coreCommerceEntities.fk_shrinkage_reason" />
+        <AssociationConnector Association="coreCommerceEntities.fk_shrinkage_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_unitOfMeasurement_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_salesOrder_salesType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_salesOrderBilling_salesOrder" />
+        <AssociationConnector Association="coreCommerceEntities.fk_salesOrderLine_salesOrder" />
+        <AssociationConnector Association="coreCommerceEntities.fk_salesOrderShipping_salesOrder" />
+        <AssociationConnector Association="coreCommerceEntities.fk_salesOrderShipping_shippingMethod" />
+        <AssociationConnector Association="coreCommerceEntities.fk_arPayment_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_creditMemo_arPayment" />
+        <EntityTypeShape EntityType="coreCommerceEntities.creditMemoLine" Width="1.5" PointX="13.5" PointY="34" />
+        <AssociationConnector Association="coreCommerceEntities.fk_creditMemoLine_arInvoiceLine" />
+        <AssociationConnector Association="coreCommerceEntities.fk_creditMemoLine_creditMemo" />
+        <EntityTypeShape EntityType="coreCommerceEntities.workOrder" Width="1.5" PointX="3" PointY="6.25" />
+        <AssociationConnector Association="coreCommerceEntities.fk_workOrder_customer" />
+        <EntityTypeShape EntityType="coreCommerceEntities.speciality" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="coreCommerceEntities.specialityCategory" Width="1.5" PointX="0.75" PointY="1.125" />
+        <AssociationConnector Association="coreCommerceEntities.fk_speciality_specialityCategory" />
+        <EntityTypeShape EntityType="coreCommerceEntities.workOrderActivity" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="coreCommerceEntities.fk_workOrderActivity_speciality" />
+        <AssociationConnector Association="coreCommerceEntities.fk_workOrderActivity_workOrder" />
+        <EntityTypeShape EntityType="coreCommerceEntities.jobCard" Width="1.5" PointX="3" PointY="10.25" />
+        <EntityTypeShape EntityType="coreCommerceEntities.jobCardLabourDetail" Width="1.5" PointX="5.25" PointY="12.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.jobCardMaterialDetail" Width="1.5" PointX="20.25" PointY="4.25" />
+        <AssociationConnector Association="coreCommerceEntities.fk_jobCard_customer" />
+        <AssociationConnector Association="coreCommerceEntities.fk_jobCardMaterialDetail_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_jobCardLabourDetail_jobCard" />
+        <AssociationConnector Association="coreCommerceEntities.fk_jobCardMaterialDetail_jobCard" />
+        <EntityTypeShape EntityType="coreCommerceEntities.actualPerfomance" Width="1.5" PointX="28" PointY="8.25" />
+        <EntityTypeShape EntityType="coreCommerceEntities.assemblyLine" Width="1.5" PointX="20.5" PointY="15.125" />
+        <EntityTypeShape EntityType="coreCommerceEntities.assemblyLineStaff" Width="1.5" PointX="7.375" PointY="1.5" />
+        <EntityTypeShape EntityType="coreCommerceEntities.assemblyLineType" Width="1.5" PointX="18.25" PointY="30.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.assemblyWorkStage" Width="1.5" PointX="22.75" PointY="15.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.billOfMaterial" Width="1.5" PointX="15.5" PointY="0.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.billOfMaterialDetail" Width="1.5" PointX="17.75" PointY="1.625" />
+        <EntityTypeShape EntityType="coreCommerceEntities.durationType" Width="1.5" PointX="23.5" PointY="7.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.factory" Width="1.5" PointX="18.25" PointY="35.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.factoryType" Width="1.5" PointX="16" PointY="36.375" />
+        <EntityTypeShape EntityType="coreCommerceEntities.manufacturingCalender" Width="1.5" PointX="25.75" PointY="10.25" />
+        <EntityTypeShape EntityType="coreCommerceEntities.manufacturingCalenderStaff" Width="1.5" PointX="28" PointY="16.75" />
+        <EntityTypeShape EntityType="coreCommerceEntities.manufacturingScrap" Width="1.5" PointX="30.25" PointY="7.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.scrapReason" Width="1.5" PointX="28" PointY="5.875" />
+        <EntityTypeShape EntityType="coreCommerceEntities.workStageType" Width="1.5" PointX="20.5" PointY="29.25" />
+        <AssociationConnector Association="coreCommerceEntities.fk_assemblyLine_productId" />
+        <AssociationConnector Association="coreCommerceEntities.fk_billOfMaterial_product" />
+        <AssociationConnector Association="coreCommerceEntities.fk_billOfMaterialDetail_product" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingCalender_product" />
+        <AssociationConnector Association="coreCommerceEntities.fk_actualPerfomance_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_billOfMaterialDetail_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingCalender_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingScrap_unitOfMeasurement" />
+        <AssociationConnector Association="coreCommerceEntities.fk_actualPermance_durationType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_actualPermance_manufacturingCalender" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingScrap_actualPerfomance" />
+        <AssociationConnector Association="coreCommerceEntities.fk_assemblyLine_assemblyLineType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_assemblyLine_factory" />
+        <AssociationConnector Association="coreCommerceEntities.fk_assemblyWorkStage_assemblyLine" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingCalender_assemblyLine" />
+        <AssociationConnector Association="coreCommerceEntities.fk_assemblyWorkStage_workStageType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_billOfMaterialDetail_billOfMaterial" />
+        <AssociationConnector Association="coreCommerceEntities.fk_durationType_durationType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingCalender_durationType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_factory_factoryType" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingCalenderStaff_manufacturingCalender" />
+        <AssociationConnector Association="coreCommerceEntities.fk_manufacturingScrap_scrapReason" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

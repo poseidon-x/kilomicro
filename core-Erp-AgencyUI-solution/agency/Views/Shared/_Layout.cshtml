@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - coreERP Agency Portal</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/website.css" rel="stylesheet" />
+    <link href="~/Content/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/styles/kendo.bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var agencyAPI_URL_Root = '@System.Configuration.ConfigurationManager.AppSettings["agencyAPI_URL_Root"]';
+        var agencyAPI_Token =  '@agency.Settings.getToken()';
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <a href="~/Views/Shared/_Layout.cshtml">~/Views/Shared/_Layout.cshtml</a>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("coreERP Agency", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @if (User.Identity != null && User.Identity.IsAuthenticated == true)
+                    {
+                        <li class="@((ViewBag.Controller == "News") ? "active dropdown" : "dropdown")">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-building"></i> Reservations</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#">Reservation Configuration</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/ReservationConfig/Amenity">Amenities</a></li>
+                                        <li><a href="/ReservationConfig/CustomerCompany">Customer Company</a></li>
+                                        <li><a href="/ReservationConfig/Facility">Facility</a></li>
+                                        <li><a href="/ReservationConfig/FacilityType">Facility Types</a></li>
+                                        <li><a href="/ReservationConfig/RelationType">Relation Types</a></li>
+                                        <li><a href="/ReservationConfig/Room">Rooms</a></li>
+                                        <li><a href="/ReservationConfig/RoomTypeAmenity">Rooom Type Amenities</a></li>
+                                        <li><a href="/ReservationConfig/RoomType">Room Types</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="/Reservation/Checking">Checkings</a></li>
+                                <li><a href="/Reservation/CustomerAccount">Customer Accounts</a></li>
+                                <li><a href="/Reservation/Reservation">Reservations</a></li>
+                            </ul>
+                        </li>
+                        <li class="@((ViewBag.Controller == "Publication") ? "active dropdown" : "dropdown")">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">DOCUMENTS</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#">Configuration</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Publication/PubApprovalType">Approval Type</a></li>
+                                        <li><a href="/Publication/PubDocumentType">Document Type</a></li>
+                                        <li><a href="/Publication/PubAllowedMimeType">Allowed Mime Type</a></li>
+                                        <li><a href="/Publication/PubMetaDataType">Metadata Type</a></li>
+                                        <li><a href="/Publication/PubWriteAccessControlType">Write Access Control Type</a></li>
+                                        <li><a href="/Publication/PubReadAccessControlType">Read Access Control Type</a></li>
+                                        <li><a href="/Publication/PubFrequency">Frequency</a></li>
+                                        <li><a href="/Publication/PubStatus">Status</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/Publication/PubTemplateEdit">Manage Publication Templates</a></li>
+                                <li><a href="/Publication/PubTemplate">Create a Publication Template</a></li>
+                                <li><a href="/Publication/PubTemplateSearch">Publish Document(s)</a></li>
+                                <li><a href="/Publication/PublicationSearch">Find and View Publication(s)</a></li>
+                                <li><a href="/Publication/PublicationSearchToEdit">Edit Publication(s)</a></li>
+                            </ul>
+                        </li>
+                        <li class="@((ViewBag.Controller == "ServiceDesk") ? "active dropdown" : "dropdown")">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">SERVICE DESK</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#">Configuration</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/ServiceDesk/TicketCategory">Ticket Category</a></li>
+                                        <li><a href="/ServiceDesk/TicketSubCategory">Ticket Sub-Category</a></li>
+                                        <li><a href="/ServiceDesk/TicketType">Ticket Type</a></li>
+                                        <li><a href="/ServiceDesk/TicketRequestStatus">Ticket Request Satus</a></li>
+                                        <li><a href="/ServiceDesk/TicketMetaDataType">Ticket MetaData Type</a></li>
+                                        <li><a href="/ServiceDesk/DocumentType">Document Type</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/ServiceDesk/Ticket">Create a Ticket Template</a></li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Employee Self Service</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/ServiceDesk/TicketList">Request a Ticket</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/ServiceDesk/MyPendingApprovals">Approvers Console</a></li>
+                                <li><a href="/ServiceDesk/ApprovedRequests">Work Assignment Console</a></li>
+                                <li><a href="/ServiceDesk/MyAssignedRequests">Work Fulfilment Console</a></li>
+                                <li><a href="/ServiceDesk/TicketRequestAcceptance">Work Monitoring & Acceptance Console</a></li>
+                            </ul>
+                        </li>
+                        <li class="@((ViewBag.Controller == "Asset") ? "active dropdown" : "dropdown")">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ASSETS</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#">Product Configuration</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Asets/AsetManufacturer">Product Manufacturers</a></li>
+                                        <li><a href="/Asets/AsetBrands">Product Brands</a></li>
+                                        <li><a href="/Asets/AsetProduct">Products</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Asset Configuration</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Asets/AsetType">Types</a></li>
+                                        <li><a href="/Asets/AsetCategories">Categories</a></li>
+                                        <li><a href="/Asets/AsetLocation">Locations</a></li>
+                                        <li><a href="/Asets/AsetPurchaseRequestReasons">Request Reasons</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Asset Transactions</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Asets/AsetPurchaseRequest">New Purchase Request</a></li>
+                                        <li><a href="/Asets/AsetPurchaseRequestsList">Requests List</a></li>
+                                        <li><a href="/Asets/AsetPurchaseRequestsAuthorization">Request Authorization</a></li>
+                                        <li><a href="/Asets/AsetPurchaseRequestsApproval">Request Approval</a></li>
+                                        <li><a href="/Asets/AsetPurchaseRequestsVerification">Request Verification</a></li>
+                                        <li><a href="/Asets/AsetPurchaseOrder"> New Purchase Order</a></li>
+                                        <li><a href="/Asets/AsetPurchaseOrderList">Purchase Order List</a></li>
+                                        <li><a href="/Asets/AsetPurchaseOrderDelivery">Purchase Order Delivery</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Asset Info</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Asets/AsetEdit">New Aset Details</a></li>
+                                        <li><a href="/Asets/Asets">Assets List</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Asset Assignment & Transfer</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Assets/AsetAssignment">Assign Assets To Employee</a></li>
+                                        <li><a href="/Assets/AsetTransfer">Transfer Assets</a></li>
+                                        <li><a href="/Assets/AsetTransfers"> Asset Transfers</a></li>
+                                        <li><a href="/Assets/AsetTransferInitialization">Transfer Initiation</a></li>
+                                        <li><a href="/Assets/AsetTransferReceival">Transfer Delivery</a></li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="@((ViewBag.Controller == "Flight" || ViewBag.Controller == "Authorization" || ViewBag.Controller == "Setup") ? "active dropdown-aux" : "dropdown-aux")">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">ADMIN</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#">Other Setups</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Setup/Country">Countries</a></li>
+                                        <li><a href="/Setup/City">Cities</a></li>
+                                        <li><a href="/Setup/Location">Locations &amp; Branches</a></li>
+                                        <li><a href="/Flight/TimeZones">Time Zones</a></li>
+                                        <li><a href="/Flight/Dst">Daylight Savings</a></li>
+                                        <li><a href="Setup/Currency">Currencies</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a href="#">Authorization &amp; Security</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="/Authorization/AccessLevel">Access Levels</a></li>
+                                        <li><a href="/Authorization/UserRole">System Roles</a></li>
+                                        <li><a href="/Authorization/Permission">System Permission</a></li>
+                                        <li><a href="/Authorization/EmployeeUserFFP">User Access (FFP)</a></li>
+                                        <li><a href="/Authorization/EmployeeUser">User Access</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--
+                        <li class="dropdown dropdown-aux animate-click" data-animate-in="animated fadeIn" data-animate-out="animated fadeOutDown" style="z-index: 500;">
+                            <a aria-expanded="true" href="#" class="dropdown-form-toggle" data-toggle="dropdown"><i class="fa fa-lock"></i> SECURITY</a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu"><a href="/Login/LogOut" class="btn btn-base" type="button">Log Out</a></li>
+                                <li class="dropdown-submenu"><a href="/Login/ResetPassword" class="btn btn-base" type="button">Reset Password</a></li>
+                            </ul>
+                        </li>-->
+
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Log In", "Index", "Login", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - coreERP Agency Portal</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/app/setupUI.js"></script>
+    <script src="~/Content/kendo/js/kendo.all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+﻿@{
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Campany Staff";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Client</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="client" data-val="true" data-val-required="*">
+                </div>
+                <div class="col-md-2 col-xs-2">Employer</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="employer" data-val="true" data-val-required="*">
+                </div>
+
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Employee Number</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="employeeNumber" data-val="true" data-val-required="*">
+                </div>
+                <div class="col-md-2 col-xs-2">Employment Contract</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="employeeContractType" data-val="true" data-val-required="*">
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Employment Start Date</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="employmentStartDate" data-val="true" data-val-required="*">
+                </div>
+                <div class="col-md-2 col-xs-2">Social Security No.</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="socialSecurityNumber" >
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Position</div>
+                <div class="col-md-4 col-xs-4">
+                    <input  type="text" id="position" >
+                </div>
+                
+            </div><br />
+        </div>
+        <br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Address</li>
+                    <li>Verification</li>
+                </ul>
+                <div>
+                    <div id="addressGrid"> </div>
+                </div>
+                <div>
+                    <div id="verificationGrid"> </div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Save  &raquo; </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section FootScripts{
+
+    <script>
+        var id = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/Loans/PrivateCompanyStaff/NewPrivateCompanyStaff.js"></script>
+}

@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Sales";
+}
+
+<h2>Sales</h2>
+<hr>
+<div class="row">
+    <div id="tabs">
+        <ul>
+            <li class="k-state-active">Sales Orders</li>
+        </ul>
+        <div>
+            <div id="grid"> </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+@section FootScripts{
+<script src="~/scripts/app/SaleOrder/SalesOrders.js"></script>
+}

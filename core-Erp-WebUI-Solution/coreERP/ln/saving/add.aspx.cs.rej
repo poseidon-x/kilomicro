@@ -1,0 +1,10 @@
+diff a/core-Erp-WebUI-Solution/coreERP/ln/saving/add.aspx.cs b/core-Erp-WebUI-Solution/coreERP/ln/saving/add.aspx.cs	(rejected hunks)
+@@ -408,7 +408,7 @@
+                     {
+                         interestPayment = totalInt,
+                         principalPayment = 0,
+-                        repaymentDate = date,
++                        repaymentDate = date.Date,
+                         authorized = false,
+                         temp = true
+                     };

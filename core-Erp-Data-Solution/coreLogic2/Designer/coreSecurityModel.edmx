@@ -1,0 +1,1748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="coreSecurity.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accessLevel">
+          <Key>
+            <PropertyRef Name="accessLevelID" />
+          </Key>
+          <Property Name="accessLevelID" Type="tinyint" Nullable="false" />
+          <Property Name="accessLevelName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="approvalLimit" Type="float" Nullable="false" />
+          <Property Name="withdrawalLimit" Type="float" Nullable="false" />
+          <Property Name="disbursementLimit" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="authToken">
+          <Key>
+            <PropertyRef Name="authTokenID" />
+          </Key>
+          <Property Name="authTokenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="token" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="grantedDate" Type="datetime" Nullable="false" />
+          <Property Name="expiryDate" Type="datetime" Nullable="false" />
+          <Property Name="clientHostName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cuser">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="is_active" Type="bit" Nullable="false" />
+          <Property Name="client_id" Type="int" />
+          <Property Name="last_activity_date" Type="datetime" />
+          <Property Name="last_login_date" Type="datetime" />
+          <Property Name="last_password_changed_date" Type="datetime" />
+          <Property Name="is_onLine" Type="bit" />
+          <Property Name="is_locked_out" Type="bit" />
+          <Property Name="last_locked_out_date" Type="datetime" />
+          <Property Name="login_failure_count" Type="int" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="modules">
+          <Key>
+            <PropertyRef Name="module_id" />
+          </Key>
+          <Property Name="module_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="module_name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="url" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="parent_module_id" Type="int" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="sort_value" Type="tinyint" Nullable="false" />
+          <Property Name="visible" Type="bit" Nullable="false" />
+          <Property Name="module_code" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="perms">
+          <Key>
+            <PropertyRef Name="perm_code" />
+          </Key>
+          <Property Name="perm_code" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="perm_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="role_perms">
+          <Key>
+            <PropertyRef Name="role_perm_id" />
+          </Key>
+          <Property Name="role_perm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perm_code" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="module_id" Type="int" Nullable="false" />
+          <Property Name="allow" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_name" />
+          </Key>
+          <Property Name="role_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="250" />
+          <Property Name="is_active" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user_login_attempts">
+          <Key>
+            <PropertyRef Name="user_login_attempt_id" />
+          </Key>
+          <Property Name="user_login_attempt_id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ip_address" Type="nvarchar" MaxLength="100" />
+          <Property Name="login_attempt_date" Type="datetime" Nullable="false" />
+          <Property Name="was_successfull" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user_perms">
+          <Key>
+            <PropertyRef Name="user_perm_id" />
+          </Key>
+          <Property Name="user_perm_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="perm_code" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="module_id" Type="int" Nullable="false" />
+          <Property Name="allow" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="user_roles">
+          <Key>
+            <PropertyRef Name="user_role_id" />
+          </Key>
+          <Property Name="user_role_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="role_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="userAudit">
+          <Key>
+            <PropertyRef Name="userAuditID" />
+          </Key>
+          <Property Name="userAuditID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="30" />
+          <Property Name="moduleID" Type="int" />
+          <Property Name="actionDateTime" Type="datetime" Nullable="false" />
+          <Property Name="allowed" Type="bit" Nullable="false" />
+          <Property Name="url" Type="nvarchar" MaxLength="400" />
+        </EntityType>
+        <EntityType Name="userError">
+          <Key>
+            <PropertyRef Name="userErrorID" />
+          </Key>
+          <Property Name="userErrorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="30" />
+          <Property Name="url" Type="nvarchar" MaxLength="400" />
+          <Property Name="errorDate" Type="datetime" Nullable="false" />
+          <Property Name="exceptionMessage" Type="nvarchar" MaxLength="400" />
+          <Property Name="exceptionStackTrace" Type="ntext" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="is_active" Type="bit" Nullable="false" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="last_activity_date" Type="datetime" />
+          <Property Name="last_login_date" Type="datetime" />
+          <Property Name="last_password_changed_date" Type="datetime" />
+          <Property Name="is_onLine" Type="bit" />
+          <Property Name="is_locked_out" Type="bit" />
+          <Property Name="last_locked_out_date" Type="datetime" />
+          <Property Name="login_failure_count" Type="int" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="accessLevelID" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webApp">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="surName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="otherNames" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="dob" Type="datetime" />
+          <Property Name="maritalStatusID" Type="int" />
+          <Property Name="sex" Type="nchar" MaxLength="1" />
+          <Property Name="categoryID" Type="int" Nullable="false" />
+          <Property Name="clientTypeID" Type="int" Nullable="false" />
+          <Property Name="branchID" Type="int" />
+          <Property Name="approved" Type="bit" Nullable="false" />
+          <Property Name="denied" Type="bit" Nullable="false" />
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webAppBank">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="bankAccountTypeID" Type="int" />
+          <Property Name="bankAccountName" Type="nvarchar" MaxLength="100" />
+          <Property Name="bankAccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="bankID" Type="int" />
+          <Property Name="bankBranchID" Type="int" />
+        </EntityType>
+        <EntityType Name="webAppContact">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="mobilePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="workPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="homePhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="officeEmail" Type="nvarchar" MaxLength="250" />
+          <Property Name="personalEmail" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="webAppEmp">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="employerID" Type="int" />
+          <Property Name="departmentID" Type="int" />
+          <Property Name="authOfficerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="authOfficerPosition" Type="nvarchar" MaxLength="100" />
+          <Property Name="authOfficerPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="contractTypeID" Type="int" />
+        </EntityType>
+        <EntityType Name="webAppEmp2">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="employeeNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="oldEmployeeNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="socialSecurityNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="position" Type="nvarchar" MaxLength="100" />
+          <Property Name="employmentStartDate" Type="datetime" />
+          <Property Name="empAddr1" Type="nvarchar" MaxLength="250" />
+          <Property Name="empAddr2" Type="nvarchar" MaxLength="250" />
+          <Property Name="empAddrCity" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="webAppID">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="primaryIDTypeID" Type="int" />
+          <Property Name="primaryIDNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="primaryIDExpiryDate" Type="datetime" />
+          <Property Name="secondaryIDTypeID" Type="int" />
+          <Property Name="secondaryIDNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="secondaryIDExpiryDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webAppMailAddr">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="addrLine1" Type="nvarchar" MaxLength="250" />
+          <Property Name="addrLine2" Type="nvarchar" MaxLength="250" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="webAppPhoto">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="photo" Type="image" />
+        </EntityType>
+        <EntityType Name="webAppPhyAddr">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="addrLine1" Type="nvarchar" MaxLength="250" />
+          <Property Name="addrLine2" Type="nvarchar" MaxLength="250" />
+          <Property Name="city" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="webAppSalary">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="int" Nullable="false" />
+          <Property Name="basicSalary" Type="float" />
+          <Property Name="socialSecurityWelfare" Type="float" />
+          <Property Name="tax" Type="float" />
+          <Property Name="thirdPartyDeductions" Type="float" />
+          <Property Name="deductionsNotOnPayslip" Type="float" />
+          <Property Name="totalAllowances" Type="float" />
+        </EntityType>
+        <EntityType Name="kerberos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bit" Nullable="false" />
+          <Property Name="kerbContent" Type="ntext" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_authToken_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="authToken" Type="Self.authToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="authToken">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_role_perms_module">
+          <End Role="modules" Type="Self.modules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="role_perms" Type="Self.role_perms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="role_perms">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_role_perms_perm">
+          <End Role="perms" Type="Self.perms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="role_perms" Type="Self.role_perms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perms">
+              <PropertyRef Name="perm_code" />
+            </Principal>
+            <Dependent Role="role_perms">
+              <PropertyRef Name="perm_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_role_perms_role">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="role_perms" Type="Self.role_perms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="role_name" />
+            </Principal>
+            <Dependent Role="role_perms">
+              <PropertyRef Name="role_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_perms_module">
+          <End Role="modules" Type="Self.modules" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_perms" Type="Self.user_perms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="user_perms">
+              <PropertyRef Name="module_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_perms_perm">
+          <End Role="perms" Type="Self.perms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_perms" Type="Self.user_perms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="perms">
+              <PropertyRef Name="perm_code" />
+            </Principal>
+            <Dependent Role="user_perms">
+              <PropertyRef Name="perm_code" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_perms_user">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_perms" Type="Self.user_perms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="user_perms">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_roles_role">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_roles" Type="Self.user_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="role_name" />
+            </Principal>
+            <Dependent Role="user_roles">
+              <PropertyRef Name="role_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_roles_user">
+          <End Role="users" Type="Self.users" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="user_roles" Type="Self.user_roles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="user_roles">
+              <PropertyRef Name="user_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_userAudit_modules">
+          <End Role="modules" Type="Self.modules" Multiplicity="0..1" />
+          <End Role="userAudit" Type="Self.userAudit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="userAudit">
+              <PropertyRef Name="moduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_userAudit_users">
+          <End Role="users" Type="Self.users" Multiplicity="0..1" />
+          <End Role="userAudit" Type="Self.userAudit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="userAudit">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_users_accessLevel">
+          <End Role="accessLevel" Type="Self.accessLevel" Multiplicity="1" />
+          <End Role="users" Type="Self.users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accessLevel">
+              <PropertyRef Name="accessLevelID" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="accessLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppBank_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppBank" Type="Self.webAppBank" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppBank">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppContact_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppContact" Type="Self.webAppContact" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppContact">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppEmp_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppEmp" Type="Self.webAppEmp" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppEmp">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppEmp2_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppEmp2" Type="Self.webAppEmp2" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppEmp2">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppID_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppID" Type="Self.webAppID" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppID">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppMailAddr_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppMailAddr" Type="Self.webAppMailAddr" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppMailAddr">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppPhoto_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppPhoto" Type="Self.webAppPhoto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppPhoto">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppPhyAddr_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppPhyAddr" Type="Self.webAppPhyAddr" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppPhyAddr">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppSalary_webApp">
+          <End Role="webApp" Type="Self.webApp" Multiplicity="1" />
+          <End Role="webAppSalary" Type="Self.webAppSalary" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppSalary">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coreSecurityStoreContainer">
+          <EntitySet Name="accessLevel" EntityType="Self.accessLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="authToken" EntityType="Self.authToken" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cuser" EntityType="Self.cuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="modules" EntityType="Self.modules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="perms" EntityType="Self.perms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="role_perms" EntityType="Self.role_perms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_login_attempts" EntityType="Self.user_login_attempts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_perms" EntityType="Self.user_perms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user_roles" EntityType="Self.user_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userAudit" EntityType="Self.userAudit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userError" EntityType="Self.userError" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webApp" EntityType="Self.webApp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppBank" EntityType="Self.webAppBank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppContact" EntityType="Self.webAppContact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppEmp" EntityType="Self.webAppEmp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppEmp2" EntityType="Self.webAppEmp2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppID" EntityType="Self.webAppID" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppMailAddr" EntityType="Self.webAppMailAddr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppPhoto" EntityType="Self.webAppPhoto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppPhyAddr" EntityType="Self.webAppPhyAddr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webAppSalary" EntityType="Self.webAppSalary" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="kerberos" EntityType="Self.kerberos" Schema="lic" store:Type="Tables" />
+          <AssociationSet Name="fk_authToken_users" Association="Self.fk_authToken_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="authToken" EntitySet="authToken" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role_perms_module" Association="Self.fk_role_perms_module">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="role_perms" EntitySet="role_perms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role_perms_perm" Association="Self.fk_role_perms_perm">
+            <End Role="perms" EntitySet="perms" />
+            <End Role="role_perms" EntitySet="role_perms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role_perms_role" Association="Self.fk_role_perms_role">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="role_perms" EntitySet="role_perms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_perms_module" Association="Self.fk_user_perms_module">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="user_perms" EntitySet="user_perms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_perms_perm" Association="Self.fk_user_perms_perm">
+            <End Role="perms" EntitySet="perms" />
+            <End Role="user_perms" EntitySet="user_perms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_perms_user" Association="Self.fk_user_perms_user">
+            <End Role="users" EntitySet="users" />
+            <End Role="user_perms" EntitySet="user_perms" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_roles_role" Association="Self.fk_user_roles_role">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="user_roles" EntitySet="user_roles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_roles_user" Association="Self.fk_user_roles_user">
+            <End Role="users" EntitySet="users" />
+            <End Role="user_roles" EntitySet="user_roles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_userAudit_modules" Association="Self.fk_userAudit_modules">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="userAudit" EntitySet="userAudit" />
+          </AssociationSet>
+          <AssociationSet Name="fk_userAudit_users" Association="Self.fk_userAudit_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="userAudit" EntitySet="userAudit" />
+          </AssociationSet>
+          <AssociationSet Name="fk_users_accessLevel" Association="Self.fk_users_accessLevel">
+            <End Role="accessLevel" EntitySet="accessLevel" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppBank_webApp" Association="Self.fk_webAppBank_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppBank" EntitySet="webAppBank" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppContact_webApp" Association="Self.fk_webAppContact_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppContact" EntitySet="webAppContact" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppEmp_webApp" Association="Self.fk_webAppEmp_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppEmp" EntitySet="webAppEmp" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppEmp2_webApp" Association="Self.fk_webAppEmp2_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppEmp2" EntitySet="webAppEmp2" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppID_webApp" Association="Self.fk_webAppID_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppID" EntitySet="webAppID" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppMailAddr_webApp" Association="Self.fk_webAppMailAddr_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppMailAddr" EntitySet="webAppMailAddr" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppPhoto_webApp" Association="Self.fk_webAppPhoto_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppPhoto" EntitySet="webAppPhoto" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppPhyAddr_webApp" Association="Self.fk_webAppPhyAddr_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppPhyAddr" EntitySet="webAppPhyAddr" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppSalary_webApp" Association="Self.fk_webAppSalary_webApp">
+            <End Role="webApp" EntitySet="webApp" />
+            <End Role="webAppSalary" EntitySet="webAppSalary" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="coreSecurity" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="coreSecurityEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="roles" EntityType="coreSecurity.roles" />
+          <EntitySet Name="user_roles" EntityType="coreSecurity.user_roles" />
+          <AssociationSet Name="fk_user_roles_role" Association="coreSecurity.fk_user_roles_role">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="user_roles" EntitySet="user_roles" />
+          </AssociationSet>
+          <EntitySet Name="users" EntityType="coreSecurity.users" />
+          <AssociationSet Name="fk_user_roles_user" Association="coreSecurity.fk_user_roles_user">
+            <End Role="users" EntitySet="users" />
+            <End Role="user_roles" EntitySet="user_roles" /></AssociationSet>
+          <EntitySet Name="user_login_attempts" EntityType="coreSecurity.user_login_attempts" />
+          <EntitySet Name="modules" EntityType="coreSecurity.modules" />
+          <EntitySet Name="perms" EntityType="coreSecurity.perms" />
+          <EntitySet Name="role_perms" EntityType="coreSecurity.role_perms" />
+          <EntitySet Name="user_perms" EntityType="coreSecurity.user_perms" />
+          <AssociationSet Name="fk_role_perms_module" Association="coreSecurity.fk_role_perms_module">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="role_perms" EntitySet="role_perms" /></AssociationSet>
+          <AssociationSet Name="fk_user_perms_module" Association="coreSecurity.fk_user_perms_module">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="user_perms" EntitySet="user_perms" /></AssociationSet>
+          <AssociationSet Name="fk_role_perms_perm" Association="coreSecurity.fk_role_perms_perm">
+            <End Role="perms" EntitySet="perms" />
+            <End Role="role_perms" EntitySet="role_perms" /></AssociationSet>
+          <AssociationSet Name="fk_user_perms_perm" Association="coreSecurity.fk_user_perms_perm">
+            <End Role="perms" EntitySet="perms" />
+            <End Role="user_perms" EntitySet="user_perms" /></AssociationSet>
+          <AssociationSet Name="fk_role_perms_role" Association="coreSecurity.fk_role_perms_role">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="role_perms" EntitySet="role_perms" /></AssociationSet>
+          <AssociationSet Name="fk_user_perms_user" Association="coreSecurity.fk_user_perms_user">
+            <End Role="users" EntitySet="users" />
+            <End Role="user_perms" EntitySet="user_perms" /></AssociationSet>
+          <EntitySet Name="cusers" EntityType="coreSecurity.cuser" />
+          <EntitySet Name="userAudits" EntityType="coreSecurity.userAudit" />
+          <AssociationSet Name="fk_userAudit_modules" Association="coreSecurity.fk_userAudit_modules">
+            <End Role="modules" EntitySet="modules" />
+            <End Role="userAudit" EntitySet="userAudits" />
+          </AssociationSet>
+          <AssociationSet Name="fk_userAudit_users" Association="coreSecurity.fk_userAudit_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="userAudit" EntitySet="userAudits" />
+          </AssociationSet>
+          <EntitySet Name="webApps" EntityType="coreSecurity.webApp" />
+          <EntitySet Name="webAppBanks" EntityType="coreSecurity.webAppBank" />
+          <EntitySet Name="webAppContacts" EntityType="coreSecurity.webAppContact" />
+          <EntitySet Name="webAppEmps" EntityType="coreSecurity.webAppEmp" />
+          <EntitySet Name="webAppEmp2" EntityType="coreSecurity.webAppEmp2" />
+          <EntitySet Name="webAppIDs" EntityType="coreSecurity.webAppID" />
+          <EntitySet Name="webAppMailAddrs" EntityType="coreSecurity.webAppMailAddr" />
+          <EntitySet Name="webAppPhotoes" EntityType="coreSecurity.webAppPhoto" />
+          <EntitySet Name="webAppPhyAddrs" EntityType="coreSecurity.webAppPhyAddr" />
+          <EntitySet Name="webAppSalaries" EntityType="coreSecurity.webAppSalary" />
+          <AssociationSet Name="fk_webAppBank_webApp" Association="coreSecurity.fk_webAppBank_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppBank" EntitySet="webAppBanks" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppContact_webApp" Association="coreSecurity.fk_webAppContact_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppContact" EntitySet="webAppContacts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppEmp_webApp" Association="coreSecurity.fk_webAppEmp_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppEmp" EntitySet="webAppEmps" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppEmp2_webApp" Association="coreSecurity.fk_webAppEmp2_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppEmp2" EntitySet="webAppEmp2" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppID_webApp" Association="coreSecurity.fk_webAppID_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppID" EntitySet="webAppIDs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppMailAddr_webApp" Association="coreSecurity.fk_webAppMailAddr_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppMailAddr" EntitySet="webAppMailAddrs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppPhoto_webApp" Association="coreSecurity.fk_webAppPhoto_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppPhoto" EntitySet="webAppPhotoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppPhyAddr_webApp" Association="coreSecurity.fk_webAppPhyAddr_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppPhyAddr" EntitySet="webAppPhyAddrs" />
+          </AssociationSet>
+          <AssociationSet Name="fk_webAppSalary_webApp" Association="coreSecurity.fk_webAppSalary_webApp">
+            <End Role="webApp" EntitySet="webApps" />
+            <End Role="webAppSalary" EntitySet="webAppSalaries" />
+          </AssociationSet>
+          <EntitySet Name="userErrors" EntityType="coreSecurity.userError" />
+          <EntitySet Name="authTokens" EntityType="coreSecurity.authToken" />
+          <AssociationSet Name="fk_authToken_users" Association="coreSecurity.fk_authToken_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="authToken" EntitySet="authTokens" />
+          </AssociationSet>
+          <EntitySet Name="accessLevels" EntityType="coreSecurity.accessLevel" />
+          <AssociationSet Name="fk_users_accessLevel" Association="coreSecurity.fk_users_accessLevel">
+            <End Role="accessLevel" EntitySet="accessLevels" />
+            <End Role="users" EntitySet="users" />
+          </AssociationSet>
+          <EntitySet Name="kerberos" EntityType="coreSecurity.kerbero" />
+          </EntityContainer>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="role_name" />
+          </Key>
+          <Property Name="role_name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="is_active" Type="Boolean" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Precision="3" />
+          <Property Name="last_modifier" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="user_roles" Relationship="coreSecurity.fk_user_roles_role" FromRole="roles" ToRole="user_roles" />
+          <NavigationProperty Name="role_perms" Relationship="coreSecurity.fk_role_perms_role" FromRole="roles" ToRole="role_perms" /></EntityType>
+        <EntityType Name="user_roles">
+          <Key>
+            <PropertyRef Name="user_role_id" />
+          </Key>
+          <Property Name="user_role_id" Type="Int32" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Precision="3" />
+          <Property Name="last_modifier" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="roles" Relationship="coreSecurity.fk_user_roles_role" FromRole="user_roles" ToRole="roles" />
+          <NavigationProperty Name="users" Relationship="coreSecurity.fk_user_roles_user" FromRole="user_roles" ToRole="users" /></EntityType>
+        <Association Name="fk_user_roles_role">
+          <End Role="roles" Type="coreSecurity.roles" Multiplicity="1" />
+          <End Role="user_roles" Type="coreSecurity.user_roles" Multiplicity="*" />
+        </Association>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_name" /></Key>
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="full_name" Type="String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="is_active" Type="Boolean" Nullable="false" />
+          <Property Name="emp_id" Type="Int32" Nullable="true" />
+          <Property Name="last_activity_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_login_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_password_changed_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="is_onLine" Type="Boolean" Nullable="true" />
+          <Property Name="is_locked_out" Type="Boolean" Nullable="true" />
+          <Property Name="last_locked_out_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="login_failure_count" Type="Int32" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_modifier" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="user_roles" Relationship="coreSecurity.fk_user_roles_user" FromRole="users" ToRole="user_roles" />
+          <NavigationProperty Name="user_perms" Relationship="coreSecurity.fk_user_perms_user" FromRole="users" ToRole="user_perms" />
+          <NavigationProperty Name="userAudits" Relationship="coreSecurity.fk_userAudit_users" FromRole="users" ToRole="userAudit" />
+          <NavigationProperty Name="authTokens" Relationship="coreSecurity.fk_authToken_users" FromRole="users" ToRole="authToken" />
+          <Property Name="accessLevelID" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="accessLevel" Relationship="coreSecurity.fk_users_accessLevel" FromRole="users" ToRole="accessLevel" />
+          </EntityType>
+        <Association Name="fk_user_roles_user">
+          <End Type="coreSecurity.users" Role="users" Multiplicity="1" />
+          <End Type="coreSecurity.user_roles" Role="user_roles" Multiplicity="*" /></Association>
+        <EntityType Name="user_login_attempts">
+          <Key>
+            <PropertyRef Name="user_login_attempt_id" /></Key>
+          <Property Name="user_login_attempt_id" Type="Int64" Nullable="false" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+          <Property Name="ip_address" Type="String" Nullable="true" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="login_attempt_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="was_successfull" Type="Boolean" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_modifier" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" /></EntityType>
+        <EntityType Name="modules">
+          <Key>
+            <PropertyRef Name="module_id" /></Key>
+          <Property Name="module_id" Type="Int32" Nullable="false" />
+          <Property Name="module_name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="url" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="parent_module_id" Type="Int32" Nullable="true" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_modifier" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="role_perms" Relationship="coreSecurity.fk_role_perms_module" FromRole="modules" ToRole="role_perms" />
+          <NavigationProperty Name="user_perms" Relationship="coreSecurity.fk_user_perms_module" FromRole="modules" ToRole="user_perms" />
+          <Property Name="sort_value" Type="Byte" Nullable="false" />
+          <Property Name="visible" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="userAudits" Relationship="coreSecurity.fk_userAudit_modules" FromRole="modules" ToRole="userAudit" />
+          <Property Name="module_code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          </EntityType>
+        <EntityType Name="perms">
+          <Key>
+            <PropertyRef Name="perm_code" /></Key>
+          <Property Name="perm_code" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="true" />
+          <Property Name="perm_name" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_modifier" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="role_perms" Relationship="coreSecurity.fk_role_perms_perm" FromRole="perms" ToRole="role_perms" />
+          <NavigationProperty Name="user_perms" Relationship="coreSecurity.fk_user_perms_perm" FromRole="perms" ToRole="user_perms" /></EntityType>
+        <EntityType Name="role_perms">
+          <Key>
+            <PropertyRef Name="role_perm_id" /></Key>
+          <Property Name="role_perm_id" Type="Int32" Nullable="false" />
+          <Property Name="allow" Type="Boolean" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_modifier" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="modules" Relationship="coreSecurity.fk_role_perms_module" FromRole="role_perms" ToRole="modules" />
+          <NavigationProperty Name="perms" Relationship="coreSecurity.fk_role_perms_perm" FromRole="role_perms" ToRole="perms" />
+          <NavigationProperty Name="roles" Relationship="coreSecurity.fk_role_perms_role" FromRole="role_perms" ToRole="roles" /></EntityType>
+        <EntityType Name="user_perms">
+          <Key>
+            <PropertyRef Name="user_perm_id" /></Key>
+          <Property Name="user_perm_id" Type="Int32" Nullable="false" />
+          <Property Name="allow" Type="Boolean" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Nullable="true" Precision="3" />
+          <Property Name="last_modifier" Type="String" Nullable="true" MaxLength="50" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="modules" Relationship="coreSecurity.fk_user_perms_module" FromRole="user_perms" ToRole="modules" />
+          <NavigationProperty Name="perms" Relationship="coreSecurity.fk_user_perms_perm" FromRole="user_perms" ToRole="perms" />
+          <NavigationProperty Name="users" Relationship="coreSecurity.fk_user_perms_user" FromRole="user_perms" ToRole="users" /></EntityType>
+        <Association Name="fk_role_perms_module">
+          <End Type="coreSecurity.modules" Role="modules" Multiplicity="1" />
+          <End Type="coreSecurity.role_perms" Role="role_perms" Multiplicity="*" /></Association>
+        <Association Name="fk_user_perms_module">
+          <End Type="coreSecurity.modules" Role="modules" Multiplicity="1" />
+          <End Type="coreSecurity.user_perms" Role="user_perms" Multiplicity="*" /></Association>
+        <Association Name="fk_role_perms_perm">
+          <End Type="coreSecurity.perms" Role="perms" Multiplicity="1" />
+          <End Type="coreSecurity.role_perms" Role="role_perms" Multiplicity="*" /></Association>
+        <Association Name="fk_user_perms_perm">
+          <End Type="coreSecurity.perms" Role="perms" Multiplicity="1" />
+          <End Type="coreSecurity.user_perms" Role="user_perms" Multiplicity="*" /></Association>
+        <Association Name="fk_role_perms_role">
+          <End Type="coreSecurity.roles" Role="roles" Multiplicity="1" />
+          <End Type="coreSecurity.role_perms" Role="role_perms" Multiplicity="*" /></Association>
+        <Association Name="fk_user_perms_user">
+          <End Type="coreSecurity.users" Role="users" Multiplicity="1" />
+          <End Type="coreSecurity.user_perms" Role="user_perms" Multiplicity="*" /></Association>
+        <EntityType Name="cuser">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Type="String" Name="user_name" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="password" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="full_name" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="is_active" Nullable="false" />
+          <Property Type="Int32" Name="client_id" />
+          <Property Type="DateTime" Name="last_activity_date" Precision="3" />
+          <Property Type="DateTime" Name="last_login_date" Precision="3" />
+          <Property Type="DateTime" Name="last_password_changed_date" Precision="3" />
+          <Property Type="Boolean" Name="is_onLine" />
+          <Property Type="Boolean" Name="is_locked_out" />
+          <Property Type="DateTime" Name="last_locked_out_date" Precision="3" />
+          <Property Type="Int32" Name="login_failure_count" Nullable="false" />
+          <Property Type="DateTime" Name="creation_date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="creator" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="userAudit">
+          <Key>
+            <PropertyRef Name="userAuditID" />
+          </Key>
+          <Property Name="userAuditID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="userName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="moduleID" Type="Int32" />
+          <Property Name="actionDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="module" Relationship="coreSecurity.fk_userAudit_modules" FromRole="userAudit" ToRole="modules" />
+          <NavigationProperty Name="user" Relationship="coreSecurity.fk_userAudit_users" FromRole="userAudit" ToRole="users" />
+          <Property Name="allowed" Type="Boolean" Nullable="false" />
+          <Property Name="url" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="fk_userAudit_modules">
+          <End Type="coreSecurity.modules" Role="modules" Multiplicity="0..1" />
+          <End Type="coreSecurity.userAudit" Role="userAudit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="modules">
+              <PropertyRef Name="module_id" />
+            </Principal>
+            <Dependent Role="userAudit">
+              <PropertyRef Name="moduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_userAudit_users">
+          <End Type="coreSecurity.users" Role="users" Multiplicity="0..1" />
+          <End Type="coreSecurity.userAudit" Role="userAudit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="userAudit">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="webApp">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="surName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="otherNames" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dob" Type="DateTime" Precision="3" />
+          <Property Name="maritalStatusID" Type="Int32" />
+          <Property Name="sex" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="categoryID" Type="Int32" Nullable="false" />
+          <Property Name="clientTypeID" Type="Int32" Nullable="false" />
+          <Property Name="branchID" Type="Int32" />
+          <Property Name="approved" Type="Boolean" Nullable="false" />
+          <Property Name="denied" Type="Boolean" Nullable="false" />
+          <Property Name="user_name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webAppBank" Relationship="coreSecurity.fk_webAppBank_webApp" FromRole="webApp" ToRole="webAppBank" />
+          <NavigationProperty Name="webAppContact" Relationship="coreSecurity.fk_webAppContact_webApp" FromRole="webApp" ToRole="webAppContact" />
+          <NavigationProperty Name="webAppEmp" Relationship="coreSecurity.fk_webAppEmp_webApp" FromRole="webApp" ToRole="webAppEmp" />
+          <NavigationProperty Name="webAppEmp2" Relationship="coreSecurity.fk_webAppEmp2_webApp" FromRole="webApp" ToRole="webAppEmp2" />
+          <NavigationProperty Name="webAppID1" Relationship="coreSecurity.fk_webAppID_webApp" FromRole="webApp" ToRole="webAppID" />
+          <NavigationProperty Name="webAppMailAddr" Relationship="coreSecurity.fk_webAppMailAddr_webApp" FromRole="webApp" ToRole="webAppMailAddr" />
+          <NavigationProperty Name="webAppPhoto" Relationship="coreSecurity.fk_webAppPhoto_webApp" FromRole="webApp" ToRole="webAppPhoto" />
+          <NavigationProperty Name="webAppPhyAddr" Relationship="coreSecurity.fk_webAppPhyAddr_webApp" FromRole="webApp" ToRole="webAppPhyAddr" />
+          <NavigationProperty Name="webAppSalary" Relationship="coreSecurity.fk_webAppSalary_webApp" FromRole="webApp" ToRole="webAppSalary" />
+        </EntityType>
+        <EntityType Name="webAppBank">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="bankAccountTypeID" Type="Int32" />
+          <Property Name="bankAccountName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="bankAccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="bankID" Type="Int32" />
+          <Property Name="bankBranchID" Type="Int32" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppBank_webApp" FromRole="webAppBank" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppContact">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="mobilePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="workPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="homePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="officeEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="personalEmail" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppContact_webApp" FromRole="webAppContact" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppEmp">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="employerID" Type="Int32" />
+          <Property Name="departmentID" Type="Int32" />
+          <Property Name="authOfficerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="authOfficerPosition" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="authOfficerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="contractTypeID" Type="Int32" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppEmp_webApp" FromRole="webAppEmp" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppEmp2">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="employeeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="oldEmployeeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="socialSecurityNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="employmentStartDate" Type="DateTime" Precision="3" />
+          <Property Name="empAddr1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="empAddr2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="empAddrCity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppEmp2_webApp" FromRole="webAppEmp2" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppID">
+          <Key>
+            <PropertyRef Name="webAppID1" />
+          </Key>
+          <Property Name="webAppID1" Type="Int32" Nullable="false" />
+          <Property Name="primaryIDTypeID" Type="Int32" />
+          <Property Name="primaryIDNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="primaryIDExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="secondaryIDTypeID" Type="Int32" />
+          <Property Name="secondaryIDNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="secondaryIDExpiryDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppID_webApp" FromRole="webAppID" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppMailAddr">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="addrLine1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="addrLine2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppMailAddr_webApp" FromRole="webAppMailAddr" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppPhoto">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppPhoto_webApp" FromRole="webAppPhoto" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppPhyAddr">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="addrLine1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="addrLine2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppPhyAddr_webApp" FromRole="webAppPhyAddr" ToRole="webApp" />
+        </EntityType>
+        <EntityType Name="webAppSalary">
+          <Key>
+            <PropertyRef Name="webAppID" />
+          </Key>
+          <Property Name="webAppID" Type="Int32" Nullable="false" />
+          <Property Name="basicSalary" Type="Double" />
+          <Property Name="socialSecurityWelfare" Type="Double" />
+          <Property Name="tax" Type="Double" />
+          <Property Name="thirdPartyDeductions" Type="Double" />
+          <Property Name="deductionsNotOnPayslip" Type="Double" />
+          <Property Name="totalAllowances" Type="Double" />
+          <NavigationProperty Name="webApp" Relationship="coreSecurity.fk_webAppSalary_webApp" FromRole="webAppSalary" ToRole="webApp" />
+        </EntityType>
+        <Association Name="fk_webAppBank_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppBank" Role="webAppBank" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppBank">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppContact_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppContact" Role="webAppContact" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppContact">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppEmp_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppEmp" Role="webAppEmp" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppEmp">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppEmp2_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppEmp2" Role="webAppEmp2" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppEmp2">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppID_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppID" Role="webAppID" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppID">
+              <PropertyRef Name="webAppID1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppMailAddr_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppMailAddr" Role="webAppMailAddr" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppMailAddr">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppPhoto_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppPhoto" Role="webAppPhoto" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppPhoto">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppPhyAddr_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppPhyAddr" Role="webAppPhyAddr" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppPhyAddr">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_webAppSalary_webApp">
+          <End Type="coreSecurity.webApp" Role="webApp" Multiplicity="1" />
+          <End Type="coreSecurity.webAppSalary" Role="webAppSalary" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="webApp">
+              <PropertyRef Name="webAppID" />
+            </Principal>
+            <Dependent Role="webAppSalary">
+              <PropertyRef Name="webAppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="userError">
+          <Key>
+            <PropertyRef Name="userErrorID" />
+          </Key>
+          <Property Name="userErrorID" Type="Int32" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="userName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="url" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="errorDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="exceptionMessage" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="exceptionStackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="authToken">
+          <Key>
+            <PropertyRef Name="authTokenID" />
+          </Key>
+          <Property Name="authTokenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="grantedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="expiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="clientHostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="user" Relationship="coreSecurity.fk_authToken_users" FromRole="authToken" ToRole="users" />
+        </EntityType>
+        <Association Name="fk_authToken_users">
+          <End Type="coreSecurity.users" Role="users" Multiplicity="1" />
+          <End Type="coreSecurity.authToken" Role="authToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="authToken">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="accessLevel">
+          <Key>
+            <PropertyRef Name="accessLevelID" />
+          </Key>
+          <Property Name="accessLevelID" Type="Byte" Nullable="false" />
+          <Property Name="accessLevelName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="approvalLimit" Type="Double" Nullable="false" />
+          <Property Name="withdrawalLimit" Type="Double" Nullable="false" />
+          <Property Name="disbursementLimit" Type="Double" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="coreSecurity.fk_users_accessLevel" FromRole="accessLevel" ToRole="users" />
+        </EntityType>
+        <Association Name="fk_users_accessLevel">
+          <End Type="coreSecurity.accessLevel" Role="accessLevel" Multiplicity="1" />
+          <End Type="coreSecurity.users" Role="users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="accessLevel">
+              <PropertyRef Name="accessLevelID" />
+            </Principal>
+            <Dependent Role="users">
+              <PropertyRef Name="accessLevelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="kerbero">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Boolean" Nullable="false" />
+          <Property Name="kerbContent" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="coreSecurityStoreContainer" CdmEntityContainer="coreSecurityEntities">
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.roles)">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="user_roles">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.user_roles)">
+              <MappingFragment StoreEntitySet="user_roles">
+                <ScalarProperty Name="user_role_id" ColumnName="user_role_id" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="fk_user_roles_role" TypeName="coreSecurity.fk_user_roles_role" StoreEntitySet="user_roles">
+            <EndProperty Name="roles">
+              <ScalarProperty Name="role_name" ColumnName="role_name" />
+            </EndProperty>
+            <EndProperty Name="user_roles">
+              <ScalarProperty Name="user_role_id" ColumnName="user_role_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.users)">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="accessLevelID" ColumnName="accessLevelID" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="login_failure_count" ColumnName="login_failure_count" />
+                <ScalarProperty Name="last_locked_out_date" ColumnName="last_locked_out_date" />
+                <ScalarProperty Name="is_locked_out" ColumnName="is_locked_out" />
+                <ScalarProperty Name="is_onLine" ColumnName="is_onLine" />
+                <ScalarProperty Name="last_password_changed_date" ColumnName="last_password_changed_date" />
+                <ScalarProperty Name="last_login_date" ColumnName="last_login_date" />
+                <ScalarProperty Name="last_activity_date" ColumnName="last_activity_date" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="fk_user_roles_user" TypeName="coreSecurity.fk_user_roles_user" StoreEntitySet="user_roles">
+            <EndProperty Name="user_roles">
+              <ScalarProperty Name="user_role_id" ColumnName="user_role_id" /></EndProperty>
+            <EndProperty Name="users">
+              <ScalarProperty Name="user_name" ColumnName="user_name" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="user_login_attempts">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.user_login_attempts)">
+              <MappingFragment StoreEntitySet="user_login_attempts">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="was_successfull" ColumnName="was_successfull" />
+                <ScalarProperty Name="login_attempt_date" ColumnName="login_attempt_date" />
+                <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="user_login_attempt_id" ColumnName="user_login_attempt_id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="modules">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.modules)">
+              <MappingFragment StoreEntitySet="modules">
+                <ScalarProperty Name="module_code" ColumnName="module_code" />
+                <ScalarProperty Name="visible" ColumnName="visible" />
+                <ScalarProperty Name="sort_value" ColumnName="sort_value" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="parent_module_id" ColumnName="parent_module_id" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="module_name" ColumnName="module_name" />
+                <ScalarProperty Name="module_id" ColumnName="module_id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="perms">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.perms)">
+              <MappingFragment StoreEntitySet="perms">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="perm_name" ColumnName="perm_name" />
+                <ScalarProperty Name="perm_code" ColumnName="perm_code" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="role_perms">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.role_perms)">
+              <MappingFragment StoreEntitySet="role_perms">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="allow" ColumnName="allow" />
+                <ScalarProperty Name="role_perm_id" ColumnName="role_perm_id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="user_perms">
+            <EntityTypeMapping TypeName="IsTypeOf(coreSecurity.user_perms)">
+              <MappingFragment StoreEntitySet="user_perms">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="allow" ColumnName="allow" />
+                <ScalarProperty Name="user_perm_id" ColumnName="user_perm_id" /></MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <AssociationSetMapping Name="fk_role_perms_module" TypeName="coreSecurity.fk_role_perms_module" StoreEntitySet="role_perms">
+            <EndProperty Name="role_perms">
+              <ScalarProperty Name="role_perm_id" ColumnName="role_perm_id" /></EndProperty>
+            <EndProperty Name="modules">
+              <ScalarProperty Name="module_id" ColumnName="module_id" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="fk_user_perms_module" TypeName="coreSecurity.fk_user_perms_module" StoreEntitySet="user_perms">
+            <EndProperty Name="user_perms">
+              <ScalarProperty Name="user_perm_id" ColumnName="user_perm_id" /></EndProperty>
+            <EndProperty Name="modules">
+              <ScalarProperty Name="module_id" ColumnName="module_id" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="fk_role_perms_perm" TypeName="coreSecurity.fk_role_perms_perm" StoreEntitySet="role_perms">
+            <EndProperty Name="role_perms">
+              <ScalarProperty Name="role_perm_id" ColumnName="role_perm_id" /></EndProperty>
+            <EndProperty Name="perms">
+              <ScalarProperty Name="perm_code" ColumnName="perm_code" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="fk_user_perms_perm" TypeName="coreSecurity.fk_user_perms_perm" StoreEntitySet="user_perms">
+            <EndProperty Name="user_perms">
+              <ScalarProperty Name="user_perm_id" ColumnName="user_perm_id" /></EndProperty>
+            <EndProperty Name="perms">
+              <ScalarProperty Name="perm_code" ColumnName="perm_code" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="fk_role_perms_role" TypeName="coreSecurity.fk_role_perms_role" StoreEntitySet="role_perms">
+            <EndProperty Name="role_perms">
+              <ScalarProperty Name="role_perm_id" ColumnName="role_perm_id" /></EndProperty>
+            <EndProperty Name="roles">
+              <ScalarProperty Name="role_name" ColumnName="role_name" /></EndProperty></AssociationSetMapping>
+          <AssociationSetMapping Name="fk_user_perms_user" TypeName="coreSecurity.fk_user_perms_user" StoreEntitySet="user_perms">
+            <EndProperty Name="user_perms">
+              <ScalarProperty Name="user_perm_id" ColumnName="user_perm_id" /></EndProperty>
+            <EndProperty Name="users">
+              <ScalarProperty Name="user_name" ColumnName="user_name" /></EndProperty></AssociationSetMapping>
+          <EntitySetMapping Name="cusers">
+            <EntityTypeMapping TypeName="coreSecurity.cuser">
+              <MappingFragment StoreEntitySet="cuser">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="login_failure_count" ColumnName="login_failure_count" />
+                <ScalarProperty Name="last_locked_out_date" ColumnName="last_locked_out_date" />
+                <ScalarProperty Name="is_locked_out" ColumnName="is_locked_out" />
+                <ScalarProperty Name="is_onLine" ColumnName="is_onLine" />
+                <ScalarProperty Name="last_password_changed_date" ColumnName="last_password_changed_date" />
+                <ScalarProperty Name="last_login_date" ColumnName="last_login_date" />
+                <ScalarProperty Name="last_activity_date" ColumnName="last_activity_date" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userAudits">
+            <EntityTypeMapping TypeName="coreSecurity.userAudit">
+              <MappingFragment StoreEntitySet="userAudit">
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="allowed" ColumnName="allowed" />
+                <ScalarProperty Name="actionDateTime" ColumnName="actionDateTime" />
+                <ScalarProperty Name="moduleID" ColumnName="moduleID" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userAuditID" ColumnName="userAuditID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webApps">
+            <EntityTypeMapping TypeName="coreSecurity.webApp">
+              <MappingFragment StoreEntitySet="webApp">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="denied" ColumnName="denied" />
+                <ScalarProperty Name="approved" ColumnName="approved" />
+                <ScalarProperty Name="branchID" ColumnName="branchID" />
+                <ScalarProperty Name="clientTypeID" ColumnName="clientTypeID" />
+                <ScalarProperty Name="categoryID" ColumnName="categoryID" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="maritalStatusID" ColumnName="maritalStatusID" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="otherNames" ColumnName="otherNames" />
+                <ScalarProperty Name="surName" ColumnName="surName" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppBanks">
+            <EntityTypeMapping TypeName="coreSecurity.webAppBank">
+              <MappingFragment StoreEntitySet="webAppBank">
+                <ScalarProperty Name="bankBranchID" ColumnName="bankBranchID" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="bankAccountNo" ColumnName="bankAccountNo" />
+                <ScalarProperty Name="bankAccountName" ColumnName="bankAccountName" />
+                <ScalarProperty Name="bankAccountTypeID" ColumnName="bankAccountTypeID" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppContacts">
+            <EntityTypeMapping TypeName="coreSecurity.webAppContact">
+              <MappingFragment StoreEntitySet="webAppContact">
+                <ScalarProperty Name="personalEmail" ColumnName="personalEmail" />
+                <ScalarProperty Name="officeEmail" ColumnName="officeEmail" />
+                <ScalarProperty Name="homePhone" ColumnName="homePhone" />
+                <ScalarProperty Name="workPhone" ColumnName="workPhone" />
+                <ScalarProperty Name="mobilePhone" ColumnName="mobilePhone" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppEmps">
+            <EntityTypeMapping TypeName="coreSecurity.webAppEmp">
+              <MappingFragment StoreEntitySet="webAppEmp">
+                <ScalarProperty Name="contractTypeID" ColumnName="contractTypeID" />
+                <ScalarProperty Name="authOfficerPhone" ColumnName="authOfficerPhone" />
+                <ScalarProperty Name="authOfficerPosition" ColumnName="authOfficerPosition" />
+                <ScalarProperty Name="authOfficerName" ColumnName="authOfficerName" />
+                <ScalarProperty Name="departmentID" ColumnName="departmentID" />
+                <ScalarProperty Name="employerID" ColumnName="employerID" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppEmp2">
+            <EntityTypeMapping TypeName="coreSecurity.webAppEmp2">
+              <MappingFragment StoreEntitySet="webAppEmp2">
+                <ScalarProperty Name="empAddrCity" ColumnName="empAddrCity" />
+                <ScalarProperty Name="empAddr2" ColumnName="empAddr2" />
+                <ScalarProperty Name="empAddr1" ColumnName="empAddr1" />
+                <ScalarProperty Name="employmentStartDate" ColumnName="employmentStartDate" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="socialSecurityNo" ColumnName="socialSecurityNo" />
+                <ScalarProperty Name="oldEmployeeNumber" ColumnName="oldEmployeeNumber" />
+                <ScalarProperty Name="employeeNumber" ColumnName="employeeNumber" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppIDs">
+            <EntityTypeMapping TypeName="coreSecurity.webAppID">
+              <MappingFragment StoreEntitySet="webAppID">
+                <ScalarProperty Name="secondaryIDExpiryDate" ColumnName="secondaryIDExpiryDate" />
+                <ScalarProperty Name="secondaryIDNo" ColumnName="secondaryIDNo" />
+                <ScalarProperty Name="secondaryIDTypeID" ColumnName="secondaryIDTypeID" />
+                <ScalarProperty Name="primaryIDExpiryDate" ColumnName="primaryIDExpiryDate" />
+                <ScalarProperty Name="primaryIDNo" ColumnName="primaryIDNo" />
+                <ScalarProperty Name="primaryIDTypeID" ColumnName="primaryIDTypeID" />
+                <ScalarProperty Name="webAppID1" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppMailAddrs">
+            <EntityTypeMapping TypeName="coreSecurity.webAppMailAddr">
+              <MappingFragment StoreEntitySet="webAppMailAddr">
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="addrLine2" ColumnName="addrLine2" />
+                <ScalarProperty Name="addrLine1" ColumnName="addrLine1" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppPhotoes">
+            <EntityTypeMapping TypeName="coreSecurity.webAppPhoto">
+              <MappingFragment StoreEntitySet="webAppPhoto">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppPhyAddrs">
+            <EntityTypeMapping TypeName="coreSecurity.webAppPhyAddr">
+              <MappingFragment StoreEntitySet="webAppPhyAddr">
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="addrLine2" ColumnName="addrLine2" />
+                <ScalarProperty Name="addrLine1" ColumnName="addrLine1" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webAppSalaries">
+            <EntityTypeMapping TypeName="coreSecurity.webAppSalary">
+              <MappingFragment StoreEntitySet="webAppSalary">
+                <ScalarProperty Name="totalAllowances" ColumnName="totalAllowances" />
+                <ScalarProperty Name="deductionsNotOnPayslip" ColumnName="deductionsNotOnPayslip" />
+                <ScalarProperty Name="thirdPartyDeductions" ColumnName="thirdPartyDeductions" />
+                <ScalarProperty Name="tax" ColumnName="tax" />
+                <ScalarProperty Name="socialSecurityWelfare" ColumnName="socialSecurityWelfare" />
+                <ScalarProperty Name="basicSalary" ColumnName="basicSalary" />
+                <ScalarProperty Name="webAppID" ColumnName="webAppID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userErrors">
+            <EntityTypeMapping TypeName="coreSecurity.userError">
+              <MappingFragment StoreEntitySet="userError">
+                <ScalarProperty Name="exceptionStackTrace" ColumnName="exceptionStackTrace" />
+                <ScalarProperty Name="exceptionMessage" ColumnName="exceptionMessage" />
+                <ScalarProperty Name="errorDate" ColumnName="errorDate" />
+                <ScalarProperty Name="url" ColumnName="url" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="userErrorID" ColumnName="userErrorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="authTokens">
+            <EntityTypeMapping TypeName="coreSecurity.authToken">
+              <MappingFragment StoreEntitySet="authToken">
+                <ScalarProperty Name="clientHostName" ColumnName="clientHostName" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+                <ScalarProperty Name="grantedDate" ColumnName="grantedDate" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="authTokenID" ColumnName="authTokenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="accessLevels">
+            <EntityTypeMapping TypeName="coreSecurity.accessLevel">
+              <MappingFragment StoreEntitySet="accessLevel">
+                <ScalarProperty Name="disbursementLimit" ColumnName="disbursementLimit" />
+                <ScalarProperty Name="withdrawalLimit" ColumnName="withdrawalLimit" />
+                <ScalarProperty Name="approvalLimit" ColumnName="approvalLimit" />
+                <ScalarProperty Name="accessLevelName" ColumnName="accessLevelName" />
+                <ScalarProperty Name="accessLevelID" ColumnName="accessLevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kerberos">
+            <EntityTypeMapping TypeName="coreSecurity.kerbero">
+              <MappingFragment StoreEntitySet="kerberos">
+                <ScalarProperty Name="kerbContent" ColumnName="kerbContent" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram Name="coreSecurityModel">
+        <edmx:EntityTypeShape EntityType="coreSecurity.roles" Width="1.5" PointX="0.75" PointY="0.875" Height="2.2496956380208335" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.user_roles" Width="1.5" PointX="3" PointY="1" Height="2.0853483072916665" IsExpanded="true" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_user_roles_role" ManuallyRouted="false">
+          <edmx:ConnectorPoint PointX="2.25" PointY="2.0426741536458333" />
+          <edmx:ConnectorPoint PointX="3" PointY="2.0426741536458333" /></edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="coreSecurity.users" Width="1.5" PointX="0.75" PointY="5" Height="3.7288216145833317" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_user_roles_user">
+          <edmx:ConnectorPoint PointX="2.25" PointY="8.1420296223958335" />
+          <edmx:ConnectorPoint PointX="3.15625" PointY="8.1420296223958335" />
+          <edmx:ConnectorPoint PointX="3.15625" PointY="3.0853483072916665" /></edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="coreSecurity.user_login_attempts" Width="1.5" PointX="3.375" PointY="4.75" Height="2.5783902994791674" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.modules" Width="1.5" PointX="5.375" PointY="8.625" Height="2.5783902994791656" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.perms" Width="1.5" PointX="5.375" PointY="2.75" Height="2.2496956380208326" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.role_perms" Width="1.5" PointX="7.625" PointY="1.75" Height="2.4140429687499996" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.user_perms" Width="1.5" PointX="7.625" PointY="5.625" Height="2.4140429687499996" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_role_perms_module">
+          <edmx:ConnectorPoint PointX="6.875" PointY="10.366216851534944" />
+          <edmx:ConnectorPoint PointX="7.25" PointY="10.366216851534944" />
+          <edmx:ConnectorPoint PointX="7.25" PointY="2.957021484375" />
+          <edmx:ConnectorPoint PointX="7.625" PointY="2.957021484375" /></edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="coreSecurity.fk_user_perms_module">
+          <edmx:ConnectorPoint PointX="6.875" PointY="9.464355925767471" />
+          <edmx:ConnectorPoint PointX="7.166666666666667" PointY="9.464355925767471" />
+          <edmx:ConnectorPoint PointX="7.333333333333333" PointY="9.464355925767471" />
+          <edmx:ConnectorPoint PointX="8.375" PointY="9.464355925767471" />
+          <edmx:ConnectorPoint PointX="8.375" PointY="8.03904296875" /></edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="coreSecurity.fk_role_perms_perm">
+          <edmx:ConnectorPoint PointX="6.875" PointY="3.6230322265624997" />
+          <edmx:ConnectorPoint PointX="7.166666666666667" PointY="3.6230322265624992" />
+          <edmx:ConnectorPoint PointX="7.333333333333333" PointY="3.6230322265624997" />
+          <edmx:ConnectorPoint PointX="7.625" PointY="3.6230322265624997" /></edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="coreSecurity.fk_user_perms_perm">
+          <edmx:ConnectorPoint PointX="6.125" PointY="4.9996956380208326" />
+          <edmx:ConnectorPoint PointX="6.125" PointY="6.832021484375" />
+          <edmx:ConnectorPoint PointX="7.166666666666667" PointY="6.8320214843749989" />
+          <edmx:ConnectorPoint PointX="7.333333333333333" PointY="6.832021484375" />
+          <edmx:ConnectorPoint PointX="7.625" PointY="6.832021484375" /></edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="coreSecurity.fk_role_perms_role">
+          <edmx:ConnectorPoint PointX="2.25" PointY="0.90625" />
+          <edmx:ConnectorPoint PointX="8.375" PointY="0.90625" />
+          <edmx:ConnectorPoint PointX="8.375" PointY="1.75" /></edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="coreSecurity.fk_user_perms_user">
+          <edmx:ConnectorPoint PointX="2.25" PointY="7.7149666341145835" />
+          <edmx:ConnectorPoint PointX="3.0729166666666665" PointY="7.7149666341145826" />
+          <edmx:ConnectorPoint PointX="3.2395833333333335" PointY="7.7149666341145835" />
+          <edmx:ConnectorPoint PointX="7.166666666666667" PointY="7.7149666341145826" />
+          <edmx:ConnectorPoint PointX="7.333333333333333" PointY="7.7149666341145835" />
+          <edmx:ConnectorPoint PointX="7.625" PointY="7.7149666341145835" /></edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="coreSecurity.cuser" Width="1.5" PointX="6.7768318219002479" PointY="24.177843492560946" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.userAudit" Width="1.5" PointX="11.625" PointY="7.5" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_userAudit_modules" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_userAudit_users" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webApp" Width="1.5" PointX="7.75" PointY="9.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppBank" Width="1.5" PointX="10.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppContact" Width="1.5" PointX="0.75" PointY="10.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppEmp" Width="1.5" PointX="2.75" PointY="10.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppEmp2" Width="1.5" PointX="10.75" PointY="3.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppID" Width="1.5" PointX="9.75" PointY="10.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppMailAddr" Width="1.5" PointX="11.75" PointY="10.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppPhoto" Width="1.5" PointX="12.75" PointY="0.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppPhyAddr" Width="1.5" PointX="12.75" PointY="3.75" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.webAppSalary" Width="1.5" PointX="4.75" PointY="13.75" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppBank_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppContact_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppEmp_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppEmp2_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppID_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppMailAddr_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppPhoto_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppPhyAddr_webApp" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_webAppSalary_webApp" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.userError" Width="1.5" PointX="12.375" PointY="14" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.authToken" Width="1.5" PointX="3" PointY="17.25" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_authToken_users" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.accessLevel" Width="1.5" PointX="0.75" PointY="17.5" />
+        <edmx:AssociationConnector Association="coreSecurity.fk_users_accessLevel" />
+        <edmx:EntityTypeShape EntityType="coreSecurity.kerbero" Width="1.5" PointX="0.75" PointY="14.75" />
+        </edmx:Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "CREATE BORROWING";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <p class="title" align="center"> <big>CREATE BORROWING</big></p>
+
+    <div class="row">
+        <div class="col-md-2"> Borrowing Client: </div>
+        <div class="col-md-4">
+            <input type="text" id="client"  required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-2">  Application Date:</div>
+        <div class="col-md-4">
+            <input type="text" id="applicationDate" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Tenure: </div>
+        <div class="col-md-4">
+            <input type="text" id="borrowingTenure" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-2"> Tenure Type: </div>
+        <div class="col-md-4">
+            <input type="text" id="tenureType"  required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Product: </div>
+        <div class="col-md-4">
+            <input type="text" id="borrowingType" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-2"> Amount Requested: </div>
+        <div class="col-md-4">
+            <input type="text" id="amountRequested" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Interest Type: </div>
+        <div class="col-md-4">
+            <input type="text" id="interestType" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-2"> Interest Rate: </div>
+        <div class="col-md-4">
+            <input type="text" id="interestRate" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> RepaymentMode:  </div>
+        <div class="col-md-4">
+            <input type="text" id="repaymentMode" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-2"> Application Fee : </div>
+        <div class="col-md-4">
+            <input type="text" id="applicationFee" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Processing Fee : </div>
+        <div class="col-md-4">
+            <input type="text" id="processingFee" required data-required-msg="Invalid" />
+        </div>
+
+        <div class="col-md-2"> Commission : </div>
+        <div class="col-md-4">
+            <input type="text" id="commission" required data-required-msg="Invalid" />
+        </div>
+    </div>
+
+
+    <hr>
+    <div id="row">
+        <div id="grid"> </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-primary" id="save" value="Create Borrowing"/>
+            </div>
+            <div class="col-md-10"></div>
+        </div><!--SaveButton-->
+    </div>
+
+
+   
+
+</div>
+@section FootScripts{
+    <script type="text/javascript">
+        var borrowingId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Loans/Borrowing/CreateBorrowing.js"></script>
+}
+

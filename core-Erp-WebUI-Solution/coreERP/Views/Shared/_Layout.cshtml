@@ -1,0 +1,135 @@
+﻿@{
+
+}
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />
+
+    <title>
+        @ViewBag.Title |&nbsp;@coreERP.code.Settings.companyName|&nbsp;coreERP© by ACS
+    </title>
+
+    <!-- Themes and styling -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="/Content/kendo/styles/kendo.@coreERP.code.Settings.getKendoTheme2()" rel="stylesheet" />
+
+    <link href="/Content/themes/base/all.css" rel="stylesheet" />
+    <link type="text/css" href="/styles/noteSidebar.css" rel="stylesheet" />
+    <link type="text/css" href="~/styles/wenstrap.css" rel="stylesheet" />
+
+    <link href="/Content/coreThemes/coreTheme.@coreERP.code.Settings.getKendoTheme()" rel="stylesheet" />
+
+    <link href="/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- CLears Session when user closes the window -->
+    <script src="/scripts/app/sessionManager.js"></script>
+
+    <script src="/scripts/ajax/jquery-2.1.1.js"></script>
+    <script src="/Content/kendo/js/kendo.all.min.js"></script>
+    <script src="/scripts/libs/jszip.js"></script>
+    <script type="text/javascript">
+        var coreERPAPI_URL_Root = '@System.Configuration.ConfigurationManager.AppSettings["coreERPAPI_URL_Root"]';
+        var coreERPAPI_Token = '@coreERP.code.Settings.getToken()';
+
+        var coreER_Url_Root = '@System.Configuration.ConfigurationManager.AppSettings["coreER_Url_Root"]';
+        if (coreER_Url_Root === '') {
+            coreER_Url_Root = 'http://localhost:3310';
+        }
+    </script>
+    @RenderSection("HeadScripts", false)
+</head>
+<body class="mainBg" style="height:100%;overflow-x:hidden;">
+    <div id="wrapper" class="container-fluid">
+        <div id="headerbgnd" class="row">
+            <div class="col-sm-6" style="float:left">
+                <a href="/default.aspx">
+                    <img src="/images/logo.png" alt="Our Logo" />
+                </a>
+            </div>
+            <div id="note" class="col-sm-3" style="visibility:hidden">
+                <div class='alert alert-success' id="myAlert">
+                    <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                    <div id="clickableNote">
+                        <strong>
+                            You have
+                            <strong>
+                                &nbsp;
+                                <span id="noOfMessages" class="badge"></span>
+                                &nbsp;
+                            </strong>
+                            Messages!
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 pull-right">
+                <img src="/Content/images/coreerp-logo.png" class="pull-right" style="max-height:66px;max-width:280px" />
+            </div>
+        </div>
+        <div id="navigation" class="row">
+            <div id="ajaxMenu"></div>
+        </div>
+
+        <div id="bodyWrapper" class="row">
+            <!-- Sticky toolbar menu -->
+            <div class="toolbar-wrapp">
+                <div class="sticky-toolbar">
+                    <ul id="ul-sticky-toolbar">
+                        <li class="glyph" id="savLoan" mytitle="Savings & Loans Quick Links">
+                            <div data-icon="&#59254;"></div>
+                        </li>
+
+                        <li class="glyph" id="gl" mytitle="General Ledger Quick Links">
+                            <div data-icon="&#128711;"></div>
+                        </li>
+
+                        <li class="glyph" id="pdf" mytitle="Export Current Page as Pdf">
+                            <div data-icon="&#128240;"></div>
+                        </li>
+                        <li class="glyph" id="img" mytitle="Export Current Page as Image (Png)">
+                            <div data-icon="&#127748;"></div>
+                        </li>
+                        <li class="glyph" id="svg" mytitle="Export Current Page as Svg File">
+                            <div data-icon="&#59170;"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/ toolbar-wrapp-->
+
+            <div id="content">
+                <div id="mainContent">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <!--coreERP© 2014 powered by <a href="http://www.acsghana.com/">ACS</a>-->
+        </div>
+    </div>
+
+    <div id="window"><div id="tabNote"></div></div>
+    <div id="sideWindow"><div id="tabSide"></div></div>
+    <script src="~/scripts/ajax/bootstrap.min.js"></script>
+    <script src="~/scripts/app/sweetalert.all.min.js"></script>
+    <script src="~/scripts/app/utilities.js"></script>
+    <script src="/scripts/app/UI/menu.js"></script>
+    <script src="~/scripts/app/bootbox.min.js"></script>
+
+    @RenderSection("FootScripts", false)
+    <script type="text/x-kendo-template" id="sideMenuDetailTemplate">
+        <div style="text-align:left">
+            <img src='<#= imageUrl #>' style='max-height:48px;max-width:48px' alt='icon' />
+            <a href='<#= linkUrl #>'>
+                <# =text #>
+            </a>
+        </div>
+    </script>
+    <script src="/scripts/app/UI/sidePanel.js"></script>
+    <script src="~/scripts/ui/sideMenu.js"></script>
+</body>
+</html>

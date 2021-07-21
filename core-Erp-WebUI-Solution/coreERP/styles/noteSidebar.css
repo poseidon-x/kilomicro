@@ -1,0 +1,17 @@
+﻿.noteLabel {
+    font-weight: bold;
+    text-align: right;
+    width: 120px;
+    background-color: transparent;
+    color: black;
+}
+
+.noteValue{
+    font-style:italic;
+    background-color:transparent;
+    color:black;
+}
+
+.messageBox{
+    width:325px;
+}

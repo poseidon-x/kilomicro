@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "ProductCategory";
+}
+<h2>Product Categories</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-2"> Product Category Name </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="productCategoryName" required />
+                </div>
+                <div class="col-md-2"> COGS Account </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="cogsAccount" required />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2"> Inventory Account </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="inventoryAccount" required />
+                </div>
+                <div class="col-md-2"> Account payable </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="apAccount" required />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2"> Account Recieveable </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="arAccount" required />
+                </div>
+                <div class="col-md-2"> Income Account </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="incomeAccount" required />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2"> Expense Account </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="expenseAccount" required />
+                </div>
+
+            </div><br/>
+            <div id="row">
+                <div id="tabs">
+                    <ul>
+                        <li class="k-state-active">Sub-Category</li>
+                    </ul>
+                    <div>
+                        <div id="productSubCategoryGrid"></div>
+                    </div>                   
+                </div> <!--EndTab--><br />
+            </div>
+
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Save Product Category &raquo; </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+        <br />
+    </div>
+</div>
+
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var productCategoryId = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/Inventory/InventoryProductManagement/productCategory.js"></script>
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4cc282e253a4838a664b58bc1be8338" Name="Diagram1">
+        <EntityTypeShape EntityType="coreLogic.momoClient" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.momoProvider" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.momoService" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.momoServiceCharge" Width="1.5" PointX="5.25" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.momoTransaction" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.momoWallet" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.walletCashup" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="coreLogic.walletLoading" Width="1.5" PointX="5.25" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="coreLogic.fk_momoTransaction_momoClient" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_momoWallet_serviceProvider" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_momoServiceCharge_momoService" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_momoTransaction_momoService" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_momoTransaction_momoWallet" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_walletCashup_momoWallet" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_walletLoading_momoWallet" ManuallyRouted="false" />
+        <AssociationConnector Association="coreLogic.fk_momoService_provider" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

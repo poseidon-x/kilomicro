@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "BOG DFP";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            top: 250px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+<div class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Deposit From Public</h3>
+    <div id="form-container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-2">Month</div>
+            <div class="col-md-4">
+                <input type="text" id="month"/>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="getReport">View Report &raquo;</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="k-widget" id="reportViewer1"></div><br/>
+        </div>
+    </div>
+</div>
+
+@section FootScripts
+{
+<script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>  
+<script src="~/scripts/app/Loans/Bog/DepositFromPublicReport.js"></script>
+}

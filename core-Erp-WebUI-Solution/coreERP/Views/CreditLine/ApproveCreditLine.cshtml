@@ -1,0 +1,61 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Credit Line";
+
+}
+
+<h2>Credit Line</h2>
+<div class="w-section inverse 1w boxed container form-horizontal">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Client Name</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="client" readonly>
+            </div>
+            <div class="col-md-2">Tenure</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="tenure" readonly>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Application Date</div>
+        <div class="col-md-3">
+            <input class="form-control" type="text" id="applicationDate" readonly>
+        </div>
+        <div class="col-md-2">Amount Requested</div>
+        <div class="col-md-3">
+            <input class="form-control" type="text" id="amountRequested" readonly>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Amount Approved</div>
+        <div class="col-md-3">
+            <input class="form-control" type="text" id="amountApproved">
+        </div>
+    </div>
+        
+        <hr />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="approve">Approve Credit Line &raquo;</button>
+            </div>
+        </div>
+
+</div>
+
+
+
+@section FootScripts{
+<script type="text/javascript">
+    var creditLineId = '@ViewBag.id';
+</script>
+<script src="~/scripts/app/Loans/CreditLine/approveCreditLine.js"></script>
+}

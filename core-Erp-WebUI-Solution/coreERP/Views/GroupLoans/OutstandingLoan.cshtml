@@ -1,0 +1,89 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Outstanding Loans";
+
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Outstanding Loan Payments</h3>
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <br />
+            <div class="row">
+                <div class="col-md-1">End Date</div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" id="endDate" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1">Client</div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" id="client" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1">Branch</div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" id="branch" required data-required-msg="Invalid">
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <select id="checker">
+                        <option value="1">Expired</option>
+                        <option value="2">Not Expired</option>
+                        <option value="0">All</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-info" type="submit" id="getReport">Get Report </button>
+                </div>
+                <div class="col-md-6"></div>
+            </div>
+            <hr />
+        </div>
+        <br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Outstanding Loans</li>
+                </ul>
+                <div>
+                    <button class="btn btn-primary" id="btnPdfExport">Export To PDF</button>
+                    <button class="btn btn-primary" id="btnExcelExport">Export To Excel</button>
+                    <div id="outstandingGrid"> </div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+
+    </div>
+</div>
+
+@section FootScripts{
+    <script src="~/scripts/app/Loans/GroupLoans/OutstandingLoan.js"></script>
+    <script type="x/kendo-template" id="page-template">
+        <div class="page-template">
+            <div class="header">
+                <div style="float: right">Page #: pageNum # of #: totalPages #</div>
+                Multi-page grid with automatic page breaking
+            </div>
+            <div class="watermark">KENDO UI</div>
+            <div class="footer">
+                Page #: pageNum # of #: totalPages #
+            </div>
+        </div>
+    </script>
+    <script>
+
+        $("#btnPdfExport").kendoButton({
+            click: function () {
+                $("#outstandingGrid").getKendoGrid().saveAsPDF();
+            }
+        });
+
+        $("#btnExcelExport").kendoButton({
+            click: function () {
+                $("#outstandingGrid").getKendoGrid().saveAsExcel();
+            }
+        });
+
+    </script>
+}

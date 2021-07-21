@@ -1,0 +1,31 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Loan Group";
+
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Loan Groups</h3>
+    <div id="form-container" style="position: relative">
+        <br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Groups</li>
+                </ul>
+                <div>
+                    <div id="groupGrid"> </div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/setup/LoanGroups.js"></script>
+}

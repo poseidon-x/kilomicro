@@ -1,0 +1,43 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Combined Payments";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Batch Savings and Loans Payment</h3>
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <br />
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">Payment Date</div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" id="paymentDate" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-2">Group</div>
+                <div class="col-md-3">
+                    <input class="form-control" type="text" id="group" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1"></div>
+            </div><br />
+        </div>
+        <br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Payments</li>
+                </ul>
+                <div>
+                    <div id="combinedGrid"> </div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+
+    </div>
+</div>
+
+@section FootScripts{
+    <script src="~/scripts/app/Loans/GroupLoans/CombinedPayment.js"></script>
+
+}

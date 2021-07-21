@@ -1,0 +1,63 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Group Loans";
+
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">OverPaid Loans</h3>
+    <br/>
+    <br/>
+        <div id="form-container" style="position: relative">
+
+            <div class="row">
+                <div class="col-md-2">Select Date :</div>
+                <div class="col-md-3">
+                    <input type="text" id="paymentDate" />
+                </div>
+            </div><br />
+
+        </div>
+
+        <div class="form-horizontal">
+
+            <div id="row">
+                <div id="tabs">
+                    <ul>
+                        <li class="k-state-active">OverPaid Loans</li>
+                        @*<li>Over Paid Loans</li>*@
+                    </ul>
+
+                    <div>
+                        <button class="btn btn-primary" id="btnPdfExport">Export To PDF</button>
+                        <button class="btn btn-primary" id="btnExcelExport">Export To Excel</button>
+                        <div id="overpaymentGrid"> </div>
+                    </div>
+                    @*<div>
+                        <div id="overpaymentGrid"> </div>
+                    </div>*@
+                </div> <!--EndTab--><br />
+            </div>
+
+        </div>
+    </div>
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/GroupLoans/OverPaidLoans.js"></script>
+
+<script>
+    $("#btnPdfExport").kendoButton({
+        click: function () {
+            $("#overpaymentGrid").getKendoGrid().saveAsPDF();
+        }
+    });
+
+
+    $("#btnExcelExport").kendoButton({
+        click: function () {
+            $("#overpaymentGrid").getKendoGrid().saveAsExcel();
+        }
+    });
+</script>
+}

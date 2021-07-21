@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Loan Documents";
+}
+
+<h2>Loan Documents Templates</h2>
+<hr>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div id="tabs" class="col-md-10">
+        
+        <ul>
+            <li class="k-state-active">Loan Document Templates</li>
+        </ul>
+        
+        <div>
+            <div id="grid"> </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/LoanDocumentTemplate/LoanDocumentTemplates.js"></script>
+}

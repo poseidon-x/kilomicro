@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Shrinkages";
+}
+
+<h2>Shrinkages & Spoilage</h2>
+<hr>
+<div class="row">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10" id="ShrinkageGrid">
+        </div>
+    </div>
+</div>
+
+
+
+
+@section FootScripts{
+<script src="~/scripts/app/Inventory/InventoryShrinkageManagement/Shrinkages.js"></script>
+}

@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="coreGLModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="jnl_batch_stg">
+          <Key>
+            <PropertyRef Name="jnl_batch_id" />
+          </Key>
+          <Property Name="jnl_batch_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="batch_no" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="source" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="multi_currency" Type="bit" Nullable="false" />
+          <Property Name="is_adj" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="jnl_stg">
+          <Key>
+            <PropertyRef Name="jnl_id" />
+          </Key>
+          <Property Name="jnl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="jnl_batch_id" Type="int" Nullable="false" />
+          <Property Name="ref_no" Type="nvarchar" MaxLength="20" />
+          <Property Name="acct_id" Type="int" Nullable="false" />
+          <Property Name="tx_date" Type="datetime" Nullable="false" />
+          <Property Name="acct_period" Type="int" />
+          <Property Name="description" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="currency_id" Type="int" Nullable="false" />
+          <Property Name="rate" Type="float" Nullable="false" />
+          <Property Name="dbt_amt" Type="float" Nullable="false" />
+          <Property Name="crdt_amt" Type="float" Nullable="false" />
+          <Property Name="frgn_dbt_amt" Type="float" Nullable="false" />
+          <Property Name="frgn_crdt_amt" Type="float" Nullable="false" />
+          <Property Name="recipient" Type="nvarchar" MaxLength="100" />
+          <Property Name="cost_center_id" Type="int" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_no" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pc_dtl">
+          <Key>
+            <PropertyRef Name="pc_dtl_id" />
+          </Key>
+          <Property Name="pc_dtl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pc_head_id" Type="int" Nullable="false" />
+          <Property Name="acct_id" Type="int" Nullable="false" />
+          <Property Name="ref_no" Type="nvarchar" MaxLength="30" />
+          <Property Name="tx_date" Type="datetime" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="gl_ou_id" Type="int" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_no" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="pc_head">
+          <Key>
+            <PropertyRef Name="pc_head_id" />
+          </Key>
+          <Property Name="pc_head_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pc_acct_id" Type="int" Nullable="false" />
+          <Property Name="batch_no" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="currency_id" Type="int" Nullable="false" />
+          <Property Name="rate" Type="float" Nullable="false" />
+          <Property Name="recipient" Type="nvarchar" MaxLength="50" />
+          <Property Name="recipient_id" Type="int" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="v_dtl">
+          <Key>
+            <PropertyRef Name="v_dtl_id" />
+          </Key>
+          <Property Name="v_dtl_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="v_head_id" Type="int" Nullable="false" />
+          <Property Name="acct_id" Type="int" Nullable="false" />
+          <Property Name="ref_no" Type="nvarchar" MaxLength="30" />
+          <Property Name="tx_date" Type="datetime" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="gl_ou_id" Type="int" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="is_imprest" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="vat_amt" Type="float" Nullable="false" />
+          <Property Name="nhil_amt" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_ftr">
+          <Key>
+            <PropertyRef Name="v_ftr_id" />
+          </Key>
+          <Property Name="v_ftr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="v_head_id" Type="int" Nullable="false" />
+          <Property Name="acct_id" Type="int" Nullable="false" />
+          <Property Name="is_perc" Type="bit" Nullable="false" />
+          <Property Name="description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="tot_amount" Type="float" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="v_head">
+          <Key>
+            <PropertyRef Name="v_head_id" />
+          </Key>
+          <Property Name="v_head_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="bank_acct_id" Type="int" Nullable="false" />
+          <Property Name="with_acct_id" Type="int" />
+          <Property Name="v_type" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="batch_no" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="currency_id" Type="int" Nullable="false" />
+          <Property Name="cust_id" Type="int" />
+          <Property Name="sup_id" Type="int" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="rate" Type="float" Nullable="false" />
+          <Property Name="with_rate" Type="float" Nullable="false" />
+          <Property Name="vat_rate" Type="float" Nullable="false" />
+          <Property Name="nhil_rate" Type="float" Nullable="false" />
+          <Property Name="with_amt" Type="float" Nullable="false" />
+          <Property Name="vat_amt" Type="float" Nullable="false" />
+          <Property Name="nhil_amt" Type="float" Nullable="false" />
+          <Property Name="recipient" Type="nvarchar" MaxLength="50" />
+          <Property Name="check_no" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="invoice_no" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="is_vat" Type="bit" Nullable="false" />
+          <Property Name="is_nhil" Type="bit" Nullable="false" />
+          <Property Name="is_withheld" Type="bit" Nullable="false" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="fk_jnl_stg_batch">
+          <End Role="jnl_batch_stg" Type="Self.jnl_batch_stg" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="jnl_stg" Type="Self.jnl_stg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jnl_batch_stg">
+              <PropertyRef Name="jnl_batch_id" />
+            </Principal>
+            <Dependent Role="jnl_stg">
+              <PropertyRef Name="jnl_batch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pc_dtl_pc_head">
+          <End Role="pc_head" Type="Self.pc_head" Multiplicity="1" />
+          <End Role="pc_dtl" Type="Self.pc_dtl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_head">
+              <PropertyRef Name="pc_head_id" />
+            </Principal>
+            <Dependent Role="pc_dtl">
+              <PropertyRef Name="pc_head_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_v_dtl_v_head">
+          <End Role="v_head" Type="Self.v_head" Multiplicity="1" />
+          <End Role="v_dtl" Type="Self.v_dtl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="v_head">
+              <PropertyRef Name="v_head_id" />
+            </Principal>
+            <Dependent Role="v_dtl">
+              <PropertyRef Name="v_head_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_v_ftr_v_head">
+          <End Role="v_head" Type="Self.v_head" Multiplicity="1" />
+          <End Role="v_ftr" Type="Self.v_ftr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="v_head">
+              <PropertyRef Name="v_head_id" />
+            </Principal>
+            <Dependent Role="v_ftr">
+              <PropertyRef Name="v_head_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coreGLModelStoreContainer">
+          <EntitySet Name="jnl_batch_stg" EntityType="Self.jnl_batch_stg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="jnl_stg" EntityType="Self.jnl_stg" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="pc_dtl" EntityType="Self.pc_dtl" Schema="gl" store:Type="Tables" />
+          <EntitySet Name="pc_head" EntityType="Self.pc_head" Schema="gl" store:Type="Tables" />
+          <EntitySet Name="v_dtl" EntityType="Self.v_dtl" Schema="gl" store:Type="Tables" />
+          <EntitySet Name="v_ftr" EntityType="Self.v_ftr" Schema="gl" store:Type="Tables" />
+          <EntitySet Name="v_head" EntityType="Self.v_head" Schema="gl" store:Type="Tables" />
+          <AssociationSet Name="fk_jnl_stg_batch" Association="Self.fk_jnl_stg_batch">
+            <End Role="jnl_batch_stg" EntitySet="jnl_batch_stg" />
+            <End Role="jnl_stg" EntitySet="jnl_stg" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pc_dtl_pc_head" Association="Self.fk_pc_dtl_pc_head">
+            <End Role="pc_head" EntitySet="pc_head" />
+            <End Role="pc_dtl" EntitySet="pc_dtl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_v_dtl_v_head" Association="Self.fk_v_dtl_v_head">
+            <End Role="v_head" EntitySet="v_head" />
+            <End Role="v_dtl" EntitySet="v_dtl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_v_ftr_v_head" Association="Self.fk_v_ftr_v_head">
+            <End Role="v_head" EntitySet="v_head" />
+            <End Role="v_ftr" EntitySet="v_ftr" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="coreGLModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="coreGLEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <EntitySet Name="pc_head" EntityType="coreGLModel.pc_head" />
+          <EntitySet Name="jnl_batch_stg" EntityType="coreGLModel.jnl_batch_stg" />
+          <EntitySet Name="jnl_stg" EntityType="coreGLModel.jnl_stg" />
+          <AssociationSet Name="fk_jnl_stg_batch" Association="coreGLModel.fk_jnl_stg_batch">
+            <End Role="jnl_batch_stg" EntitySet="jnl_batch_stg" />
+            <End Role="jnl_stg" EntitySet="jnl_stg" />
+          </AssociationSet>
+          <EntitySet Name="v_dtl" EntityType="coreGLModel.v_dtl" />
+          <EntitySet Name="v_ftr" EntityType="coreGLModel.v_ftr" />
+          <EntitySet Name="v_head" EntityType="coreGLModel.v_head" />
+          <AssociationSet Name="fk_v_dtl_v_head" Association="coreGLModel.fk_v_dtl_v_head">
+            <End Role="v_head" EntitySet="v_head" />
+            <End Role="v_dtl" EntitySet="v_dtl" />
+          </AssociationSet>
+          <AssociationSet Name="fk_v_ftr_v_head" Association="coreGLModel.fk_v_ftr_v_head">
+            <End Role="v_head" EntitySet="v_head" />
+            <End Role="v_ftr" EntitySet="v_ftr" />
+          </AssociationSet>
+          <EntitySet Name="pc_dtl" EntityType="coreGLModel.pc_dtl" />
+          <AssociationSet Name="fk_pc_dtl_pc_head" Association="coreGLModel.fk_pc_dtl_pc_head">
+            <End Role="pc_head" EntitySet="pc_head" />
+            <End Role="pc_dtl" EntitySet="pc_dtl" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="pc_head">
+          <Key>
+            <PropertyRef Name="pc_head_id" />
+          </Key>
+          <Property Name="pc_head_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="pc_acct_id" Type="Int32" Nullable="false" />
+          <Property Name="batch_no" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="currency_id" Type="Int32" Nullable="false" />
+          <Property Name="rate" Type="Double" Nullable="false" />
+          <Property Name="recipient" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="recipient_id" Type="Int32" />
+          <Property Name="creation_date" Type="DateTime" Precision="3" />
+          <Property Name="creator" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="modification_date" Type="DateTime" Precision="3" />
+          <Property Name="last_modifier" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="Boolean" Name="posted" Nullable="false" />
+          <NavigationProperty Name="pc_dtl" Relationship="coreGLModel.fk_pc_dtl_pc_head" FromRole="pc_head" ToRole="pc_dtl" />
+        </EntityType>
+        <EntityType Name="jnl_batch_stg">
+          <Key>
+            <PropertyRef Name="jnl_batch_id" />
+          </Key>
+          <Property Type="Int32" Name="jnl_batch_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="batch_no" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="source" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="posted" Nullable="false" />
+          <Property Type="Boolean" Name="multi_currency" Nullable="false" />
+          <Property Type="Boolean" Name="is_adj" Nullable="false" />
+          <Property Type="DateTime" Name="creation_date" Precision="3" />
+          <Property Type="String" Name="creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="jnl_stg" Relationship="coreGLModel.fk_jnl_stg_batch" FromRole="jnl_batch_stg" ToRole="jnl_stg" />
+        </EntityType>
+        <EntityType Name="jnl_stg">
+          <Key>
+            <PropertyRef Name="jnl_id" />
+          </Key>
+          <Property Type="Int32" Name="jnl_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="jnl_batch_id" Nullable="false" />
+          <Property Type="String" Name="ref_no" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="acct_id" Nullable="false" />
+          <Property Type="DateTime" Name="tx_date" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="acct_period" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="currency_id" Nullable="false" />
+          <Property Type="Double" Name="rate" Nullable="false" />
+          <Property Type="Double" Name="dbt_amt" Nullable="false" />
+          <Property Type="Double" Name="crdt_amt" Nullable="false" />
+          <Property Type="Double" Name="frgn_dbt_amt" Nullable="false" />
+          <Property Type="Double" Name="frgn_crdt_amt" Nullable="false" />
+          <Property Type="String" Name="recipient" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="cost_center_id" />
+          <Property Type="DateTime" Name="creation_date" Precision="3" />
+          <Property Type="String" Name="creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="check_no" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="jnl_batch_stg" Relationship="coreGLModel.fk_jnl_stg_batch" FromRole="jnl_stg" ToRole="jnl_batch_stg" />
+        </EntityType>
+        <Association Name="fk_jnl_stg_batch">
+          <End Type="coreGLModel.jnl_batch_stg" Role="jnl_batch_stg" Multiplicity="1" />
+          <End Type="coreGLModel.jnl_stg" Role="jnl_stg" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="jnl_batch_stg">
+              <PropertyRef Name="jnl_batch_id" />
+            </Principal>
+            <Dependent Role="jnl_stg">
+              <PropertyRef Name="jnl_batch_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="v_dtl">
+          <Key>
+            <PropertyRef Name="v_dtl_id" />
+          </Key>
+          <Property Type="Int32" Name="v_dtl_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="v_head_id" Nullable="false" />
+          <Property Type="Int32" Name="acct_id" Nullable="false" />
+          <Property Type="String" Name="ref_no" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="tx_date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="gl_ou_id" />
+          <Property Type="Double" Name="amount" Nullable="false" />
+          <Property Type="Boolean" Name="is_imprest" Nullable="false" />
+          <Property Type="DateTime" Name="creation_date" Precision="3" />
+          <Property Type="String" Name="creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="v_head" Relationship="coreGLModel.fk_v_dtl_v_head" FromRole="v_dtl" ToRole="v_head" />
+          <Property Type="Double" Name="vat_amt" Nullable="false" />
+          <Property Type="Double" Name="nhil_amt" Nullable="false" />
+        </EntityType>
+        <EntityType Name="v_ftr">
+          <Key>
+            <PropertyRef Name="v_ftr_id" />
+          </Key>
+          <Property Type="Int32" Name="v_ftr_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="v_head_id" Nullable="false" />
+          <Property Type="Int32" Name="acct_id" Nullable="false" />
+          <Property Type="Boolean" Name="is_perc" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="amount" Nullable="false" />
+          <Property Type="Double" Name="tot_amount" Nullable="false" />
+          <Property Type="DateTime" Name="creation_date" Precision="3" />
+          <Property Type="String" Name="creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="v_head" Relationship="coreGLModel.fk_v_ftr_v_head" FromRole="v_ftr" ToRole="v_head" />
+        </EntityType>
+        <EntityType Name="v_head">
+          <Key>
+            <PropertyRef Name="v_head_id" />
+          </Key>
+          <Property Type="Int32" Name="v_head_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="bank_acct_id" Nullable="false" />
+          <Property Type="Int32" Name="with_acct_id" />
+          <Property Type="String" Name="v_type" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="batch_no" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="currency_id" Nullable="false" />
+          <Property Type="Int32" Name="cust_id" />
+          <Property Type="Int32" Name="sup_id" />
+          <Property Type="Int32" Name="emp_id" />
+          <Property Type="Double" Name="rate" Nullable="false" />
+          <Property Type="Double" Name="with_rate" Nullable="false" />
+          <Property Type="Double" Name="vat_rate" Nullable="false" />
+          <Property Type="Double" Name="nhil_rate" Nullable="false" />
+          <Property Type="Double" Name="with_amt" Nullable="false" />
+          <Property Type="Double" Name="vat_amt" Nullable="false" />
+          <Property Type="Double" Name="nhil_amt" Nullable="false" />
+          <Property Type="String" Name="recipient" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="check_no" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="invoice_no" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="is_vat" Nullable="false" />
+          <Property Type="Boolean" Name="is_nhil" Nullable="false" />
+          <Property Type="Boolean" Name="is_withheld" Nullable="false" />
+          <Property Type="Boolean" Name="posted" Nullable="false" />
+          <Property Type="DateTime" Name="creation_date" Precision="3" />
+          <Property Type="String" Name="creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="v_dtl" Relationship="coreGLModel.fk_v_dtl_v_head" FromRole="v_head" ToRole="v_dtl" />
+          <NavigationProperty Name="v_ftr" Relationship="coreGLModel.fk_v_ftr_v_head" FromRole="v_head" ToRole="v_ftr" />
+        </EntityType>
+        <Association Name="fk_v_dtl_v_head">
+          <End Type="coreGLModel.v_head" Role="v_head" Multiplicity="1" />
+          <End Type="coreGLModel.v_dtl" Role="v_dtl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="v_head">
+              <PropertyRef Name="v_head_id" />
+            </Principal>
+            <Dependent Role="v_dtl">
+              <PropertyRef Name="v_head_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_v_ftr_v_head">
+          <End Type="coreGLModel.v_head" Role="v_head" Multiplicity="1" />
+          <End Type="coreGLModel.v_ftr" Role="v_ftr" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="v_head">
+              <PropertyRef Name="v_head_id" />
+            </Principal>
+            <Dependent Role="v_ftr">
+              <PropertyRef Name="v_head_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="pc_dtl">
+          <Key>
+            <PropertyRef Name="pc_dtl_id" />
+          </Key>
+          <Property Type="Int32" Name="pc_dtl_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="pc_head_id" Nullable="false" />
+          <Property Type="Int32" Name="acct_id" Nullable="false" />
+          <Property Type="String" Name="ref_no" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="tx_date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="gl_ou_id" />
+          <Property Type="Double" Name="amount" Nullable="false" />
+          <Property Type="DateTime" Name="creation_date" Precision="3" />
+          <Property Type="String" Name="creator" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="modification_date" Precision="3" />
+          <Property Type="String" Name="last_modifier" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="check_no" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="pc_head" Relationship="coreGLModel.fk_pc_dtl_pc_head" FromRole="pc_dtl" ToRole="pc_head" />
+        </EntityType>
+        <Association Name="fk_pc_dtl_pc_head">
+          <End Type="coreGLModel.pc_head" Role="pc_head" Multiplicity="1" />
+          <End Type="coreGLModel.pc_dtl" Role="pc_dtl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pc_head">
+              <PropertyRef Name="pc_head_id" />
+            </Principal>
+            <Dependent Role="pc_dtl">
+              <PropertyRef Name="pc_head_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="coreGLModelStoreContainer" CdmEntityContainer="coreGLEntities">
+          <EntitySetMapping Name="pc_head"><EntityTypeMapping TypeName="coreGLModel.pc_head"><MappingFragment StoreEntitySet="pc_head">
+            <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="pc_head_id" ColumnName="pc_head_id" />
+            <ScalarProperty Name="pc_acct_id" ColumnName="pc_acct_id" />
+            <ScalarProperty Name="batch_no" ColumnName="batch_no" />
+            <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+            <ScalarProperty Name="rate" ColumnName="rate" />
+            <ScalarProperty Name="recipient" ColumnName="recipient" />
+            <ScalarProperty Name="recipient_id" ColumnName="recipient_id" />
+            <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+            <ScalarProperty Name="creator" ColumnName="creator" />
+            <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+            <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="jnl_batch_stg">
+            <EntityTypeMapping TypeName="coreGLModel.jnl_batch_stg">
+              <MappingFragment StoreEntitySet="jnl_batch_stg">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="is_adj" ColumnName="is_adj" />
+                <ScalarProperty Name="multi_currency" ColumnName="multi_currency" />
+                <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="source" ColumnName="source" />
+                <ScalarProperty Name="batch_no" ColumnName="batch_no" />
+                <ScalarProperty Name="jnl_batch_id" ColumnName="jnl_batch_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="jnl_stg">
+            <EntityTypeMapping TypeName="coreGLModel.jnl_stg">
+              <MappingFragment StoreEntitySet="jnl_stg">
+                <ScalarProperty Name="check_no" ColumnName="check_no" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="cost_center_id" ColumnName="cost_center_id" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="frgn_crdt_amt" ColumnName="frgn_crdt_amt" />
+                <ScalarProperty Name="frgn_dbt_amt" ColumnName="frgn_dbt_amt" />
+                <ScalarProperty Name="crdt_amt" ColumnName="crdt_amt" />
+                <ScalarProperty Name="dbt_amt" ColumnName="dbt_amt" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="acct_period" ColumnName="acct_period" />
+                <ScalarProperty Name="tx_date" ColumnName="tx_date" />
+                <ScalarProperty Name="acct_id" ColumnName="acct_id" />
+                <ScalarProperty Name="ref_no" ColumnName="ref_no" />
+                <ScalarProperty Name="jnl_batch_id" ColumnName="jnl_batch_id" />
+                <ScalarProperty Name="jnl_id" ColumnName="jnl_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_dtl">
+            <EntityTypeMapping TypeName="coreGLModel.v_dtl">
+              <MappingFragment StoreEntitySet="v_dtl">
+                <ScalarProperty Name="nhil_amt" ColumnName="nhil_amt" />
+                <ScalarProperty Name="vat_amt" ColumnName="vat_amt" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="is_imprest" ColumnName="is_imprest" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="gl_ou_id" ColumnName="gl_ou_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="tx_date" ColumnName="tx_date" />
+                <ScalarProperty Name="ref_no" ColumnName="ref_no" />
+                <ScalarProperty Name="acct_id" ColumnName="acct_id" />
+                <ScalarProperty Name="v_head_id" ColumnName="v_head_id" />
+                <ScalarProperty Name="v_dtl_id" ColumnName="v_dtl_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_ftr">
+            <EntityTypeMapping TypeName="coreGLModel.v_ftr">
+              <MappingFragment StoreEntitySet="v_ftr">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="tot_amount" ColumnName="tot_amount" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="is_perc" ColumnName="is_perc" />
+                <ScalarProperty Name="acct_id" ColumnName="acct_id" />
+                <ScalarProperty Name="v_head_id" ColumnName="v_head_id" />
+                <ScalarProperty Name="v_ftr_id" ColumnName="v_ftr_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_head">
+            <EntityTypeMapping TypeName="coreGLModel.v_head">
+              <MappingFragment StoreEntitySet="v_head">
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="is_withheld" ColumnName="is_withheld" />
+                <ScalarProperty Name="is_nhil" ColumnName="is_nhil" />
+                <ScalarProperty Name="is_vat" ColumnName="is_vat" />
+                <ScalarProperty Name="invoice_no" ColumnName="invoice_no" />
+                <ScalarProperty Name="check_no" ColumnName="check_no" />
+                <ScalarProperty Name="recipient" ColumnName="recipient" />
+                <ScalarProperty Name="nhil_amt" ColumnName="nhil_amt" />
+                <ScalarProperty Name="vat_amt" ColumnName="vat_amt" />
+                <ScalarProperty Name="with_amt" ColumnName="with_amt" />
+                <ScalarProperty Name="nhil_rate" ColumnName="nhil_rate" />
+                <ScalarProperty Name="vat_rate" ColumnName="vat_rate" />
+                <ScalarProperty Name="with_rate" ColumnName="with_rate" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="currency_id" ColumnName="currency_id" />
+                <ScalarProperty Name="batch_no" ColumnName="batch_no" />
+                <ScalarProperty Name="v_type" ColumnName="v_type" />
+                <ScalarProperty Name="with_acct_id" ColumnName="with_acct_id" />
+                <ScalarProperty Name="bank_acct_id" ColumnName="bank_acct_id" />
+                <ScalarProperty Name="v_head_id" ColumnName="v_head_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pc_dtl">
+            <EntityTypeMapping TypeName="coreGLModel.pc_dtl">
+              <MappingFragment StoreEntitySet="pc_dtl">
+                <ScalarProperty Name="check_no" ColumnName="check_no" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="gl_ou_id" ColumnName="gl_ou_id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="tx_date" ColumnName="tx_date" />
+                <ScalarProperty Name="ref_no" ColumnName="ref_no" />
+                <ScalarProperty Name="acct_id" ColumnName="acct_id" />
+                <ScalarProperty Name="pc_head_id" ColumnName="pc_head_id" />
+                <ScalarProperty Name="pc_dtl_id" ColumnName="pc_dtl_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer>
+    <edmx:Connection>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <edmx:DesignerInfoPropertySet>
+        <edmx:DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <edmx:DesignerProperty Name="EnablePluralization" Value="True" />
+        <edmx:DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <edmx:DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <edmx:DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </edmx:DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <edmx:Diagram Name="GLModel" ZoomLevel="83">
+        <edmx:EntityTypeShape EntityType="coreGLModel.pc_head" Width="1.5" PointX="0.75" PointY="1.125" Height="3.326396484375" IsExpanded="true" />
+        <edmx:EntityTypeShape EntityType="coreGLModel.jnl_batch_stg" Width="1.5" PointX="5.75" PointY="0.75" Height="2.9417936197916656" />
+        <edmx:EntityTypeShape EntityType="coreGLModel.jnl_stg" Width="1.5" PointX="7.875" PointY="2.875" Height="5.0571093750000014" />
+        <edmx:AssociationConnector Association="coreGLModel.fk_jnl_stg_batch">
+          <edmx:ConnectorPoint PointX="7.25" PointY="3.3795475260416667" />
+          <edmx:ConnectorPoint PointX="7.875" PointY="3.3795475260416667" />
+        </edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="coreGLModel.v_dtl" Width="1.5" PointX="3" PointY="6.25" Height="3.7109993489583317" />
+        <edmx:EntityTypeShape EntityType="coreGLModel.v_ftr" Width="1.5" PointX="3" PointY="10.625" Height="3.3263964843749996" />
+        <edmx:EntityTypeShape EntityType="coreGLModel.v_head" Width="1.5" PointX="0.75" PointY="6.75" Height="6.5955208333333317" />
+        <edmx:AssociationConnector Association="coreGLModel.fk_v_dtl_v_head">
+          <edmx:ConnectorPoint PointX="2.25" PointY="8.3554996744791659" />
+          <edmx:ConnectorPoint PointX="3" PointY="8.3554996744791659" />
+        </edmx:AssociationConnector>
+        <edmx:AssociationConnector Association="coreGLModel.fk_v_ftr_v_head">
+          <edmx:ConnectorPoint PointX="2.25" PointY="11.985260416666666" />
+          <edmx:ConnectorPoint PointX="3" PointY="11.985260416666666" />
+        </edmx:AssociationConnector>
+        <edmx:EntityTypeShape EntityType="coreGLModel.pc_dtl" Width="1.5" PointX="1.2819071324923574" PointY="25.871064913399081" />
+        <edmx:AssociationConnector Association="coreGLModel.fk_pc_dtl_pc_head" />
+        </edmx:Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

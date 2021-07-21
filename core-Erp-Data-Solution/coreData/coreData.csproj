@@ -1,0 +1,388 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BB9AE584-467A-41D8-B8DD-6524F8D5E86D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreData</RootNamespace>
+    <AssemblyName>coreData</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=11.1.17.614, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <HintPath>C:\Program Files (x86)\Telerik\Reporting R2 2017\bin\Telerik.Reporting.dll</HintPath>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Constants\ErrorMessages.cs" />
+    <Compile Include="DataSources\BOG\BogReportingDataSource.cs" />
+    <Compile Include="DataSources\Borrowings\BorrowingDataSource.cs" />
+    <Compile Include="DataSources\Client\ClientServiceChargeDataSource.cs" />
+    <Compile Include="DataSources\Deposit\InvestmentCertificateDataSource.cs" />
+    <Compile Include="DataSources\Inventory\InventoryItemsDataSource.cs" />
+    <Compile Include="DataSources\Loans\DailyCollectionSheetDataSource.cs" />
+    <Compile Include="DataSources\Loans\LoanProductBalanceDataSource.cs" />
+    <Compile Include="DataSources\Loans\LoanDocumentDataSource.cs" />
+    <Compile Include="DataSources\Loans\DisbursedLoanDataSource.cs" />
+    <Compile Include="DataSources\Payment\PaymentDataSource.cs" />
+    <Compile Include="DataSources\Invoice\InvoiceDataSource.cs" />
+    <Compile Include="DataSources\Loans\OutstandingScheduleItemsDataSource.cs" />
+    <Compile Include="DataSources\ProductSummaryDataSource.cs" />
+    <Compile Include="DataSources\GroupSusuDataSource.cs" />
+    <Compile Include="DataSources\RegularSusuAccountDataSource.cs" />
+    <Compile Include="DataSources\Savings\SavingsStatementDataSource.cs" />
+    <Compile Include="DataSources\Savings\SavingsTermSheetDataSource.cs" />
+    <Compile Include="DataSources\StockMasterDataSource.cs" />
+    <Compile Include="ErrorLog\Logger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BOG\DepositFromPublic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BOG\DepositFromPublic.Designer.cs">
+      <DependentUpon>DepositFromPublic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BOG\LoanReportMF7B.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BOG\LoanReportMF7B.Designer.cs">
+      <DependentUpon>LoanReportMF7B.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BOG\LoanStatsByDemographic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BOG\LoanStatsByDemographic.Designer.cs">
+      <DependentUpon>LoanStatsByDemographic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BOG\PublicDepositStats.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BOG\PublicDepositStats.Designer.cs">
+      <DependentUpon>PublicDepositStats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Borrowing\BorrowingOutstandingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Borrowing\BorrowingOutstandingReport.Designer.cs">
+      <DependentUpon>BorrowingOutstandingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Borrowing\ClientBorrowingReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Borrowing\ClientBorrowingReport.Designer.cs">
+      <DependentUpon>ClientBorrowingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Borrowing\ClientBorrowingsSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Borrowing\ClientBorrowingsSummary.Designer.cs">
+      <DependentUpon>ClientBorrowingsSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Client\ClientServiceCharge.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Client\ClientServiceCharge.Designer.cs">
+      <DependentUpon>ClientServiceCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Deposit\DepositCertificate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Deposit\DepositCertificate.Designer.cs">
+      <DependentUpon>DepositCertificate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Deposit\EclipseDepositCertificate.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Deposit\EclipseDepositCertificate.Designer.cs">
+      <DependentUpon>EclipseDepositCertificate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\GroupSusuStatement.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\GroupSusuStatement.Designer.cs">
+      <DependentUpon>GroupSusuStatement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Inventory\InventoryItemsByLocationReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Inventory\InventoryItemsByLocationReport.Designer.cs">
+      <DependentUpon>InventoryItemsByLocationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Inventory\InventoryItemsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Inventory\InventoryItemsReport.Designer.cs">
+      <DependentUpon>InventoryItemsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Inventory\StockMaster.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Inventory\StockMaster.Designer.cs">
+      <DependentUpon>StockMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Invoice\InvoiceReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Invoice\InvoiceReport.Designer.cs">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loans\DailyCollectionSheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Loans\DailyCollectionSheet.Designer.cs">
+      <DependentUpon>DailyCollectionSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loans\DisbursedLoansReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Loans\DisbursedLoansReport.Designer.cs">
+      <DependentUpon>DisbursedLoansReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loans\LoanBalanceByProduct.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Loans\LoanBalanceByProduct.Designer.cs">
+      <DependentUpon>LoanBalanceByProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loans\LoanDetailsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Loans\LoanDetailsReport.Designer.cs">
+      <DependentUpon>LoanDetailsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loans\LoanDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Loans\LoanDocument.Designer.cs">
+      <DependentUpon>LoanDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Loans\OutstandingScheduleItemsReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Loans\OutstandingScheduleItemsReport.Designer.cs">
+      <DependentUpon>OutstandingScheduleItemsReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\PackingSlip\PackingSlipReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\PackingSlip\PackingSlipReport.Designer.cs">
+      <DependentUpon>PackingSlipReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Payment\PaymentReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Payment\PaymentReport.Designer.cs">
+      <DependentUpon>PaymentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ProductSummary.Designer.cs">
+      <DependentUpon>ProductSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RegularSusuAccount.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\RegularSusuAccount.Designer.cs">
+      <DependentUpon>RegularSusuAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Savings\ClientStatementReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Savings\ClientStatementReport.Designer.cs">
+      <DependentUpon>ClientStatementReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Savings\SavingsTermSheet.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Savings\SavingsTermSheet.Designer.cs">
+      <DependentUpon>SavingsTermSheet.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\coreInterfaces\coreInterfaces.csproj">
+      <Project>{5d9a635f-75b3-4e7b-971d-9a6a8ba90d23}</Project>
+      <Name>coreInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+      <Name>coreLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic2\coreLogic2.csproj">
+      <Project>{22d34f74-bcf1-4c65-8062-0e43238feb01}</Project>
+      <Name>coreLogic2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic\coreLogic.csproj">
+      <Project>{b484314f-9e76-4ba7-9efe-6bd53b0866dd}</Project>
+      <Name>coreLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreReports\coreReports.csproj">
+      <Project>{67ec67fc-73d8-4060-a88e-31fdd1c97a92}</Project>
+      <Name>coreReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreInterfaces\coreInterfaces.csproj">
+      <Name>coreInterfaces</Name>
+      <Project>{5d9a635f-75b3-4e7b-971d-9a6a8ba90d23}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Name>coreLibrary</Name>
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic2\coreLogic2.csproj">
+      <Name>coreLogic2</Name>
+      <Project>{22d34f74-bcf1-4c65-8062-0e43238feb01}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic\coreLogic.csproj">
+      <Name>coreLogic</Name>
+      <Project>{b484314f-9e76-4ba7-9efe-6bd53b0866dd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreReports\coreReports.csproj">
+      <Name>coreReports</Name>
+      <Project>{67ec67fc-73d8-4060-a88e-31fdd1c97a92}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BOG\DepositFromPublic.resx">
+      <DependentUpon>DepositFromPublic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BOG\LoanReportMF7B.resx">
+      <DependentUpon>LoanReportMF7B.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BOG\LoanStatsByDemographic.resx">
+      <DependentUpon>LoanStatsByDemographic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BOG\PublicDepositStats.resx">
+      <DependentUpon>PublicDepositStats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Borrowing\BorrowingOutstandingReport.resx">
+      <DependentUpon>BorrowingOutstandingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Borrowing\ClientBorrowingReport.resx">
+      <DependentUpon>ClientBorrowingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Borrowing\ClientBorrowingsSummary.resx">
+      <DependentUpon>ClientBorrowingsSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Client\ClientServiceCharge.resx">
+      <DependentUpon>ClientServiceCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Deposit\DepositCertificate.resx">
+      <DependentUpon>DepositCertificate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Deposit\EclipseDepositCertificate.resx">
+      <DependentUpon>EclipseDepositCertificate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\GroupSusuStatement.resx">
+      <DependentUpon>GroupSusuStatement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Inventory\InventoryItemsByLocationReport.resx">
+      <DependentUpon>InventoryItemsByLocationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Inventory\InventoryItemsReport.resx">
+      <DependentUpon>InventoryItemsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Inventory\StockMaster.resx">
+      <DependentUpon>StockMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Invoice\InvoiceReport.resx">
+      <DependentUpon>InvoiceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Loans\DailyCollectionSheet.resx">
+      <DependentUpon>DailyCollectionSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Loans\DisbursedLoansReport.resx">
+      <DependentUpon>DisbursedLoansReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Loans\LoanBalanceByProduct.resx">
+      <DependentUpon>LoanBalanceByProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Loans\LoanDetailsReport.resx">
+      <DependentUpon>LoanDetailsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Loans\LoanDocument.resx">
+      <DependentUpon>LoanDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Loans\OutstandingScheduleItemsReport.resx">
+      <DependentUpon>OutstandingScheduleItemsReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\PackingSlip\PackingSlipReport.resx">
+      <DependentUpon>PackingSlipReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Payment\PaymentReport.resx">
+      <DependentUpon>PaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductSummary.resx">
+      <DependentUpon>ProductSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\RegularSusuAccount.resx">
+      <DependentUpon>RegularSusuAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Savings\ClientStatementReport.resx">
+      <DependentUpon>ClientStatementReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Savings\SavingsTermSheet.resx">
+      <DependentUpon>SavingsTermSheet.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

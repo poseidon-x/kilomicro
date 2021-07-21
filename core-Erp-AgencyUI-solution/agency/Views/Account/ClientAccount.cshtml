@@ -1,0 +1,215 @@
+﻿@{
+    ViewBag.Title = "New Client Account";
+    Layout = "~/Views/Shared/_AgencyLayout.cshtml";
+}
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Create Account <small>Client Account</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-user-plus"></i><a href="#"> Create Account</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE HEADER-->
+        <div class="clearfix"></div>
+        <div class="row ">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet box blue-steel">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-user-plus"></i>Create Account
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="myform" class="form-horizontal">
+                            
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Photo ID</label>
+                                        <div class="input-group input-large">
+                                            <div style="width:160px; height:160px; border:1px solid #eee; margin-bottom:5px ">
+
+                                            </div>
+                                            <input type="file" id="uploadPhoto" placeholder="Upload Photo" required />
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-md-3">Surname:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="surName" placeholder="Surname" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="col-md-3">Other Names:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="otherNames" placeholder="Other Names" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Gender:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="sex" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Marital Status:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="maritalStatus" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Date of Birth:</label>
+                                        <div class="input-group input-large">
+                                            <input type="date" id="DOB" placeholder="Date of Birth" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Branch:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="branch" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Primary ID No:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="idNo" placeholder="Primary ID No" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">ID Type:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="idType" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">ID Expiry Date:</label>
+                                        <div class="input-group input-large">
+                                            <input type="date" id="expriryDate" placeholder="ID Expiry Date" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Client Type:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="clientType" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Client Category:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="clientCategory" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div id="row">
+                                <div id="tabs">
+                                    <ul>
+                                        <li class="k-state-active">Home Address</li>
+                                        <li>Phone</li>
+                                        <li>Email</li>
+                                    </ul>
+                                    <div style="overflow:hidden !important;">
+                                        <br />
+                                        <div class="form-group">
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">Address Type:</label>
+                                                <div class="input-group input-medium">
+                                                    <input type="text" id="addressType" placeholder="Select..." required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">City:</label>
+                                                <div class="input-group input-medium">
+                                                    <input type="text" id="cityTown" placeholder="City/Town" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">Address Line:</label>
+                                                <div class="input-group input-medium">
+                                                    <textarea rows="4" id="addressLine" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br />
+                                    </div>
+                                    <div style="overflow:hidden !important;">
+                                        <br />
+                                        <div class="form-group">
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">Phone Type:</label>
+                                                <div class="input-group input-medium">
+                                                    <input type="text" id="phoneType" placeholder="Select..." required />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">Phone Number:</label>
+                                                <div class="input-group input-medium">
+                                                    <input type="text" id="phoneNo" placeholder="Phone No" required />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="overflow:hidden !important;">
+                                        <br />
+                                        <div class="form-group">
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">Email Type:</label>
+                                                <div class="input-group input-medium">
+                                                    <input type="text" id="emailType" placeholder="Select..."  />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <label class="col-md-3">Email Address:</label>
+                                                <div class="input-group input-medium">
+                                                    <input type="text" id="emailAddress" placeholder="Email Address"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="form-actions" style="text-align:right; clear:both">
+                                <div class="row">
+                                    <div class="col-md-offset-4 col-md-8">
+                                        <button type="submit" id="save" class="btn green"><i class="fa fa-user-plus"></i> Create Account</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+@section scripts{
+    <script>
+        var clientId = @ViewBag.Id;
+    </script>
+    <script src="~/Scripts/app/account/clientAccount.js"></script>
+}

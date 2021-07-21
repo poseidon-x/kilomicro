@@ -1,0 +1,129 @@
+﻿@{ 
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Admin Detailed Cashier Report";
+}
+
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Detailed Cashier Report</h3>
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <br />
+            <div class="row">
+                <div class="col-md-1">Cashier</div>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" id="txtCashier" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1">Start Date</div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" id="startDate" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1">End Date</div>
+                <div class="col-md-2">
+                    <input class="form-control" type="text" id="endDate" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1"></div>
+                
+            </div>
+            <br />
+            <div class="row">                
+                <div class="col-md-2">Field Agent (Staff)</div>
+                <div class="col-md-4">
+                    <input class="form-control" type="text" id="txtagent" required data-required-msg="Invalid">
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input class="btn btn-primary" id="getReport" type="button" value="Get Report">
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2"></div>
+            </div>
+            <br />
+        </div>
+        <hr />
+        
+        <div id="tabs-wrapper" style="display:none;">
+            <div id="tabstrip" class="k-tabstrip tabs">
+                <ul>
+                    <li id="tab-repay" class="k-state-active"> <b>Loan Repayments</b> </li>
+                    <li id="tab-charges" class="tabs tabs-right"> <b>Client Service Charges</b> </li>
+                    <li id="tab-disbursement" class="tabs tabs-right"><b> Disbursements</b></li>
+                    <li id="tab-fees" class="tabs tabs-right"> <b>Fees Report</b></li>
+                    <li id="tab-outstandingLoan" class="tabs tabs-right"> <b>Outstanding/Savings Report</b> </li>
+                    <li id="tab-arrears" class="tabs tabs-right"> <b>Arrears Report</b> </li>
+                    <li id="tab-savingAdd" class="tabs tabs-right"><b> Savings Additionals </b></li>
+                    <li id="tab-savingWith" class="tabs tabs-right"><b> Savings Withdrawals </b></li>
+                    @*<li id="tab-depositAdd" class="tabs tabs-right"><b> Deposit Additionals </b></li>
+                    <li id="tab-depositWith" class="tabs tabs-right"><b> Deposit Withdrawals </b></li>
+                    <li id="tab-susu" class="tabs tabs-right"> <b>SuSu Report</b></li>*@
+                </ul>
+                <div class="tabs-body">
+                    <div id="loanRepayGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="serviceChargeGrid"></div>
+                </div>
+
+                <div class="tabs-body">
+                    <div id="disbursementGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="feesGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="outstandingLoanGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="arrearsGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="savingAddGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="savingWithGrid"></div>
+                </div>
+                @*<div class="tabs-body">
+                    <div id="depositAdditionGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="depositWithdrawGrid"></div>
+                </div>
+                <div class="tabs-body">
+                    <div id="susuGrid"></div>
+                </div>*@
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<style type="text/css">
+    .k-grid {
+        font-family: Arial, 'Karla','Poppins', sans-serif;
+    }
+
+    /* Hide the Grid header and pager during export */
+    .k-pdf-export .k-grid-toolbar,
+    .k-pdf-export .k-pager-wrap {
+        display: none;
+    }
+
+    .center_al {
+        text-align: center;
+    }
+    
+    .tabs-body {
+        min-height: 400px;
+    }
+
+    #tabs-wrapper {
+        min-height: 600px;
+        height: 600px;
+    }
+
+</style>
+
+@section FootScripts{
+    <script src="~/scripts/app/Loans/Reports/AdminCashierReport.js"></script>
+}

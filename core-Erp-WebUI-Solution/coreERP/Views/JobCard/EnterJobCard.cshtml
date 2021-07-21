@@ -1,0 +1,105 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Job Card";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Create Job Card</h3>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+		<div class="col-md-2"> Work Order: </div>
+        <div class="col-md-3">
+            <input type="text" id="workOrderNumber" class="form-control" required data-required-msg="Invalid"/>
+        </div>
+		
+        <div class="col-md-2">Job Date</div>
+        <div class="col-md-3">
+            <input type="text" id="jobDate" class="form-control" required data-required-msg="Invalid" readonly />            
+        </div>
+        <div class="col-md-1"></div>
+
+        </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+		        <div class="col-md-2">Starting Date</div>
+        <div class="col-md-3">
+            <input type="text" id="orderStartingDate" class="form-control" required data-required-msg="Invalid" />            
+        </div>
+		
+        <div class="col-md-2"> Customer: </div>
+        <div class="col-md-3">
+            <input type="text" id="customer" class="form-control" required data-required-msg="Invalid" readonly/>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">MarkUp Rate</div>
+        <div class="col-md-3">
+            <input type="text" id="standardMarkUpRate" class="form-control" required data-required-msg="Invalid" />
+        </div>
+
+        <div class="col-md-2">Hourly Billing Rate</div>
+        <div class="col-md-3">
+            <input type="text" id="standardHourlyBillingRate" class="form-control" required data-required-msg="Invalid" />
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Labour Cost</div>
+        <div class="col-md-3">
+            <input type="text" id="totalLabour" class="form-control" required data-required-msg="Invalid" readonly />
+        </div>
+
+        <div class="col-md-2">Material Cost</div>
+        <div class="col-md-3">
+            <input type="text" id="totalMaterial" class="form-control" required data-required-msg="Invalid" readonly />
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">VAT & NHIL</div>
+        <div class="col-md-3">
+            <input type="text" id="vatNNhil" class="form-control" required data-required-msg="Invalid" readonly />
+        </div>
+    </div>
+    <hr>
+    <div id="row">
+        <div id="tabs">
+            <ul>
+                <li class="k-state-active">Labour Details</li>
+                <li>Material Details</li>
+            </ul>
+                
+                <div>
+                    <div id="labourDetailGrid"> </div>
+                </div>
+                <div>
+                    <div id="materialDetailGrid"> </div>
+                </div>
+        </div>
+    </div>
+            <hr>
+            <div class="row">
+                <div>
+                    <div class="col-md-2">
+                        <input type="button" class="btn btn-primary" id="save" value="Save Job Card" />
+                    </div>
+                    <div class="col-md-10"></div>
+                </div><!--SaveButton-->
+            </div>
+        </div>
+
+
+        @section FootScripts{
+            <script type="text/javascript">
+                var jobCardId = '@ViewBag.id';
+            </script>
+<script src="~/scripts/app/JobOrder/JobCard/EnterJobCard.js"></script>
+        }
+

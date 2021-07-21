@@ -1,0 +1,139 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Restructure Loan";
+
+}
+
+<h2>Restructure Loan</h2>
+<div class="w-section inverse 1w boxed container form-horizontal" id="myform">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-2">Client Name</div>
+            <div class="col-md-4">
+                <input type="text" id="client" name="client" data-val="true" data-val-required="*">
+                <span class="field-validation-valid" data-valmsg-for="client" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-2">Loan Number</div>
+            <div class="col-md-4">
+                <input type="text" id="loan" name="loan" data-val="true" data-val-required="*">
+                <span class="field-validation-valid" data-valmsg-for="loan" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-2">Original Principal</div>
+            <div class="col-md-4">
+                <input type="text" id="originalprincipal" name="client" readonly>
+                <span class="field-validation-valid" data-valmsg-for="originalprincipal" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-2">Original Interest</div>
+            <div class="col-md-4">
+                <input type="text" id="originalinterest" name="originalinterest" data-val="true" data-val-required="*" readonly>
+                <span class="field-validation-valid" data-valmsg-for="originalinterest" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Remaining Principal</div>
+            <div class="col-md-4">
+                <input type="text" id="remainingprincipal" name="remainingprincipal" readonly>
+                <span class="field-validation-valid" data-valmsg-for="remainingprincipal" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-2">Remaining Interest</div>
+            <div class="col-md-4">
+                <input type="text" id="remaininginterest" name="remaininginterest" data-val="true" data-val-required="*" readonly>
+                <span class="field-validation-valid" data-valmsg-for="remaininginterest" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Added Penalty</div>
+            <div class="col-md-4">
+                <input type="text" id="addedPenalty" name="addedPenalty" readonly>
+                <span class="field-validation-valid" data-valmsg-for="addedPenalty" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-2">Remaining Penalty</div>
+            <div class="col-md-4">
+                <input type="text" id="remainingPenalty" name="remainingPenalty" data-val="true" data-val-required="*" readonly>
+                <span class="field-validation-valid" data-valmsg-for="remainingPenalty" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Balance B/D</div>
+            <div class="col-md-4">
+                <input type="text" id="totalBalanceBd" name="totalBalanceBd" placeholder="" readonly>
+                <span class="field-validation-valid" data-valmsg-for="totalBalanceBd" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-2">Original Tenure</div>
+            <div class="col-md-4">
+                <input type="text" id="originalTenure" name="originalTenure" data-val="true" data-val-required="*" readonly>
+                <span class="field-validation-valid" data-valmsg-for="originalTenure" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Interest Rate</div>
+            <div class="col-md-4">
+                <input type="text" id="interestRate" name="interestRate">
+            </div>
+            <div class="col-md-2">Disbursement Date</div>
+            <div class="col-md-4">
+                <input type="text" id="disbursementDate" name="disbursementDate" data-val="true" data-val-required="*" readonly>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Additional Tenure</div>
+            <div class="col-md-4">
+                <input type="text" id="additionalTenure" name="additionalTenure">
+            </div>
+            <div class="col-md-2">Additional Amount</div>
+            <div class="col-md-4">
+                <input type="text" id="extraDisbursementAmount" name="extraDisbursementAmount" data-val="true" data-val-required="*">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Payment Mode</div>
+            <div class="col-md-4">
+                <input type="text" id="paymentMode" name="paymentMode">
+            </div>
+            <div class="col-md-2">Bank</div>
+            <div class="col-md-4">
+                <input type="text" id="bank" name="bank" data-val="true" data-val-required="*">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-2">Check No.</div>
+            <div class="col-md-4">
+                <input type="text" id="checkNo" name="checkNo">
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div id="grid"></div>
+            <div class="col-md-1"></div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="save">Restructure Loan &raquo;</button>
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="viewSchedule">View Updated Schedule &raquo;</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/setup/RestructureLoan.js"></script>
+
+}

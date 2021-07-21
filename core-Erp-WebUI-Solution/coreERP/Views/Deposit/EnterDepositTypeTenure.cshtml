@@ -1,0 +1,58 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Deposit Product Tenure";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Create Deposit Product Tenure</h3>
+    <hr>
+
+    <div class="row">
+
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Investment Product:</div>
+        <div class="col-md-3">
+            <input type="text" id="depositType" required data-required-msg="*"/>
+        </div>
+
+        <div class="col-md-2">Tenure Type:</div>
+        <div class="col-md-3">
+            <input type="text" id="tenureType" required data-required-msg="*"/>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+		        <div class="col-md-2">Minimum Duration:</div>
+        <div class="col-md-3">
+            <input type="text" id="minTenure"  required data-required-msg="*" />            
+        </div>
+
+        <div class="col-md-2">Maximum Duration:</div>
+        <div class="col-md-3">
+            <input type="text" id="maxTenure"  required data-required-msg="*"  />
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+        <hr>
+    <div class="row">
+        <div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" id="save">Save &raquo;</button>
+                
+            </div>
+        </div><!--SaveButton-->
+    </div>
+</div>
+
+
+        @section FootScripts{
+            <script type="text/javascript">
+                var depositTypeAllowedTenureId = '@ViewBag.id';
+            </script>
+<script src="~/scripts/app/Loans/Deposit/EnterDepositTypeTenure.js"></script>
+        }
+

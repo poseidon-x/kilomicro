@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //ViewBag.Title = "Products";
+}
+
+<h2>Products Categories</h2>
+
+<hr>
+<div>
+    <div id="tabs">
+        <ul>
+            <li class="k-state-active">Categories</li>
+        </ul>
+        <div>
+            <div id="productCategoryGrid"></div>
+        </div>
+    </div> <!--EndTab--><br />
+</div>
+
+@section FootScripts{
+<script src="~/scripts/app/Inventory/InventoryProductManagement/productCategories.js"></script>
+}
+
+
+
+

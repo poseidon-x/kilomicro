@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create Document Template";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Create Document Template</h3>
+    <hr>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+		<div class="col-md-2"> placeHolder Code: </div>
+        <div class="col-md-3">
+            <input type="text" id="placeHolderTypeCode" class="form-control" required data-required-msg="Invalid"/>
+        </div>
+        <div class="col-md-2"> Entity: </div>
+        <div class="col-md-3">
+            <input type="text" id="entityTypeCode" class="form-control" required data-required-msg="Invalid" />
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+        
+    <hr>
+    <div class="row">
+        <div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary" id="save">Create Place Holder  &raquo;</button>
+            </div>
+            <div class="col-md-9"></div>
+        </div><!--SaveButton-->
+    </div>
+        </div>
+
+
+@section FootScripts{
+            <script type="text/javascript">
+                var loanDocumentPlaceHolderTypeId = '@ViewBag.id';
+            </script>
+<script src="~/scripts/app/Loans/LoanDocumentTemplate/CreateLoanDocumentPlaceHolderType.js"></script>
+}

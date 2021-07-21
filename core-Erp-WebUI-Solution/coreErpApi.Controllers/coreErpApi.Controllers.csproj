@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E9FDF3C-6462-40BE-A523-B8F80BC2A2A0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreErpApi.Controllers</RootNamespace>
+    <AssemblyName>coreErpApi.Controllers</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="coreBusiness, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreBusiness.dll</HintPath>
+    </Reference>
+    <Reference Include="coreData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreData.dll</HintPath>
+    </Reference>
+    <Reference Include="coreInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="coreLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="coreLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="coreLogic2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreLogic2.dll</HintPath>
+    </Reference>
+    <Reference Include="coreModels">
+      <HintPath>..\..\core-Erp-Data-Libs\coreModels.dll</HintPath>
+    </Reference>
+    <Reference Include="coreNotificationsLibrary">
+      <HintPath>..\..\core-Erp-Data-Libs\coreNotificationsLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="coreReports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreReports.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="GemBox.Document, Version=25.3.30.1032, Culture=neutral, PublicKeyToken=b1b72c69714d4847, processorArchitecture=MSIL">
+      <HintPath>..\packages\GemBox.Document.25.3.30.1032\lib\net30\GemBox.Document.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Cors.3.0.1\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="OfficeFileProperties, Version=3.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OfficeFileProperties.3.4.0.0\lib\net40\OfficeFileProperties.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Synvata.MsOfficeFileGenerator, Version=0.8.5298.25628, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Synvata.MsOfficeFileGenerator.0.8.5298.25628\lib\net45\Synvata.MsOfficeFileGenerator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="Telerik.Reporting, Version=14.1.20.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <HintPath>C:\Program Files (x86)\Progress\Telerik Reporting R2 2020\bin\Telerik.Reporting.dll</HintPath>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\AccountsReceivable\CreditMemo\ArCreditMemoReasonController.cs" />
+    <Compile Include="Controllers\AccountsReceivable\CreditMemo\ArCreditMemoController.cs" />
+    <Compile Include="Controllers\AccountsReceivable\Payments\ArPaymentController.cs" />
+    <Compile Include="Controllers\Deposits\DepositCheckController.cs" />
+    <Compile Include="Controllers\Deposits\InvestmentReceiptController.cs" />
+    <Compile Include="Controllers\Deposits\DepositClientController.cs" />
+    <Compile Include="Controllers\Deposits\DepositController.cs" />
+    <Compile Include="Controllers\General\Setup\DepositRepaymentModeController.cs" />
+    <Compile Include="Controllers\General\Setup\PaymentModeController.cs" />
+    <Compile Include="Controllers\General\Setup\RepaymentTypeController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\BrandController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryItemController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryLocationController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryMethodController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryValidation\OpeningBalancesBatchValidator.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryValidation\OpeningBalancesValidator.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\LocationController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\LocationTypeController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\ShrinkageReasonController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\UnitOfMeasurementController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryTransferManagement\InventoryTransferController.cs" />
+    <Compile Include="Controllers\Inventory\OpenningBalanceManagement\OpeningBalanceBatchController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\InventoryMethodController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductCategoryController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductMakeController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductStatusController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductSubCategoryController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\UnitOfMeasurementController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\InventoryItemController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\LocationController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\ShrinkageBatchController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\UnitOfMeasurementController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\ScheduleController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\BorrowingClientsController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\BorrowingTypeController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\InterestTypeController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\TenureTypemmController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\BorrowingController.cs" />
+    <Compile Include="Controllers\Customers\CustomerController.cs" />
+    <Compile Include="Controllers\Deposits\TenureTypeController.cs" />
+    <Compile Include="Controllers\Deposits\DepositTypeAllowedTenureController.cs" />
+    <Compile Include="Controllers\Deposits\DepositTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\CountriesController.cs" />
+    <Compile Include="Controllers\General\Setup\RepaymentModeController.cs" />
+    <Compile Include="Controllers\General\Setup\PaymentTermController.cs" />
+    <Compile Include="Controllers\General\Setup\CompanyProfileController.cs" />
+    <Compile Include="Controllers\General\Setup\SalesTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\PaymentMethodController.cs" />
+    <Compile Include="Controllers\General\Setup\ShippingMethodController.cs" />
+    <Compile Include="Controllers\General\Setup\CityController.cs" />
+    <Compile Include="Controllers\AccountsReceivable\Invoice\ArInvoiceController.cs" />
+    <Compile Include="Controllers\JobCard\JobCard\JobCardController.cs" />
+    <Compile Include="Controllers\JobCard\Speciality\SpecialityController.cs" />
+    <Compile Include="Controllers\JobCard\WorkOrder\WorkOrderController.cs" />
+    <Compile Include="Controllers\Loans\Document\LoanDocumentPlaceHolderTypeController.cs" />
+    <Compile Include="Controllers\Loans\Document\LoanDocumentTemplateController.cs" />
+    <Compile Include="Controllers\Loans\LoanApproval\ApprovalStageController.cs" />
+    <Compile Include="Controllers\Loans\LoanApproval\LoanApprovalController.cs" />
+    <Compile Include="Controllers\Loans\LoanApproval\LoanPendingApprovalController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\AppStageController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\ProfTypeController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\ProfileTypeController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\LoanTypeApprovalController.cs" />
+    <Compile Include="Controllers\Loans\SalaryLoans\SalaryLoanController.cs" />
+    <Compile Include="Controllers\Loans\SalaryLoans\SalaryLoanConfigController.cs" />
+    <Compile Include="Controllers\Loans\Setup\IntrstTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupPostController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRepaymentModeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LnTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanBatchRepayController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupBatchRepaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRepaymentTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupDayController.cs" />
+    <Compile Include="Controllers\Loans\Setup\BankController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanBatchRepaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupBatchDisbursementController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupController.cs" />
+    <Compile Include="Controllers\Loans\Setup\MetaDataTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanAdditionalInfoController.cs" />
+    <Compile Include="Controllers\Loans\Setup\CreditLineController.cs" />
+    <Compile Include="Controllers\Loans\Setup\AllClientsController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRepaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanModeOfPaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRestructureController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanClientController.cs" />
+    <Compile Include="Controllers\Loans\Setup\ClientLoanController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanClosureReasonController.cs" />
+    <Compile Include="Controllers\Manufacturing\AssemblyLine\AssemblyLineController.cs" />
+    <Compile Include="Controllers\Staff\AgentController.cs" />
+    <Compile Include="Controllers\Staff\StaffController.cs" />
+    <Compile Include="Docs.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\DepositModel.cs" />
+    <Compile Include="Models\BatchDisburseModel.cs" />
+    <Compile Include="Models\BatchRepayModel.cs" />
+    <Compile Include="Models\AgentViewModel.cs" />
+    <Compile Include="Models\StaffViewModel.cs" />
+    <Compile Include="Models\disbursementDateModel.cs" />
+    <Compile Include="Models\BatchRepaymentViewModel.cs" />
+    <Compile Include="Models\GroupLoanBatchRepaymentModel.cs" />
+    <Compile Include="Models\LoanViewModel.cs" />
+    <Compile Include="Models\GroupDisbursedLoansModel.cs" />
+    <Compile Include="Models\GroupLoanBatchDisbursementModel.cs" />
+    <Compile Include="Models\LoanRestructureViewModel.cs" />
+    <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\DashAppModel.cs" />
+    <Compile Include="Models\DashInvestmentModel.cs" />
+    <Compile Include="Models\DashOverMaturedInvestmentModel.cs" />
+    <Compile Include="Models\DashTopTenModel.cs" />
+    <Compile Include="Models\DashUndModel.cs" />
+    <Compile Include="Models\DashViewModel.cs" />
+    <Compile Include="Models\KendoRequest.cs" />
+    <Compile Include="Models\LookupEntry.cs" />
+    <Compile Include="Models\MenuData.cs" />
+    <Compile Include="Models\SideMenuItem.cs" />
+    <Compile Include="Models\sysDate.cs" />
+    <Compile Include="Models\TopTenInvestorsModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AuthorizationFilter.cs" />
+    <Compile Include="Providers\KendoHelper.cs" />
+    <Compile Include="Providers\LoginHelper.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\coreBusiness\coreBusiness.csproj">
+      <Name>coreBusiness</Name>
+      <Project>{85374376-3ee7-4eb4-af68-2a5d10956174}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreInterfaces\coreInterfaces.csproj">
+      <Name>coreInterfaces</Name>
+      <Project>{5d9a635f-75b3-4e7b-971d-9a6a8ba90d23}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Name>coreLibrary</Name>
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic2\coreLogic2.csproj">
+      <Name>coreLogic2</Name>
+      <Project>{22d34f74-bcf1-4c65-8062-0e43238feb01}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic\coreLogic.csproj">
+      <Name>coreLogic</Name>
+      <Project>{b484314f-9e76-4ba7-9efe-6bd53b0866dd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreReports\coreReports.csproj">
+      <Name>coreReports</Name>
+      <Project>{67ec67fc-73d8-4060-a88e-31fdd1c97a92}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\Inventory\Setup\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

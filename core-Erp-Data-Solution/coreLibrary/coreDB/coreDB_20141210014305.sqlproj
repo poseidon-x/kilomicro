@@ -1,0 +1,946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <PostUpgradeAddToSCC>;D:\MyFiles\Projects\coreEnterprise\coreDB\coreDB.dbproj;D:\MyFiles\Projects\coreEnterprise\coreDB\Connections.txt;D:\MyFiles\Projects\coreEnterprise\coreDB\Scripts\Post-Deployment\Script.PostDeployment.sql;D:\MyFiles\Projects\coreEnterprise\coreDB\Scripts\Pre-Deployment\Script.PreDeployment.sql</PostUpgradeAddToSCC>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <UpgradedFromDBP>True</UpgradedFromDBP>
+    <Name>coreDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql90DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>False</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{c663d841-e38b-4974-93c5-d9e0e82d2adb}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <DefaultSchema>dbo</DefaultSchema>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetLanguage>CS</TargetLanguage>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>True</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <DefaultFileStreamFilegroup />
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <PageVerify>NONE</PageVerify>
+    <Parameterization>SIMPLE</Parameterization>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <Recovery>FULL</Recovery>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <ServiceBrokerOption>EnableBroker</ServiceBrokerOption>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <TornPageDetection>False</TornPageDetection>
+    <Trustworthy>False</Trustworthy>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Foundation\Create\Data" />
+    <Folder Include="AR" />
+    <Folder Include="AR\Create" />
+    <Folder Include="AR\Drop" />
+    <Folder Include="AR\Drop\Tables" />
+    <Folder Include="AR\Create\Tables" />
+    <Folder Include="GL\Create\Views" />
+    <Folder Include="GL\Drop\Views" />
+    <Folder Include="GL\Drop\Procedures" />
+    <Folder Include="TR" />
+    <Folder Include="TR\Create" />
+    <Folder Include="TR\Drop" />
+    <Folder Include="TR\Create\Tables" />
+    <Folder Include="TR\Create\Foreign Keys" />
+    <Folder Include="TR\Create\Views" />
+    <Folder Include="TR\Drop\Foreign" />
+    <Folder Include="TR\Drop\Views" />
+    <Folder Include="TR\Drop\Tables" />
+    <Folder Include="TR\Create\Schemas" />
+    <Folder Include="GL\Create\Procedures" />
+    <Folder Include="TR\Create\Functions" />
+    <Folder Include="Loans\Create\Data" />
+    <Folder Include="Loans\Create\Views" />
+    <Folder Include="FixedAssets" />
+    <Folder Include="FixedAssets\Create" />
+    <Folder Include="FixedAssets\Create\Tables" />
+    <Folder Include="FixedAssets\Create\Foreign Keys" />
+    <Folder Include="FixedAssets\Create\Schemas" />
+    <Folder Include="FixedAssets\Create\Views" />
+    <Folder Include="HumanCapital" />
+    <Folder Include="HumanCapital\Create" />
+    <Folder Include="HumanCapital\Create\Tables" />
+    <Folder Include="HumanCapital\Create\Schemas" />
+    <Folder Include="HumanCapital\Create\Foreign Keys" />
+    <Folder Include="cweb" />
+    <Folder Include="cweb\tables" />
+    <Folder Include="cweb\foreign Keys" />
+    <Folder Include="Inventory" />
+    <Folder Include="Inventory\Tables" />
+    <Folder Include="Inventory\Foreign Keys" />
+    <Folder Include="Inventory\Schema" />
+    <Folder Include="Loans\Create\Views2" />
+    <Folder Include="HumanCapital\Create\Views" />
+    <Folder Include="SalesOrder" />
+    <Folder Include="SalesOrder\Schema" />
+    <Folder Include="SalesOrder\Tables" />
+    <Folder Include="SalesOrder\Foreign Keys" />
+    <Folder Include="Loans\Create\Functions" />
+    <Folder Include="AR\Create\Schemas" />
+    <Folder Include="AR\Create\Foreign Keys" />
+    <Folder Include="Inventory\GL Master Scripts" />
+    <Folder Include="Inventory\GL Master Scripts\Create" />
+    <Folder Include="Inventory\GL Master Scripts\Drop" />
+    <Folder Include="Loans\Create\Views3" />
+    <Folder Include="Loans\Create\Scripts" />
+    <Folder Include="Notifications" />
+    <Folder Include="Notifications\Schema" />
+    <Folder Include="Notifications\Tables" />
+    <Folder Include="Notifications\Foreign Keys" />
+    <Folder Include="Notifications\Indexes" />
+    <Folder Include="Notifications\Data" />
+    <Folder Include="Foundation\Create\Indexes" />
+    <Folder Include="Foundation\Create\Views2" />
+    <Folder Include="Foundation\Create\Procedures2" />
+    <Folder Include="Foundation\Create\Functions2" />
+    <Folder Include="MobileMoney" />
+    <Folder Include="MobileMoney\Schema" />
+    <Folder Include="MobileMoney\Tables" />
+    <Folder Include="MobileMoney\Foreign Keys" />
+    <Folder Include="MobileMoney\Indexes" />
+    <Folder Include="CreditUnion" />
+    <Folder Include="CreditUnion\Schema" />
+    <Folder Include="CreditUnion\Tables" />
+    <Folder Include="CreditUnion\Foreign Keys" />
+    <Folder Include="CreditUnion\Indexes" />
+    <Folder Include="Preferences" />
+    <Folder Include="Preferences\Schema" />
+    <Folder Include="Preferences\Tables" />
+    <Folder Include="Preferences\Foreign Keys" />
+    <Folder Include="Preferences\Data" />
+    <Folder Include="CreditUnion\Views" />
+    <Folder Include="Loans\Create\Foreign Keys" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Foundation" />
+    <Folder Include="Foundation\Create" />
+    <Folder Include="Foundation\Create\Foreign Keys" />
+    <Folder Include="Foundation\Create\Functions" />
+    <Folder Include="Foundation\Create\Schemas" />
+    <Folder Include="Foundation\Create\Stored Procedures" />
+    <Folder Include="Foundation\Create\Tables" />
+    <Folder Include="Foundation\Create\Triggers" />
+    <Folder Include="Foundation\Create\Views" />
+    <Folder Include="Foundation\Drop" />
+    <Folder Include="Foundation\Drop\Foreign Keys" />
+    <Folder Include="Foundation\Drop\Functions" />
+    <Folder Include="Foundation\Drop\Stored Procedures" />
+    <Folder Include="Foundation\Drop\Tables" />
+    <Folder Include="Foundation\Drop\Triggers" />
+    <Folder Include="Foundation\Drop\Views" />
+    <Folder Include="GL" />
+    <Folder Include="GL\Create" />
+    <Folder Include="GL\Create\Foreign Keys" />
+    <Folder Include="GL\Create\Schemas" />
+    <Folder Include="GL\Create\Tables" />
+    <Folder Include="GL\Drop" />
+    <Folder Include="GL\Drop\Tables" />
+    <Folder Include="Loans" />
+    <Folder Include="Loans\Create" />
+    <Folder Include="Loans\Create\Schemas" />
+    <Folder Include="Loans\Create\Stored Procedures" />
+    <Folder Include="Loans\Create\Tables" />
+    <Folder Include="Loans\Create\Triggers" />
+    <Folder Include="Loans\Drop" />
+    <Folder Include="Loans\Drop\Tables" />
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Foundation\Create\Foreign Keys\fk.create.acct_heads.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.acct_bals.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.bak_branches.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.bank_accts.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.cities.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.comp_prof.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.countries.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.cust_addrs.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.cust_phons.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.custs.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.def_accts.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.districts.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.gl_ou.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.jnl.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.jnl_stg.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.locations.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.ou.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.past_currency_rates.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.regions.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.role_perms.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.sup_addrs.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.sup_phons.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.sups.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.user_gl_ou_gl_ou.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.user_perms.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.user_roles.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_amt2.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_bal.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_bal_frgn.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_bals.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_head_level.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_head_walk.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_ytd_amt.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.ret_earn.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.fin_year_start.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.gl_ou_level.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.gl_ou_walk.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.ou_level.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.gl_ou_check.sql" />
+    <None Include="Foundation\Create\Schemas\gl.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.close_period.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_acc_bal.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_op_stmt.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_tx_by_acct.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_unb_tx.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.acct_period.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.acct_heads.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.accts.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.addr_types.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.bank_accts.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.bank_branches.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.banks.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.cities.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.comp_prof.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.countries.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.currency.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.cust_addr.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.cust_phons.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.cust_types.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.custs.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.std_accts.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.districts.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.gl_ou.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.gl_ou_cat.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.jnl.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.jnl_batch.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.jnl_batch_stg.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.jnl_stg.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.locations.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.module.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.ou.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.ou_cat.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.past_currency_rates.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.perm.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.phon_types.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.regions.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.role_perm.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.roles.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.sup_addr.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.sup_phons.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.sup_types.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.sups.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.sys_no.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.t_acc_bals.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.user_gl_ou.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.user_login_attempts.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.user_perm.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.user_roles.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.users.sql" />
+    <None Include="Foundation\Create\Triggers\trg.create.on_delete_gl_ou.sql" />
+    <None Include="Foundation\Create\Triggers\trg.create.on_delete_gl_ou_cat.sql" />
+    <None Include="Foundation\Create\Triggers\trg.create.on_delete_ou.sql" />
+    <None Include="Foundation\Create\Triggers\trg.create.on_delete_ou_cat.sql" />
+    <None Include="Foundation\Create\Triggers\trg.create.on_update_currencies.sql" />
+    <None Include="Foundation\Create\Views\vw.create.chart_of_accounts.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_acc_bals.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_accounts.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_cities.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_gl_ou.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_jnl.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_jnl_tmp.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_months.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_op_stmt.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_ou.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_tx_by_acc.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vw_unb_tx.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.acct_heads.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.accts.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.bank_accts.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.bank_branches.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.cities.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.comp_prof.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.countries.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.cust_addrs.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.cust_phons.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.custs.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.def_accts.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.districts.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.gl_ou.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.jnl.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.jnl_tmp.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.locations.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.ou.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.past_currency_rates.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.regions.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.role_perms.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.sup_addrs.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.sup_phons.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.sups.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.user_gl_ou_gl_ou.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.user_perms.sql" />
+    <None Include="Foundation\Drop\Foreign Keys\fk.drop.user_roles.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_amt.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_bal.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_bal_frgn.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_bals.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_head_level.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_head_walk.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.acc_ytd_amt.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.ret_earn.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.fin_year_start.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.gl_ou_level.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.gl_ou_walk.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.ou_level.sql" />
+    <None Include="Foundation\Drop\Functions\fn.drop.gl_ou_check.sql" />
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.insert_generator.sql" />
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.get_acc_bals.sql" />
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.get_acc_bal.sql" />
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.get_op_stmt.sql" />
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.get_tx_by_acct.sql" />
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.get_unb_tx.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.acct.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.acct_cats.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.acct_heads.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.addr_types.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.bank_accts.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.bank_branches.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.banks.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.cities.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.comp_prof.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.countries.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.currency.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.cust_addr.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.cust_phons.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.cust_types.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.custs.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.def_acct_names.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.districts.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.gl_ou.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.gl_ou_cat.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.jnl.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.jnl_batch.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.jnl_batch_stg.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.jnl_stg.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.locations.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.module.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.ou.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.ou_cat.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.past_currency_rates.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.perm.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.phone_types.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.regions.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.role_perms.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.roles.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.sup_addr.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.sup_phons.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.sup_types.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.sups.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.sys_no.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.t_acc_bals.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.user_gl_ou_gl_ou.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.user_login_attempts.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.user_perms.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.user_roles.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.users.sql" />
+    <None Include="Foundation\Drop\Triggers\trg.drop.on_delete_ou.sql" />
+    <None Include="Foundation\Drop\Triggers\trg.drop.on_delete_ou_cat.sql" />
+    <None Include="Foundation\Drop\Triggers\trg.drop.on_update_currencies.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.chart_of_accounts.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_acc_bals.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_accounts.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_cities.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_gl_ou.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_jnl.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_jnl_tmp.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_months.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_op_stmt.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_ou.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_tx_by_acct.sql" />
+    <None Include="Foundation\Drop\Views\vw.drop.vw_unb_tx.sql" />
+    <None Include="GL\Create\Foreign Keys\fk.create.v_head.sql" />
+    <None Include="GL\Create\Tables\tab.create.v_head.sql" />
+    <None Include="Foundation\Drop\Tables\tab.drop.acct_period.sql" />
+    <None Include="Loans\Create\Schemas\sch.create.ln.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_acc_bals.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Triggers\trg.drop.on_delete_gl_ou.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Triggers\trg.drop.on_delete_gl_ou_cat.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Stored Procedures\sp.create.insert_generator.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.close_period.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Tables\tab.create.acct_cats.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Stored Procedures\sp.create.change_acc_parent.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.change_acc_parent.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Data\dat.modules.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Stored Procedures\sp.create.open_period.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.open_period.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Tables\tab.create.v_ftr.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Foreign Keys\fk.create.v_ftr.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Tables\tab.drop.v_head.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Tables\tab.drop.v_ftr.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Tables\tab.create.def_acct_names.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Functions\fn.create.ou_walk.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Functions\fn.drop.ou_walk.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Data\dat.perms.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_bal_for_close.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Stored Procedures\sp.drop.get_bal_sht.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Tables\tab.create.jnl_batch_tmp.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Tables\tab.create.jnl_tmp.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Foreign Keys\fk.create.jnl_tmp.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Tables\tab.drop.jnl_batch_tmp.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Tables\tab.drop.jnl_tmp.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Tables\tab.create.pc_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Tables\tab.create.pc_head.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Foreign Keys\fk.create.pc_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Foreign Keys\fk.create.pc_head.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Tables\tab.create.v_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Foreign Keys\fk.create.v_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Tables\tab.drop.pc_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Tables\tab.drop.pc_head.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Tables\tab.drop.v_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Views\vw.create.vw_v.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Views\vw.drop.vw_v.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Drop\Procedures\sp.drop.get_v.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Tables\tab.drop.def_accts.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Tables\tab.drop.acct_bals.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Tables\tab.create.def_accts.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Functions\fn.create.cur_earn.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Functions\fn.create.cur_earn.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Drop\Functions\fn.drop.cur_earn.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Foundation\Create\Stored Procedures\sp.create.get_bal_sht.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Tables\tab.create.season.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Schemas\tr.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Schemas\gl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="GL\Create\Procedures\sp.create.get_v.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Tables\tab.create.sector.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Tables\tab.create.district.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Foreign Keys\fk.create.district.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Tables\tab.create.district_acct.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Tables\tab.create.transfer.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Foreign Keys\fk.create.district_acct.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Tables\tab.create.transfer_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Foreign Keys\fk.create.transfer_dtl.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Foreign Keys\fk.create.transfer.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Views\vw.create.vw_transfers.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Views\vw.create.vw_transfers2.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Functions\fn.create.bank_level.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Functions\fn.create.bank_walk.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="TR\Create\Functions\fn.create.bank_name.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <None Include="Loans\Create\Tables\tab.create.client.sql" />
+    <None Include="Loans\Create\Tables\tab.create.address.sql" />
+    <None Include="Loans\Create\Tables\tab.create.image.sql" />
+    <None Include="Loans\Create\Tables\tab.create.email.sql" />
+    <None Include="Loans\Create\Tables\tab.create.idNo.sql" />
+    <None Include="Loans\Create\Tables\tab.create.clientSetup.sql" />
+    <None Include="Loans\Create\Tables\tab.create.clientCategory.sql" />
+    <None Include="Loans\Create\Tables\tab.create.loan.sql" />
+    <None Include="Loans\Create\Tables\tab.mod.loan.audit.sql" />
+    <None Include="Loans\Create\Tables\tab.mod.client.audit.sql" />
+    <None Include="Loans\Create\Data\dat.create.maritalstatus.sql" />
+    <None Include="Loans\Create\Data\dat.create.industry.sql" />
+    <None Include="Loans\Create\Data\dat.create.branch.sql" />
+    <None Include="Loans\Create\Data\dat.create.category.sql" />
+    <None Include="Loans\Create\Data\dat.create.idNoType.sql" />
+    <None Include="Loans\Create\Data\dat.create.sector.sql" />
+    <None Include="Loans\Create\Triggers\trg.create.on_insert_client.sql" />
+    <None Include="Loans\Create\Data\dat.create.addressType.sql" />
+    <None Include="Loans\Create\Data\dat.create.phoneType.sql" />
+    <None Include="Loans\Create\Data\dat.create.employmentType.sql" />
+    <None Include="Loans\Create\Data\dat.create.modeOfPayment.sql" />
+    <None Include="Loans\Create\Data\dat.create.interestType.sql" />
+    <None Include="Loans\Create\Data\dat.create.repaymentType.sql" />
+    <None Include="Loans\Create\Data\dat.create.loanType.sql" />
+    <None Include="Loans\Create\Data\dat.create.collateralType.sql" />
+    <None Include="Loans\Create\Data\dat.create.tenureType.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.initialize.sql" />
+    <None Include="Foundation\Create\Data\dat.acct_cats.sql" />
+    <None Include="Loans\Create\Data\dat.create.financialType.sql" />
+    <None Include="Loans\Create\Tables\tab.create.investment.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans2.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwMF7.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans6.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getLoanBalances.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwCashierDisb.sql" />
+    <None Include="Loans\Create\Tables\tab.create.supplier.sql" />
+    <None Include="Loans\Create\Tables\tab.create.document.sql" />
+    <None Include="FixedAssets\Create\Tables\tab.create.setup.sql" />
+    <None Include="FixedAssets\Create\Tables\tab.Create.staff.sql" />
+    <None Include="FixedAssets\Create\Tables\tab.create.asset.sql" />
+    <None Include="FixedAssets\Create\Foreign Keys\fk.create.asset.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getCashierBalance.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanStatement.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans4.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwClients.sql" />
+    <None Include="Loans\Create\Views\vw.Create.vwWriteOff.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwDepositTenor.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanTenor.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwCharges.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getLoanBalanceReport.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getMF7.aspx.sql" />
+    <None Include="Loans\Create\Tables\tab.create.cashiersTill.sql" />
+    <None Include="Foundation\Create\Data\dat.roles.sql" />
+    <None Include="FixedAssets\Create\Views\vw.create.vwAssets.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanTx.sql" />
+    <None Include="FixedAssets\Create\Views\vw.vwAssetTx.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwDepositStatement.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.getDepositBalance.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.setup.sql" />
+    <None Include="HumanCapital\Create\Schemas\sch.create.hc.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.setup.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.staff.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.staff.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.payroll.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.staffLoan.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.staffLoan.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanStatus.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.leave.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.leave.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.shift.sql" />
+    <None Include="Loans\Create\Tables\tab.create.agent.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwControllerIn.sql" />
+    <None Include="Loans\Create\Tables\tab.create.recon.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vwCompProf.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwSummarySheet.sql" />
+    <None Include="Loans\Create\Tables\tab.create.notification.sql" />
+    <None Include="Loans\Create\Tables\tab.create.saving.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.getSavingBalance.sql" />
+    <None Include="cweb\tables\tab.create.cuser.sql" />
+    <None Include="Loans\Create\Tables\tab.create.provisions.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.loanActivity.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.agentActivity.sql" />
+    <None Include="Loans\Create\Tables\tab.create.collection.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getCollection.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getCashFlow.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getCollectionRatio.sql" />
+    <None Include="Loans\Create\Tables\tab.create.activity.sql" />
+    <None Include="cweb\tables\webApp.sql" />
+    <None Include="cweb\foreign Keys\webApp.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanAgreements.sql" />
+    <None Include="Loans\Create\Tables\tab.create.loanTemplate.sql" />
+    <None Include="Inventory\Tables\tab.create.productCategory.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.productCategory.sql" />
+    <None Include="Inventory\Schema\sch.create.iv.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.userAudit.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.userAudit.sql" />
+    <None Include="Foundation\Create\Views\vw.create.vwAudit.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwDepositWithdrawal.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwSavingWithdrawal.sql" />
+    <None Include="HumanCapital\Create\Views\vw.create.vwPaymaster.sql" />
+    <None Include="HumanCapital\Create\Views\vw.create.vwPaymasterEarnings.sql" />
+    <None Include="HumanCapital\Create\Views\vw.create.vwPaymasterDeductions.sql" />
+    <None Include="HumanCapital\Create\Views\vw.create.vwPaymasterEmployerPension.sql" />
+    <None Include="Inventory\Tables\tab.create.unitOfMeasurement.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.unitOfMeasurement.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.userError.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.ipf.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwDisbRecComparison.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwCollectionRatioByMonth.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwAlerts.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.ipf.sql" />
+    <None Include="Foundation\Create\Stored Procedures\sp.create.backup.sql" />
+    <None Include="Inventory\Tables\tab.create.location.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.location.sql" />
+    <None Include="Inventory\Tables\tab.create.brand.sql" />
+    <None Include="Inventory\Tables\tab.create.product.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.product.sql" />
+    <None Include="Inventory\Tables\tab.create.inventoryMethod.sql" />
+    <None Include="Inventory\Tables\tab.create.inventoryItem.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.inventoryItem.sql" />
+    <None Include="Inventory\Tables\tab.create.productMake.sql" />
+    <None Include="Inventory\Tables\tab.create.inventoryTransfer.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.inventoryTransfer.sql" />
+    <None Include="SalesOrder\Schema\sch.create.so.sql" />
+    <None Include="SalesOrder\Tables\tab.create.shippingMethod.sql" />
+    <None Include="SalesOrder\Tables\tab.create.paymentMethod.sql" />
+    <None Include="SalesOrder\Tables\tab.create.salesType.sql" />
+    <None Include="SalesOrder\Tables\tab.create.salesOrder.sql" />
+    <None Include="SalesOrder\Foreign Keys\fk.create.salesOrder.sql" />
+    <None Include="Loans\Create\Tables\tab.create.susu.sql" />
+    <None Include="Foundation\Create\Data\dat.sys_no.sql" />
+    <None Include="Loans\Create\Functions\fn.create.susuAccountStatus.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getSusuAccountStatus.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getSusuAccountSchedule.sql" />
+    <None Include="Loans\Create\Views2\vwInvoiceLoan.sql" />
+    <None Include="AR\Create\Tables\tab.create.paymentTerm.sql" />
+    <None Include="AR\Create\Schemas\sch.create.ar.sql" />
+    <None Include="AR\Create\Tables\tab.create.invoiceStatus.sql" />
+    <None Include="AR\Create\Tables\tab.create.arInvoice.sql" />
+    <None Include="AR\Create\Tables\tab.create.arPayment.sql" />
+    <None Include="AR\Create\Foreign Keys\fk.create.arInvoice.sql" />
+    <None Include="AR\Create\Foreign Keys\fk.create.arPayment.sql" />
+    <None Include="AR\Create\Tables\tab.create.creditMemo.sql" />
+    <None Include="AR\Create\Foreign Keys\fk.create.creditMemo.sql" />
+    <None Include="Inventory\Tables\tab.create.openningBalance.sql" />
+    <None Include="Inventory\Tables\tab.create.shrinkage.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.openningBalance.sql" />
+    <None Include="Inventory\Foreign Keys\fk.create.shrinkage.sql" />
+    <None Include="Loans\Create\Tables\tab.create.regularSusu.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getSusuCashFlow.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.interfacePreference.sql" />
+    <None Include="Loans\Create\Functions\fn.create.regularSusuAccountStatus.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getRegularSusuAccountSchedule.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getRegularSusuCashFlow.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getRegularSusuAccountStatus.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwBankDown.sql" />
+    <None Include="Loans\Create\Views2\vwSusuContribution.sql" />
+    <None Include="Loans\Create\Views2\vwSusuAccountDisbursement.sql" />
+    <None Include="Inventory\GL Master Scripts\Create\dat.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Create\fk.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Create\fn.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Create\sp.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Create\tab.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Create\trg.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Create\vw.create.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Drop\fk.drop.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Drop\fn.drop.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Drop\sp.drop.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Drop\tab.drop.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Drop\trg.drop.master.bat" />
+    <None Include="Inventory\GL Master Scripts\Drop\vw.drop.master.bat" />
+    <None Include="Loans\Create\Tables\tab.mod.loan.sql" />
+    <None Include="Loans\Create\Tables\tab.mod.susu.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwCashierDetails.sql" />
+    <None Include="Loans\Create\Tables\tab.create.loanConfig.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwLoanOriginalStatement.sql" />
+    <None Include="Loans\Create\Functions\fn.create.loanBalanceAsAt.sql" />
+    <None Include="Loans\Create\Functions\fn.create.intBalAsAt.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwLoanExpectedSchedule.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwLoanActualSchedule.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwInvoiceLoans.sql" />
+    <None Include="HumanCapital\Create\Views\vw.create.vwPension.sql" />
+    <None Include="Loans\Create\Views3\vw.cretae.vwLoansByStaff.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwDepositBalance.sql" />
+    <None Include="Loans\Create\Tables\tab.create.migrations.sql" />
+    <None Include="Loans\Create\Scripts\script.create.susuProcessing.sql" />
+    <None Include="Loans\Create\Scripts\script.create.loanProcessing.sql" />
+    <None Include="Loans\Create\Scripts\script.create.fixUnbalanceLoans.sql" />
+    <None Include="Notifications\Schema\sch.create.notifications.sql" />
+    <None Include="Notifications\Tables\tab.create.messaging.sql" />
+    <None Include="Notifications\Foreign Keys\fk.create.messaging.sql" />
+    <None Include="Notifications\Indexes\idx.create.messaging.sql" />
+    <None Include="Notifications\Data\dat.create.messageEventCategory.sql" />
+    <None Include="Notifications\Data\dat.create.messageTemplate.sql" />
+    <None Include="Notifications\Data\dat.create.messageFailureReason.sql" />
+    <None Include="Notifications\Data\dat.create.messagingConfig.sql" />
+    <None Include="Notifications\Data\dat.mod.messageTemplate.JIREH.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getPARnPIRDatat.sql" />
+    <None Include="Notifications\Tables\tab.mod.messaging.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.authToken.sql" />
+    <None Include="Notifications\Tables\tab.create.notifications.sql" />
+    <None Include="Notifications\Data\dat.create.notifications.sql" />
+    <None Include="Foundation\Create\Indexes\idx.create.security.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.licenseInfo.sql" />
+    <None Include="Foundation\Create\Data\dat.create.license.pinnacle.sql" />
+    <None Include="MobileMoney\Schema\sch.create.mobilemoney.sql" />
+    <None Include="MobileMoney\Tables\tab.create.mobileMoney.sql" />
+    <None Include="MobileMoney\Foreign Keys\fk.create.mobileMoney.sql" />
+    <None Include="MobileMoney\Indexes\idx.create.mobileMoney.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.accessLevel.sql" />
+    <None Include="Notifications\Data\dat.create.api.smsgh.sql" />
+    <None Include="CreditUnion\Schema\sch.create.creditUnion.sql" />
+    <None Include="CreditUnion\Tables\tab.create.shares.sql" />
+    <None Include="CreditUnion\Foreign Keys\fk.create.shares.sql" />
+    <None Include="CreditUnion\Indexes\idx.create.shares.sql" />
+    <None Include="Preferences\Schema\sch.create.preferences.sql" />
+    <None Include="Preferences\Tables\tab.create.preferences.sql" />
+    <None Include="Preferences\Foreign Keys\fk.create.preferences.sql" />
+    <None Include="Preferences\Data\dat.create.roleMenu.sql" />
+    <None Include="Preferences\Data\dat.create.roleMenuItem.sql" />
+    <None Include="CreditUnion\Views\vw.create.shares.sql" />
+    <None Include="Loans\Create\Tables\tab.create.systemDates.sql" />
+    <None Include="Foundation\Create\Data\dat.mod.modules.2.sql" />
+    <None Include="Loans\Create\Tables\tab.create.loanScheme.sql" />
+    <None Include="Loans\Create\Tables\tab.create.chargeType.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.initRecord.sql" />
+    <None Include="Loans\Create\Views3\vw.susuContribution.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwSavingPlan.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Foundation\Create\Tables\tab.create.acct_bal.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <None Include="TR\Create\Functions\fn.create.transfer_qty.sql">
+      <SubType>Code</SubType>
+    </None>
+    <None Include="TR\Create\Functions\fn.create.transfer_amt.sql">
+      <SubType>Code</SubType>
+    </None>
+    <None Include="TR\Create\Views\vw.create.vw_transfers3.sql">
+      <SubType>Code</SubType>
+    </None>
+    <None Include="Loans\Create\Tables\tab.create.phone.sql" />
+    <None Include="Loans\Create\Data\dat.create.repaymentMode.sql" />
+    <None Include="Loans\Create\Data\dat.create.loanStatus.sql" />
+    <None Include="Loans\Create\Views\vw.create.projection.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwCheckList.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwCollateral.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanAddress.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwOutstanding.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwSchedule.sql" />
+    <None Include="FixedAssets\Create\Foreign Keys\fk.create.staff.sql" />
+    <None Include="FixedAssets\Create\Schemas\sch.create.fa.sql" />
+    <None Include="Loans\Create\Tables\tab.create.deposit.sql" />
+    <None Include="Foundation\Create\Foreign Keys\fk.create.accts.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_amt.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans3.sql" />
+    <None Include="Foundation\Create\Tables\tab.create.def_ln_accts.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans7.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoans5.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.getInvestmentBalance.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwInvestmentStatement.sql" />
+    <None Include="HumanCapital\Create\Tables\tab.create.payroll.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwLoanHistory.sql" />
+    <None Include="HumanCapital\Create\Foreign Keys\fk.create.shift.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwDeposit.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwCashier.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwSavingsStatement.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getMF5.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getMF6.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwDepositAdditional.sql" />
+    <None Include="Foundation\Create\Data\dat.mod.moudles.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getLoanCashflow.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwPLDeductions.sql" />
+    <None Include="Loans\Create\Stored Procedures\proc.create.getPLSMSData.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.bud_amt.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.bud_bal.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.bud_ytd_amt.sql" />
+    <None Include="HumanCapital\Create\Views\vw.create.vwStaff.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwSavingAdditional.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_credit.sql" />
+    <None Include="Foundation\Create\Functions\fn.create.acc_debit.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.address.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.agent.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.cashierTill.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.client.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.clientActivity.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.clientCategory.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.collection.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.deposit.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.document.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.email.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.idNo.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.investment.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.invoiceLoan.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.loan.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.notification.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.phone.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.provisions.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.recon.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.regularSusu.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.saving.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.supplier.sql" />
+    <None Include="Loans\Create\Foreign Keys\fk.create.susu.sql" />
+    <None Include="Loans\Create\Foreign Keys\tab.create.deposit.sql" />
+    <None Include="Loans\Create\Views\vw.create.vwInvestment.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwInvestmentAdditional.sql" />
+    <None Include="Loans\Create\Views2\vw.create.vwInvestmentWithdrawal.sql" />
+    <None Include="Loans\Create\Views3\vw.create.vwInvestmentBalance.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Loans\Create\Tables\tab.create.invoiceLoan.sql" />
+    <None Include="Loans\Create\Tables\tab.mod.all.sql" />
+  </ItemGroup>
+</Project>

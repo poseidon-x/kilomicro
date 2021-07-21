@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Opening Balances";
+}
+
+
+<h2>Enter Opening Balances</h2>
+
+<hr>
+<div id="myform">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-2"> Entry Date </div>
+            <div class="col-md-4">
+                <input type="text" id="openningBalanceBatchDate" required data-required-msg="Invalid" />
+            </div>
+
+            <div class="col-md-2"> Location of Inventory </div>
+            <div class="col-md-4">
+                <input type="text" id="locationId" required data-required-msg="Invalid" />
+            </div>
+        </div>
+
+        <hr>
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Openning Balance</li>
+                </ul>
+                <div>
+                    <div id="openingBalanceGrid"></div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-primary" id="save" value="Save Balance" style="width: 100%"/>
+                </div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var openningBalanceBatchId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Inventory/InventoryOpenningBalanceManagement/enterBalances.js"></script>
+}
+

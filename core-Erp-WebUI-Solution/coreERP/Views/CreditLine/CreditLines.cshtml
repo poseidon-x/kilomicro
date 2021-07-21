@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Sales";
+}
+
+<h2>Credit Lines</h2>
+<hr>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div id="tabs">
+        
+        <ul>
+            <li class="k-state-active">Credit Lines</li>
+        </ul>
+        
+        <div>
+            <div id="grid"> </div>
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/CreditLine/creditLines.js"></script>
+}

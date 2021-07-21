@@ -1,0 +1,75 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "BORROWING DISBURSEMENT";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <p class="title" align="center"> <big>DISBURSE BORROWING ACCOUNT</big></p>
+
+    <div class="row">
+        <div class="col-md-2"> Client: </div>
+        <div class="col-md-4">
+            <input type="text" id="client" placeholder="Select Client" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-2">  Borrowing Number:</div>
+        <div class="col-md-4">
+            <input type="text" id="borrowing" placeholder="Select Client Borrowing Number" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Amount Approved: </div>
+        <div class="col-md-4">
+            <input type="text" id="amountApproved" required data-required-msg="Invalid" readonly />
+        </div>
+
+        <div class="col-md-2"> Disbursed Date: </div>
+        <div class="col-md-4">
+            <input type="text" id="disbursedDate"  required data-required-msg="Invalid" readonly />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Amount Disbursed: </div>
+        <div class="col-md-4">
+            <input type="text" id="amountDisbursed" required data-required-msg="Invalid" />
+        </div>
+
+        <div class="col-md-2"> Mode Of Payment </div>
+        <div class="col-md-4">
+            <input type="text" id="modeOfPayment" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2" id="bankTitle"></div>
+        <div class="col-md-4" id="bankInput"></div>
+
+        <div class="col-md-2" id="chequeNumberTitle"></div>
+        <div class="col-md-4" id="chequeNumberInput">
+        </div>
+    </div>
+    
+
+    <hr>
+    <div class="row">
+        <div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-primary" id="disburse" value="Disburse Borrowing Account" />                
+            </div>
+            <div class="col-md-10"></div>
+        </div><!--SaveButton-->
+    </div>
+
+
+   
+
+</div>
+@section FootScripts{
+    <script type="text/javascript">
+        var borrowingId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Loans/Borrowing/DisburseBorrowing.js"></script>
+}
+

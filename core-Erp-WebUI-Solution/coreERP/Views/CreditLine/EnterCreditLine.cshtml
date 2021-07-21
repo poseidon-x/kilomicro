@@ -1,0 +1,43 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Credit Line";
+
+}
+
+<h2>Credit Line</h2>
+<div class="w-section inverse 1w boxed container form-horizontal">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Client Name</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="client" >
+            </div>
+            <div class="col-md-2">Loan</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="loan" >
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        
+        <hr />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="save">Save Credit Line &raquo;</button>
+            </div>
+        </div>
+
+</div>
+
+
+
+@section FootScripts{
+<script type="text/javascript">
+    var creditLineId = '@ViewBag.id';
+</script>
+
+<script src="~/scripts/app/Loans/CreditLine/enterCreditLine.js"></script>
+}

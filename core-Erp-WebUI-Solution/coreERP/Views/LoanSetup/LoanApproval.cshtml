@@ -1,0 +1,97 @@
+﻿@{
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Loan Approvals";
+}
+
+<hr/>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div id="myModalView" style="width:400px;">
+       
+
+    </div>
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Client</div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="client" readonly data-required-msg="Invalid" />
+                </div>
+                <div class="col-md-2 col-xs-2"> Loan Number </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="loanNo" readonly data-required-msg="Invalid" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Amount Requested</div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="amountRequested" readonly data-required-msg="Invalid" />
+                </div>
+                <div class="col-md-2 col-xs-2"> Application Date </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="applicationDate" readonly data-required-msg="Invalid" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Loan Product</div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="loanType" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2"> Tenure </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="tenure" readonly />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Interest Rate</div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestRate" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2"> Interest Type </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestType" readonly data-required-msg="Invalid" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Repayment Mode</div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="repaymentMode" readonly data-required-msg="Invalid" />
+                </div>
+                <div class="col-md-2 col-xs-2"> Loan Scheme </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="loanScheme" placeholder="Not Applicable" readonly data-required-msg="Invalid" />
+                </div>
+            </div><br />
+
+        </div>
+        <br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Loan Approvals</li>
+                    <li>Insurance</li>
+                </ul>
+                <div>
+                    <div id="approvals"> </div>
+                </div>
+                <div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">Insurance Fee:</div>
+                        <div class="col-md-6">
+                            <input type="text" id="insurance" />
+                        </div>
+                    </div>
+                    <br />
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        <br />
+
+    </div>
+
+@section FootScripts
+{
+<script>
+        var loanID = '@ViewBag.Id';
+</script>
+<script src="~/scripts/app/Loans/setup/LoanApproval.js"></script>
+}

@@ -1,0 +1,57 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Loan Additional Info";
+
+}
+
+<h2>Loan Additional Info</h2>
+<div class="w-section inverse 1w boxed container form-horizontal" id="myform">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Client Name</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="client" name="client" data-val="true" data-val-required="*">
+                <span class="field-validation-valid" data-valmsg-for="client" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-2">Loan Number</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="loan" name="loan" data-val="true" data-val-required="*">
+                <span class="field-validation-valid" data-valmsg-for="loan" data-valmsg-replace="true"></span>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div id="row">
+                <div id="tabs">
+                    <ul>
+                        <li class="k-state-active">Addtional Info</li>
+                    </ul>
+                    <div>
+                        <div id="grid"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="save">Save Additional Info &raquo;</button>
+            </div>
+       </div>
+    </div>
+</div>
+
+
+
+@section FootScripts{
+
+    <script>
+        var id = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/Loans/setup/EnterAdditionalLoanInfo.js"></script>
+
+}

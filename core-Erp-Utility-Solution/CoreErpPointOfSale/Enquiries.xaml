@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="CoreErpPointOfSale.Enquiries"
+        Title="Enquiries" Height="627" Width="713">
+    <Grid Margin="-1,0,-18,-21">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="444*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <telerik:Label Content="Inventory Enquiries" HorizontalAlignment="Left" Margin="261,29,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="20" FontWeight="Bold"/>
+        <RadioButton x:Name="radSearchProduct" Content="Product" HorizontalAlignment="Left" Margin="181,98,0,0" VerticalAlignment="Top" FontFamily="Times New Roman"/>
+        <RadioButton x:Name="radSearchProductSubCat" Content="Product Sub-Category" HorizontalAlignment="Left" Margin="298,98,0,0" VerticalAlignment="Top" FontFamily="Times New Roman"/>
+        <RadioButton x:Name="radSearchCategory" Content="Product Category" HorizontalAlignment="Left" Margin="460,98,0,0" VerticalAlignment="Top" FontFamily="Times New Roman"/>
+        <telerik:RadAutoCompleteBox x:Name="EnquiriesAutoComplete" HorizontalAlignment="Left" Margin="201,159,0,0" VerticalAlignment="Top" Width="306" Height="21" FontFamily="Times New Roman" FontStyle="Italic"/>
+        <Label x:Name="lblSearchCreteria" Content="Search By" HorizontalAlignment="Left" Margin="276,134,0,0" VerticalAlignment="Top" Height="24" RenderTransformOrigin="0.684,0.053" Width="150" FontFamily="Times New Roman"/>
+
+        <telerik:RadGridView x:Name="EnquiriesDataGrid" AlternationCount="2"  ItemsSource="{Binding}"
+                                 AlternateRowBackground="DarkGray"  CanUserInsertRows="False"
+                                 CanUserDeleteRows="True" HorizontalAlignment="Left" Margin="34,201,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="14" >
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Inventory Item" Width="280" DataMemberBinding="{Binding Path=InventoryItemName, Mode=TwoWay}" IsReadOnly="True"/>
+                <telerik:GridViewDataColumn Header="Unit Price"   TextAlignment="Right" Width="110" DataMemberBinding="{Binding Path=UnitPrice, Mode=TwoWay, StringFormat=#.00;;#0}" IsReadOnly="True"/>
+                <telerik:GridViewDataColumn Header="Quantity" TextAlignment="Right" Width="110" DataMemberBinding="{Binding Path=Quantity, Mode=TwoWay, StringFormat=0;;#}" IsReadOnly="True"/>
+                <telerik:GridViewDataColumn Header="Avaliability" TextAlignment="Right" Width="110" DataMemberBinding="{Binding Path=Avaliability, Mode=TwoWay, StringFormat=0;;#0}" IsReadOnly="True"/>
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <Label x:Name="lblSearchCreteria_Copy" Content="Choose a Search Criteria" HorizontalAlignment="Left" Margin="276,66,0,0" VerticalAlignment="Top" Height="24" RenderTransformOrigin="0.684,0.053" Width="150" FontFamily="Times New Roman" FontStyle="Italic"/>
+
+    </Grid>
+</Window>

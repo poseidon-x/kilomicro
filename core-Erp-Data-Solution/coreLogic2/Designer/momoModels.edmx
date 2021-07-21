@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="coreLogic.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2005" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="momoClient">
+          <Key>
+            <PropertyRef Name="momoClientID" />
+          </Key>
+          <Property Name="momoClientID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="clientName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="clientPhoneNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="momoProvider">
+          <Key>
+            <PropertyRef Name="providerID" />
+          </Key>
+          <Property Name="providerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="providerFullName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="providerShortName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="momoProductName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="momoService">
+          <Key>
+            <PropertyRef Name="serviceID" />
+          </Key>
+          <Property Name="serviceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="providerID" Type="int" Nullable="false" />
+          <Property Name="serviceName" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="momoServiceCharge">
+          <Key>
+            <PropertyRef Name="serviceChargeID" />
+          </Key>
+          <Property Name="serviceChargeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="serviceID" Type="int" Nullable="false" />
+          <Property Name="minTranAmount" Type="float" Nullable="false" />
+          <Property Name="maxTranAmount" Type="float" Nullable="false" />
+          <Property Name="chargesValue" Type="float" Nullable="false" />
+          <Property Name="isPercent" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="momoTransaction">
+          <Key>
+            <PropertyRef Name="transactionID" />
+          </Key>
+          <Property Name="transactionID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="walletID" Type="int" Nullable="false" />
+          <Property Name="serviceID" Type="int" Nullable="false" />
+          <Property Name="momoClientID" Type="bigint" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="int" Nullable="false" />
+          <Property Name="bankID" Type="int" />
+          <Property Name="clientPhoneNumber" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="clientName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="tranAmount" Type="float" Nullable="false" />
+          <Property Name="chargesAmount" Type="float" Nullable="false" />
+          <Property Name="transactionDate" Type="datetime" Nullable="false" />
+          <Property Name="enteredBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="entryDate" Type="datetime" Nullable="false" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="postedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="postingDate" Type="datetime" />
+          <Property Name="version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="momoWallet">
+          <Key>
+            <PropertyRef Name="walletID" />
+          </Key>
+          <Property Name="walletID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cashiersTillID" Type="int" Nullable="false" />
+          <Property Name="providerID" Type="int" Nullable="false" />
+          <Property Name="accountNumber" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="walletAccountID" Type="int" Nullable="false" />
+          <Property Name="chargesIncomeAccountID" Type="int" Nullable="false" />
+          <Property Name="chargesExpenseAccountID" Type="int" Nullable="false" />
+          <Property Name="enteredBy" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="entryDate" Type="datetime" Nullable="false" />
+          <Property Name="balance" Type="float" Nullable="false" />
+          <Property Name="version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="walletCashup">
+          <Key>
+            <PropertyRef Name="walletCashupID" />
+          </Key>
+          <Property Name="walletCashupID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="walletID" Type="int" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="int" Nullable="false" />
+          <Property Name="bankID" Type="int" />
+          <Property Name="cashupDate" Type="datetime" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="chargesAmount" Type="float" Nullable="false" />
+          <Property Name="balanceAfter" Type="float" Nullable="false" />
+          <Property Name="destAccountID" Type="int" Nullable="false" />
+          <Property Name="enteredBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="entryDate" Type="datetime" Nullable="false" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="postedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="postingDate" Type="datetime" />
+          <Property Name="version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="walletLoading">
+          <Key>
+            <PropertyRef Name="walletLoadingID" />
+          </Key>
+          <Property Name="walletLoadingID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="walletID" Type="int" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="int" Nullable="false" />
+          <Property Name="bankID" Type="int" />
+          <Property Name="loadingDate" Type="datetime" Nullable="false" />
+          <Property Name="amountLoaded" Type="float" Nullable="false" />
+          <Property Name="balanceAfter" Type="float" Nullable="false" />
+          <Property Name="enteredBy" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="entryDate" Type="datetime" Nullable="false" />
+          <Property Name="posted" Type="bit" Nullable="false" />
+          <Property Name="postedBy" Type="nvarchar" MaxLength="30" />
+          <Property Name="postingDate" Type="datetime" />
+          <Property Name="version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_momoService_provider">
+          <End Role="momoProvider" Type="Self.momoProvider" Multiplicity="1" />
+          <End Role="momoService" Type="Self.momoService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoProvider">
+              <PropertyRef Name="providerID" />
+            </Principal>
+            <Dependent Role="momoService">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoServiceCharge_momoService">
+          <End Role="momoService" Type="Self.momoService" Multiplicity="1" />
+          <End Role="momoServiceCharge" Type="Self.momoServiceCharge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoService">
+              <PropertyRef Name="serviceID" />
+            </Principal>
+            <Dependent Role="momoServiceCharge">
+              <PropertyRef Name="serviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoTransaction_momoClient">
+          <End Role="momoClient" Type="Self.momoClient" Multiplicity="1" />
+          <End Role="momoTransaction" Type="Self.momoTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoClient">
+              <PropertyRef Name="momoClientID" />
+            </Principal>
+            <Dependent Role="momoTransaction">
+              <PropertyRef Name="momoClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoTransaction_momoService">
+          <End Role="momoService" Type="Self.momoService" Multiplicity="1" />
+          <End Role="momoTransaction" Type="Self.momoTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoService">
+              <PropertyRef Name="serviceID" />
+            </Principal>
+            <Dependent Role="momoTransaction">
+              <PropertyRef Name="serviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoTransaction_momoWallet">
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="1" />
+          <End Role="momoTransaction" Type="Self.momoTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoWallet">
+              <PropertyRef Name="walletID" />
+            </Principal>
+            <Dependent Role="momoTransaction">
+              <PropertyRef Name="walletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoWallet_serviceProvider">
+          <End Role="momoProvider" Type="Self.momoProvider" Multiplicity="1" />
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoProvider">
+              <PropertyRef Name="providerID" />
+            </Principal>
+            <Dependent Role="momoWallet">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_walletCashup_momoWallet">
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="1" />
+          <End Role="walletCashup" Type="Self.walletCashup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoWallet">
+              <PropertyRef Name="walletID" />
+            </Principal>
+            <Dependent Role="walletCashup">
+              <PropertyRef Name="walletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_walletLoading_momoWallet">
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="1" />
+          <End Role="walletLoading" Type="Self.walletLoading" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoWallet">
+              <PropertyRef Name="walletID" />
+            </Principal>
+            <Dependent Role="walletLoading">
+              <PropertyRef Name="walletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coreLogicStoreContainer">
+          <EntitySet Name="momoClient" EntityType="Self.momoClient" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="momoProvider" EntityType="Self.momoProvider" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="momoService" EntityType="Self.momoService" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="momoServiceCharge" EntityType="Self.momoServiceCharge" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="momoTransaction" EntityType="Self.momoTransaction" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="momoWallet" EntityType="Self.momoWallet" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="walletCashup" EntityType="Self.walletCashup" Schema="momo" store:Type="Tables" />
+          <EntitySet Name="walletLoading" EntityType="Self.walletLoading" Schema="momo" store:Type="Tables" />
+          <AssociationSet Name="fk_momoService_provider" Association="Self.fk_momoService_provider">
+            <End Role="momoProvider" EntitySet="momoProvider" />
+            <End Role="momoService" EntitySet="momoService" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoServiceCharge_momoService" Association="Self.fk_momoServiceCharge_momoService">
+            <End Role="momoService" EntitySet="momoService" />
+            <End Role="momoServiceCharge" EntitySet="momoServiceCharge" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoTransaction_momoClient" Association="Self.fk_momoTransaction_momoClient">
+            <End Role="momoClient" EntitySet="momoClient" />
+            <End Role="momoTransaction" EntitySet="momoTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoTransaction_momoService" Association="Self.fk_momoTransaction_momoService">
+            <End Role="momoService" EntitySet="momoService" />
+            <End Role="momoTransaction" EntitySet="momoTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoTransaction_momoWallet" Association="Self.fk_momoTransaction_momoWallet">
+            <End Role="momoWallet" EntitySet="momoWallet" />
+            <End Role="momoTransaction" EntitySet="momoTransaction" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoWallet_serviceProvider" Association="Self.fk_momoWallet_serviceProvider">
+            <End Role="momoProvider" EntitySet="momoProvider" />
+            <End Role="momoWallet" EntitySet="momoWallet" />
+          </AssociationSet>
+          <AssociationSet Name="fk_walletCashup_momoWallet" Association="Self.fk_walletCashup_momoWallet">
+            <End Role="momoWallet" EntitySet="momoWallet" />
+            <End Role="walletCashup" EntitySet="walletCashup" />
+          </AssociationSet>
+          <AssociationSet Name="fk_walletLoading_momoWallet" Association="Self.fk_walletLoading_momoWallet">
+            <End Role="momoWallet" EntitySet="momoWallet" />
+            <End Role="walletLoading" EntitySet="walletLoading" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="coreLogic" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="momoClient">
+          <Key>
+            <PropertyRef Name="momoClientID" />
+          </Key>
+          <Property Name="momoClientID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="clientPhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="momoTransactions" Relationship="Self.fk_momoTransaction_momoClient" FromRole="momoClient" ToRole="momoTransaction" />
+        </EntityType>
+        <EntityType Name="momoProvider">
+          <Key>
+            <PropertyRef Name="providerID" />
+          </Key>
+          <Property Name="providerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="providerFullName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="providerShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="momoProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="momoWallets" Relationship="Self.fk_momoWallet_serviceProvider" FromRole="momoProvider" ToRole="momoWallet" />
+          <NavigationProperty Name="momoServices" Relationship="coreLogic.fk_momoService_provider" FromRole="momoProvider" ToRole="momoService" />
+        </EntityType>
+        <EntityType Name="momoService">
+          <Key>
+            <PropertyRef Name="serviceID" />
+          </Key>
+          <Property Name="serviceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="providerID" Type="Int32" Nullable="false" />
+          <Property Name="serviceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="momoServiceCharges" Relationship="Self.fk_momoServiceCharge_momoService" FromRole="momoService" ToRole="momoServiceCharge" />
+          <NavigationProperty Name="momoTransactions" Relationship="Self.fk_momoTransaction_momoService" FromRole="momoService" ToRole="momoTransaction" />
+          <NavigationProperty Name="momoProvider" Relationship="coreLogic.fk_momoService_provider" FromRole="momoService" ToRole="momoProvider" />
+        </EntityType>
+        <EntityType Name="momoServiceCharge">
+          <Key>
+            <PropertyRef Name="serviceChargeID" />
+          </Key>
+          <Property Name="serviceChargeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serviceID" Type="Int32" Nullable="false" />
+          <Property Name="minTranAmount" Type="Double" Nullable="false" />
+          <Property Name="maxTranAmount" Type="Double" Nullable="false" />
+          <Property Name="chargesValue" Type="Double" Nullable="false" />
+          <Property Name="isPercent" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="momoService" Relationship="Self.fk_momoServiceCharge_momoService" FromRole="momoServiceCharge" ToRole="momoService" />
+        </EntityType>
+        <EntityType Name="momoTransaction">
+          <Key>
+            <PropertyRef Name="transactionID" />
+          </Key>
+          <Property Name="transactionID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="walletID" Type="Int32" Nullable="false" />
+          <Property Name="serviceID" Type="Int32" Nullable="false" />
+          <Property Name="momoClientID" Type="Int64" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="Int32" Nullable="false" />
+          <Property Name="bankID" Type="Int32" />
+          <Property Name="clientPhoneNumber" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="clientName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tranAmount" Type="Double" Nullable="false" />
+          <Property Name="chargesAmount" Type="Double" Nullable="false" />
+          <Property Name="transactionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="enteredBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="entryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="posted" Type="Boolean" Nullable="false" />
+          <Property Name="postedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="postingDate" Type="DateTime" Precision="3" />
+          <Property Name="version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="momoClient" Relationship="Self.fk_momoTransaction_momoClient" FromRole="momoTransaction" ToRole="momoClient" />
+          <NavigationProperty Name="momoService" Relationship="Self.fk_momoTransaction_momoService" FromRole="momoTransaction" ToRole="momoService" />
+          <NavigationProperty Name="momoWallet" Relationship="Self.fk_momoTransaction_momoWallet" FromRole="momoTransaction" ToRole="momoWallet" />
+        </EntityType>
+        <EntityType Name="momoWallet">
+          <Key>
+            <PropertyRef Name="walletID" />
+          </Key>
+          <Property Name="walletID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cashiersTillID" Type="Int32" Nullable="false" />
+          <Property Name="providerID" Type="Int32" Nullable="false" />
+          <Property Name="accountNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="walletAccountID" Type="Int32" Nullable="false" />
+          <Property Name="chargesIncomeAccountID" Type="Int32" Nullable="false" />
+          <Property Name="chargesExpenseAccountID" Type="Int32" Nullable="false" />
+          <Property Name="enteredBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="entryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="balance" Type="Double" Nullable="false" />
+          <Property Name="version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="momoProvider" Relationship="Self.fk_momoWallet_serviceProvider" FromRole="momoWallet" ToRole="momoProvider" />
+          <NavigationProperty Name="momoTransactions" Relationship="Self.fk_momoTransaction_momoWallet" FromRole="momoWallet" ToRole="momoTransaction" />
+          <NavigationProperty Name="walletCashups" Relationship="Self.fk_walletCashup_momoWallet" FromRole="momoWallet" ToRole="walletCashup" />
+          <NavigationProperty Name="walletLoadings" Relationship="Self.fk_walletLoading_momoWallet" FromRole="momoWallet" ToRole="walletLoading" />
+        </EntityType>
+        <EntityType Name="walletCashup">
+          <Key>
+            <PropertyRef Name="walletCashupID" />
+          </Key>
+          <Property Name="walletCashupID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="walletID" Type="Int32" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="Int32" Nullable="false" />
+          <Property Name="bankID" Type="Int32" />
+          <Property Name="cashupDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="amount" Type="Double" Nullable="false" />
+          <Property Name="chargesAmount" Type="Double" Nullable="false" />
+          <Property Name="balanceAfter" Type="Double" Nullable="false" />
+          <Property Name="destAccountID" Type="Int32" Nullable="false" />
+          <Property Name="enteredBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="entryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="posted" Type="Boolean" Nullable="false" />
+          <Property Name="postedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="postingDate" Type="DateTime" Precision="3" />
+          <Property Name="version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="momoWallet" Relationship="Self.fk_walletCashup_momoWallet" FromRole="walletCashup" ToRole="momoWallet" />
+        </EntityType>
+        <EntityType Name="walletLoading">
+          <Key>
+            <PropertyRef Name="walletLoadingID" />
+          </Key>
+          <Property Name="walletLoadingID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="walletID" Type="Int32" Nullable="false" />
+          <Property Name="modeOfPaymentID" Type="Int32" Nullable="false" />
+          <Property Name="bankID" Type="Int32" />
+          <Property Name="loadingDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="amountLoaded" Type="Double" Nullable="false" />
+          <Property Name="balanceAfter" Type="Double" Nullable="false" />
+          <Property Name="enteredBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="entryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="posted" Type="Boolean" Nullable="false" />
+          <Property Name="postedBy" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="postingDate" Type="DateTime" Precision="3" />
+          <Property Name="version" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="momoWallet" Relationship="Self.fk_walletLoading_momoWallet" FromRole="walletLoading" ToRole="momoWallet" />
+        </EntityType>
+        <Association Name="fk_momoTransaction_momoClient">
+          <End Role="momoClient" Type="Self.momoClient" Multiplicity="1" />
+          <End Role="momoTransaction" Type="Self.momoTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoClient">
+              <PropertyRef Name="momoClientID" />
+            </Principal>
+            <Dependent Role="momoTransaction">
+              <PropertyRef Name="momoClientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoWallet_serviceProvider">
+          <End Role="momoProvider" Type="Self.momoProvider" Multiplicity="1" />
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoProvider">
+              <PropertyRef Name="providerID" />
+            </Principal>
+            <Dependent Role="momoWallet">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoServiceCharge_momoService">
+          <End Role="momoService" Type="Self.momoService" Multiplicity="1" />
+          <End Role="momoServiceCharge" Type="Self.momoServiceCharge" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoService">
+              <PropertyRef Name="serviceID" />
+            </Principal>
+            <Dependent Role="momoServiceCharge">
+              <PropertyRef Name="serviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoTransaction_momoService">
+          <End Role="momoService" Type="Self.momoService" Multiplicity="1" />
+          <End Role="momoTransaction" Type="Self.momoTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoService">
+              <PropertyRef Name="serviceID" />
+            </Principal>
+            <Dependent Role="momoTransaction">
+              <PropertyRef Name="serviceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_momoTransaction_momoWallet">
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="1" />
+          <End Role="momoTransaction" Type="Self.momoTransaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoWallet">
+              <PropertyRef Name="walletID" />
+            </Principal>
+            <Dependent Role="momoTransaction">
+              <PropertyRef Name="walletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_walletCashup_momoWallet">
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="1" />
+          <End Role="walletCashup" Type="Self.walletCashup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoWallet">
+              <PropertyRef Name="walletID" />
+            </Principal>
+            <Dependent Role="walletCashup">
+              <PropertyRef Name="walletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_walletLoading_momoWallet">
+          <End Role="momoWallet" Type="Self.momoWallet" Multiplicity="1" />
+          <End Role="walletLoading" Type="Self.walletLoading" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoWallet">
+              <PropertyRef Name="walletID" />
+            </Principal>
+            <Dependent Role="walletLoading">
+              <PropertyRef Name="walletID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="momoModelsConnectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="momoClients" EntityType="Self.momoClient" />
+          <EntitySet Name="momoProviders" EntityType="Self.momoProvider" />
+          <EntitySet Name="momoServices" EntityType="Self.momoService" />
+          <EntitySet Name="momoServiceCharges" EntityType="Self.momoServiceCharge" />
+          <EntitySet Name="momoTransactions" EntityType="Self.momoTransaction" />
+          <EntitySet Name="momoWallets" EntityType="Self.momoWallet" />
+          <EntitySet Name="walletCashups" EntityType="Self.walletCashup" />
+          <EntitySet Name="walletLoadings" EntityType="Self.walletLoading" />
+          <AssociationSet Name="fk_momoTransaction_momoClient" Association="Self.fk_momoTransaction_momoClient">
+            <End Role="momoClient" EntitySet="momoClients" />
+            <End Role="momoTransaction" EntitySet="momoTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoWallet_serviceProvider" Association="Self.fk_momoWallet_serviceProvider">
+            <End Role="momoProvider" EntitySet="momoProviders" />
+            <End Role="momoWallet" EntitySet="momoWallets" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoServiceCharge_momoService" Association="Self.fk_momoServiceCharge_momoService">
+            <End Role="momoService" EntitySet="momoServices" />
+            <End Role="momoServiceCharge" EntitySet="momoServiceCharges" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoTransaction_momoService" Association="Self.fk_momoTransaction_momoService">
+            <End Role="momoService" EntitySet="momoServices" />
+            <End Role="momoTransaction" EntitySet="momoTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoTransaction_momoWallet" Association="Self.fk_momoTransaction_momoWallet">
+            <End Role="momoWallet" EntitySet="momoWallets" />
+            <End Role="momoTransaction" EntitySet="momoTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_walletCashup_momoWallet" Association="Self.fk_walletCashup_momoWallet">
+            <End Role="momoWallet" EntitySet="momoWallets" />
+            <End Role="walletCashup" EntitySet="walletCashups" />
+          </AssociationSet>
+          <AssociationSet Name="fk_walletLoading_momoWallet" Association="Self.fk_walletLoading_momoWallet">
+            <End Role="momoWallet" EntitySet="momoWallets" />
+            <End Role="walletLoading" EntitySet="walletLoadings" />
+          </AssociationSet>
+          <AssociationSet Name="fk_momoService_provider" Association="coreLogic.fk_momoService_provider">
+            <End Role="momoProvider" EntitySet="momoProviders" />
+            <End Role="momoService" EntitySet="momoServices" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="fk_momoService_provider">
+          <End Type="coreLogic.momoProvider" Role="momoProvider" Multiplicity="1" />
+          <End Type="coreLogic.momoService" Role="momoService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="momoProvider">
+              <PropertyRef Name="providerID" />
+            </Principal>
+            <Dependent Role="momoService">
+              <PropertyRef Name="providerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="coreLogicStoreContainer" CdmEntityContainer="momoModelsConnectionString">
+          <EntitySetMapping Name="momoClients">
+            <EntityTypeMapping TypeName="coreLogic.momoClient">
+              <MappingFragment StoreEntitySet="momoClient">
+                <ScalarProperty Name="momoClientID" ColumnName="momoClientID" />
+                <ScalarProperty Name="clientName" ColumnName="clientName" />
+                <ScalarProperty Name="clientPhoneNumber" ColumnName="clientPhoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="momoProviders">
+            <EntityTypeMapping TypeName="coreLogic.momoProvider">
+              <MappingFragment StoreEntitySet="momoProvider">
+                <ScalarProperty Name="providerID" ColumnName="providerID" />
+                <ScalarProperty Name="providerFullName" ColumnName="providerFullName" />
+                <ScalarProperty Name="providerShortName" ColumnName="providerShortName" />
+                <ScalarProperty Name="momoProductName" ColumnName="momoProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="momoServices">
+            <EntityTypeMapping TypeName="coreLogic.momoService">
+              <MappingFragment StoreEntitySet="momoService">
+                <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+                <ScalarProperty Name="providerID" ColumnName="providerID" />
+                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="momoServiceCharges">
+            <EntityTypeMapping TypeName="coreLogic.momoServiceCharge">
+              <MappingFragment StoreEntitySet="momoServiceCharge">
+                <ScalarProperty Name="serviceChargeID" ColumnName="serviceChargeID" />
+                <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+                <ScalarProperty Name="minTranAmount" ColumnName="minTranAmount" />
+                <ScalarProperty Name="maxTranAmount" ColumnName="maxTranAmount" />
+                <ScalarProperty Name="chargesValue" ColumnName="chargesValue" />
+                <ScalarProperty Name="isPercent" ColumnName="isPercent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="momoTransactions">
+            <EntityTypeMapping TypeName="coreLogic.momoTransaction">
+              <MappingFragment StoreEntitySet="momoTransaction">
+                <ScalarProperty Name="transactionID" ColumnName="transactionID" />
+                <ScalarProperty Name="walletID" ColumnName="walletID" />
+                <ScalarProperty Name="serviceID" ColumnName="serviceID" />
+                <ScalarProperty Name="momoClientID" ColumnName="momoClientID" />
+                <ScalarProperty Name="modeOfPaymentID" ColumnName="modeOfPaymentID" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="clientPhoneNumber" ColumnName="clientPhoneNumber" />
+                <ScalarProperty Name="clientName" ColumnName="clientName" />
+                <ScalarProperty Name="tranAmount" ColumnName="tranAmount" />
+                <ScalarProperty Name="chargesAmount" ColumnName="chargesAmount" />
+                <ScalarProperty Name="transactionDate" ColumnName="transactionDate" />
+                <ScalarProperty Name="enteredBy" ColumnName="enteredBy" />
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+                <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="postedBy" ColumnName="postedBy" />
+                <ScalarProperty Name="postingDate" ColumnName="postingDate" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="momoWallets">
+            <EntityTypeMapping TypeName="coreLogic.momoWallet">
+              <MappingFragment StoreEntitySet="momoWallet">
+                <ScalarProperty Name="walletID" ColumnName="walletID" />
+                <ScalarProperty Name="cashiersTillID" ColumnName="cashiersTillID" />
+                <ScalarProperty Name="providerID" ColumnName="providerID" />
+                <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+                <ScalarProperty Name="walletAccountID" ColumnName="walletAccountID" />
+                <ScalarProperty Name="chargesIncomeAccountID" ColumnName="chargesIncomeAccountID" />
+                <ScalarProperty Name="chargesExpenseAccountID" ColumnName="chargesExpenseAccountID" />
+                <ScalarProperty Name="enteredBy" ColumnName="enteredBy" />
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="walletCashups">
+            <EntityTypeMapping TypeName="coreLogic.walletCashup">
+              <MappingFragment StoreEntitySet="walletCashup">
+                <ScalarProperty Name="walletCashupID" ColumnName="walletCashupID" />
+                <ScalarProperty Name="walletID" ColumnName="walletID" />
+                <ScalarProperty Name="modeOfPaymentID" ColumnName="modeOfPaymentID" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="cashupDate" ColumnName="cashupDate" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="chargesAmount" ColumnName="chargesAmount" />
+                <ScalarProperty Name="balanceAfter" ColumnName="balanceAfter" />
+                <ScalarProperty Name="destAccountID" ColumnName="destAccountID" />
+                <ScalarProperty Name="enteredBy" ColumnName="enteredBy" />
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+                <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="postedBy" ColumnName="postedBy" />
+                <ScalarProperty Name="postingDate" ColumnName="postingDate" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="walletLoadings">
+            <EntityTypeMapping TypeName="coreLogic.walletLoading">
+              <MappingFragment StoreEntitySet="walletLoading">
+                <ScalarProperty Name="walletLoadingID" ColumnName="walletLoadingID" />
+                <ScalarProperty Name="walletID" ColumnName="walletID" />
+                <ScalarProperty Name="modeOfPaymentID" ColumnName="modeOfPaymentID" />
+                <ScalarProperty Name="bankID" ColumnName="bankID" />
+                <ScalarProperty Name="loadingDate" ColumnName="loadingDate" />
+                <ScalarProperty Name="amountLoaded" ColumnName="amountLoaded" />
+                <ScalarProperty Name="balanceAfter" ColumnName="balanceAfter" />
+                <ScalarProperty Name="enteredBy" ColumnName="enteredBy" />
+                <ScalarProperty Name="entryDate" ColumnName="entryDate" />
+                <ScalarProperty Name="posted" ColumnName="posted" />
+                <ScalarProperty Name="postedBy" ColumnName="postedBy" />
+                <ScalarProperty Name="postingDate" ColumnName="postingDate" />
+                <ScalarProperty Name="version" ColumnName="version" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

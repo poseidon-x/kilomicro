@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "Outstanding Schedule Repayments or Deductions";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 250px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<div class="subForm">
+    <div class="subFormColumnLeft">
+        <div class="subFormLabel">Start Date</div>
+        <div class="subFormInput"><input id="startDate" type="date" /></div>
+        <div class="subFormLabel">Department (Branch)</div>
+        <div class="subFormInput"><input id="branch" type="text" class="inputControl" /></div>
+    </div>
+    <div class="subFormColumnMiddle">
+        <div class="subFormLabel">End Date</div>
+        <div class="subFormInput"><input id="endDate" type="date" /></div>
+        <div class="subFormLabel"><input type="button" class="btn btn-primary" id="run" value="Generate Report" /></div>
+    </div>
+    <div class="subFormColumnRight">
+        <div class="subFormLabel">Client (Customer)</div>
+        <div class="subFormInput"><input id="client" type="text" class="inputControl" /></div>
+    </div>
+</div>
+    <div id="reportViewer1" class="k-widget">
+    </div>
+
+@section FootScripts
+{
+    <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+
+    <script type="text/javascript">
+        var branchApiUrl = coreERPAPI_URL_Root + "/crud/Branch";
+        var clientApiUrl = coreERPAPI_URL_Root + "/crud/ClientLookUp";
+        $.ajaxSetup({
+            type: "POST",
+            beforeSend: function(req) {
+                req.setRequestHeader('Authorization', "coreBearer " + authToken);
+            },
+        });
+
+        $.ajaxSetup({
+            type: "GET",
+            beforeSend: function(req) {
+                req.setRequestHeader('Authorization', "coreBearer " + authToken);
+            },
+        });
+
+        $.ajaxSetup({
+            type: "OPTIONS",
+            beforeSend: function(req) {
+                req.setRequestHeader('Authorization', "coreBearer " + authToken);
+            },
+        });
+
+        $(function () {
+            var today = new Date();
+            var tenYearsAgo = new Date();
+            tenYearsAgo.setFullYear(tenYearsAgo.getFullYear() - 10);
+            $("#startDate").kendoDatePicker({
+                value: tenYearsAgo,
+                format: "dd-MMM-yyyy",
+                parseFormat: ["dd-MM-yy", "dd-MM-yyyy", "dd-MMM-yy", "dd/MM/yy", "dd/MM/yyyy"]
+            });
+            $("#endDate").kendoDatePicker({
+                value: today,
+                format: "dd-MMM-yyyy",
+                parseFormat: ["dd-MM-yy", "dd-MM-yyyy", "dd-MMM-yy", "dd/MM/yy", "dd/MM/yyyy"]
+            });
+            renderBranches();
+            renderClients();
+            $("#run").click(function() {
+                loadReport($("#startDate").data("kendoDatePicker").value(), $("#endDate").data("kendoDatePicker").value(),
+                    $("#branch").data("kendoDropDownList").value(), $("#client").data("kendoDropDownList").value());
+            });
+        });
+
+        function loadReport(startDate, endDate, branchId, clientId) {
+            if (branchId === "" || branchId === " ") branchId = -1;
+            if (clientId === "" || clientId === " ") clientId = -1;
+            $("#reportViewer1").replaceWith('<div id="reportViewer1" class="k-widget">');
+            $("#reportViewer1")
+                .telerik_ReportViewer({
+                    serviceUrl: coreERPAPI_URL_Root + "/Reporting/",
+                    
+                    reportSource: {
+                        report: "coreData.Reports.Loans.OutstandingScheduleItemsReport, coreData",
+                        parameters: {
+                            endDate: endDate,
+                            startDate: startDate,
+                            branchId: branchId,
+                            clientId: clientId,
+                        },
+                    },
+                    persistSession: false,
+                });
+        }
+
+        function renderBranches() {
+            var branchId = getParameterByName('branchId');
+
+            try {
+                $('#branch').kendoDropDownList({
+                    optionLabel: " ",
+                    autoBind: true,
+                    dataValueField: "branchID",
+                    dataTextField: "branchName",
+                    value: branchId,
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: branchApiUrl + "/Get",
+                                type: "GET",
+                                contentType: "application/json",
+                                beforeSend: function (req) {
+                                    req.setRequestHeader('Authorization', "coreBearer " + authToken);
+                                }
+                            },
+                            parameterMap: function (data, type) {
+                                return kendo.stringify(data);
+                            },
+                        },
+                    }, 
+                });
+            }
+            catch (e) { }
+        }
+
+        function renderClients() {
+            
+            try {
+                $('#client').kendoDropDownList({
+                    optionLabel: " ",
+                    autoBind: true,
+                    dataValueField: "clientID",
+                    dataTextField: "clientName",
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: clientApiUrl + "/GetLoanClients",
+                                type: "GET",
+                                contentType: "application/json",
+                                beforeSend: function (req) {
+                                    req.setRequestHeader('Authorization', "coreBearer " + authToken);
+                                }
+                            },
+                            parameterMap: function (data, type) {
+                                return kendo.stringify(data);
+                            },
+                        },
+                    },
+                });
+            }
+            catch (e) { }
+        }
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+    </script>
+}

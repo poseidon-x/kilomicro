@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title ="Application for Salary Loan";
+}
+
+<h2>Application for Salary Loan</h2>
+<div class="form-horizontal">
+    <div class="row form-group">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><label for="client">Client Name</label></div>
+        <div class="col-md-3"><input type="text" id="client" class="inputControl"/></div>
+        <div class="col-md-2"><label for="employer">Employer's Name</label></div>
+        <div class="col-md-3"><input type="text" id="employer" class="inputControl"/></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><label for="approvingDirector">Approving Director</label></div>
+        <div class="col-md-3"><input type="text" id="approvingDirector" class="inputControl"/></div>
+        <div class="col-md-2"><label for="employmentStartDate">Emp. Start Date</label></div>
+        <div class="col-md-3"><input type="date" id="employmentStartDate" class="inputControl"/></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><label for="config">Salary Loan Product</label></div>
+        <div class="col-md-3"><input type="text" id="config" class="inputControl"/></div>
+        <div class="col-md-2"><label for="applicationDate">Application Date</label></div>
+        <div class="col-md-3"><input type="date" id="applicationDate" class="inputControl"/></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><label for="applicationAmount">Application Amount</label></div>
+        <div class="col-md-3"><input type="number" id="applicationAmount" class="inputControl"/></div>
+        <div class="col-md-2"><label for="basicSalary">Basic Salary</label></div>
+        <div class="col-md-3"><input type="number" id="basicSalary" class="inputControl"/></div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"><label for="totalAllowances">Total Allowances</label>
+        </div>
+        <div class="col-md-3"><input type="number" id="totalAllowances" class="inputControl"/>
+        </div>
+        <div class="col-md-2"><label for="nominalDeductions">Total Deductions</label>
+        </div>
+        <div class="col-md-3"><input type="number" id="nominalDeductions" class="inputControl"/>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-md-1"></div>
+        <input type="button" id="save" value="Save Salary Loan Application" class="btn btn-primary">
+    </div>
+</div>
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var salaryLoanId = '@ViewBag.Id';
+    </script>
+    <script src="/scripts/app/Loans/SalaryLoans/salaryLoanApplication.js"></script>
+    <script src="/scripts/app/utilities.js"></script>
+}

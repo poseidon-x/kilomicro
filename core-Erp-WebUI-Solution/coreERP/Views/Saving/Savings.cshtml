@@ -1,0 +1,107 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "savings Account";
+}
+
+<h2>Saving Account</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6 col-xs-6" align="center">
+                    <img id="clientImage" class="img-rounded" alt="Client Image" height="120" width="120" />
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Client</div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="client" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Openning Date: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="firstSavingDate" />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Account Type: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="savingType"/>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Annual Interest Rate: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="annualInterestRate" />
+                </div>
+                <div class="col-md-2 col-xs-2">Monthly Interest Rate: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="monthlyInterestRate"  />
+                </div>
+            </div><br />
+            <!--<div class="row">
+                <div class="col-md-2 col-xs-2">Deposit Plan: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="savingPlan"  />
+                </div>
+                <div class="col-md-2 col-xs-2">Deposit Plan Amount: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="savingPlanAmount"  />
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Principal Repayment Freq.: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="principalRepaymentMode" />
+                </div>
+                <div class="col-md-2 col-xs-2">Interest Repayment Freq: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestRepaymentMode" />
+                </div>
+            </div><br/> -->
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Field Agent: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="agent" />
+                </div>
+                <div class="col-md-2 col-xs-2">Relations Officer: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="staff" readonly/>
+                </div>
+            </div><br />
+           <div class="row">
+                <div class="col-md-2 col-xs-2">Bank: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="bank" />
+                </div>
+                <div class="col-md-2 col-xs-2">Naration: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="naration" />
+                </div>
+            </div><br/> 
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Save Account &raquo; </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+        <br />
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var savingId = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/Loans/savings/savings.js"></script>
+}

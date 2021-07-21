@@ -1,0 +1,1078 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>coreERP Small and Medium Scale Business Management Software Solution- Table of Contents</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Personal Edition 4.3.1.364">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/dynatree/chm/ui.dynatree.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#tabs .ui-widget-header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="js/hndjsse.js"></script>
+	<script type="text/javascript">
+	
+		window.bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+	
+		$(document).ready(function()
+		{
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1
+			else if (sAnchorName == '_search') nSelectedTab = 2;			
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+			
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				// Expand all nodes if required
+				$("#tab-toc").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				// Select the active help id
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+			
+			// Keywords
+			
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onClick: function(node, event){
+						HideKwPopup();
+						if (node.data && node.data.click)
+						{
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList))
+							{
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if(node.data.href && node.data.href != '#'){
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				// Expand all nodes if required
+				$("#tab-keywords").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				}
+			
+			// Load search data
+			(function() {
+				var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+				se.src = 'js/hndsd.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+			})();
+		});
+		
+		$('body').click(function() {
+			HideKwPopup();
+		});
+		
+		function SelectTocItem(sHelpId)
+		{
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				$("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId).activateSilently();
+			}
+			else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+		
+		function HideKwPopup()
+		{
+			if($("#popupMenu")) $("#popupMenu").remove();
+		}
+		
+		function ShowKwPopup(oSender, aLinks)
+		{
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+			else if (aLinks.length == 1) return true
+			else
+			{
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+				{
+					oLink = document.createElement("A");
+					oLink.innerHTML = aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset(); 
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left+20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+		
+		function PerformSearch()
+		{
+			if (!window.bSearchDataLoaded) {
+				$("#search_results").html("Search engine data hasn't been fully loaded yet or an error occurred while loading it. This usually happens when documentation is browsed locally.");
+				return;
+			}
+			sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);			
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+			{
+				$("#search_results").html('No results found.');
+			}
+			else
+			{
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+				{
+					if (oSearchEngine.aResults[nCnt][0] < aTl.length)
+					{
+						oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+					}
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="tabs">
+		<ul>
+			<li><a href="#tab-toc">Contents</a></li>
+			<li><a href="#tab-keywords">Index</a></li>
+			<li><a href="#tab-search">Search</a></li>
+			</ul>
+		<div id="tab-toc">
+			<ul id="toc" class="">
+
+				<li class="folder" id="Introduction" data="">
+							<a
+							href="Introduction.html"
+							target="FrameMain">
+								Introduction</a>
+
+				<ul><li class="" id="LoginIntotheSystem" data="">
+							<a
+							href="LoginIntotheSystem.html"
+							target="FrameMain">
+								Login Into the System</a>
+
+				</li><li class="" id="NavigatingtheMenuStructure" data="">
+							<a
+							href="NavigatingtheMenuStructure.html"
+							target="FrameMain">
+								Navigating the Menu Structure</a>
+
+				</li></ul></li><li class="folder" id="SavingsLoans" data="">
+							<a
+							href="SavingsLoans.html"
+							target="FrameMain">
+								Savings &amp; Loans</a>
+
+				<ul><li class="" id="CreateNewClientAccount" data="">
+							<a
+							href="CreateNewClientAccount.html"
+							target="FrameMain">
+								Create New Client Account</a>
+
+				</li><li class="" id="CreateNewLoanApplication" data="">
+							<a
+							href="CreateNewLoanApplication.html"
+							target="FrameMain">
+								Create New Loan Application</a>
+
+				</li><li class="" id="VerifyLoanApplicationChecklistMa" data="">
+							<a
+							href="VerifyLoanApplicationChecklistMa.html"
+							target="FrameMain">
+								Verify Loan Application (Checklist Management)</a>
+
+				</li><li class="" id="ApproveLoanApplication" data="">
+							<a
+							href="ApproveLoanApplication.html"
+							target="FrameMain">
+								Approve Loan Application</a>
+
+				</li><li class="" id="DisburseLoanApplication" data="">
+							<a
+							href="DisburseLoanApplication.html"
+							target="FrameMain">
+								Disburse Loan Application</a>
+
+				</li><li class="folder" id="LoanReports1" data="">
+							<a
+							href="LoanReports1.html"
+							target="FrameMain">
+								Loan Reports</a>
+
+				<ul><li class="folder" id="ManagementReports" data="">
+							<a
+							href="ManagementReports.html"
+							target="FrameMain">
+								Management Reports</a>
+
+				<ul><li class="" id="LoansGivenReport" data="">
+							<a
+							href="LoansGivenReport.html"
+							target="FrameMain">
+								Loans Given Report</a>
+
+				</li><li class="" id="LoanBalancebyProductCategory" data="">
+							<a
+							href="LoanBalancebyProductCategory.html"
+							target="FrameMain">
+								Loan Balance by Product Category</a>
+
+				</li><li class="" id="SummaryLoanStatementReport" data="">
+							<a
+							href="SummaryLoanStatementReport.html"
+							target="FrameMain">
+								Summary Loan Statement Report</a>
+
+				</li><li class="" id="ProfitabilitybyClientReport" data="">
+							<a
+							href="ProfitabilitybyClientReport.html"
+							target="FrameMain">
+								Profitability by Client Report</a>
+
+				</li><li class="" id="LoansProposedinterestwriteoffs" data="">
+							<a
+							href="LoansProposedinterestwriteoffs.html"
+							target="FrameMain">
+								Loans Proposed interest write off's </a>
+
+				</li><li class="" id="LoanProcessingReport" data="">
+							<a
+							href="LoanProcessingReport.html"
+							target="FrameMain">
+								Loan Processing Report</a>
+
+				</li><li class="" id="ApprovedUndisbursedLoansReport" data="">
+							<a
+							href="ApprovedUndisbursedLoansReport.html"
+							target="FrameMain">
+								Approved Undisbursed Loans  Report</a>
+
+				</li></ul></li><li class="folder" id="FrontOfficeReport" data="">
+							<a
+							href="FrontOfficeReport.html"
+							target="FrameMain">
+								Front Office Report</a>
+
+				<ul><li class="" id="ClientDataInfoReport" data="">
+							<a
+							href="ClientDataInfoReport.html"
+							target="FrameMain">
+								Client Data Info Report</a>
+
+				</li><li class="" id="ClientLoanStatementReport" data="">
+							<a
+							href="ClientLoanStatementReport.html"
+							target="FrameMain">
+								Client Loan Statement Report</a>
+
+				</li><li class="" id="CumulativeOutstandingLoansbyClie" data="">
+							<a
+							href="CumulativeOutstandingLoansbyClie.html"
+							target="FrameMain">
+								Cumulative Outstanding Loans by Client</a>
+
+				</li><li class="" id="LoanRepaymentSchedule" data="">
+							<a
+							href="LoanRepaymentSchedule.html"
+							target="FrameMain">
+								Loan Repayment Schedule</a>
+
+				</li></ul></li><li class="folder" id="CreditReport" data="">
+							<a
+							href="CreditReport.html"
+							target="FrameMain">
+								Credit Report</a>
+
+				<ul><li class="" id="CreditCommitteeReport" data="">
+							<a
+							href="CreditCommitteeReport.html"
+							target="FrameMain">
+								Credit Committee Report</a>
+
+				</li><li class="" id="WeeklyLoanProjectionReport" data="">
+							<a
+							href="WeeklyLoanProjectionReport.html"
+							target="FrameMain">
+								Weekly Loan Projection Report</a>
+
+				</li><li class="" id="LoanCollateralReport" data="">
+							<a
+							href="LoanCollateralReport.html"
+							target="FrameMain">
+								Loan Collateral Report</a>
+
+				</li><li class="" id="LoanHistoryReport" data="">
+							<a
+							href="LoanHistoryReport.html"
+							target="FrameMain">
+								Loan History Report</a>
+
+				</li></ul></li><li class="folder" id="AnalyticalReport" data="">
+							<a
+							href="AnalyticalReport.html"
+							target="FrameMain">
+								Analytical Report</a>
+
+				<ul><li class="" id="LoansAgingAnalysisReport" data="">
+							<a
+							href="LoansAgingAnalysisReport.html"
+							target="FrameMain">
+								Loans Aging Analysis Report</a>
+
+				</li></ul></li></ul></li><li class="folder" id="Cashier" data="">
+							<a
+							href="Cashier.html"
+							target="FrameMain">
+								Cashier</a>
+
+				<ul><li class="" id="Settingupacashier" data="">
+							<a
+							href="Settingupacashier.html"
+							target="FrameMain">
+								Setting up a cashier</a>
+
+				</li><li class="" id="ManagingClientTransaction" data="">
+							<a
+							href="ManagingClientTransaction.html"
+							target="FrameMain">
+								Managing Client Transaction</a>
+
+				</li></ul></li><li class="folder" id="LoanReports" data="">
+							<a
+							href="LoanReports.html"
+							target="FrameMain">
+								Loan Reports</a>
+
+				<ul><li class="folder" id="Cashierreport" data="">
+							<a
+							href="Cashierreport.html"
+							target="FrameMain">
+								Cashier report</a>
+
+				<ul><li class="" id="DetailedCashierreport" data="">
+							<a
+							href="DetailedCashierreport.html"
+							target="FrameMain">
+								Detailed Cashier report</a>
+
+				</li><li class="" id="SummaryCashierreport" data="">
+							<a
+							href="SummaryCashierreport.html"
+							target="FrameMain">
+								Summary Cashier report</a>
+
+				</li></ul></li><li class="" id="BankofGhanaReports" data="">
+							<a
+							href="BankofGhanaReports.html"
+							target="FrameMain">
+								Bank of Ghana Reports</a>
+
+				</li></ul></li></ul></li><li class="folder" id="SetupManagement" data="">
+							<a
+							href="SetupManagement.html"
+							target="FrameMain">
+								Setup Management</a>
+
+				<ul><li class="" id="Companyprofile" data="">
+							<a
+							href="Companyprofile.html"
+							target="FrameMain">
+								Company profile</a>
+
+				</li><li class="" id="Countriesregionscitieslocation" data="">
+							<a
+							href="Countriesregionscitieslocation.html"
+							target="FrameMain">
+								Countries,regions,cities &amp; location</a>
+
+				</li><li class="" id="Managecurrencies" data="">
+							<a
+							href="Managecurrencies.html"
+							target="FrameMain">
+								Manage currencies</a>
+
+				</li><li class="" id="Organizationalstructure" data="">
+							<a
+							href="Organizationalstructure.html"
+							target="FrameMain">
+								Organizational structure</a>
+
+				</li></ul></li><li class="folder" id="HumanCapital" data="">
+							<a
+							href="HumanCapital.html"
+							target="FrameMain">
+								Human Capital</a>
+
+				<ul><li class="" id="StaffPayroll" data="">
+							<a
+							href="StaffPayroll.html"
+							target="FrameMain">
+								Staff Payroll </a>
+
+				</li><li class="" id="Processingpayroll" data="">
+							<a
+							href="Processingpayroll.html"
+							target="FrameMain">
+								Processing payroll</a>
+
+				</li><li class="" id="ManagingStaffLoans" data="">
+							<a
+							href="ManagingStaffLoans.html"
+							target="FrameMain">
+								Managing Staff Loans</a>
+
+				</li><li class="" id="ManagingLeaveofAbsence" data="">
+							<a
+							href="ManagingLeaveofAbsence.html"
+							target="FrameMain">
+								Managing Leave of Absence</a>
+
+				</li></ul></li><li class="folder" id="GeneralLedger" data="">
+							<a
+							href="GeneralLedger.html"
+							target="FrameMain">
+								General Ledger</a>
+
+				<ul><li class="folder" id="ChartofAccounts" data="">
+							<a
+							href="ChartofAccounts.html"
+							target="FrameMain">
+								Chart of Accounts</a>
+
+				<ul><li class="folder" id="SetupChartofAccounts" data="">
+							<a
+							href="SetupChartofAccounts.html"
+							target="FrameMain">
+								Setup Chart of Accounts</a>
+
+				<ul><li class="" id="CreatingCategoriesofAccounts" data="">
+							<a
+							href="CreatingCategoriesofAccounts.html"
+							target="FrameMain">
+								Creating Categories of Accounts</a>
+
+				</li><li class="" id="CreatingofSubAccounts" data="">
+							<a
+							href="CreatingofSubAccounts.html"
+							target="FrameMain">
+								Creating of Sub Accounts</a>
+
+				</li><li class="" id="CreatingofAccounts" data="">
+							<a
+							href="CreatingofAccounts.html"
+							target="FrameMain">
+								Creating of Accounts</a>
+
+				</li></ul></li><li class="" id="PrintChartofAccounts" data="">
+							<a
+							href="PrintChartofAccounts.html"
+							target="FrameMain">
+								Print Chart of Accounts</a>
+
+				</li><li class="" id="DefaultAccountNames" data="">
+							<a
+							href="DefaultAccountNames.html"
+							target="FrameMain">
+								Default Account Names</a>
+
+				</li><li class="" id="DefaultGLAccounts" data="">
+							<a
+							href="DefaultGLAccounts.html"
+							target="FrameMain">
+								Default G/L Accounts</a>
+
+				</li></ul></li><li class="" id="CreatingChartofAccounts" data="">
+							<a
+							href="CreatingChartofAccounts.html"
+							target="FrameMain">
+								Creating Chart of Accounts</a>
+
+				</li><li class="" id="JournalEntry" data="">
+							<a
+							href="JournalEntry.html"
+							target="FrameMain">
+								Journal Entry</a>
+
+				</li><li class="" id="PettyCash" data="">
+							<a
+							href="PettyCash.html"
+							target="FrameMain">
+								Petty Cash</a>
+
+				</li><li class="" id="BudgetFinancialAnalysis" data="">
+							<a
+							href="BudgetFinancialAnalysis.html"
+							target="FrameMain">
+								Budget &amp; Financial Analysis </a>
+
+				</li><li class="folder" id="Vouchers" data="">
+							<a
+							href="Vouchers.html"
+							target="FrameMain">
+								Vouchers</a>
+
+				<ul><li class="" id="ReceiptVoucherTransactions" data="">
+							<a
+							href="ReceiptVoucherTransactions.html"
+							target="FrameMain">
+								Receipt Voucher Transactions</a>
+
+				</li><li class="" id="PaymentVoucherTransactions" data="">
+							<a
+							href="PaymentVoucherTransactions.html"
+							target="FrameMain">
+								Payment Voucher Transactions</a>
+
+				</li><li class="" id="PostVoucher" data="">
+							<a
+							href="PostVoucher.html"
+							target="FrameMain">
+								Post Voucher</a>
+
+				</li><li class="" id="CustomerManagement" data="">
+							<a
+							href="CustomerManagement.html"
+							target="FrameMain">
+								Customer Management</a>
+
+				</li><li class="" id="SuppliersManagement" data="">
+							<a
+							href="SuppliersManagement.html"
+							target="FrameMain">
+								Suppliers Management</a>
+
+				</li></ul></li></ul></li><li class="folder" id="FixedAssets" data="">
+							<a
+							href="FixedAssets.html"
+							target="FrameMain">
+								Fixed Assets</a>
+
+				<ul><li class="folder" id="Setups" data="">
+							<a
+							href="Setups.html"
+							target="FrameMain">
+								Setups</a>
+
+				<ul><li class="" id="StaffJobsTitles" data="">
+							<a
+							href="StaffJobsTitles.html"
+							target="FrameMain">
+								Staff Jobs Titles</a>
+
+				</li><li class="" id="StaffCategories" data="">
+							<a
+							href="StaffCategories.html"
+							target="FrameMain">
+								Staff Categories</a>
+
+				</li><li class="" id="ManageAssetCategories" data="">
+							<a
+							href="ManageAssetCategories.html"
+							target="FrameMain">
+								Manage Asset Categories</a>
+
+				</li></ul></li><li class="folder" id="StaffManagement" data="">
+							<a
+							href="StaffManagement.html"
+							target="FrameMain">
+								Staff Management</a>
+
+				<ul><li class="" id="NewStaff" data="">
+							<a
+							href="NewStaff.html"
+							target="FrameMain">
+								New Staff</a>
+
+				</li><li class="" id="ManageStaff" data="">
+							<a
+							href="ManageStaff.html"
+							target="FrameMain">
+								Manage Staff</a>
+
+				</li></ul></li><li class="folder" id="AssetManagement" data="">
+							<a
+							href="AssetManagement.html"
+							target="FrameMain">
+								Asset Management</a>
+
+				<ul><li class="" id="NewAsset" data="">
+							<a
+							href="NewAsset.html"
+							target="FrameMain">
+								New Asset</a>
+
+				</li><li class="" id="ManageAssets" data="">
+							<a
+							href="ManageAssets.html"
+							target="FrameMain">
+								Manage Assets</a>
+
+				</li><li class="" id="ManageAssetsDepreation" data="">
+							<a
+							href="ManageAssetsDepreation.html"
+							target="FrameMain">
+								Manage Assets Depreation</a>
+
+				</li><li class="" id="PostAssets" data="">
+							<a
+							href="PostAssets.html"
+							target="FrameMain">
+								Post Assets</a>
+
+				</li></ul></li><li class="folder" id="AssetReports" data="">
+							<a
+							href="AssetReports.html"
+							target="FrameMain">
+								Asset Reports</a>
+
+				<ul><li class="" id="FixedAssetsRegisterReport" data="">
+							<a
+							href="FixedAssetsRegisterReport.html"
+							target="FrameMain">
+								Fixed Assets Register Report</a>
+
+				</li><li class="" id="FixedAssetsDepreciationReport" data="">
+							<a
+							href="FixedAssetsDepreciationReport.html"
+							target="FrameMain">
+								Fixed Assets Depreciation Report</a>
+
+				</li></ul></li><li class="" id="FinancialReports" data="">
+							<a
+							href="FinancialReports.html"
+							target="FrameMain">
+								Financial Reports</a>
+
+				</li></ul></li><li class="folder" id="SusuScheme" data="">
+							<a
+							href="SusuScheme.html"
+							target="FrameMain">
+								Susu Scheme</a>
+
+				<ul><li class="folder" id="Setups1" data="">
+							<a
+							href="Setups1.html"
+							target="FrameMain">
+								Setups</a>
+
+				<ul><li class="" id="SusuGrades" data="">
+							<a
+							href="SusuGrades.html"
+							target="FrameMain">
+								Susu Grades</a>
+
+				</li><li class="" id="SusuPositions" data="">
+							<a
+							href="SusuPositions.html"
+							target="FrameMain">
+								Susu Positions</a>
+
+				</li><li class="" id="SusuGroups" data="">
+							<a
+							href="SusuGroups.html"
+							target="FrameMain">
+								Susu Groups</a>
+
+				</li></ul></li><li class="folder" id="GroupSusuAccounts" data="">
+							<a
+							href="GroupSusuAccounts.html"
+							target="FrameMain">
+								Group Susu Accounts</a>
+
+				<ul><li class="" id="OpenNewSusuAccount" data="">
+							<a
+							href="OpenNewSusuAccount.html"
+							target="FrameMain">
+								Open New Susu Account</a>
+
+				</li><li class="" id="ManageSusuAccount" data="">
+							<a
+							href="ManageSusuAccount.html"
+							target="FrameMain">
+								Manage Susu Account</a>
+
+				</li></ul></li><li class="folder" id="ClientInformation" data="">
+							<a
+							href="ClientInformation.html"
+							target="FrameMain">
+								Client Information</a>
+
+				<ul><li class="" id="NewClientFile" data="">
+							<a
+							href="NewClientFile.html"
+							target="FrameMain">
+								New Client File</a>
+
+				</li><li class="" id="ManageClientFile" data="">
+							<a
+							href="ManageClientFile.html"
+							target="FrameMain">
+								Manage Client File</a>
+
+				</li></ul></li><li class="folder" id="SusuGroupAnalysis" data="">
+							<a
+							href="SusuGroupAnalysis.html"
+							target="FrameMain">
+								Susu Group Analysis</a>
+
+				<ul><li class="" id="SusuAccountsStatus" data="">
+							<a
+							href="SusuAccountsStatus.html"
+							target="FrameMain">
+								Susu Accounts Status</a>
+
+				</li><li class="" id="SusuAccountsAllStages" data="">
+							<a
+							href="SusuAccountsAllStages.html"
+							target="FrameMain">
+								Susu Accounts All Stages</a>
+
+				</li><li class="" id="SusuAccountsStage1A" data="">
+							<a
+							href="SusuAccountsStage1A.html"
+							target="FrameMain">
+								Susu Accounts Stage 1A</a>
+
+				</li><li class="" id="SusuAccountsStage1B" data="">
+							<a
+							href="SusuAccountsStage1B.html"
+							target="FrameMain">
+								Susu Accounts Stage 1B</a>
+
+				</li><li class="" id="SusuAccountsStage2" data="">
+							<a
+							href="SusuAccountsStage2.html"
+							target="FrameMain">
+								Susu Accounts Stage 2</a>
+
+				</li><li class="" id="SusuAccountSchedule" data="">
+							<a
+							href="SusuAccountSchedule.html"
+							target="FrameMain">
+								Susu Account Schedule</a>
+
+				</li><li class="" id="SusuAccountContributionSchedule" data="">
+							<a
+							href="SusuAccountContributionSchedule.html"
+							target="FrameMain">
+								Susu Account Contribution Schedule</a>
+
+				</li></ul></li><li class="folder" id="GroupSusuSchemeReports" data="">
+							<a
+							href="GroupSusuSchemeReports.html"
+							target="FrameMain">
+								Group Susu Scheme Reports</a>
+
+				<ul><li class="" id="SusuAccountDetailsReport" data="">
+							<a
+							href="SusuAccountDetailsReport.html"
+							target="FrameMain">
+								Susu Account Details Report</a>
+
+				</li><li class="" id="SusuAccountContributionSchedule1" data="">
+							<a
+							href="SusuAccountContributionSchedule1.html"
+							target="FrameMain">
+								Susu Account Contribution Schedule</a>
+
+				</li><li class="" id="SusuDueRatesPerMonth" data="">
+							<a
+							href="SusuDueRatesPerMonth.html"
+							target="FrameMain">
+								Susu Due Rates Per Month</a>
+
+				</li><li class="" id="SusuContributionPerformance" data="">
+							<a
+							href="SusuContributionPerformance.html"
+							target="FrameMain">
+								Susu Contribution Performance</a>
+
+				</li><li class="" id="GroupSusuCashFlowReports" data="">
+							<a
+							href="GroupSusuCashFlowReports.html"
+							target="FrameMain">
+								Group Susu Cash Flow Reports</a>
+
+				</li></ul></li><li class="folder" id="CasheirInterface" data="">
+							<a
+							href="CasheirInterface.html"
+							target="FrameMain">
+								Casheir Interface</a>
+
+				<ul><li class="" id="CashierHomepage" data="">
+							<a
+							href="CashierHomepage.html"
+							target="FrameMain">
+								Cashier Homepage</a>
+
+				</li><li class="" id="ReceiveSusuContributions" data="">
+							<a
+							href="ReceiveSusuContributions.html"
+							target="FrameMain">
+								Receive Susu Contributions</a>
+
+				</li></ul></li><li class="folder" id="CashiersTillManagement" data="">
+							<a
+							href="CashiersTillManagement.html"
+							target="FrameMain">
+								Cashier's Till Management</a>
+
+				<ul><li class="" id="ManageCashiersTill" data="">
+							<a
+							href="ManageCashiersTill.html"
+							target="FrameMain">
+								Manage Cashiers' Till</a>
+
+				</li><li class="" id="OpenCloseCashiersTill" data="">
+							<a
+							href="OpenCloseCashiersTill.html"
+							target="FrameMain">
+								Open/Close Cashiers' Till</a>
+
+				</li><li class="" id="PostCashiersTill" data="">
+							<a
+							href="PostCashiersTill.html"
+							target="FrameMain">
+								Post Cashiers' Till</a>
+
+				</li><li class="" id="CashupCashiersTill" data="">
+							<a
+							href="CashupCashiersTill.html"
+							target="FrameMain">
+								Cashup Cashiers' Till</a>
+
+				</li></ul></li><li class="folder" id="RegularSusuAccount" data="">
+							<a
+							href="RegularSusuAccount.html"
+							target="FrameMain">
+								Normal Susu Account</a>
+
+				<ul><li class="" id="NewRegularSusuAccount" data="">
+							<a
+							href="NewRegularSusuAccount.html"
+							target="FrameMain">
+								New Normal Susu Account</a>
+
+				</li><li class="" id="ManageRegularSusuAccount" data="">
+							<a
+							href="ManageRegularSusuAccount.html"
+							target="FrameMain">
+								Manage Normal Susu Account</a>
+
+				</li><li class="folder" id="RegularSusuAccountSchemeReports" data="">
+							<a
+							href="RegularSusuAccountSchemeReports.html"
+							target="FrameMain">
+								Normal Susu Account Scheme Reports</a>
+
+				<ul><li class="" id="RegularSusuAccountDetailsReport" data="">
+							<a
+							href="RegularSusuAccountDetailsReport.html"
+							target="FrameMain">
+								Normal Susu Account Details Report</a>
+
+				</li><li class="" id="RegularSusuAccountContributionSc" data="">
+							<a
+							href="RegularSusuAccountContributionSc.html"
+							target="FrameMain">
+								Normal Susu Account Contribution Schedule</a>
+
+				</li><li class="" id="RegularSusuContributionPerforman" data="">
+							<a
+							href="RegularSusuContributionPerforman.html"
+							target="FrameMain">
+								Normal Susu Contribution Performance</a>
+
+				</li><li class="" id="RegularSusuDueDatePerMonth" data="">
+							<a
+							href="RegularSusuDueDatePerMonth.html"
+							target="FrameMain">
+								Normal Susu Due Date Per Month</a>
+
+				</li><li class="" id="RegularSusuCashflowReport" data="">
+							<a
+							href="RegularSusuCashflowReport.html"
+							target="FrameMain">
+								Normal Susu Cash flow Report</a>
+
+				</li></ul></li><li class="folder" id="RegularSusuAnalysis" data="">
+							<a
+							href="RegularSusuAnalysis.html"
+							target="FrameMain">
+								Normal Susu Analysis</a>
+
+				<ul><li class="" id="SusuRegularAccountsaAllStages" data="">
+							<a
+							href="SusuRegularAccountsaAllStages.html"
+							target="FrameMain">
+								Susu Regular Accounts aAll Stages</a>
+
+				</li><li class="" id="SusuRegularAccountsStage1A" data="">
+							<a
+							href="SusuRegularAccountsStage1A.html"
+							target="FrameMain">
+								Susu Regular Accounts Stage 1A</a>
+
+				</li><li class="" id="SusuRegularAccountsStage1B" data="">
+							<a
+							href="SusuRegularAccountsStage1B.html"
+							target="FrameMain">
+								Susu Regular Accounts Stage 1B</a>
+
+				</li><li class="" id="SusuRegularAccountsStage2" data="">
+							<a
+							href="SusuRegularAccountsStage2.html"
+							target="FrameMain">
+								Susu Regular Accounts Stage 2</a>
+
+				</li><li class="" id="RegularSusuAccountStatus" data="">
+							<a
+							href="RegularSusuAccountStatus.html"
+							target="FrameMain">
+								Normal Susu Account Status</a>
+
+				</li><li class="" id="RegularSusuAccountSchedules" data="">
+							<a
+							href="RegularSusuAccountSchedules.html"
+							target="FrameMain">
+								Normal Susu Account Schedules</a>
+
+				</li><li class="" id="RegularSusuAccountContributionS1" data="">
+							<a
+							href="RegularSusuAccountContributionS1.html"
+							target="FrameMain">
+								Normal Susu Account Contribution Schedule</a>
+
+				</li></ul></li></ul></li></ul></li></ul>
+		</div>
+		
+		<div id="tab-keywords">
+			<ul id="keywords">
+
+				<li class="file" data="click:'[]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[]"
+								>
+								client</a>
+
+				</li><li class="file" data="click:'[]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[]"
+								>
+								customer</a>
+
+				</li><li class="file" data="click:'[]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[]"
+								>
+								loan</a>
+
+				</li><li class="file" data="click:'[]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[]"
+								>
+								savings</a>
+
+				</li></ul>
+		</div>
+		
+		<div id="tab-search">
+			<form onsubmit="PerformSearch(); return false;">
+				<label for="search_value">Search:</label>
+				<input id="search_value" name="search_value"></input>
+				<input type="submit" value="Search"/>
+			</form>
+			<div id="search_results"></div>
+		</div>
+		
+		</div>
+    
+</body>
+
+</html>
+

@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B484314F-9E76-4BA7-9EFE-6BD53B0866DD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreLogic</RootNamespace>
+    <AssemblyName>coreLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>2</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel">
+      <HintPath>..\..\core-Erp-Data-Libs\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HelperClasses\BorrowingReportManager.cs" />
+    <Compile Include="HelperClasses\CashiersTillCheck.cs" />
+    <Compile Include="HelperClasses\CashiersTillHelper.cs" />
+    <Compile Include="HelperClasses\ChargesHelper.cs" />
+    <Compile Include="HelperClasses\BorrowingScheduleManager.cs" />
+    <Compile Include="HelperClasses\CheckCoreDbEntities.cs" />
+    <Compile Include="HelperClasses\ControllerFileProcessor.cs" />
+    <Compile Include="HelperClasses\DailyCollectionSheetData.cs" />
+    <Compile Include="HelperClasses\EmailSender.cs" />
+    <Compile Include="HelperClasses\DepositCertificateData.cs" />
+    <Compile Include="HelperClasses\ExcelFileProcessor.cs" />
+    <Compile Include="HelperClasses\ExceptionManager.cs" />
+    <Compile Include="HelperClasses\LoanDocumentTemplate.cs" />
+    <Compile Include="HelperClasses\LoansHelper.cs" />
+    <Compile Include="HelperClasses\LoanRestructureManager.cs" />
+    <Compile Include="HelperClasses\RepaymentAmountDistributor.cs" />
+    <Compile Include="HelperClasses\RepaymentsManagerLink.cs" />
+    <Compile Include="HelperClasses\ReportHelper.cs" />
+    <Compile Include="HelperClasses\NumberToWordsConverter.cs" />
+    <Compile Include="InfoLog\CoreInfoLogger.cs" />
+    <Compile Include="Interfaces\IChargesHelper.cs" />
+    <Compile Include="Interfaces\ILoansHelper.cs" />
+    <Compile Include="Interfaces\IReversalManager.cs" />
+    <Compile Include="HelperClasses\ReversalManager.cs" />
+    <Compile Include="Interfaces\ICashiersTillHelper.cs" />
+    <Compile Include="Interfaces\IInvestmentManager.cs" />
+    <Compile Include="HelperClasses\InvestmentManager.cs" />
+    <Compile Include="Interfaces\ISusuManager.cs" />
+    <Compile Include="HelperClasses\SusuManager.cs" />
+    <Compile Include="Interfaces\IDisbursementsManager.cs" />
+    <Compile Include="Interfaces\IRepaymentsManager.cs" />
+    <Compile Include="Interfaces\IScheduleManager.cs" />
+    <Compile Include="HelperClasses\ScheduleManager.cs" />
+    <Compile Include="HelperClasses\RepaymentsManager.cs" />
+    <Compile Include="HelperClasses\DisbursementsManager.cs" />
+    <Compile Include="Models\AppContants.cs" />
+    <Compile Include="Models\CachedModule.cs" />
+    <Compile Include="Models\CommonBO.cs" />
+    <Compile Include="Models\JournalTransactionLine.cs" />
+    <Compile Include="Models\SusuCashier.cs" />
+    <Compile Include="Providers\coreProvider.cs" />
+    <Compile Include="Extensions\EFExtensions.cs" />
+    <Compile Include="HelperClasses\IDGenerator.cs" />
+    <Compile Include="Interfaces\IHumanCapitalHelper.cs" />
+    <Compile Include="Interfaces\IIDGenerator.cs" />
+    <Compile Include="Interfaces\IJournalExtensions.cs" />
+    <Compile Include="Extensions\JournalExtensions.cs" />
+    <Compile Include="HelperClasses\HumanCapitalHelper.cs" />
+    <Compile Include="Models\PasswordStrength.cs" />
+    <Compile Include="HelperClasses\PayProcessor.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\VoucherExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\coreGLEntities.datasource" />
+    <None Include="Properties\DataSources\coreLoansEntities.datasource" />
+    <None Include="Properties\DataSources\coreSecurityEntities.datasource" />
+    <None Include="Properties\DataSources\coreTransferEntities.datasource" />
+    <None Include="Properties\DataSources\core_dbEntities.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\coreInterfaces\coreInterfaces.csproj">
+      <Project>{5d9a635f-75b3-4e7b-971d-9a6a8ba90d23}</Project>
+      <Name>coreInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+      <Name>coreLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic2\coreLogic2.csproj">
+      <Project>{22d34f74-bcf1-4c65-8062-0e43238feb01}</Project>
+      <Name>coreLogic2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreNotificationsDAL\coreNotificationsDAL.csproj">
+      <Project>{2E9C97A0-F061-4F01-8886-8C579EC2241E}</Project>
+      <Name>coreNotificationsDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreNotificationsLibrary\coreNotificationsLibrary.csproj">
+      <Project>{FC40F5D1-3634-41D5-A74A-FCAF449A7F87}</Project>
+      <Name>coreNotificationsLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreReports\coreReports.csproj">
+      <Project>{67ec67fc-73d8-4060-a88e-31fdd1c97a92}</Project>
+      <Name>coreReports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

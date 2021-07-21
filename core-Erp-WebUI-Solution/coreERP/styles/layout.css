@@ -1,0 +1,322 @@
+﻿/*
+    Layout forms for coreERP
+    kofi@acsghana.com    
+*/ 
+
+.rrClipRegion {
+    margin: 0 auto;
+}
+
+.rrItem {
+    margin: 4px;
+    border: 1px dotted #00B4ff !important;
+}
+
+.imageFrame{
+    width:100%;
+    text-align:center;
+}
+ 
+.subFormInput .inputControl {
+    width:95% !important;
+}
+
+.subFormInput .inputControlHalf {
+    width:47% !important;
+}
+
+.subFormInput .inputControlThird {
+    width:32% !important;
+}
+
+/*
+    Widescreen laptops and Monitors
+    */
+@media screen and (min-width:1352px) {
+    .subForm {    
+        overflow:hidden;
+        width:100%;
+    }
+    .subFormColumnLeft {
+        width:32%;
+        float:left;
+        margin:1px;
+    }
+    .subFormColumnMiddle {
+        width:32%;
+        float:left;
+        margin:1px;
+    }
+    .subFormColumnRight {
+        width:32%;
+        float:left;
+        margin:1px;
+    }
+    .subFormLabel {
+        width:30%;
+        float:left;
+        height:52px; 
+        margin-top:2px; 
+        margin-bottom:2px; 
+    }
+    .subFormInput {
+        width:68%;
+        float:left;
+        height:52px; 
+        margin-top:2px; 
+        margin-bottom:2px; 
+    }
+}
+
+ /*
+    Regular Laptops
+    */
+@media screen and (min-width:1024px) and (max-width:1200px) {
+    .subForm {    
+        overflow:hidden;
+        width:100%;
+    }
+    .subFormColumnLeft {
+        width:48%;
+        float:left;
+        margin:1%;
+    }
+    .subFormColumnMiddle {
+        width:48%;
+        float:left;
+        margin:1%;
+    }
+    .subFormColumnRight {
+        width:100%;
+        float:left;
+        margin:1%;
+    }
+    .subFormLabel {
+        width:130px;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:1px; 
+        margin-bottom:1px; 
+    }
+    .subFormInput {
+        width:305px;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:1px; 
+        margin-bottom:1px; 
+    }
+    .subFormColumnRight .subFormInput {
+        width:34% !important;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:2px; 
+        margin-bottom:2px; 
+    }
+    .subFormColumnRight .subFormLabel {
+        width:14% !important;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:2px; 
+        margin-bottom:2px; 
+    }
+}
+
+ /*
+    Regular Laptops
+    */
+@media screen and (min-width:1201px) and (max-width:1359px) {
+    .subForm {    
+        overflow:hidden;
+        width:100%;
+    }
+    .subFormColumnLeft {
+        width:48%;
+        float:left;
+        margin:1%;
+    }
+    .subFormColumnMiddle {
+        width:48%;
+        float:left;
+        margin:1%;
+    }
+    .subFormColumnRight {
+        width:100%;
+        float:left;
+        margin:1%;
+    }
+    .subFormLabel {
+        width:200px;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:1px; 
+        margin-bottom:1px; 
+    }
+    .subFormInput {
+        width:355px;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:1px; 
+        margin-bottom:1px; 
+    }
+    .subFormColumnRight .subFormInput {
+        width:34% !important;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:2px; 
+        margin-bottom:2px; 
+    }
+    .subFormColumnRight .subFormLabel {
+        width:15% !important;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:2px; 
+        margin-bottom:2px; 
+    }
+}
+
+ /*
+    Netbooks and tablets
+    */
+@media screen and (min-width:900px) and (max-width:1023px) {
+    .subForm {    
+        overflow:hidden;
+        width:100%;
+    }
+    .subFormColumnLeft {
+        width:48%;
+        float:left;
+        margin:1%;
+    }
+    .subFormColumnMiddle {
+        width:48%;
+        float:left;
+        margin:1%;
+    }
+    .subFormColumnRight {
+        width:100%;
+        float:left;
+        margin:1%;
+    }
+    .subFormLabel {
+        width:115px;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:1%; 
+        margin-bottom:1%; 
+    }
+    .subFormInput {
+        width:305px;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:1%; 
+        margin-bottom:1%; 
+    }
+}
+
+
+/*
+   Smart Phones
+    */
+@media screen and (min-width:450px) and (max-width:899px) {
+    .subForm {    
+        overflow:hidden;
+        width:100%;
+    }
+    .subFormColumnLeft {
+        width:95%;
+        float:left;
+        margin:2%;
+    }
+    .subFormColumnMiddle {
+        width:95%;
+        float:left;
+        margin:2%;
+    }
+    .subFormColumnRight {
+        width:95%;
+        float:left;
+        margin:2%;
+    }
+    .subFormLabel {
+        width:20%;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:1%; 
+        margin-bottom:1%; 
+    }
+    .subFormInput {
+        width:76%;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:1%; 
+        margin-bottom:1%; 
+    }
+}
+ 
+/*
+    Feature Phones and IDK What??
+    */
+@media screen and (min-width:0px) and (max-width:449px) {
+    .subForm {    
+        overflow:hidden;
+        width:100%;
+    }
+    .subFormColumnLeft {
+        width:95%;
+        float:left;
+        margin:2%;
+    }
+    .subFormColumnMiddle {
+        width:95%;
+        float:left;
+        margin:2%;
+    }
+    .subFormColumnRight {
+        width:95%;
+        float:left;
+        margin:2%;
+    }
+    .subFormLabel {
+        width:98%;
+        float:left;
+        height:52px;
+        vertical-align:middle !important; 
+        border-bottom:1px solid #00B4FF;
+        margin-top:1%; 
+        margin-bottom:1%; 
+    }
+    .subFormInput {
+        width:98%;
+        float:left;
+        height:52px;
+        border-bottom:1px solid #00B4FF;
+        vertical-align:middle !important; 
+        margin-top:1%; 
+        margin-bottom:1%; 
+    }
+}
+ 

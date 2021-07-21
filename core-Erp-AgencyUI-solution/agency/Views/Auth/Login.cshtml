@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Agent Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+
+    string returnUrl = ViewBag.ReturnURL;
+    if (returnUrl == null)
+    {
+        returnUrl = "/Agent/Dashboard";
+    }
+
+    var errorMsg = ViewBag.Error;
+    var display = errorMsg == null ? "display-hide" : "display-show";
+}
+
+<!-- BEGIN LOGIN -->
+<div class="content">
+    <!-- BEGIN LOGIN FORM -->
+    <form class="login-form" method="post" action="/Auth/Login?returnUrl=@returnUrl">
+        <h3 class="form-title">Agent Login</h3>
+        @if (errorMsg != null)
+        {
+            <div class="alert alert-danger @display ">
+                <button class="close" data-close="alert"></button>
+                <span><strong>Error!</strong> @ViewBag.Error</span>
+            </div>
+        }
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span>Please enter Username and Password.</span>
+        </div>
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">Username</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" name="username" placeholder="Username" id="username" />
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Password</label>
+            <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" name="password" placeholder="Password" id="password" />
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-xs btn-success uppercase">Login <i class="fa fa-sign-in"></i></button>
+            <label class="rememberme check">
+                <input type="checkbox" id="remember" value="1" />Remember
+            </label>
+        </div>
+        <div class="create-account">
+            <p>
+                <a href="javascript:;" id="forgot-password" class="uppercase">Forgot Password?</a>
+            </p>
+        </div>
+    </form>
+    <!-- END LOGIN FORM -->
+    <!-- BEGIN FORGOT PASSWORD FORM -->
+    <form class="forgot-form">
+        <h3>Forgot Password ?</h3>
+        <p>
+            Enter your e-mail address below to reset your password.
+        </p>
+        <div class="alert alert-danger display-hide">
+            <button class="close" data-close="alert"></button>
+            <span>
+                Please enter a VALID email address.
+            </span>
+        </div>
+        <div class="form-group">
+            <input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Email" id="email" />
+        </div>
+        <div class="form-actions">
+            <button type="button" id="back-btn" class="btn btn-primary uppercase"><i class="fa fa-arrow-circle-o-left"></i> Back</button>
+            <button type="submit" class="btn btn-success uppercase pull-right">Submit <i class=" fa fa-arrow-circle-o-right"></i></button>
+        </div>
+    </form>
+    <!-- END FORGOT PASSWORD FORM -->
+</div>
+
+@section scripts{
+    <script src="~/Scripts/app/auth/login.js"></script>
+}

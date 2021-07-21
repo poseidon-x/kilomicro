@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "PackingSlip";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 200px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr />
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="--------Please Select Customer---------" id="customerId" />
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+<div id="reportViewer1" class="k-widget">
+</div>
+
+@section FootScripts
+{
+    <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+    <script src="~/scripts/app/PackingSlip/PackingSlip.js"></script>
+}

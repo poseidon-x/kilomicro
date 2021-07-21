@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Transfers";
+}
+
+<h2>Inventory Transfers</h2>
+<hr>
+<div>
+    <div class="row">
+        <div class="col-md-11" id="TransferGrid"></div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+
+
+
+@section FootScripts{
+<script src="~/scripts/app/Inventory/InventoryTransferManagement/transfers.js"></script>
+}

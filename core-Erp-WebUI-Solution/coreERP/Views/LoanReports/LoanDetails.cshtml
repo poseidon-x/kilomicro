@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Loan Details";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 335px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4" align="center"><h4>Select Repayment Type</h4></div>
+        <div class="col-md-4"></div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-2">
+            <input type="radio" id="daily" name="loanRepaymentType" class="k-radio"/>
+            <label class="k-radio-label" for="daily">Daily</label>
+        </div>
+        <div class="col-md-2">
+            <input type="radio" id="weekly" name="loanRepaymentType" class="k-radio"/>
+            <label class="k-radio-label" for="weekly">Weekly</label>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Start Date</div>
+        <div class="col-md-3">
+            <input type="text" placeholder="--------Choose Start Date---------" id="startDate"/>
+        </div>
+
+        <div class="col-md-2">End Date</div>
+        <div class="col-md-3">
+            <input type="text" placeholder="--------Choose End Date---------" id="endDate"/>
+        </div>
+        <div class="col-md-1"></div>
+
+    </div>
+    <br/>
+    <div class="row">
+        <div>
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+                <input type="button" class="btn btn-primary" id="getReport" value="Get Report"/>
+            </div>
+        </div><!--SaveButton-->
+    </div>
+</div>
+
+<div id="reportViewer1" class="k-widget"></div>
+
+@section FootScripts
+{
+    <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+    <script src="~/scripts/app/Loans/Reports/LoanDetails.js"></script>
+   
+}

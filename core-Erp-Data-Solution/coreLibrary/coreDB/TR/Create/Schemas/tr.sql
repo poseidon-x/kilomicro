@@ -1,0 +1,5 @@
+﻿use coreDB
+GO
+
+CREATE SCHEMA tr
+GO

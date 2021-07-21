@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "View Account Detail";
+    Layout = "~/Views/Shared/_AgencyLayout.cshtml";
+}
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            View Detail <small>Savings Account Detail</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-eye"></i><a href="#"> View Account Detail</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE HEADER-->
+        <div class="clearfix"></div>
+        <div class="row ">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet box blue-steel">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-eye"></i> View Account Detail
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="myform" role="form" class="form-horizontal">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4"><b>Search Criteria:</b></label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="searchCriteria" placeholder="Select Search Criteria" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6" id="accNoDiv">
+                                        <label class="col-md-4"><b>Account Number:</b></label>
+                                        <div class="input-group input-large">
+                                            <input type="text" class="searchData" id="accNo" placeholder="Search by Account Number" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 display-hide" id="accNameDiv">
+                                        <label class="col-md-4"><b>Account Name:</b></label>
+                                        <div class="input-group input-large">
+                                            <input type="text" class="searchData" id="accName" placeholder="Search by Account Name" required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-actions" style="text-align:right; clear:both">
+                                <div class="row">
+                                    <div class="col-md-offset-4 col-md-8">
+                                        <button type="submit" id="submit" class="btn green"><i class="fa fa-eye"></i> View Account Detail</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div>
+                                <h3><b>Account Detail:</b></h3>
+                            </div>
+                            <div id="accountDetailGrid">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+@section scripts{
+    <script src="~/Scripts/app/account/accountDetail.js"></script>
+}

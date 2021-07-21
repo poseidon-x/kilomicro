@@ -1,0 +1,128 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Loan";
+}
+
+<h2>Loan</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal"><!--
+            <div class="row">
+                <div class="col-md-3 col-xs-3 col-lg-3"></div>
+                <div class="col-md-6 col-xs-6 col-lg-6 input-group">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search Client, eg:Appiah ... ">
+                        <span class="input-group-btn">
+                            <button id="searchBtn" class="btn btn-default" type="button">Search!</button>
+                        </span>
+                    </div>
+                </div>
+            </div> -->
+            <br />
+            <div id="details">
+            <div class="row">
+                <div class="col-md-6 col-xs-6" align="center">
+                    <img id="clientImage" class="img-rounded" alt="Client Image" height="170" width="170"/>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Client: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="client" readonly/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Amount Requested: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="amountRequested"/>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Loan Facilty: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="loanType"/>
+                        </div>
+                    </div><br/>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Tenure: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="tenure"/>
+                        </div>
+                    </div>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Loan Date: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="applicationDate" readonly/>
+                </div>
+                <div class="col-md-2 col-xs-2">Repayment Mode: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="repaymentMode"/>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Interest Rate: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestRate"/>
+                </div>
+                <div class="col-md-2 col-xs-2">Interest Type: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestType"/>
+                </div>
+
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Relationship Officer: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="staff"/>
+                </div>
+                <div class="col-md-2 col-xs-2">Field Agent: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="agent"/>
+                </div>
+            </div><br/>
+            <div id="row">
+                <div id="tabs">
+                    <ul>
+                        <li class="k-state-active">Loan Guarantors</li>
+                        <li>Collaterals</li>
+                        <li>Financials</li>
+                        <li>Supporting Documents</li>
+                    </ul>
+                    <div>
+                        <div id="guarantors"></div>
+                    </div>
+                    <div>
+                        <div id="collaterals"></div>
+                    </div>
+                    <div>
+                        <div id="financials"></div>
+                    </div>
+                    <div>
+                        <div id="documents"></div>
+                    </div>
+                </div> <!--EndTab--><br />
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" id="save">Update Loan &raquo; </button>
+                </div>
+                <br/>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var id = '@ViewBag.Id';
+    </script>
+    
+<script src="~/scripts/app/Loans/Loan/LoanManagement.js"></script>
+}

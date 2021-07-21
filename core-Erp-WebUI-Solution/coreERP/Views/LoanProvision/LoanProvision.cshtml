@@ -1,0 +1,67 @@
+﻿@{
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Loan Provision";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Loan Provision</h3>
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Year</div>
+                <div class="col-md-3 col-xs-3">
+                    <input class="form-control" type="text" id="year" data-val="true" data-val-required="*">
+                </div>
+                <div class="col-md-1 col-xs-1">Month</div>
+                <div class="col-md-3 col-xs-3">
+                    <input class="form-control" type="text" id="month" data-val="true" data-val-required="*">
+                </div>
+                <div class="col-md-2 col-xs-2">
+                    <button type="button" class="btn btn-info" style="width: 100%" id="initialize">Initial</button>
+                </div>
+                <!--
+                <div class="col-md-2 col-xs-2">
+                    <button type="button" class="btn btn-info" style="width: 100%" id="initialize">Initial</button>
+                </div>
+                -->
+                <div class="col-md-2 col-xs-2"></div>
+
+            </div><br/>
+
+        </div>
+        <br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Provisions</li>
+                </ul>
+                
+                <div>
+                    <div id="grid"> </div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default" style="width: 100%" id="save">Save Provisions </button>
+            </div><!--SaveButton-->
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default" style="width: 100%" id="post">Post Povision </button>
+            </div><!--SaveButton-->
+            <div class="col-md-2">
+                <button type="button" class="btn btn-default" style="width: 100%" id="cancel">Cancel Provisions </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/LoanProvision/LoanProvision.js"></script>
+   
+}

@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Loan Repayment";
+}
+
+<h2>Loan Repayment</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6 col-xs-6" align="center">
+                    <img id="clientImage" class="img-rounded" alt="Client Image" height="170" width="170" />
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Client: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="client" readonly />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Loan Account: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="account" readonly />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Loan Facilty: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="loanType" readonly />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Tenure: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="tenure" readonly />
+                        </div>
+                    </div>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Disbursement Date: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="disbursementDate" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2">Amount Disbursed: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="amountDisbursed" readonly />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Principal Balance: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="principalBalance" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2">Interest Balance: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestBalance" readonly />
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Penalty Balance: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="penaltyBalance" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2">Mode of Payment: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="modeOfPayment" readonly />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Repayment Date: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="repaymentDate" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2">Amount: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="amount" />
+                </div>
+            </div><br />
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Receive Deposit &raquo; </button>
+            </div>
+            <br />
+        </div>
+        <br />
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var savId = '@ViewBag.savId';
+    </script>
+    
+<script src="~/scripts/app/Loans/Loan/LoanRepaymentWithCheck.js"></script>
+}

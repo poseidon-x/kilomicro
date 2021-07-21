@@ -1,0 +1,221 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="coreERP.master.cs" Inherits="coreERP.coreERPMaster"%>
+<%@ Import Namespace="coreLogic" %>   
+<%@ Register Src="~/uc/quicMenu.ascx" TagPrefix="uc1" TagName="quicMenu" %>
+<%@ Register Src="~/uc/quicMenuGL.ascx" TagPrefix="uc1" TagName="quicMenuGL" %>
+<%@ Register Src="~/uc/menu.ascx" TagPrefix="uc1" TagName="menu" %>
+<%@ Register Src="~/uc/noteSideBar.ascx" TagPrefix="uc1" TagName="noteSideBar" %>
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1" />  
+
+    <title><asp:ContentPlaceHolder ID="titlePlaceHolder" runat="server"></asp:ContentPlaceHolder>
+        <asp:PlaceHolder runat="server">
+            |&nbsp;<%= coreERP.code.Settings.companyName%>|&nbsp;coreERP© by ACS
+        </asp:PlaceHolder>
+    </title> 
+
+    <!-- Themes and styling -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/styles/layout.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/kendo/styles/kendo.common.min.css" rel="stylesheet" />
+    <asp:PlaceHolder runat="server">
+    <link href="/Content/kendo/styles/kendo.<%= getKendoTheme() %>.min.css" rel="stylesheet" /> 
+    </asp:PlaceHolder>
+    <link href="/Content/themes/base/all.css" rel="stylesheet" />
+    <link type="text/css" href="/styles/noteSidebar.css" rel="stylesheet" />  
+    <asp:PlaceHolder runat="server">
+    <link href="/Content/coreThemes/coreTheme.<%= getKendoTheme() %>.css" rel="stylesheet" />
+    
+        <link href="/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    </asp:PlaceHolder>
+
+    <!-- Styling for telerik ASPNET Ajax -->
+    <telerik:RadStyleSheetManager ID="styleManager" runat="server"></telerik:RadStyleSheetManager>
+
+    <!-- CLears Session when user closes the window -->
+    <script src="/scripts/app/sessionManager.js"></script>
+
+    <script src="/scripts/ajax/jquery-2.1.1.js"></script>
+    <script src="/Content/kendo/js/kendo.all.min.js"></script>
+    <script src="/scripts/libs/jszip.js"></script> 
+    <asp:PlaceHolder runat="server">
+        <script type="text/javascript">
+            var coreERPAPI_URL_Root = '<%= System.Configuration.ConfigurationManager.AppSettings["coreERPAPI_URL_Root"] %>';
+            var coreERPAPI_Token = '<%= getToken() %>';
+        </script>
+    </asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder> 
+    <style>
+        @media screen and (max-width:840px) {
+            .toolbar-wrapp {
+                visibility: hidden !important;
+            }
+        }
+
+        @media screen and (min-width:841px) {
+            .toolbar-wrapp {
+                visibility: visible !important;
+            }
+        }
+    </style>
+       
+</head>
+<body class="mainBg" style="height:100%;overflow-x:hidden;">
+    <form id="form1" runat="server" style="height:100%" enctype="multipart/form-data" method="post"
+         autocomplete="off">
+	    <telerik:RadSkinManager ID="RadSkinManager1" Runat="server" Skin="MetroTouch">
+	    </telerik:RadSkinManager> 
+        
+        <telerik:RadAjaxManager EnableAJAX="false" runat="server" ID="AM1"></telerik:RadAjaxManager>
+        <telerik:RadScriptManager ID="RadScriptManager1" Runat="server" EnableScriptCombine="true" OnAsyncPostBackError="RadScriptManager1_AsyncPostBackError"
+          AsyncPostBackErrorMessage="" AllowCustomErrorsRedirect="false" >              
+        </telerik:RadScriptManager> 
+        <telerik:RadNotification runat="server" EnableShadow="true"  
+             Position="Center" ShowCloseButton="true" VisibleOnPageLoad="false" ID="rn1"
+             AutoCloseDelay="20000" Font-Bold="True" Width="545px"  
+            OnClientShowing="showModalDiv" OnClientHidden="hideModalDiv"
+               Style="z-index: 35000" EnableTheming="true" EnableRoundedCorners="true"
+            ></telerik:RadNotification> 
+        <div id="wrapper" class="container-fluid"> 
+            <div id="headerbgnd" class="row"> 
+                <div class ="col-sm-6" style="float:left">
+                    <a href="/default.aspx">
+                        <img src="/images/logo.png" alt="Our Logo" />
+                    </a> 
+                </div>                
+                <div id="note" class="col-sm-3" style="visibility:hidden">
+                    <div class='alert alert-success' id="myAlert">
+                        <a href='#' class='close' data-dismiss='alert'>&times;</a>
+                        <div id="clickableNote">
+                            <strong>
+                                You have 
+                                <strong>
+                                    &nbsp;
+                                    <span id="noOfMessages" class="badge"></span>
+                                    &nbsp;
+                                </strong> 
+                                Messages!
+                            </strong>
+                        </div>                        
+                    </div>
+                </div>
+                <div class="col-sm-3 pull-right">
+                    <img src="/Content/images/coreerp-logo.png" class="pull-right" style="max-height:66px;max-width:280px" />
+                </div>
+            </div>
+            <div id="navigation" class="row"> 
+                <uc1:menu runat="server" id="menu" />
+            </div> 
+             
+            <div id="bodyWrapper" class="row">
+                <!-- Sticky toolbar menu -->
+                <div class="toolbar-wrapp">
+                    <div class="sticky-toolbar">
+                        <ul id="ul-sticky-toolbar">
+                            <li class="glyph" id="savLoan" mytitle="Savings & Loans Quick Links">
+                                <div data-icon="&#59254;"></div>
+                            </li>
+ 
+                            <li class="glyph" id="gl" mytitle="General Ledger Quick Links">
+                                <div data-icon="&#128711;"></div>
+                            </li>
+ 
+                            <li class="glyph" id="pdf" mytitle="Export Current Page as Pdf">
+                                <div data-icon="&#128240;"></div>
+                            </li>
+                            <li class="glyph" id="img" mytitle="Export Current Page as Image (Png)">
+                                <div data-icon="&#127748;"></div>
+                            </li>
+                            <li class="glyph" id="svg" mytitle="Export Current Page as Svg File">
+                                <div data-icon="&#59170;"></div>
+                            </li>
+                        </ul>
+                    </div> 
+                </div>
+                <!--/ toolbar-wrapp-->
+
+                <div id="content"> 
+                    <div id="mainContent">
+                        <asp:ContentPlaceHolder ID="mainPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div> 
+                </div> 
+            </div>
+            <div id="footer">
+                <%--coreERP© 2014 powered by <a href="http://www.acsghana.com/">ACS</a>--%>
+            </div>
+        </div> 
+
+        <div id="window"><div id="tabNote"></div></div> 
+        <div id="sideWindow"><div id="tabSide"></div></div> 
+        <script type="text/x-kendo-template" id="sideMenuDetailTemplate">            
+            <div style="text-align:left">
+                <img src='<#= imageUrl #>' style='max-height:48;max-width:48' alt='icon' />
+                <a href='<#= linkUrl #>'>
+                    <#= text #> 
+                </a>  
+            </div>
+        </script>
+        <script src="/scripts/app/UI/sidePanel.js"></script>
+
+    <script type="text/javascript">
+        var modalDiv;
+        $(function () {
+            modalDiv = null;
+            var showMessage = "<%=showMessage %>";
+            if (showMessage === "true") {
+                showModalDiv(null, null);
+            }
+        });
+
+        function showNotification() {
+            if ('<%= showNote%>' === 'true') {
+                $find("<%=rn1.ClientID %>").show();
+            }
+        }
+
+        function showModalDiv(sender, args) {
+            if (!modalDiv) {
+                modalDiv = document.createElement("div");
+                modalDiv.style.width = "100%";
+                modalDiv.style.height = "100%";
+                modalDiv.style.backgroundColor = "#aaaaaa";
+                modalDiv.style.position = "absolute";
+                modalDiv.style.left = "0px";
+                modalDiv.style.top = "0px";
+                modalDiv.style.filter = "progid:DXImageTransform.Microsoft.Alpha(style=0,opacity=50)";
+                modalDiv.style.opacity = ".5";
+                modalDiv.style.MozOpacity = ".5";
+                modalDiv.setAttribute("unselectable", "on");
+                modalDiv.style.zIndex = (sender.get_zIndex() - 1).toString();
+                document.body.appendChild(modalDiv);
+            }
+            modalDiv.style.display = "";
+        }
+
+        function hideModalDiv() {
+            modalDiv.style.display = "none";
+            <%
+            if (RedirectUrl != "" && RedirectUrl != null)
+            {
+            %>
+            window.location = '<%=RedirectUrl%>';
+            <%
+            }
+            %>
+        }
+
+        function OnClientResponseError(sender, args) {
+            args.set_cancelErrorAlert(true); 
+        }
+    </script>
+
+    </form> 
+</body>
+<script src="/scripts/ui/sideMenu.js"></script>
+</html>

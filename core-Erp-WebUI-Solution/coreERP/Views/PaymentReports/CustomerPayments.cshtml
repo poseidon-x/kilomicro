@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Payment";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 200px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="--------Please Select Customer---------" id="customer"/>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <div class="row">
+        <div>
+            <div class="col-md-2"></div>
+            <div class="col-md-10">
+                <input type="button" class="btn btn-primary" id="save" value="Save Sales Order" />
+            </div>
+        </div><!--SaveButton-->
+    </div>
+</div>
+<div id="reportViewer1" class="k-widget">
+</div>
+
+@section FootScripts
+{
+    <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+    <script src="~/scripts/app/AccountRecievable/Payment/CustomerPayment.js"></script>
+}

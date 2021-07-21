@@ -1,0 +1,92 @@
+﻿
+@{var companyName = coreERP.code.Settings.companyName.ToString();}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        Login | @companyName |  &nbsp; coreERP by ACS
+    </title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/styles/layout.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" href="~/styles/noteSidebar.css" rel="stylesheet" />
+    <link type="text/css" href="~/styles/wenstrap.css" rel="stylesheet" />
+
+    <link href="~/Content/coreThemes/coreTheme.@coreERP.code.Settings.getKendoTheme()" rel="stylesheet" />
+
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/styles/loginForm.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="main-container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-5">
+
+                    <div class="login-card">
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <img class="img-responsive" src="~/Content/images/coreerp-logo.png" />
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+
+                        <h4 class="login-beta">
+                            @companyName
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-8">
+                                <form action="Login" method="post">
+                                    <div class="give-space">
+                                        <label for="username" class="label label-primary lbl-size"><span class="glyphicon glyphicon-user"></span> &nbsp;&nbsp; User Name</label>
+                                        <input id="username" name="username" class="form-control" type="text" placeholder="username" autocomplete="off" required />
+                                    </div>
+                                    <div class="give-space">
+                                        <label for="password" class="label label-primary lbl-size"><span class="glyphicon glyphicon-eye-open"></span> &nbsp;&nbsp;&nbsp;&nbsp; Password </label>
+                                        <input id="password" name="password" class="form-control" type="password" placeholder="xxxxxxx" autocomplete="off" required />
+                                    </div>
+                                    <div class="give-space col-md-offset-4">
+                                        <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-send"></span> Login </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+        <!--<div class="overlay"></div>-->
+    </div>
+</body>
+</html>
+
+@section FootScripts{
+    <script type="text/javascript">
+
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+    </script>
+    <script type="text/javascript" src="~/scripts/app/Security/Login.js"></script>
+    <!-- CLears Session when user closes the window -->
+    <script src="~/scripts/app/sessionManager.js"></script>
+
+    <script src="~/scripts/ajax/jquery-2.1.1.js"></script>
+    <script src="~/Content/kendo/js/kendo.all.min.js"></script>
+    <script src="~/scripts/libs/jszip.js"></script>
+
+
+}

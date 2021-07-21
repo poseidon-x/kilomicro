@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Service Charges";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 280px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+
+<div id="myform" >
+    <div class="row">
+        <div class="col-md-2">Start Date</div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="startDate"/>
+        </div>
+        <div class="col-md-2">End Date</div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="endDate" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">Cashier</div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="cashier" />
+        </div>
+        <div class="col-md-2">Charge Type</div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="chargeType" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="view">Generate Report &raquo; </button>
+        </div>
+        <br />
+    </div>
+</div>
+<div id="reportViewer1" class="k-widget">
+</div>
+
+@section FootScripts
+{
+    <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+    <script src="~/scripts/app/ClientReport/ServiceCharges.js"></script>
+}

@@ -1,0 +1,66 @@
+﻿<Window x:Name="ACS_GHANA_Point_of_Sale" x:Class="CoreErpPointOfSale.PointOfSale"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                xmlns:example="clr-namespace:CoreErpPointOfSale"
+                xmlns:viewModel="clr-namespace:coreErpPointOfSale.ViewModel"
+                xmlns:controls="http://schemas.telerik.com/2008/xaml/presentation"
+                xmlns:models="clr-namespace:coreErpPointOfSale.Models"
+
+                Title="ACS GHANA Point of Sale" Height="830" Width="850">
+    <UserControl>
+        <UserControl.Resources>
+            <viewModel:SalesItemViewModel x:Key="DataSource" />
+
+
+        </UserControl.Resources>
+        <Grid Margin="0,-27,0,-15">
+            <Label x:Name="lblCompanyName" Content="Company Name Here" HorizontalAlignment="Left" Margin="286,51,0,0" VerticalAlignment="Top" FontFamily="Kristen ITC" FontSize="20" FontWeight="Bold" Width="227"/>
+            <telerik:RadComboBox x:Name="CustomersComboBox" 
+                                 
+                                 HorizontalAlignment="Left" Margin="190,219,0,0" VerticalAlignment="Top" Width="191" FontFamily="Times New Roman" FontSize="14">
+            </telerik:RadComboBox>
+            <telerik:RadAutoCompleteBox x:Name="ItemsAutoCompleteBox"
+                                AutoCompleteMode="Suggest" WatermarkContent="Type an Item Name"
+                                HorizontalAlignment="Left" Margin="245,308,0,0" VerticalAlignment="Top" Width="314" FontFamily="Times New Roman" FontSize="14"/>
+            <StackPanel HorizontalAlignment="Left" Height="88" Margin="286,93,0,0" VerticalAlignment="Top" Width="293">
+                <Label x:Name="lblAddress" Content="Address:" Margin="0,0,116,0" FontFamily="Times New Roman" FontSize="14" Height="26"/>
+                <Label x:Name="lblLocation" Content="Location:" Margin="0,0,103,0" FontFamily="Times New Roman" FontSize="14"/>
+                <Label x:Name="lblPhone" Content="Tel:" Margin="0,0,116,0" FontFamily="Times New Roman" FontSize="14"/>
+            </StackPanel>
+            <telerik:RadDatePicker
+                x:Name="SalesDate" HorizontalAlignment="Left" Margin="518,219,0,0" VerticalAlignment="Top" Width="211" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Date:" HorizontalAlignment="Left" Margin="446,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.173,0.093" FontFamily="Times New Roman" FontSize="14" Width="56"/>
+            <Label Content="Customer:" HorizontalAlignment="Left" Margin="102,215,0,0" VerticalAlignment="Top" Width="70" FontFamily="Times New Roman" FontSize="14"/>
+            <Label Content="Add New Item" HorizontalAlignment="Left" Margin="335,282,0,0" VerticalAlignment="Top" Width="128" FontFamily="Times New Roman" FontSize="14" FontStyle="Italic" FontWeight="Bold"/>
+            <telerik:RadGridView x:Name="SalesDataGrid" AlternationCount="2"  ItemsSource="{Binding}"
+                                 AddingNewDataItem="radGridView_AddingNewDataItem"
+                                 AlternateRowBackground="DarkGray"  CanUserInsertRows="True"
+                                 CanUserDeleteRows="True" HorizontalAlignment="Left" Margin="36,405,0,0" VerticalAlignment="Top" FontFamily="Times New Roman" FontSize="14" >
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Description" Width="280" DataMemberBinding="{Binding Path=description, Mode=TwoWay}" IsReadOnly="True"/>
+                    <telerik:GridViewDataColumn Header="Unit Price"   TextAlignment="Right" Width="110" DataMemberBinding="{Binding Path=unitPrice, Mode=TwoWay, StringFormat=#.00;;#0}" IsReadOnly="True"/>
+                    <telerik:GridViewMaskedInputColumn x:Name="QuantityField"  Header="Quantity" TextAlignment="Right" Width="110" DataMemberBinding="{Binding Path=quantity, Mode=TwoWay, NotifyOnTargetUpdated=True, StringFormat=0;;#, UpdateSourceTrigger=PropertyChanged}" />
+                    <telerik:GridViewDataColumn x:Name="TotalField" Header="Total Amount" TextAlignment="Right" Width="110" DataMemberBinding="{Binding Path=totalAmount, Mode=TwoWay, StringFormat=#.00;;#0}" IsReadOnly="True"/>
+                    <telerik:GridViewColumn Header="Delete" Width="70">
+                        <telerik:GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Content="Delete" 
+                                   Command="telerik:RadGridViewCommands.Delete"
+                                   CommandParameter="{Binding}" />
+                            </DataTemplate>
+                        </telerik:GridViewColumn.CellTemplate>
+                    </telerik:GridViewColumn>
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <Label x:Name="lblItemsCount" Content="Label" HorizontalAlignment="Left" Margin="719,374,0,0" VerticalAlignment="Top" Width="53" FontFamily="Times New Roman" FontWeight="Bold"/>
+            <Label Content="Total Items" HorizontalAlignment="Left" Margin="602,374,0,0" VerticalAlignment="Top" Width="113" FontFamily="Times New Roman" FontSize="14" FontWeight="Bold" FontStyle="Italic"/>
+            <controls:RadButton x:Name="btnSubmit" Content="Submit Order" HorizontalAlignment="Left" Height="Auto" Margin="36,374,0,0" VerticalAlignment="Top" Width="Auto" Click="btnSubmit_Click"/>
+            <controls:RadButton x:Name="btnInvoice" Content="View Invoice" HorizontalAlignment="Left" Height="Auto" Margin="704,76,0,0" VerticalAlignment="Top" Width="Auto" Click="btnInvoice_Click"/>
+            <controls:RadButton x:Name="btnEnquiries" Content="Check Inventory" HorizontalAlignment="Left" Height="Auto" Margin="696,112,0,0" VerticalAlignment="Top" Width="Auto" Click="btnEnquiries_Click"/>
+
+
+        </Grid>
+    </UserControl>
+</Window>

@@ -1,0 +1,48 @@
+﻿ 
+@{
+    ViewBag.Title = "Cashier Fund";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3>Cashier Fund</h3>
+    <br/>
+    <div class="row">
+        <div class="col-md-2 col-xs-2">Receiving Cashier: </div>
+        <div class="col-md-4 col-xs-4">
+            <input type="text" id="cashierTill"/>
+        </div>
+        <div class="col-md-2 col-xs-2">TransferAmount</div>
+        <div class="col-md-4 col-xs-4">
+            <input type="text" id="transferAmount" />
+        </div>
+    </div><br/>
+    <div id="row">
+        <div id="tabs">
+            <ul>
+                <li class="k-state-active">Notes</li>
+                <li>Coins</li>
+            </ul>
+            <div>
+                <div id="notes"></div>
+            </div>
+            <div>
+                <div id="coins"></div>
+            </div>
+        </div> <!--EndTab--><br />
+
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="save">Transfer Funds &raquo; </button>
+        </div><!--SaveButton-->
+        <br/>
+    </div>
+</div>
+
+@section FootScripts{
+
+    <script type="text/javascript">
+        var cashierFundId = '@ViewBag.id';
+    </script>
+    <script src="~/scripts/app/Loans/Cashier/CashierTransferMyFunds.js"></script>
+}

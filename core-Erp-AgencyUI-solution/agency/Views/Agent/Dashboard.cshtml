@@ -1,0 +1,148 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_AgencyLayout.cshtml";
+}
+
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Dashboard <small>Click a Button</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-home"></i><a href="#">Home</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE HEADER-->
+        <div class="clearfix"></div>
+        <div class="row ">
+            <div class="col-md-6 col-sm-6">
+                <div class="portlet box green-haze">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-user"></i>Welcome, @User.Identity.Name
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="scroller" style="height: 320px;" data-always-visible="1" data-rail-visible="0" align="center">
+                            <h2>Current User Details Here</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="portlet box blue-dark">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-th"></i>Quick Menu
+                        </div>
+                        <div class="tools">
+                            <a href="" class="reload"></a>
+                            <a href="" class="fullscreen"></a>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="task-content">
+                            <div class="scroller" style="height: 320px;" data-always-visible="1" data-rail-visible1="1">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="width:50%">
+                                        <a href="/Account/ClientAccount">
+                                            <div class="dashboard-stat blue-soft">
+                                            <div class="visual">
+                                                <i class="fa fa-user-plus"></i>
+                                            </div>
+                                            <div class="details">
+                                                <div class="number">
+                                                    Create Account
+                                                </div>
+                                                <div class="desc">
+                                                        Client Account
+                                                </div>
+                                            </div>
+                                            <a class="more" href="/Account/ClientAccount">
+                                                Click Here <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="width:50%">
+                                        <a href="/Account/SavingsAccount">
+                                            <div class="dashboard-stat blue-dark">
+                                            <div class="visual">
+                                                    <i class="fa fa-user-plus"></i>
+                                            </div>
+                                            <div class="details">
+                                                <div class="number">
+                                                        Create Account
+                                                </div>
+                                                <div class="desc">
+                                                    Savings Account
+                                                </div>
+                                            </div>
+                                                <a class="more" href="/Account/SavingsAccount">
+                                                Click Here <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px;">
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="width:50%">
+                                        <a href="/Transaction/SavingsDeposit">
+                                            <div class="dashboard-stat green-meadow">
+                                            <div class="visual">
+                                                    <i class="fa fa-money"></i>
+                                            </div>
+                                            <div class="details">
+                                                <div class="number">
+                                                        Deposit Money
+                                                </div>
+                                                <div class="desc">
+                                                    Savings Account
+                                                </div>
+                                            </div>
+                                                <a class="more" href="/Transaction/SavingsDeposit">
+                                                Click Here <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" style="width:50%">
+                                        <a href="/Transaction/SavingsWidrawal">
+                                            <div class="dashboard-stat red-haze">
+                                            <div class="visual">
+                                                    <i class="fa fa-bar-chart-o"></i>
+                                            </div>
+                                            <div class="details">
+                                                <div class="number">
+                                                        Withdraw Money
+                                                </div>
+                                                <div class="desc">
+                                                        Savings Account
+                                                </div>
+                                            </div>
+                                                <a class="more" href="/Transaction/SavingsWidrawal">
+                                                Click Here <i class="m-icon-swapright m-icon-white"></i>
+                                            </a>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+@section scripts{
+    
+}

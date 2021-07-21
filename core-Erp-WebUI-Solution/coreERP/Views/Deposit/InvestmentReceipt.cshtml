@@ -1,0 +1,42 @@
+﻿ 
+@{
+    ViewBag.Title = "Client Investment";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3>Investment Receipts</h3>
+    <div class="col-md-1"></div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            Client:
+            <input type="text" id="client" required data-required-msg="Invalid"/>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <hr/>
+    <div>
+        <div id="tabs">
+            <ul>
+                <li class="k-state-active">Cash Receipts</li>
+            </ul>
+            <div>
+                <div id="receiptGrid"> </div>
+            </div>
+        </div> <!--EndTab--><br/>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="save">Save &raquo; </button>
+        </div><!--SaveButton-->
+        <br/>
+    </div>
+</div>
+
+@section FootScripts{
+
+    <script type="text/javascript">
+        var investmentReceiptId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Loans/Deposit/InvestmentReceipt.js"></script>
+}

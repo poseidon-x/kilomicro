@@ -1,0 +1,91 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Post Transfer";
+}
+
+<h2>Post Transfer</h2>
+
+<hr>
+<div id="myform">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">From Location</div>
+            <div class="col-md-3">
+                <input type="text" id="fromLocation" class="form-control" style="width: 210px;" readonly />
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2">To Location</div>
+            <div class="col-md-3">
+                <input type="text" id="toLocation" class="form-control" style="width: 210px;" readonly />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Requisition Date </div>
+            <div class="col-md-3">
+                <input type="text" id="requisitionDate" class="form-control" style="width: 210px;" readonly />
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Entry Date </div>
+            <div class="col-md-3">
+                <input type="text" id="created" name="created" class="form-control" readonly style="width: 210px;" />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Entry Made By </div>
+            <div class="col-md-3">
+                <input type="text" id="enteredBy" class="form-control" readonly style="width: 210px;" />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <hr>
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="postTransferGrid">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-4">
+                <h4> Postingl Comments </h4>
+                <textarea id="postingComments" rows="3" cols="80" style="width: 600px; height: 70px" readonly></textarea>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row">
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2" id="postButton">
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var inventoryTransferId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Inventory/InventoryTransferManagement/postTransfer.js"></script>
+}
+

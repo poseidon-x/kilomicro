@@ -1,0 +1,51 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Client Service Charge";
+}
+
+<h2>Loan Fees Repayment</h2>
+<hr>
+<div id="myform">
+<div id="form-container" style="position: relative">
+    <div class="form-horizontal">        
+        <div class="row">
+            <div class="col-md-2 col-xs-2">Client: </div>
+            <div class="col-md-4 col-xs-4">
+                <input type="text" id="client" />
+            </div>
+            <div class="col-md-2 col-xs-2">Loan: </div>
+            <div class="col-md-4 col-xs-4">
+                <input type="text" id="loan" />
+            </div>
+        </div><br/>
+        <div class="row">
+            <div class="col-md-2 col-xs-2">Payment Date: </div>
+            <div class="col-md-4 col-xs-4">
+                <input type="text" id="paymentDate" />
+            </div>
+        </div><br />
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Payments</li>
+                </ul>
+                <div>
+                    <div id="paymentGrid"> </div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Receive Payment &raquo; </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+    </div>
+    <br/>
+</div>
+</div>
+
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/Loan/LoanRepaymentMulti.js"></script>
+}

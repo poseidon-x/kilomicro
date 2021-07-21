@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Credit Memo";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Enter Credit Memo</h3>
+    <hr>
+    <div class="row">
+        <center><h4>Select Memo Type</h4></center>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <input type="radio" id="paymentMemo" name="creditMemo" class="k-radio" />
+            <label class="k-radio-label" for="paymentMemo">Memo for Over Payment</label>
+        </div>
+        <div class="col-md-4">
+            <input type="radio" id="invoiceMemo" name="creditMemo" class="k-radio" />
+            <label class="k-radio-label" for="invoiceMemo">Memo for Returned Goods</label>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <br />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2" id="memoTypeTitle"></div>
+            <div class="col-md-3" id="memoTypeInput"></div>
+
+            <div class="col-md-2" id="memoDateTitle"></div>
+            <div class="col-md-3" id="memoDateInput">
+            <div class="col-md-1"></div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> currency: </div>
+            <div class="col-md-3">
+                <input type="text" id="currency" class="form-control" required data-required-msg="Invalid" readonly/>
+            </div>
+
+            <div class="col-md-2"> Memo Reason: </div>
+            <div class="col-md-3">
+                <input type="text" id="creditMemoReason" class="form-control" required data-required-msg="Invalid" readonly/>
+            </div>
+            <div class="col-md-1"></div>
+		</div>
+         <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Amount</div>
+            <div class="col-md-3">
+                <input type="text" id="totalAmountReturned" class="form-control" required data-required-msg="Invalid" readonly />
+            </div>
+
+            <div class="col-md-2">Balance</div>
+             <div class="col-md-3">
+                 <input type="text" id="totalBalanceLeft" class="form-control" required data-required-msg="Invalid" readonly />
+             </div>
+             <div class="col-md-1"></div>
+        </div>
+
+        <hr>
+            <div id="row">
+                <div id="grid"> </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div>
+                    <div class="col-md-2">
+                        <input type="button" class="btn btn-primary" id="save" value="Save Credit Memo" />
+                    </div>
+                    <div class="col-md-10"></div>
+                </div><!--SaveButton-->
+            </div>
+</div>
+
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var creditMemoId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/AccountRecievable/CreditMemo/EnterCreditMemo.js"></script>
+}
+

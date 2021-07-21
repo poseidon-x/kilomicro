@@ -1,0 +1,78 @@
+﻿.pageBanner, h1, h2, h3 {
+    border-top: 2px solid #72c02c;
+    border-bottom: 2px solid #72c02c;
+    margin: 0 0 -2px 0 ;
+    padding-bottom: 5px ;
+    display: inline-block ;
+}
+#wrapper {   
+    height:auto;
+    height: 100%; 
+    margin: 0 auto auto auto;
+} 
+         
+#headerbg {
+	text-align:center;
+	padding:0px 0;
+}
+
+#navigation { 
+	margin-left: 0px;
+	position: relative;
+}
+
+#content {
+	background-color:ivory; 
+    height:auto; 
+    height: 90%; 
+    min-height: 680px;  
+    width:95%;
+    overflow-x:scroll;
+    float: right;
+}
+        
+#mainContent {
+	background-color:ivory;   
+    margin: 5px;
+}
+
+.fixed {
+        position:fixed!important;
+}
+a {
+    color: #2672EC;
+    text-decoration: none !important;
+}
+ul{            
+    list-style-type: none !important;
+}
+
+.welcomeMenu {
+    float: right !important;
+}
+
+#tabNote {
+    height:auto;
+    height:60%;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+        
+#tabSide {
+    height:auto;
+    height:60%;
+    max-height: 450px;
+    overflow-y: scroll;
+}
+
+div#footer {
+    position:absolute;
+    width:100%;
+    bottom:0; /* stick to bottom */
+    clear:both !important;
+    height:2.5%;
+}
+div#footer p {
+    padding:1em;
+    margin:0;
+}

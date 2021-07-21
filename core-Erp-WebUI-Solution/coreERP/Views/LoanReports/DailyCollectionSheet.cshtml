@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Loan Document Template";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 350px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+<div id="myform" class="w-section inverse 1w boxed container">
+
+    <br/>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1">Branch</div>
+        <div class="col-md-4">
+            <input type="text" placeholder="--------Select branch---------" id="branch" />
+        </div>
+
+        <div class="col-md-1">Collection Date</div>
+        <div class="col-md-4">
+            <input type="text" placeholder="--------Select collection date---------" id="collectionDate"/>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    
+    <br />
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="getReport">Generate Report &raquo; </button>
+        </div><!--SaveButton-->
+    </div>
+    <div class="row">
+        <div>
+            <div class="col-md-3"></div>
+            <div class="col-md-9">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="reportViewer1" class="k-widget"></div>
+
+@section FootScripts
+{
+    <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>   
+    <script src="~/scripts/app/Loans/Reports/DailyCollectionSheet.js"></script>
+}

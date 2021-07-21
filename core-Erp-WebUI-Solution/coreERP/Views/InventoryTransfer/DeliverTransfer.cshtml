@@ -1,0 +1,111 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Transfer Delivery";
+}
+
+<h2>Transfer Delivery</h2>
+
+<hr>
+<div id="myform">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Deliverer</div>
+            <div class="col-md-3">
+                <input type="text" id="deliveredBy" onkeydown="return alphaOnly(event);"
+                       style="width:300px" class="form-control" placeholder="------Enter Deliverer's Name Here------" required data-required-msg="Name Expected" />
+            </div>
+
+            <div class="col-md-2">Recipient</div>
+            <div class="col-md-3">
+                <input type="text" id="receivedBy" onkeydown="return alphaOnly(event);" style="width:300px" class="form-control" placeholder="------Enter Recipient Name Here------" required data-required-msg="Name Expected" />
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <hr>
+
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <h4> Deliverer's Comments </h4>
+                <textarea id="deliverersComments" class="form-control" placeholder="Your Comments Here" rows="5" cols="80" style="width: 520px; height: 50px"></textarea>
+            </div>
+            <div class="col-md-5">
+                <h4> Reciever's Comments </h4>
+                <textarea id="recieversComments" class="form-control" placeholder="Your Comments Here" rows="5" cols="80" style="width: 520px; height: 50px"></textarea>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">From Location</div>
+            <div class="col-md-3">
+                <input type="text" id="fromLocation" style="width:300px" class="form-control" readonly />
+            </div>
+
+            <div class="col-md-2">To Location</div>
+            <div class="col-md-3">
+                <input type="text" id="toLocation" style="width:300px" class="form-control" readonly />
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Requisition Date </div>
+            <div class="col-md-3">
+                <input type="text" id="requisitionDate" style="width:300px" class="form-control" readonly />
+            </div>
+
+            <div class="col-md-2"> Entry Date </div>
+            <div class="col-md-3">
+                <input type="text" id="created" style="width:300px" class="form-control" readonly />
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Entry Made By </div>
+            <div class="col-md-3">
+                <input type="text" id="enteredBy" style="width:300px" class="form-control" readonly />
+            </div>
+            <div class="col-md-6"></div>
+        </div>
+
+        <hr>
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="deliverTransferGrid">
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-2"></div>
+                <div class="col-md-2" id="deliveredButton">
+                </div>
+                <div class="col-md-8"></div>
+            </div><!--deliveredButton-->
+        </div>
+    </div>
+</div>
+
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var inventoryTransferId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Inventory/InventoryTransferManagement/deliverTransfer.js"></script>
+}
+

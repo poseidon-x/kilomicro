@@ -1,0 +1,40 @@
+﻿ 
+@{
+    ViewBag.Title = "Client Checks";
+}
+
+<h3>Investment Checks</h3>
+<div>
+    <div class="col-md-1"></div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            Client:
+            <input type="text" id="client" required data-required-msg="Invalid"/>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div id="tabs" class="col-md-8">
+            <ul>
+                <li id="gridHeader" class="k-state-active">Client Checks</li>
+            </ul>
+            <div>
+                <div id="grid"> </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+@section FootScripts{
+
+    <script type="text/javascript">
+        var clientId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Loans/Deposit/ApplyClientCheck.js"></script>
+}

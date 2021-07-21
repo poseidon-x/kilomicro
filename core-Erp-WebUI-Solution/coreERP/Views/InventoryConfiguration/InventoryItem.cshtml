@@ -1,0 +1,38 @@
+﻿@{
+    
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Inventory Item";
+    
+}
+
+<h2>Inventory Items</h2>
+<hr>
+<div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="----------Please Select Product-----------" id="product"/>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-11" id="setupGrid">
+        </div>
+        <div class="col-md-1"></div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2" id="saveButton"></div>
+        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+
+@section FootScripts{
+
+<script src="~/scripts/app/Inventory/InventoryConfigurationManagement/inventoryItem.js"></script>
+
+}

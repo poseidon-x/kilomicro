@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/coreERP.Master" AutoEventWireup="true" CodeBehind="setupPage.master.cs" Inherits="coreERP.setupPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="titlePlaceHolder" runat="server">
+    <asp:ContentPlaceHolder ID="titlePlaceHolder" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="headPlaceHolder" runat="server">
+    <script type="text/x-kendo-template" id="toolbar-icon-pdf">
+        <a class="k-button k-button-icontext ob-icon-only k-grid-#= name #" href="#= url #" target="_blank">
+            <img src="#= imageUrl #" max-height="64" max-width="64" />
+        </a>
+    </script>
+    <style type="text/css">
+
+    </style>
+    <asp:ContentPlaceHolder ID="headPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="mainPlaceHolder" runat="server">
+    <asp:ContentPlaceHolder ID="mainPlaceHolder" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

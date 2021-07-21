@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create Job Order";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Create Job Order</h3>
+    <hr>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> Customer: </div>
+        <div class="col-md-3">
+            <input type="text" id="customer" class="form-control" required data-required-msg="Invalid" />
+        </div>
+
+        <div class="col-md-2"> Date: </div>
+        <div class="col-md-3">
+            <input type="text" id="workOrderDate" class="form-control" required data-required-msg="Invalid" readonly/>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+
+    <hr>
+    <div id="row">
+        <div id="grid"> </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div>
+            <div class="col-md-2">
+                <input type="button" class="btn btn-primary" id="save" value="Save Work Order" />
+            </div>
+            <div class="col-md-10"></div>
+        </div><!--SaveButton-->
+    </div>
+</div>
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var workOrderId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/JobOrder/WorkOrder/EnterWorkOrder.js"></script>
+}
+

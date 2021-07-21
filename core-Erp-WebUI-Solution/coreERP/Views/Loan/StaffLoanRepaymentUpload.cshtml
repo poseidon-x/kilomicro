@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Campany Staff";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    
+    <div id="form-container" style="position: relative">
+        <div class="row">
+            <div class="col-md-3">
+                <input style="width: 100%;" type="file" id="repaymentFile" name="repaymentFile" />
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" id="save">Save File Entries</button>
+            </div>
+        </div>
+        <br />
+        <div id="report"></div><br />
+    </div>
+</div>
+
+
+
+
+
+@section FootScripts{
+
+    <script>
+        var id = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/Loans/PrivateCompanyStaff/StaffLoanRepaymentUpload.js"></script>
+}

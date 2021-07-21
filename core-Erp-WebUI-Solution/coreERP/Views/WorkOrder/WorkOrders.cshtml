@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Work Orders";
+}
+
+<h2>Job Cards</h2>
+<hr>
+<div class="col-md-1"></div>
+<div class="row col-md-10">
+    <div id="tabs">
+        <ul>
+            <li class="k-state-active">Work Orders</li>
+        </ul>
+        <div>
+            <div id="grid"> </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-1"></div>
+
+
+@section FootScripts{
+<script src="~/scripts/app/JobOrder/WorkOrder/WorkOrders.js"></script>
+}

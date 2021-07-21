@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Controller File";
+}
+
+<h2>Edit Monthly Deduction</h2>
+<hr>
+<div id="myform">
+<div id="form-container" style="position: relative">
+    <div class="form-horizontal">        
+       
+        <div class="row">
+
+            <div class="col-md-2">Controller File</div>
+            <div class="col-md-3">
+                <input type="text" id="file"  />
+            </div>
+           
+
+        </div><br />
+
+        
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="retrieve" &nbsp;&nbsp;&nbsp;&nbsp; > Retrieve &raquo; </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+    </div>
+    <br/>
+</div>
+</div>
+<div class="w-section inverse 1w boxed container">
+    <span id="errorBox"></span>
+    <div id="form-container1" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div id="grid"></div><br />
+            </div>
+        </div>
+        <div class="row" id="saveid">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="savechanges">Save Changes </button>
+            </div><!--SaveButton-->
+            <br />
+        </div>
+    </div>
+</div>
+
+
+@section FootScripts{
+<script type="text/javascript">
+    var fileID = '@ViewBag.Id';
+</script>
+<script src="~/scripts/app/Loans/Loan/ControllerFileMonthlyDed.js"></script>
+}

@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "BOG MF7B";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 5px;
+            right: 5px;
+            top: 350px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+<div class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">MF7B Report</h3>
+    <div id="form-container">
+        <div class="row">
+            <div class="col-md-2 col-xs-2"></div>
+            <div class="col-md-2 col-xs-2">Month</div>
+            <div class="col-md-4 col-xs-4">
+                <input type="text" id="month"/>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="getReport">View Report &raquo;</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div id="reportViewer1" class="k-widget"></div><br />
+        </div>
+    </div>
+</div>
+<!--
+<div id="reportViewer1" class="k-widget"></div>
+-->
+@section FootScripts
+{
+<script src="~/Content/Reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+<script src="~/scripts/app/Loans/Bog/LoanReportMF7B.js"></script>
+   
+}

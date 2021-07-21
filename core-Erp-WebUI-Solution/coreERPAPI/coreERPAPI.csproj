@@ -1,0 +1,994 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{71756A68-9DDF-461A-8415-A06325A1E3E5}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreERP</RootNamespace>
+    <AssemblyName>coreERPAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="coreData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreData.dll</HintPath>
+    </Reference>
+    <Reference Include="coreInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="coreLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="coreLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="coreLogic2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreLogic2.dll</HintPath>
+    </Reference>
+    <Reference Include="coreModels, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreModels.dll</HintPath>
+    </Reference>
+    <Reference Include="coreNotificationsDAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreNotificationsDAL.dll</HintPath>
+    </Reference>
+    <Reference Include="coreReports, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\core-Erp-Data-Libs\coreReports.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\..\core-Erp-Data-Libs\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\iTextSharp.5.5.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.2.0.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\packages\WindowsAzure.Storage.4.0.1\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.2\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.2\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\Telerik.Web.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\Telerik.Web.UI.Skins.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\RCAJAX\2017.2.503.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Reporting, Version=14.1.20.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Service, Version=14.1.20.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.ServiceStack, Version=14.1.20.618, Culture=neutral, PublicKeyToken=null">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.Reporting.Services.WebApi, Version=14.1.20.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+    <Reference Include="Telerik.ReportViewer.Mvc, Version=14.1.20.618, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.0\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AccountsReceivable\CreditMemo\ArCreditMemoController.cs" />
+    <Compile Include="Controllers\AccountsReceivable\CreditMemo\ArCreditMemoReasonController.cs" />
+    <Compile Include="Controllers\AccountsReceivable\Invoice\ArInvoiceController.cs" />
+    <Compile Include="Controllers\AccountsReceivable\Payments\ArPaymentController.cs" />
+    <Compile Include="Controllers\Cashier\CashierTransactionController.cs" />
+    <Compile Include="Controllers\Cashier\CashierUserController.cs" />
+    <Compile Include="Controllers\Cashier\CashierFundingController.cs" />
+    <Compile Include="Controllers\Cashier\CashierTransferTypeController.cs" />
+    <Compile Include="Controllers\Cashier\CashierTillController.cs" />
+    <Compile Include="Controllers\Cashier\CashierCashupController.cs" />
+    <Compile Include="Controllers\Cashier\CashierFundController.cs" />
+    <Compile Include="Controllers\Cashier\CashierFundsTransferController.cs" />
+    <Compile Include="Controllers\Clients\ClientLookUpController.cs" />
+    <Compile Include="Controllers\Clients\ClientActivityController.cs" />
+    <Compile Include="Controllers\Clients\ClientController.cs" />
+    <Compile Include="Controllers\Clients\ClientServiceChargeController.cs" />
+    <Compile Include="Controllers\CreditUnion\CreditUnionChapterController.cs" />
+    <Compile Include="Controllers\CreditUnion\CreditUnionController.cs" />
+    <Compile Include="Controllers\CreditUnion\CreditUnionMemberController.cs" />
+    <Compile Include="Controllers\CreditUnion\CreditUnionTransactionController.cs" />
+    <Compile Include="Controllers\Currency\CurrencyController.cs" />
+    <Compile Include="Controllers\Customers\CustomerController.cs" />
+    <Compile Include="Controllers\Dash\DashAppModel.cs" />
+    <Compile Include="Controllers\Dash\JDefualt2Controller.cs" />
+    <Compile Include="Controllers\Deposits\DepositInterestUpgradeController.cs" />
+    <Compile Include="Controllers\Deposits\DepositWithdrawalWithCheckController.cs" />
+    <Compile Include="Controllers\Deposits\DepositCheckController.cs" />
+    <Compile Include="Controllers\Deposits\DepositClientController.cs" />
+    <Compile Include="Controllers\Deposits\DepositCertificateConfigController.cs" />
+    <Compile Include="Controllers\Deposits\DepositUpgradeController.cs" />
+    <Compile Include="Controllers\Deposits\DepositController.cs" />
+    <Compile Include="Controllers\Deposits\DepositTypeAllowedTenureController.cs" />
+    <Compile Include="Controllers\Deposits\DepositTypeController.cs" />
+    <Compile Include="Controllers\Deposits\InvestmentReceiptController.cs" />
+    <Compile Include="Controllers\Deposits\DepositAdditionalWithCheckController.cs" />
+    <Compile Include="Controllers\Deposits\DepositPeriodInDaysController.cs" />
+    <Compile Include="Controllers\Deposits\TenureTypeController.cs" />
+    <Compile Include="Controllers\Fixed Assets\JobTitleController.cs" />
+    <Compile Include="Controllers\Fixed Assets\StaffCategoryController.cs" />
+    <Compile Include="Controllers\General\Setup\ClientTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\ClientChargeTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\CurrencyNoteController.cs" />
+    <Compile Include="Controllers\General\Setup\CityController.cs" />
+    <Compile Include="Controllers\General\Setup\CompanyProfileController.cs" />
+    <Compile Include="Controllers\General\Setup\CountriesController.cs" />
+    <Compile Include="Controllers\General\Setup\DepositRepaymentModeController.cs" />
+    <Compile Include="Controllers\General\Setup\EmailTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\IdTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\PaymentMethodController.cs" />
+    <Compile Include="Controllers\General\Setup\PaymentModeController.cs" />
+    <Compile Include="Controllers\General\Setup\PaymentTermController.cs" />
+    <Compile Include="Controllers\General\Setup\RelationshipTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\repaymentModeController.cs" />
+    <Compile Include="Controllers\General\Setup\RepaymentTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\SalesTypeController.cs" />
+    <Compile Include="Controllers\General\Setup\ShippingMethodController.cs" />
+    <Compile Include="Controllers\GL\Accounts\BankGLAccountController.cs" />
+    <Compile Include="Controllers\GL\Accounts\GLAccountController.cs" />
+    <Compile Include="Controllers\GL\Journal\JournalLocalController.cs" />
+    <Compile Include="Controllers\hc\LeaveTypeController.cs" />
+    <Compile Include="Controllers\hc\QualificationSubjectController.cs" />
+    <Compile Include="Controllers\hc\QualificationTypeController.cs" />
+    <Compile Include="Controllers\hc\RelationTypeController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\BrandController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryItemController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryLocationController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryMethodController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryValidation\OpeningBalancesBatchValidator.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\InventoryValidation\OpeningBalancesValidator.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\LocationController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\LocationTypeController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\ShrinkageReasonController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryConfiguration\UnitOfMeasurementController.cs" />
+    <Compile Include="Controllers\Inventory\InventoryTransferManagement\InventoryTransferController.cs" />
+    <Compile Include="Controllers\Inventory\OpenningBalanceManagement\OpeningBalanceBatchController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\InventoryMethodController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductCategoryController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductMakeController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductStatusController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\ProductSubCategoryController.cs" />
+    <Compile Include="Controllers\Inventory\ProductsManagement\UnitOfMeasurementController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\InventoryItemController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\LocationController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\ShrinkageBatchController.cs" />
+    <Compile Include="Controllers\Inventory\ShrinkageManagement\Un1itOfMeasurementController.cs" />
+    <Compile Include="Controllers\JobCard\JobCard\JobCardController.cs" />
+    <Compile Include="Controllers\JobCard\Speciality\SpecialityController.cs" />
+    <Compile Include="Controllers\JobCard\WorkOrder\WorkOrderController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\BorrowingClientsController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\BorrowingController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\BorrowingTypeController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\InterestTypeController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\ScheduleController.cs" />
+    <Compile Include="Controllers\Loans\Borrowing\TenureTypemmController.cs" />
+    <Compile Include="Controllers\Loans\Cashier\CashierTillDayController.cs" />
+    <Compile Include="Controllers\Loans\Cashier\CashierController.cs" />
+    <Compile Include="Controllers\Loans\Document\loanDocumentPlaceHolderTypeController.cs" />
+    <Compile Include="Controllers\Loans\Document\LoanDocumentTemplateController.cs" />
+    <Compile Include="Controllers\Loans\Investment\InvestmentTypeController.cs" />
+    <Compile Include="Controllers\Loans\LoanApproval\ApprovalStageController.cs" />
+    <Compile Include="Controllers\Loans\LoanApproval\LoanApprovalController.cs" />
+    <Compile Include="Controllers\Loans\LoanApproval\LoanPendingApprovalController.cs" />
+    <Compile Include="Controllers\Loans\Cashier\CashierReceiptWithCheckController.cs" />
+    <Compile Include="Controllers\Loans\Loans\ControllerFileController.cs" />
+    <Compile Include="Controllers\Loans\Loans\LoanScheduleController.cs" />
+    <Compile Include="Controllers\Loans\Loans\LoanController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\AppStageController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\LoanTypeApprovalController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\ProfileTypeController.cs" />
+    <Compile Include="Controllers\Loans\LoanType\ProfTypeController.cs" />
+    <Compile Include="Controllers\Loans\PrivateCompanyStaff\PrivateCompanyStaffController.cs" />
+    <Compile Include="Controllers\Loans\SalaryLoans\SalaryLoanConfigController.cs" />
+    <Compile Include="Controllers\Loans\SalaryLoans\SalaryLoanController.cs" />
+    <Compile Include="Controllers\Loans\Savings\SavingAdditionalWithCheckController.cs" />
+    <Compile Include="Controllers\Loans\Savings\SavingWithdrawalWithCheckController.cs" />
+    <Compile Include="Controllers\Loans\Savings\SavingsPlanFlagController.cs" />
+    <Compile Include="Controllers\Loans\Savings\SavingController.cs" />
+    <Compile Include="Controllers\Loans\Savings\SavingTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setups\BanksController.cs" />
+    <Compile Include="Controllers\Loans\Setups\BranchController.cs" />
+    <Compile Include="Controllers\Loans\Setups\EmployeeDepartmentController.cs" />
+    <Compile Include="Controllers\Loans\Setups\EmployeeContractTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setups\EmployerDirectorController.cs" />
+    <Compile Include="Controllers\Loans\Setups\EmployerController.cs" />
+    <Compile Include="Controllers\Loans\Setups\ChargeTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setups\ChargeTypeTierController.cs" />
+    <Compile Include="Controllers\Loans\Setups\CollateralTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setups\GenericCheckListController.cs" />
+    <Compile Include="Controllers\Loans\Setups\IndustryController.cs" />
+    <Compile Include="Controllers\Loans\Setups\InsuranceSetupController.cs" />
+    <Compile Include="Controllers\Loans\Setups\LineOfBusinessController.cs" />
+    <Compile Include="Controllers\Loans\Setups\LoanTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setups\SectorController.cs" />
+    <Compile Include="Controllers\Loans\Setups\SystemDateController.cs" />
+    <Compile Include="Controllers\Loans\Setups\BankAccountController.cs" />
+    <Compile Include="Controllers\Loans\Setups\CategoryCheckListController.cs" />
+    <Compile Include="Controllers\Loans\Setups\CategoryController.cs" />
+    <Compile Include="Controllers\Loans\Setups\ModeOfPaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\AddressTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\AllClientsController.cs" />
+    <Compile Include="Controllers\Loans\Setup\BatchGroupLoanDisbursementController.cs" />
+    <Compile Include="Controllers\Loans\Setup\CashierReportController.cs" />
+    <Compile Include="Controllers\Loans\Setup\CombinedPaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\FinancialTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanOutstandingController.cs" />
+    <Compile Include="Controllers\Loans\Setup\PhoneTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\SavingPlanIntervalController.cs" />
+    <Compile Include="Controllers\Loans\Setup\BankController.cs" />
+    <Compile Include="Controllers\Loans\Setup\ClientLoanController.cs" />
+    <Compile Include="Controllers\Loans\Setup\CreditLineController.cs" />
+    <Compile Include="Controllers\Loans\Setup\IntrstTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LnTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanAdditionalInfoController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanBatchRepayController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoansController.cs" />
+    <Compile Include="Controllers\Loans\LoanProvision\LoanProvisionController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanBatchRepaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanClientController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanClosureReasonController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupBatchDisbursementController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupBatchRepaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupDayController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanGroupPostController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanModeOfPaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRepaymentController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRepaymentModeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRepaymentTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\LoanRestructureController.cs" />
+    <Compile Include="Controllers\Loans\Setup\MetaDataTypeController.cs" />
+    <Compile Include="Controllers\Loans\Setup\TransactionTypeController.cs" />
+    <Compile Include="Controllers\Login\LoginController.cs" />
+    <Compile Include="Controllers\Manufacturing\AssemblyLine\AssemblyLineController.cs" />
+    <Compile Include="Controllers\MobileMoney\Setups\MomoProviderServiceChargeController.cs" />
+    <Compile Include="Controllers\MobileMoney\Setups\MomoProviderServiceController.cs" />
+    <Compile Include="Controllers\MobileMoney\Setups\MomoProviderController.cs" />
+    <Compile Include="Controllers\MobileMoney\Wallets\WalletController.cs" />
+    <Compile Include="Controllers\Reporting\ReportingController.cs" />
+    <Compile Include="Controllers\SalesOrder\SalesOrderController.cs" />
+    <Compile Include="Controllers\Setup\IndustryController.cs" />
+    <Compile Include="Controllers\Setup\ClientCategoryController.cs" />
+    <Compile Include="Controllers\Setup\MaritalStatusController.cs" />
+    <Compile Include="Controllers\Staff\AgentController.cs" />
+    <Compile Include="Controllers\Staff\StaffController.cs" />
+    <Compile Include="Controllers\UI\UIAPIController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loan\LoanGroupExtend.cs" />
+    <Compile Include="Models\Reports\CashierRepayments.cs" />
+    <Compile Include="Models\Reports\CashierReportInputModel.cs" />
+    <Compile Include="Models\CombinedBatchDisburseChecklistVM.cs" />
+    <Compile Include="Models\CombinedPaymentVM.cs" />
+    <Compile Include="Models\LoanRepaymentFeeModel.cs" />
+    <Compile Include="Models\Loan\LoanOutstandingModel.cs" />
+    <Compile Include="Models\Reports\CombinedSavingAndOutstandingLoan.cs" />
+    <Compile Include="Models\Reports\DepositAdditionalModel.cs" />
+    <Compile Include="Models\Reports\DepositWithdrawalModel.cs" />
+    <Compile Include="Models\Reports\NewSavingModel.cs" />
+    <Compile Include="Models\Reports\SavingAddWithModel.cs" />
+    <Compile Include="Models\UpdateSavingsVM.cs" />
+    <Compile Include="Models\NewSavingsVM.cs" />
+    <Compile Include="Models\ControllerFileMonDedVM.cs" />
+    <Compile Include="Models\BatchCashPaymentVM.cs" />
+    <Compile Include="Models\ControllerFileDetailVM.cs" />
+    <Compile Include="Models\ControllerFileMonthDedVM.cs" />
+    <Compile Include="Models\ControllerFileVM.cs" />
+    <Compile Include="Models\RepaymentScheduleVM.cs" />
+    <Compile Include="Models\LoanVM.cs" />
+    <Compile Include="Models\CityViewModel.cs" />
+    <Compile Include="Models\Client\ClientServiceChargeMultiModel.cs" />
+    <Compile Include="Models\Deposit\DepositModel.cs" />
+    <Compile Include="Models\IdTypeViewModel.cs" />
+    <Compile Include="Models\CashierTransaction\AllCTransViewModel.cs" />
+    <Compile Include="Models\CashierTransaction\CashierTillViewModel.cs" />
+    <Compile Include="Models\CashierTransaction\CTransViewModel.cs" />
+    <Compile Include="Models\CashierTransaction\InterCashierTransferViewModel.cs" />
+    <Compile Include="Models\Cashier\CashierTillRangeModel.cs" />
+    <Compile Include="Models\ClientSearchModel.cs" />
+    <Compile Include="Models\CashierUserViewModel.cs" />
+    <Compile Include="Models\CashierReceiptViewModel.cs" />
+    <Compile Include="Models\Client\ClientModel.cs" />
+    <Compile Include="Models\DepositWithdrawalViewModel.cs" />
+    <Compile Include="Models\DepositClientViewModel.cs" />
+    <Compile Include="Models\DepositUpgradeModel.cs" />
+    <Compile Include="Models\DepositAccountViewModel.cs" />
+    <Compile Include="Models\Deposit\DepositInterestUpgradeVM.cs" />
+    <Compile Include="Models\ImageModel.cs" />
+    <Compile Include="Models\ImageViewModel.cs" />
+    <Compile Include="Models\Image\ImageViewModel.cs" />
+    <Compile Include="Models\Loan\LoanFeePaymentMultiModel.cs" />
+    <Compile Include="Models\Loan\LoanCheckListModel.cs" />
+    <Compile Include="Models\Loan\LoanCollateralModel.cs" />
+    <Compile Include="Models\Loan\LoanDisbursementModel.cs" />
+    <Compile Include="Models\Loan\LoanDocumentModel.cs" />
+    <Compile Include="Models\Loan\LoanGurantorModel.cs" />
+    <Compile Include="Models\Loan\LoanBatchCashRepaymetModel.cs" />
+    <Compile Include="Models\Loan\LoanModel.cs" />
+    <Compile Include="Models\Loan\LoanRepaymentModel.cs" />
+    <Compile Include="Models\Loan\LoanTypeViewModel.cs" />
+    <Compile Include="Models\Loan\LoanViewModel.cs" />
+    <Compile Include="Models\ProvisionKendoRequest.cs" />
+    <Compile Include="Models\Saving\SavingViewModel.cs" />
+    <Compile Include="Models\Deposit\DepositViewModel.cs" />
+    <Compile Include="Models\MyFundViewModel.cs" />
+    <Compile Include="Models\SavingAccountViewModel.cs" />
+    <Compile Include="Models\DepositAdditionalViewModel.cs" />
+    <Compile Include="Models\SavingWithCheckModel.cs" />
+    <Compile Include="Models\SavingClientSearchViewModel.cs" />
+    <Compile Include="Models\savingAdditionalViewModel.cs" />
+    <Compile Include="Models\savingWithdrawalViewModel.cs" />
+    <Compile Include="Models\CashierFundingViewModel.cs" />
+    <Compile Include="Models\customResquest.cs" />
+    <Compile Include="Models\ProvisionViewModel.cs" />
+    <Compile Include="Models\ClientForRestructViewModel.cs" />
+    <Compile Include="Models\DepositSearchModel.cs" />
+    <Compile Include="Models\ClientInvestmentReceiptDetailModel.cs" />
+    <Compile Include="Models\DepositViewModel.cs" />
+    <Compile Include="Models\AgentViewModel.cs" />
+    <Compile Include="Models\BatchDisburseModel.cs" />
+    <Compile Include="Models\BatchRepaymentViewModel.cs" />
+    <Compile Include="Models\BatchRepayModel.cs" />
+    <Compile Include="Models\ClientViewModel.cs" />
+    <Compile Include="Models\DashAppModel.cs" />
+    <Compile Include="Models\DashInvestmentModel.cs" />
+    <Compile Include="Models\DashOverMaturedInvestmentModel.cs" />
+    <Compile Include="Models\DashTopTenModel.cs" />
+    <Compile Include="Models\DashUndModel.cs" />
+    <Compile Include="Models\DashViewModel.cs" />
+    <Compile Include="Models\DepositModel.cs" />
+    <Compile Include="Models\disbursementDateModel.cs" />
+    <Compile Include="Models\GroupDisbursedLoansModel.cs" />
+    <Compile Include="Models\GroupLoanBatchDisbursementModel.cs" />
+    <Compile Include="Models\GroupLoanBatchRepaymentModel.cs" />
+    <Compile Include="Models\KendoRequest.cs" />
+    <Compile Include="Models\LoanRestructureViewModel.cs" />
+    <Compile Include="Models\LoanViewModel.cs" />
+    <Compile Include="Models\LookupEntry.cs" />
+    <Compile Include="Models\MenuData.cs" />
+    <Compile Include="Models\ProfileModel.cs" />
+    <Compile Include="Models\SideMenuItem.cs" />
+    <Compile Include="Models\StaffViewModel.cs" />
+    <Compile Include="Models\sysDate.cs" />
+    <Compile Include="Models\TopTenInvestorsModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\vwOutstandingLoanNew.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\AuthorizationFilter.cs" />
+    <Compile Include="Providers\HelperMethod.cs" />
+    <Compile Include="Providers\KendoHelper.cs" />
+    <Compile Include="Providers\LoginHelper.cs" />
+    <Compile Include="Providers\SessionControllerHandler.cs" />
+    <Compile Include="Providers\SessionHttpControllerRouteHandler.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\excel.jpg" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\acsdemoapi.pubxml" />
+    <None Include="Properties\PublishProfiles\apiBuild.pubxml" />
+    <None Include="Properties\PublishProfiles\coreApi.pubxml" />
+    <None Include="Properties\PublishProfiles\coreAPIDeploy.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Inventory\Setup\" />
+    <Folder Include="Controllers\Loans\Employer\" />
+    <Folder Include="Controllers\TreasuryBillRate\" />
+    <Folder Include="Views\Wallet\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\coreData\coreData.csproj">
+      <Name>coreData</Name>
+      <Project>{bb9ae584-467a-41d8-b8dd-6524f8d5e86d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreErpApi.Controllers\coreErpApi.Controllers.csproj">
+      <Project>{9e9fdf3c-6462-40be-a523-b8f80bc2a2a0}</Project>
+      <Name>coreErpApi.Controllers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreInterfaces\coreInterfaces.csproj">
+      <Name>coreInterfaces</Name>
+      <Project>{5d9a635f-75b3-4e7b-971d-9a6a8ba90d23}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Name>coreLibrary</Name>
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic2\coreLogic2.csproj">
+      <Name>coreLogic2</Name>
+      <Project>{22d34f74-bcf1-4c65-8062-0e43238feb01}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLogic\coreLogic.csproj">
+      <Name>coreLogic</Name>
+      <Project>{b484314f-9e76-4ba7-9efe-6bd53b0866dd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\coreReports\coreReports.csproj">
+      <Name>coreReports</Name>
+      <Project>{67ec67fc-73d8-4060-a88e-31fdd1c97a92}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>30988</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:30988/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

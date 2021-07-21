@@ -1,0 +1,2537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67EC67FC-73D8-4060-A88E-31FDD1C97A92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreReports</RootNamespace>
+    <AssemblyName>coreReports</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Reporting, Version=11.1.17.503, Culture=neutral, PublicKeyToken=a9d7983dfcc261be, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="chart_of_accounts.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonBO.cs" />
+    <Compile Include="Custom\Lendzzee\rptCashierLendzeeAdmin.cs">
+      <DependentUpon>rptCashierLendzeeAdmin.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Custom\Lendzzee\rptCashierLendzee.cs">
+      <DependentUpon>rptCashierLendzee.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptAddReceipt.cs">
+      <DependentUpon>rptAddReceipt.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDeposit.cs">
+      <DependentUpon>rptDeposit.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDeposit2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDeposit2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDepositAnalysis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDepositAnalysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDepositBalance.cs">
+      <DependentUpon>rptDepositBalance.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDepositBalance2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDepositBalance2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDepositCert.cs">
+      <DependentUpon>rptDepositCert.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDepositCert2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptDepositCert2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptDepositStatement.cs">
+      <DependentUpon>rptDepositStatement.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dp\rptWithReceipt.cs">
+      <DependentUpon>rptWithReceipt.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="eod\rptBranchDailyTransaction.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBranchDailyTransaction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="getAgentActivity_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getAssetDepreciation1_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getAssetDepreciation_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCashFlow_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCashierBalance2_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCollectionRatioByMonth_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getCollectionRatio_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDailyTransactionReportByBranch_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDepositBalanceReport_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getDisbRecComparison_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getInvestmentBalanceReport1_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getInvestmentBalanceReport_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanActivity2_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanActivity3_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanActivity_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanBalanceReport_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanBalances_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanByDemographic_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getLoanCashflow_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getMF5_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getMF6_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getMF7_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getPARnPIRData_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getPublicDepositStats_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getRegularSusuAccountSchedule_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getRegularSusuAccountStatus_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getRegularSusuCashFlow_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getSavingBalanceReport_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getSusuAccountSchedule_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getSusuAccountStatus_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getSusuCashFlow_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans21_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans22_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans23_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans24_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans2_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans62_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetvwLoans6_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getvwLoans71_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="getvwLoans7_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_acc_bals_sum_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_bal_sht_for_close_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_bal_sht_sum_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="get_v_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gl\budget\rptBS.cs">
+      <DependentUpon>rptBS.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\budget\rptOS.cs">
+      <DependentUpon>rptOS.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\budget\rptTB.cs">
+      <DependentUpon>rptTB.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt_2\rptBS.cs">
+      <DependentUpon>rptBS.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt_2\rptBSCT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBSCT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt_2\rptBSSum.cs">
+      <DependentUpon>rptBSSum.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="hc\rptPayRegister - Copy.cs">
+      <DependentUpon>rptPayRegister - Copy.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="hc\rptPayRegister.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPayRegister.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="hc\rptPayslip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPayslip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="hc\rptPayslipDeductions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPayslipDeductions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="hc\rptPayslipEarnings.cs">
+      <DependentUpon>rptPayslipEarnings.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="hc\rptPayslipEmployerPensions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPayslipEmployerPensions.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="hc\rptSSNITPensionSubmission.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSSNITPensionSubmission.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptAddReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAddReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestmentBalance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvestmentBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestmentBalance2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvestmentBalance2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestmentStatement.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvestmentStatement.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvestment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestment2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvestment2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestmentAnalysis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvestmentAnalysis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptInvestmentCert.cs">
+      <DependentUpon>rptInvestmentCert.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\rptWithReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptWithReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\Product.cs" />
+    <Compile Include="ln2\rptAgentActivity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAgentActivity.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptCashFlow.cs">
+      <DependentUpon>rptCashFlow.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptCashFlow2.cs">
+      <DependentUpon>rptCashFlow2.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptCollection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCollection.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptCollection2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCollection2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptLoanActivity.cs">
+      <DependentUpon>rptLoanActivity.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptLoanActivity2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanActivity2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptLoanActivity3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanActivity3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptLoanActivity4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanActivity4.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptLoanEnquiry.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanEnquiry.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln2\rptSchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSchedule.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptCashierDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashierDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptInvoiceLoan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInvoiceLoan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanActualStmt2.cs">
+      <DependentUpon>rptLoanActualStmt2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanActualStmt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanActualStmt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanAgingDetail.cs">
+      <DependentUpon>rptLoanAgingDetail.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanAgingSummary.cs">
+      <DependentUpon>rptLoanAgingSummary.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptExpiredLoan.cs">
+      <DependentUpon>rptExpiredLoan.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanExpectedStmt.cs">
+      <DependentUpon>rptLoanExpectedStmt.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanNewStmt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanNewStmt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanTemplate.cs">
+      <DependentUpon>rptLoanTemplate.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptLoanTicket.cs">
+      <DependentUpon>rptLoanTicket.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptReceipting.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptReceipting.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln3\rptSMSTemplate.cs">
+      <DependentUpon>rptSMSTemplate.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln4\rptPARSummary.cs">
+      <DependentUpon>rptPARSummary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln4\rptPARDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPARDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln4\rptSavingPlan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSavingPlan.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptMF5.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMF5.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptMF6.cs">
+      <DependentUpon>rptMF6.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptMF7A.cs">
+      <DependentUpon>rptMF7A.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptMF7A2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMF7A2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptTopNDeposits.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTopNDeposits.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptTopNExposures.cs">
+      <DependentUpon>rptTopNExposures.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierClientServiceCharge.cs">
+      <DependentUpon>rptCashierClientServiceCharge.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierSavingAddLendzee.cs">
+      <DependentUpon>rptCashierSavingAddLendzee.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ln\rptCashierSusuContrib.cs">
+      <DependentUpon>rptCashierSusuContrib.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierDepositAdd.cs">
+      <DependentUpon>rptCashierDepositAdd.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierDepositWith.cs">
+      <DependentUpon>rptCashierDepositWith.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierFees.cs">
+      <DependentUpon>rptCashierFees.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierSavingAdd.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashierSavingAdd.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierSavingWith.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashierSavingWith.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCommission.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCommission.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptIncentive.cs">
+      <DependentUpon>rptIncentive.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptInvoiceLoanMaster.cs">
+      <DependentUpon>rptInvoiceLoanMaster.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptInvoiceLoanDisb.cs">
+      <DependentUpon>rptInvoiceLoanDisb.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanBalanceSummary.cs">
+      <DependentUpon>rptLoanBalanceSummary.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans3Sum.cs">
+      <DependentUpon>rptLoans3Sum.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans6Inner.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoans6Inner.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanStatement.cs">
+      <DependentUpon>rptLoanStatement.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanStatement2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanStatement2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptOutstandingByGroupAllBalances.cs">
+      <DependentUpon>rptOutstandingByGroupAllBalances.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ln\rptOutstandingByGroup.cs">
+      <DependentUpon>rptOutstandingByGroup.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ln\rptOutstandingRepayment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOutstandingRepayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptSchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSchedule.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\accountAmountTab.cs" />
+    <Compile Include="Models\accountBalance.cs" />
+    <Compile Include="Models\accountBalanceTab.cs" />
+    <Compile Include="Models\OutstandingRepayment.cs" />
+    <Compile Include="Models\unionMember.cs" />
+    <Compile Include="ReportModel.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ReportModel\ReportModel.IDbContext.cs">
+      <DependentUpon>ReportModel.IDbContext.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="rs\rptRegularSusuAccountDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularSusuAccountDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rs\rptRegularSusuAccountDetailsInner.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularSusuAccountDetailsInner.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rs\rptRegularSusuAccountSchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularSusuAccountSchedule.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rs\rptRegularSusuAccountsDuePerMonth.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularSusuAccountsDuePerMonth.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rs\rptRegularSusuAccountStages.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularSusuAccountStages.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rs\rptRegularSusuAccountStages1A.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptRegularSusuAccountStages1A.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rs\rptrRegularSusuCashflow.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptrRegularSusuCashflow.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="spDepositFromPublicScheduleH_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLoanArrearsWithDays_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spGetLoanArrears_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spLoanReportBogMF7B_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spMF7_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spOutstanding_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="spPortFolioQuality_Result.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ss\rptCashflow.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashflow.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ss\rptSusuAccountDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSusuAccountDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ss\rptSusuAccountDetailsInner.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSusuAccountDetailsInner.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ss\rptSusuAccountSchedule.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSusuAccountSchedule.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ss\rptSusuAccountsDuePerMonth.cs">
+      <DependentUpon>rptSusuAccountsDuePerMonth.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ss\rptSusuAccountStages.cs">
+      <DependentUpon>rptSusuAccountStages.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ss\rptSusuAccountStages1A.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSusuAccountStages1A.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sv\rptAddReceipt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAddReceipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sv\rptGrpSavingBalance.cs">
+      <DependentUpon>rptGrpSavingBalance.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="sv\rptSaving.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSaving.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sv\rptSaving2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSaving2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sv\rptSavingBalance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSavingBalance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="sv\rptSavingStatement.cs">
+      <DependentUpon>rptSavingStatement.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\OrptInvestmentBalance.cs">
+      <DependentUpon>OrptInvestmentBalance.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="iv\OrptInvestmentStatement.cs">
+      <DependentUpon>OrptInvestmentStatement.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fa\rptAssetDepreciation.cs">
+      <DependentUpon>rptAssetDepreciation.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fa\rptAssetDepreciationOU.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAssetDepreciationOU.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fa\rptAssets.cs">
+      <DependentUpon>rptAssets.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fa\rptAssetsOU.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAssetsOU.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="fa\rptTxByAcct.cs">
+      <DependentUpon>rptTxByAcct.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\chart_of_accounts\chartOfAccountsReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>chartOfAccountsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptTBSum.cs">
+      <DependentUpon>rptTBSum.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptBSSum.cs">
+      <DependentUpon>rptBSSum.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptBS.cs">
+      <DependentUpon>rptBS.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptOS.cs">
+      <DependentUpon>rptOS.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptOS2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOS2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptOS2Yrs.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOS2Yrs.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptOSCT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOSCT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptTB.cs">
+      <DependentUpon>rptTB.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptTriBal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTriBal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptTxByAcct.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTxByAcct.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\fin_stmt\rptUnbTx.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUnbTx.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\v\rptV.cs">
+      <DependentUpon>rptV.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gl\v\rptVD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptVD.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\bog\rptMF7B.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMF7B.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptControllerIn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptControllerIn.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans6.cs">
+      <DependentUpon>rptLoans6.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans6S.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoans6S.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans72.cs">
+      <DependentUpon>rptLoans72.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptApprovedUndisbursed.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptApprovedUndisbursed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashier.cs">
+      <DependentUpon>rptCashier.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierBalance.cs">
+      <DependentUpon>rptCashierBalance.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierBalance2.cs">
+      <DependentUpon>rptCashierBalance2.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierBalance3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashierBalance3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCashierDisb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCashierDisb.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptClientDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptClientDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptColl.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptColl.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptCollateral.cs">
+      <DependentUpon>rptCollateral.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptDeposit.cs">
+      <DependentUpon>rptDeposit.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanBalance.cs">
+      <DependentUpon>rptLoanBalance.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanBalance2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanBalance2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanDetails.cs">
+      <DependentUpon>rptLoanDetails.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanHistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanHistoryMain.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanHistoryMain.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans.cs">
+      <DependentUpon>rptLoans.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanCheckList.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanCheckList.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoans2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans3.cs">
+      <DependentUpon>rptLoans3.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans4.cs">
+      <DependentUpon>rptLoans4.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans5.cs">
+      <DependentUpon>rptLoans5.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoans7.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoans7.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanStatement3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanStatement3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanTenorRates.cs">
+      <DependentUpon>rptLoanTenorRates.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptLoanTenorRates2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLoanTenorRates2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptMultiPmtRem.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMultiPmtRem.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptOutstanding.cs">
+      <DependentUpon>rptOutstanding.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptOutstanding2.cs">
+      <DependentUpon>rptOutstanding2.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptPastLoans.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptPastLoans.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptProfile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptProfile.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptProjection.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptProjection.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptReceipt.cs">
+      <DependentUpon>rptReceipt.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptSummarySheet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSummarySheet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptTenorRates.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTenorRates.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptTxByAcct.cs">
+      <DependentUpon>rptTxByAcct.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptTxByAcct2.cs">
+      <DependentUpon>rptTxByAcct2.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptTxByAcct3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTxByAcct3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptUndisbursed.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUndisbursed.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptUndisbursedStatus.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUndisbursedStatus.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ln\rptWriteOff.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptWriteOff.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sv\rptWithReceipt.cs">
+      <DependentUpon>rptWithReceipt.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\cu\membershipRegister.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\cu\membershipRegister.Designer.cs">
+      <DependentUpon>membershipRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\cu\membershipReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\cu\membershipReport.Designer.cs">
+      <DependentUpon>membershipReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetDaily.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetDaily.Designer.cs">
+      <DependentUpon>balSheetDaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetHalfYearly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetHalfYearly.Designer.cs">
+      <DependentUpon>balSheetHalfYearly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetQuarterly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetQuarterly.Designer.cs">
+      <DependentUpon>balSheetQuarterly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetMonthly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetMonthly.Designer.cs">
+      <DependentUpon>balSheetMonthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetWeekly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetWeekly.Designer.cs">
+      <DependentUpon>balSheetWeekly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetYearly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\balSheetYearly.Designer.cs">
+      <DependentUpon>balSheetYearly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtDaily.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtDaily.Designer.cs">
+      <DependentUpon>opStmtDaily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtHalfYearly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtHalfYearly.Designer.cs">
+      <DependentUpon>opStmtHalfYearly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtMonthly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtMonthly.Designer.cs">
+      <DependentUpon>opStmtMonthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtQuarterly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtQuarterly.Designer.cs">
+      <DependentUpon>opStmtQuarterly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtWeekly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtWeekly.Designer.cs">
+      <DependentUpon>opStmtWeekly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtYearly.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\gl\fin_stmt\opStmtYearly.Designer.cs">
+      <DependentUpon>opStmtYearly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="telerik\susu\susuContribution.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="telerik\susu\susuContribution.Designer.cs">
+      <DependentUpon>susuContribution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tr\rptBankAdvice.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptBankAdvice.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tr\rptCTDistList.cs">
+      <DependentUpon>rptCTDistList.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tr\rptCTDistListInner.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCTDistListInner.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tr\rptCTDistListOld.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCTDistListOld.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tr\rptTxByBank.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTxByBank.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tr\rptTxByDistrict.cs">
+      <DependentUpon>rptTxByDistrict.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tr\rptTxBySector.cs">
+      <DependentUpon>rptTxBySector.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="t_acc_bals.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAlert.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwApprovedUndisbured.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAsset.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssetDepreciation.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwAssetTx.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwBankDown.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCashFlow.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCashierDetail.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCashierDisb.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCashierRepayment.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCashierRepaymentsGrouped.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCheckList.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwClient.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCollateral.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCollectionRatioByMonth.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwCompProf.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwControllerIn.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDeposit.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDeposit1.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDepositAdditional.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDepositBalance.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDepositStatement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDepositTenor.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDepositWithdrawal.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwDisbRecComparison.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvestment.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvestmentAdditional.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvestmentBalance.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvestmentStatement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvestmentWithdrawal.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvoiceLoan.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwInvoiceLoanMaster.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoan.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanActualSchedule.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanAddress.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanAgreement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanBalance.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanBalanceReport.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanExpectedSchedule.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanHistory.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoans2.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoans3.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoans4.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoans5.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoans6.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoans7.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanStatement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanStatu.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanTenor.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanTenor2.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwLoanTx.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMember.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwMF7.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwOutstanding.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPaymaster.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPaymasterDeduction.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPaymasterEarning.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPaymasterEmployerPension.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPension.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwPLSMSData.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwProductSummary.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwProjection.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwregularSusuContribution.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwregularSusuDisbursement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSavingAdditional.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSavingAdditionalWithClientGroup.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSavingStatement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSavingWithdrawal.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSchedule.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwStaff.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSummarySheet.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSusuContribution.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwSusuDisbursement.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwUndisbured.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vwWriteOff.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_acc_bals.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_op_stmt.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_tx_by_acct.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_unb_tx.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_v.cs">
+      <DependentUpon>ReportModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Custom\Lendzzee\rptCashierLendzeeAdmin.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierLendzeeAdmin.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Custom\Lendzzee\rptCashierLendzee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierLendzee.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptAddReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAddReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDeposit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDeposit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDeposit2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDeposit2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDepositAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositAnalysis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDepositBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDepositBalance2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositBalance2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDepositCert.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositCert.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDepositCert2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositCert2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptDepositStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDepositStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dp\rptWithReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWithReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eod\rptBranchDailyTransaction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBranchDailyTransaction.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\budget\rptBS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\budget\rptOS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\budget\rptTB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTB.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt_2\rptBS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt_2\rptBSCT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBSCT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt_2\rptBSSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBSSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptPayRegister - Copy.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPayRegister - Copy.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptPayRegister.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPayRegister.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptPayslip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPayslip.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptPayslipDeductions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPayslipDeductions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptPayslipEarnings.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPayslipEarnings.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptPayslipEmployerPensions.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPayslipEmployerPensions.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hc\rptSSNITPensionSubmission.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSSNITPensionSubmission.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptAddReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAddReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestment2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestment2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestmentAnalysis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestmentAnalysis.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestmentBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestmentBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestmentBalance2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestmentBalance2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestmentCert.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestmentCert.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptInvestmentStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvestmentStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\rptWithReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWithReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptAgentActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAgentActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptCashFlow.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashFlow.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptCashFlow2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashFlow2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptCollection.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCollection.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptCollection2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCollection2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptLoanActivity.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanActivity.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptLoanActivity2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanActivity2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptLoanActivity3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanActivity3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptLoanActivity4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanActivity4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptLoanEnquiry.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanEnquiry.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln2\rptSchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSchedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptCashierDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptInvoiceLoan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvoiceLoan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanActualStmt2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanActualStmt2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanActualStmt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanActualStmt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanAgingDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanAgingDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanAgingSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanAgingSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptExpiredLoan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptExpiredLoan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanExpectedStmt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanExpectedStmt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanNewStmt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanNewStmt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptLoanTicket.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanTicket.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptReceipting.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReceipting.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln3\rptSMSTemplate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSMSTemplate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln4\rptPARSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPARSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln4\rptPARDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPARDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln4\rptSavingPlan.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSavingPlan.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptMF5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMF5.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptMF6.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMF6.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptMF7A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMF7A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptMF7A2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMF7A2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptTopNDeposits.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTopNDeposits.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptTopNExposures.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTopNExposures.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierClientServiceCharge.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierClientServiceCharge.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierSavingAddLendzee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierSavingAddLendzee.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierSusuContrib.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierSusuContrib.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierDepositAdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierDepositAdd.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierDepositWith.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierDepositWith.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierFees.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierFees.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierSavingAdd.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierSavingAdd.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierSavingWith.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierSavingWith.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCommission.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCommission.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptIncentive.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptIncentive.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptInvoiceLoanMaster.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvoiceLoanMaster.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptInvoiceLoanDisb.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInvoiceLoanDisb.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanBalanceSummary.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanBalanceSummary.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans3Sum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans3Sum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans6Inner.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans6Inner.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanStatement2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanStatement2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptOutstandingByGroupAllBalances.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOutstandingByGroupAllBalances.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptOutstandingByGroup.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOutstandingByGroup.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptOutstandingRepayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOutstandingRepayment.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptSchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSchedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptRegularSusuAccountDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularSusuAccountDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptRegularSusuAccountDetailsInner.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularSusuAccountDetailsInner.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptRegularSusuAccountSchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularSusuAccountSchedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptRegularSusuAccountsDuePerMonth.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularSusuAccountsDuePerMonth.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptRegularSusuAccountStages.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularSusuAccountStages.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptRegularSusuAccountStages1A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptRegularSusuAccountStages1A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rs\rptrRegularSusuCashflow.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptrRegularSusuCashflow.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptCashflow.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashflow.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptSusuAccountDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSusuAccountDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptSusuAccountDetailsInner.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSusuAccountDetailsInner.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptSusuAccountSchedule.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSusuAccountSchedule.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptSusuAccountsDuePerMonth.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSusuAccountsDuePerMonth.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptSusuAccountStages.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSusuAccountStages.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ss\rptSusuAccountStages1A.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSusuAccountStages1A.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptAddReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAddReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptGrpSavingBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptGrpSavingBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptSaving.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSaving.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptSaving2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSaving2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptSavingBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSavingBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptSavingStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSavingStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\OrptInvestmentBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrptInvestmentBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="iv\OrptInvestmentStatement.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrptInvestmentStatement.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fa\rptAssetDepreciation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAssetDepreciation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fa\rptAssetDepreciationOU.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAssetDepreciationOU.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fa\rptAssets.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAssets.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fa\rptAssetsOU.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAssetsOU.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fa\rptTxByAcct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByAcct.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\chart_of_accounts\chartOfAccountsReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>chartOfAccountsReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptTBSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTBSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptBSSum.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBSSum.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptBS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptOS.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOS.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptOS2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOS2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptOS2Yrs.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOS2Yrs.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptOSCT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOSCT.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptTB.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTB.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptTriBal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTriBal.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptTxByAcct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByAcct.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\fin_stmt\rptUnbTx.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptUnbTx.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\v\rptV.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptV.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="gl\v\rptVD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptVD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\bog\rptMF7B.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMF7B.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptControllerIn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptControllerIn.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans6.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans6.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans6S.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans6S.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans72.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans72.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptApprovedUndisbursed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptApprovedUndisbursed.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashier.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashier.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierBalance2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierBalance2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierBalance3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierBalance3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCashierDisb.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCashierDisb.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptClientDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptClientDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptColl.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptColl.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptCollateral.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCollateral.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptDeposit.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptDeposit.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanBalance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanBalance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanBalance2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanBalance2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanHistory.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanHistoryMain.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanHistoryMain.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanCheckList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanCheckList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans4.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans5.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans5.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoans7.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoans7.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanStatement3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanStatement3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanTenorRates.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanTenorRates.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptLoanTenorRates2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLoanTenorRates2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptMultiPmtRem.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMultiPmtRem.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptOutstanding.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOutstanding.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptOutstanding2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOutstanding2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptPastLoans.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptPastLoans.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptProfile.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptProfile.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptProjection.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptProjection.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptSummarySheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSummarySheet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptTenorRates.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTenorRates.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptTxByAcct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByAcct.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptTxByAcct2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByAcct2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptTxByAcct3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByAcct3.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptUndisbursed.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptUndisbursed.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptUndisbursedStatus.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptUndisbursedStatus.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ln\rptWriteOff.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWriteOff.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sv\rptWithReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptWithReceipt.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\cu\membershipRegister.resx">
+      <DependentUpon>membershipRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\cu\membershipReport.resx">
+      <DependentUpon>membershipReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\balSheetDaily.resx">
+      <DependentUpon>balSheetDaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\balSheetHalfYearly.resx">
+      <DependentUpon>balSheetHalfYearly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\balSheetQuarterly.resx">
+      <DependentUpon>balSheetQuarterly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\balSheetMonthly.resx">
+      <DependentUpon>balSheetMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\balSheetWeekly.resx">
+      <DependentUpon>balSheetWeekly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\balSheetYearly.resx">
+      <DependentUpon>balSheetYearly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\opStmtDaily.resx">
+      <DependentUpon>opStmtDaily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\opStmtHalfYearly.resx">
+      <DependentUpon>opStmtHalfYearly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\opStmtMonthly.resx">
+      <DependentUpon>opStmtMonthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\opStmtQuarterly.resx">
+      <DependentUpon>opStmtQuarterly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\opStmtWeekly.resx">
+      <DependentUpon>opStmtWeekly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\gl\fin_stmt\opStmtYearly.resx">
+      <DependentUpon>opStmtYearly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="telerik\susu\susuContribution.resx">
+      <DependentUpon>susuContribution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptBankAdvice.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptBankAdvice.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptCTDistList.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCTDistList.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptCTDistListInner.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCTDistListInner.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptCTDistListOld.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCTDistListOld.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptTxByBank.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByBank.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptTxByDistrict.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxByDistrict.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tr\rptTxBySector.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTxBySector.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+      <Name>coreLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Name>coreLibrary</Name>
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\reportEntities.datasource" />
+    <None Include="ReportModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReportModel.cs</LastGenOutput>
+    </None>
+    <None Include="ReportModel\ReportModel.IDbContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReportModel.IDbContext.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,80 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Approve Opening Balances";
+}
+
+<h2>Approve Opening Balances</h2>
+
+<hr>
+<div id="myform">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Balance Date </div>
+            <div class="col-md-3">
+                <input type="text" id="openningBalanceBatchDate" readonly class="form-control" style="width: 210px;" />
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Location of Inventory </div>
+            <div class="col-md-3">
+                <input type="text" id="locationId" class="form-control" readonly style="width: 210px;" />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Entry Date </div>
+            <div class="col-md-3">
+                <input type="text" id="created" name="created" class="form-control" readonly style="width: 210px;" />
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Entry Made By </div>
+            <div class="col-md-3">
+                <input type="text" id="enteredBy" class="form-control" readonly style="width: 210px;" />
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <hr>
+        <div class="row">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="approveBalanceGrid">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-4">
+                <h4> Approval Comments </h4>
+                <textarea id="approvalComments" rows="3" cols="80" style="width: 600px; height: 70px"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2" id="approveButton">
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var openningBalanceBatchId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Inventory/InventoryOpenningBalanceManagement/approveBalances.js"></script>
+}

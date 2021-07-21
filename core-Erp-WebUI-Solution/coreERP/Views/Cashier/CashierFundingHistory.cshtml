@@ -1,0 +1,72 @@
+﻿ 
+@{
+    ViewBag.Title = "Cashier Funding History";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3>Cashier Funding History</h3>
+    <br/>
+    
+    <div class="row">
+        <div class="col-md-2 col-xs-2"> </div>
+        <div class="col-md-4 col-xs-4" align="right"> Funding Date: </div>
+        <div class="col-md-4 col-xs-4"><input type="date" id="fundingDate"/>
+        </div>
+        <div class="col-md-2 col-xs-4"></div>
+    </div><hr/>
+    <div id="row">
+        <div id="tabs">
+            <ul>
+                <li class="k-state-active">Fund Cashier</li>
+                <li>Cashup Cashier</li>
+            </ul>
+            <div>
+                <div id="cashierFundGrid"></div>
+                <script type="text/x-kendo-template" id="detail-template">
+                    <div class="tabstrip">
+                        <ul>
+                            <li class="k-state-active">Notes</li>
+                            <li>Coins</li>
+                        </ul>
+
+                        <div>
+                            <div class="notes"></div>
+                        </div>
+                        <div>
+                            <div class="coins"></div>
+                        </div>
+                   </div>
+                </script>
+            </div>
+            <div>
+                <div id="cashierCashupGrid"></div>
+                <script type="text/x-kendo-template" id="detail-template">
+                    <div class="tabstrip">
+                        <ul>
+                            <li class="k-state-active">Notes</li>
+                            <li>Coins</li>
+                        </ul>
+
+                        <div>
+                            <div class="notes"></div>
+                        </div>
+                        <div>
+                            <div class="coins"></div>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div> <!--EndTab--><br/>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" id="save">Save &raquo; </button>
+        </div><!--SaveButton-->
+        <br/>
+    </div>
+</div>
+
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/Cashier/CashierFundingHistory.js"></script>
+}

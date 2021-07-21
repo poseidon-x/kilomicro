@@ -1,0 +1,34 @@
+﻿body {
+}
+
+.container .page-container {
+	padding:10px 5px;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	margin-top:20px;
+}
+.page-header {
+	padding-bottom:0px !important;
+}
+
+#dashboard .menu {
+	height:180px !important;
+	text-align:center;
+	cursor:pointer;
+	border-radius:3px;
+	padding-top:25px;
+	*width:auto ;
+}
+
+#dashboard .menu i {
+	clear:both;
+	font-size:40px;
+	display:block;
+}
+
+#dashboard  .m-middle {
+	margin:auto 5px;
+	width:auto;
+
+}

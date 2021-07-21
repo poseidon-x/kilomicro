@@ -1,0 +1,155 @@
+﻿@{
+    ViewBag.Title = "Savings Withdrawal";
+    Layout = "~/Views/Shared/_AgencyLayout.cshtml";
+}
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Withdraw Money <small>Savings Account</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-bar-chart-o"></i><a href="#">Withdraw Money</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE HEADER-->
+        <div class="clearfix"></div>
+        <div class="row ">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet box blue-steel">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-bar-chart-o"></i>Withdraw Money
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="myform" class="form-horizontal">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Client:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="client" placeholder="Client" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-4 ">Account Type:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="savingType" placeholder="Account Type" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4 ">Currency:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="currency" placeholder="Currency" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Principal Balance:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="principalBalance" placeholder="Principal Balance" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Available Principal:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="availablePrincipalBalance" placeholder="Available Principal" readonly />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Interest Balance:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="interestBalance" placeholder="Interest Balance" readonly />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Withdrawal Type:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="withdrawalType" placeholder="Withdrawal Type" />
+                                        </div>
+                                    </div>
+									<div class="col-md-6">
+                                        <label class="col-md-4">Avialable Interest:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="availableInterestBalance" placeholder="Available Interest" readonly />
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Withdrawal Date:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="withdrawalDate" placeholder="Withdrawal Date" />
+                                        </div>
+                                    </div>
+									<div class="col-md-6">
+                                        <label class="col-md-4">Withdrawal Amount:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="withdrawalAmount" placeholder="Withdrawal Amount" />
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Payment Type:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="paymentType" placeholder="Payment Type" />
+                                        </div>
+                                    </div>
+									<div class="col-md-6">
+                                        <label class="col-md-4">Cheque No. :</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="checkNo" placeholder="Cheque No." />
+                                        </div>
+                                    </div>                                    
+                                </div>
+                                <div class="form-group">
+									<div class="col-md-6">
+                                        <label class="col-md-4">Bank:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="bank" placeholder="Bank" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-4">Narration:</label>
+                                        <div class="input-group input-large">
+                                            <textarea class="form-control" id="narration" rows="5" placeholder="Narration "></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <hr>
+                            <div class="form-actions" style="text-align:right; clear:both">
+                                <div class="row">
+                                    <div class="col-md-offset-4 col-md-8">
+                                        <button type="submit" id="save" class="btn green"><i class="fa fa-thumbs-o-up"></i> Withdraw Money</button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+@section scripts{
+    <script>
+        var savingWithdrawalId = '@ViewBag.Id';
+    </script>
+    <script src="~/Scripts/app/transaction/savingWithdrawal.js"></script>
+}

@@ -1,0 +1,244 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Customer";
+}
+
+
+<h2>Enter Customer</h2>
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Customer Name: </div>
+            <div class="col-md-3">
+                <input type="text" id="customerName" name="customerName" class="form-control" placeholder="--------- Customer Name Here ---------" required data-required-msg="Invalid" />
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Mode of Payment: </div>
+            <div class="col-md-3">
+                <input type="text" id="paymentTermID" class="form-control" placeholder="------- Select Mode of Payment -------" required data-required-msg="Invalid"/>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Currency: </div>
+            <div class="col-md-3">
+                <input type="text" id="currency" class="form-control" required data-required-msg="Invalid"/>
+            </div>
+            <div class="col-md-4"></div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> City: </div>
+            <div class="col-md-3">
+                <input type="text" id="location" class="form-control" placeholder="------- Select Customer Location -------" required data-required-msg="Invalid" />                
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Account: </div>
+            <div class="col-md-3">
+                <input type="text" id="glAccount" class="form-control" placeholder="-------Select Customer Account-------" required data-required-msg="Invalid" />
+            </div>
+            <div class="col-md-6"></div>
+
+
+        </div>
+
+        <hr>
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Business Address</li>
+                    <li>Contact Person</li>
+                    <li>Email</li>
+                    <li>Phone</li>
+                    <li>Shipping Address</li>
+                </ul>
+                <div>
+                    <br />
+                      <div class="row">
+                            <div class="col-md-2">Address Type</div>
+                            <div class="col-md-3">
+                                <input type="text" id="addressType" />
+                            </div>
+                            <div class="col-md-2"> Landmark </div>
+                            <div class="col-md-3">
+                                <input type="text" id="landmark" />
+                            </div>
+                       </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-2">City</div>
+                        <div class="col-md-3">
+                            <input type="text" id="cityName" />
+                        </div>
+                        <div class="col-md-2"> Country </div>
+                        <div class="col-md-3">
+                            <input type="text" id="countryName" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-2">Address Line</div>
+                        <div class="col-md-3">
+                            <textarea class="form-control" id="addressLine" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div>
+                    <br />
+                      <div class="row">
+                            <div class="col-md-2">Contact Person's Name:</div>
+                            <div class="col-md-3">
+                                <input type="text" id="contactPersonName" />
+                            </div>
+                            <div class="col-md-2"> Job Title: </div>
+                            <div class="col-md-3">
+                                <input type="text" id="jobTitle" />
+                            </div>
+                       </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-2">Mobile Line:</div>
+                        <div class="col-md-3">
+                            <input type="text" id="mobilePhoneNumber" placeholder="eg: 024 000 0000" />
+                        </div>
+                        <div class="col-md-2"> Fixed Line: </div>
+                        <div class="col-md-3">
+                            <input type="text" id="landlinePhoneNumber" placeholder="eg: 024 000 0000" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-2">Office Extension:</div>
+                        <div class="col-md-3">
+                            <input type="text" id="officeExtension" placeholder="eg: 3040" />(If Any)
+                        </div>
+                        <div class="col-md-2"> Email: </div>
+                        <div class="col-md-3">
+                            <input type="text" id="emailAddress" />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-2">Skype:</div>
+                        <div class="col-md-3">
+                            <input type="text" id="skypeId" />
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+                <div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">Email:</div>
+                        <div class="col-md-3">
+                            <input type="text" id="emailAddress1" />
+                        </div>
+                        <div class="col-md-2"> Email(Alternate 1): </div>
+                        <div class="col-md-3">
+                            <input type="text" id="emailAddress2" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">Email(Alternate 2):</div>
+                        <div class="col-md-3">
+                            <input type="text" id="emailAddress3" />
+                        </div>
+                    </div>
+					<br/>
+                </div>
+                <div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">Moblile Line:</div>
+                        <div class="col-md-3">
+                            <input type="text" id="contactMobilePhoneNumber" placeholder="eg: 024 000 0000" />
+                        </div>
+                        <div class="col-md-2"> Fixed Line: </div>
+                        <div class="col-md-3">
+                            <input type="text" id="contactLandlinePhoneNumber" placeholder="eg: 024 000 0000" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-2">Fax:</div>
+                        <div class="col-md-3">
+                            <input type="text" id="faxNumber" />
+                        </div>
+                    </div>
+					<br/>
+                </div>
+                <div>
+                    <div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-2">Ship To:</div>
+                            <div class="col-md-3">
+                                <input type="text" id="shipTo" />
+                            </div>
+                            <div class="col-md-2"> Shipping Method: </div>
+                            <div class="col-md-3">
+                                <input type="text" id="shippingMethod" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-2">Address:</div>
+                            <div class="col-md-3">
+                                <textarea type="text" id="shippingAddressLine1" class="form-control" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                            </div>
+                            <div class="col-md-2"> Address(Alternate): </div>
+                            <div class="col-md-3">
+                                <textarea type="text" id="shippingAddressLine2" class="form-control" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-2">City:</div>
+                            <div class="col-md-3">
+                                <input type="text" id="shippingCity" />
+                            </div>
+                            <div class="col-md-2"> Country: </div>
+                            <div class="col-md-3">
+                                <input type="text" id="shippingCountry" />
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-primary" id="save" value="Save Customer" />
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var customerId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Customers/enterCustomer.js"></script>
+}
+

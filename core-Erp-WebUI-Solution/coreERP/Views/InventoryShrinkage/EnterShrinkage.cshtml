@@ -1,0 +1,56 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Inventory Shrinkage";
+}
+
+<h2>Enter Inventory Shrinkage</h2>
+
+<hr>
+<div id="myform">
+    <div class="form-horizontal" type="form">
+	<div class="col-md-1"></div>
+	<div class="col-md-10">
+        <div class="row">
+            <div class="col-md-2"> Date of Shrinkage </div>
+            <div class="col-md-4">
+                <input type="text" id="shrinkageDate" required data-required-msg="required" />
+            </div>
+
+            <div class="col-md-2"> Location of Shrinkage </div>
+            <div class="col-md-4">
+                <input type="text" id="locationId" onkeydown="return alphaOnly(event);" required data-required-msg="Required" />
+            </div>
+        </div>
+
+        <hr>
+        <div class="row">
+			<div id="tabs">
+				<ul>
+					<li class="k-state-active">Shrinkage Details</li>
+				</ul>
+				<div>
+					<div id="grid"></div>
+				</div>                   
+			</div> <!--EndTab--><br />
+        </div>
+        <br/>
+        <div class="row">
+            <div>
+                <div class="col-md-2">
+                    <input type="button" class="k-primary" id="save" style="width 100%" value="Save Shrinkage" />
+                </div>
+            </div><!--SaveButton-->
+        </div>
+	</div>
+	<div class="col-md-1"></div>
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var shrinkageBatchId = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/Inventory/InventoryShrinkageManagement/EnterShrinkage.js"></script>
+}
+
+

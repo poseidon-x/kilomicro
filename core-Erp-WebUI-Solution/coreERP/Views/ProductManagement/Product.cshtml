@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Manage Inventory Products";
+}
+
+
+
+<div id="myform">
+        <h3>Manage Inventory Products</h3>
+        <hr>
+        <div class="form-horizontal" type="form" name="mainForm">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"> Prod. Sub-Cat. Name </div>
+                <div class="col-md-3">
+                    <input type="text" name="psc" id="productSubCategoryId" class="form-control" placeholder="-----Select Product Sub-Categ.-----" style="width: 250px;" required />
+                </div>
+
+                <div class="col-md-2"> Product Code </div>
+                <div class="col-md-3">
+                    <input type="text" id="productCode" class="form-control" placeholder="-------Enter Product Code Here-------" style="width: 250px;" focus="border:solid 1px white" required />
+                </div>
+                <div class="col-md-1"></div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"> Product Name </div>
+                <div class="col-md-3">
+                    <input type="text" id="productName" class="form-control" placeholder="-------Enter Product Name Here-------" style="width: 250px;" required />
+                </div>
+
+                <div class="col-md-2"> Product Description </div>
+                <div class="col-md-3">
+                    <input type="text" id="productDescription" class="form-control" placeholder="----Enter Product Description Here----" style="width: 250px;" required />
+                </div>
+                <div class="col-md-1"></div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"> Inventory Method </div>
+                <div class="col-md-3">
+                    <input type="text" id="inventoryMethodId" class="form-control" placeholder="-------Select Inventory Method-------" style="width: 250px;" required />
+                </div>
+
+                <div class="col-md-2"> Unit Of Measurement</div>
+                <div class="col-md-3">
+                    <input type="text" id="unitOfMeasurementId" class="form-control" placeholder="-----Select Unit of Measurement-----" style="width: 250px;" required />
+                </div>
+                <div class="col-md-1"></div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2"> Product Make </div>
+                <div class="col-md-3">
+                    <input type="text" id="productMakeId" class="form-control" placeholder="---------Select Product Make---------" style="width: 250px;" required />
+                </div>
+
+                <div class="col-md-2"> Product Status </div>
+                <div class="col-md-3">
+                    <input type="text" id="productStatusId" class="form-control" placeholder="---------Select Product Status---------" style="width: 250px;" required />
+                </div>
+                <div class="col-md-1"></div>
+
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-primary" id="save" value="Save New Product" />
+                </div>
+                <div class="col-md-9"></div>
+
+            </div><!--SaveButton-->
+        </div>
+    </div>
+
+    @section FootScripts{
+        <script type="text/javascript">
+            var productId = '@ViewBag.Id';
+        </script>
+<script src="~/scripts/app/Inventory/InventoryProductManagement/product.js"></script>
+    }
+

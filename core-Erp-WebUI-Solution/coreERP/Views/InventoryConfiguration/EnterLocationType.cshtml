@@ -1,0 +1,32 @@
+﻿@{
+    
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Location Type";
+    
+}
+
+<div>
+    <h2>Location Type</h2>
+    <br/>
+    <div>
+        <div class="col-md-1"></div>        
+        <div id="setupGrid" class="col-md-10"></div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+<br/>
+<div class="row">
+    <div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2">
+            <input type="button" class="btn btn-primary" id="save" value="Save" />
+        </div>
+        <div class="col-md-9"></div>
+    </div><!--SaveButton-->
+</div>
+
+@section FootScripts{
+
+<script src="~/scripts/app/Inventory/InventoryConfigurationManagement/enterLocationType.js"></script>
+}

@@ -1,0 +1,41 @@
+﻿ 
+@{
+    ViewBag.Title = "Cashier Fund";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3>Open Till</h3>
+    <br/>
+    <div class="row">
+        <div class="col-md-2 col-xs-2"></div>
+        <div class="col-md-2 col-xs-2">Cashier Till: </div>
+        <div class="col-md-3 col-xs-3">
+            <input type="text" id="currentCashier"/>
+        </div>
+        <div class="col-md-3 col-xs-3"></div>
+    </div><br/>
+    <div class="row">
+        <div class="col-md-2 col-xs-2">Start Date: </div>
+        <div class="col-md-3 col-xs-3">
+            <input type="text" id="startDate" />
+        </div>
+        <div class="col-md-2 col-xs-2" >End Date: </div>
+        <div class="col-md-3 col-xs-3">
+            <input type="text" id="endDate" />
+        </div>
+    </div><br/>
+    
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-primary" style="width: 100%" id="save">Open Till &raquo; </button>
+        </div><!--SaveButton-->
+        <div class="col-md-3">
+            <button type="button" class="btn btn-warning" style="width: 100%" id="close">Close Till &raquo; </button>
+        </div><!--SaveButton-->
+        <br/>
+    </div>
+</div>
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/Cashier/CashierTillRange.js"></script>
+}

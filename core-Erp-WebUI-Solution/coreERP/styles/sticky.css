@@ -1,0 +1,53 @@
+﻿div.toolbar-wrapp{
+    position: fixed;
+    display: block;
+    top: 43%;
+    width: 50px;
+}
+ 
+div.sticky-toolbar{
+    position: relative;
+    top: 43%;
+    padding: .1em;
+    background-color: #2C3E50;
+    float: left;
+    -webkit-border-radius: 0 .2em .2em 0;
+    -moz-border-radius: 0 .2em .2em 0;
+    border-radius: 0 .2em .2em 0;
+}
+
+@font-face {
+    font-family: 'Entypo';
+    src: url('../font/entypo.eot');
+    src: local('☺'), 
+    url('../Content/Entypo/@font-face/Entypo @font-face/entypo.woff') format('woff'), 
+    url('../Content/Entypo/@font-face/Entypo @font-face/entypo.ttf') format('truetype'),
+    url('../Content/Entypo/@font-face/Entypo @font-face/entypo.svg#webfontIyfZbseF') format('svg');
+}
+
+[data-icon]:before {
+    font-family: 'Entypo';
+    content: attr(data-icon);
+}
+
+div.sticky-toolbar ul li div{
+    display: block;
+    width: .8em;
+    margin: 0.2em;
+    line-height: 80%;
+    font-size: 2.2em;
+    text-align: center;
+    color: #fff;
+    background-color: #16A085;
+    -webkit-border-radius: .1em;
+    -moz-border-radius: .1em;
+    border-radius: .1em;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    -webkit-font-smoothing: antialiased;
+}
+
+div.sticky-toolbar ul li div:hover{
+    background-color: #1ABC9C;
+}

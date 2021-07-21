@@ -1,0 +1,17 @@
+/* CSS Document */
+
+	tr .GridHeader_WebBlue,
+	tr .ResizeHeader_WebBlue
+	{
+		 padding: 0px ; 
+	}
+
+
+	/*For data cells:*/
+
+	tr.GridRow_WebBlue  td,
+	tr.GridAltRow_WebBlue  td
+	{
+		 padding: 0px ;
+	}
+	

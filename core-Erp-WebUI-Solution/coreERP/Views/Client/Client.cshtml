@@ -1,0 +1,195 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Client";
+}
+
+<h2>Create New Client</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="col-md-1"></div>
+        <div class="form-horizontal col-md-10">
+            <br/>
+            <div id="details">
+                <div class="row">
+                    <div class="col-md-6 col-xs-6" align="center">
+                        <img id="clientImage" class="img-rounded" alt="Client Image" height="170" width="170"/>
+                    </div>
+                    <div class="col-md-6 col-xs-6">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">Surname: </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="surName"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">Other Names: </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="otherNames"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">Date of Birth: </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="DOB"/>
+                            </div>
+                        </div><br/>
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">Client Type: </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="clientType"/>
+                            </div>
+                        </div>
+                    </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col-md-1 col-xs-1">Sex : </div>
+                    <div class="col-md-1 col-xs-1">
+                        <input type="radio" name="sex" id="male" class="k-radio" value="male">
+                        <label class="k-radio-label" for="male">Male</label>
+                    </div>
+                    <div class="col-md-1 col-xs-1">
+                        <input type="radio" name="sex" id="female" class="k-radio" value="female">
+                        <label class="k-radio-label" for="female">Female</label>
+                    </div>
+                    <div class="col-md-1 col-xs-1"></div>
+
+                        <div class="col-md-4 col-xs-4">
+                            Marital Status:
+                            <input type="text" id="maritalStatus" />
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            Branch
+                            <input type="text" id="branch" />
+                        </div>
+                    </div><br/>
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        Primary ID:
+                        <input type="text" id="primaryIdType"/>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        ID No.
+                        <input type="text" id="primaryIdNo"/>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        Primary ID Expiry :
+                        <input type="text" id="primaryIdExpiry"/>
+                    </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        Secondary ID:
+                        <input type="text" id="secondaryIdType"/>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        ID No.
+                        <input type="text" id="secondaryIdNo"/>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        Secondary ID Expiry :
+                        <input type="text" id="secondaryIdExpiry"/>
+                    </div>
+                </div><br/>
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        Industry:
+                        <input type="text" id="industry"/>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        Client Category:
+                        <input type="text" id="clientCategory"/>
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        Sector:
+                        <input type="text" id="sector"/>
+                    </div>
+                </div><br/>
+                <div id="row">
+                    <div id="tabs">
+                        <ul>
+                            <li class="k-state-active">Physical Address</li>
+                            <li>Mailing Address</li>
+                            <li>Phone</li>
+                            <li>Email</li>
+                            <li>Supporting Documents</li>
+                        </ul>
+                        <div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-2">City</div>
+                                <div class="col-md-3">
+                                    <input type="text" id="city"/>
+                                </div>
+                                <div class="col-md-2"> Landmark </div>
+                                <div class="col-md-3">
+                                    <input type="text" id="landmark"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="row">
+                                    <div class="col-md-2">Physical Address</div>
+                                    <div class="col-md-3">
+                                        <textarea class="form-control" id="physicaladdress" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                                    </div>
+                                </div><!--
+                                <div class="col-md-2"> Location(Map/Pic) </div>
+                                <div class="col-md-3">
+                                    <input type="text" id="location"/>
+                                </div>-->
+                            </div>
+                        </div>
+                        <div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-2">City</div>
+                                <div class="col-md-3">
+                                    <input type="text" id="mailingCity"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="row">
+                                <div class="col-md-2">Address Line1</div>
+                                <div class="col-md-3">
+                                    <textarea class="form-control" id="mailingPhysicaladdress1" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                                </div>
+                                <div class="col-md-2">Address Line2</div>
+                                <div class="col-md-3">
+                                    <textarea class="form-control" id="mailingPhysicaladdress2" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div id="phones"></div>
+                        </div>
+                        <div>
+                            <div id="email"></div>
+                        </div>
+                        <div>
+                            <div id="documents"></div>
+                        </div>
+                    </div> <!--EndTab--><br/>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary" id="save">Save Client &raquo; </button>
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var clientId = '@ViewBag.Id';
+    </script>
+    
+<script src="~/scripts/app/Clients/client.js"></script>
+}

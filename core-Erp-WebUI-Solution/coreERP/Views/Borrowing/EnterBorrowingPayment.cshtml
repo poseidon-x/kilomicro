@@ -1,0 +1,75 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "BORROWING ACCOUNT PAYMENT";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <p class="title" align="center"> <big> BORROWING ACCOUNT PAYMENT</big></p>
+    
+    <div class="row">
+        <div class="col-md-2"> BORROWING CLIENT : </div>
+        <div class="col-md-4">
+            <input type="text" id="client" required data-required-msg="Invalid" />
+        </div>
+
+        <div class="col-md-2"> BORROWING NO. : </div>
+        <div class="col-md-4">
+            <input type="text" id="borrowing" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Repayment Type. : </div>
+        <div class="col-md-4">
+            <input type="text" id="repaymentType" required data-required-msg="Invalid" />
+        </div>
+
+        <div class="col-md-2"> Repayment Date : </div>
+        <div class="col-md-4">
+            <input type="text" id="repaymentDate" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"> Mode of Payment :  </div>
+        <div class="col-md-4">
+            <input type="text" id="modeOfPayment" required data-required-msg="Invalid"  />
+        </div>
+
+        <div class="col-md-2"> Amount Paid: </div>
+        <div class="col-md-4">
+            <input type="text" id="amountPaid"  required data-required-msg="Invalid"  />
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2" id="bankTitle"></div>
+        <div class="col-md-4" id="bankInput"></div>
+
+        <div class="col-md-2" id="chequeNumberTitle"></div>
+        <div class="col-md-4" id="chequeNumberInput">
+        </div>
+    </div>
+    
+    <hr>
+    <div class="row">
+        <div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" id="savePayment"> Save Payment &raquo;</button>                
+            </div>
+            <div class="col-md-10"></div>
+        </div><!--SaveButton-->
+    </div>
+
+
+   
+
+</div>
+@section FootScripts{
+    <script type="text/javascript">
+        var id = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/Loans/Borrowing/EnterBorrowingPayment.js"></script>
+}
+

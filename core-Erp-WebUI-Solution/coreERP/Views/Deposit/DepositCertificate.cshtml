@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Deposit Certificate";
+}
+@section HeadScripts{
+    <style>
+        #reportViewer1 {
+            position: absolute;
+            left: 80px;
+            right: 80px;
+            top: 200px;
+            height: 100%;
+            font-family: 'segoe ui', 'ms sans serif';
+            overflow: hidden;
+        }
+    </style>
+}
+<hr/>
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div class="row">
+        <div class="col-md-2 col-xs-2 col-lg-2">Client</div>
+        <div class="col-md-4 col-xs-4 col-lg-4">
+            <input type="text" id="client"/>
+        </div>
+        <div class="col-md-2 col-xs-2 col-lg-2">Deposit Account</div>
+        <div class="col-md-4 col-xs-4 col-lg-4">
+            <input type="text" id="deposit" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="k-widget" id="reportViewer1"></div>
+    </div>
+</div>
+
+
+    @section FootScripts
+{
+        <script src="/Content/reporting/js/telerikReportViewer-14.1.20.618.min.js"></script>
+        <script src="~/scripts/app/Loans/Deposit/DepositCertificate.js"></script>
+    }

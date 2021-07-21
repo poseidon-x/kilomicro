@@ -1,0 +1,64 @@
+﻿ 
+@{
+    ViewBag.Title = "Cashier Fund";
+}
+
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3>Cashier Fund</h3>
+    <br/>
+    <div class="row">
+        <div class="col-md-2 col-xs-2">Image: </div>
+        <div class="col-md-4 col-xs-4">
+            <input type="file" id="ima1"/>
+            <!--<p style="padding-top: 1em; text-align: right">
+                <input type="submit" value="Submit" class="k-button k-primary" />
+            </p>-->
+        </div>
+        <div class="col-md-2 demo-section k-content">
+            <!--<button type="button" class="btn btn-primary" id="save">Upload &raquo; </button>-->
+        </div><!--SaveButton-->
+    </div><br />
+    <div class="row">
+        
+        <br/>
+    </div>
+</div>
+
+@section FootScripts{
+
+    <script type="text/javascript">
+        $("#ima1").kendoUpload({
+            async: {
+                saveUrl: "save",
+                removeUrl: "remove",
+                autoUpload: true
+            },
+            upload: onUpload,
+            complete: onComplete,
+            progress: onProgress
+        });
+
+        function onComplete(e) {
+            console.log("Complete");
+        }
+
+        function onUpload(e) {
+            console.log("Upload :: " + getFileInfo(e));
+        }
+        function onProgress(e) {
+            console.log("Upload progress :: " + e.percentComplete + "% :: " + getFileInfo(e));
+        }
+
+        function getFileInfo(e) {
+            return $.map(e.files, function (file) {
+                var info = file.name;
+
+                // File size is not available in all browsers
+                if (file.size > 0) {
+                    info += " (" + Math.ceil(file.size / 1024) + " KB)";
+                }
+                return info;
+            }).join(", ");
+        }
+    </script>
+}

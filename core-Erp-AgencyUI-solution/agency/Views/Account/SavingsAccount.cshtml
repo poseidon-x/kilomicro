@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "New Savings Account";
+    Layout = "~/Views/Shared/_AgencyLayout.cshtml";
+}
+
+<!-- BEGIN CONTENT -->
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <!-- BEGIN PAGE HEADER-->
+        <h3 class="page-title">
+            Create Account <small>Savings Account</small>
+        </h3>
+        <div class="page-bar">
+            <ul class="page-breadcrumb">
+                <li>
+                    <i class="fa fa-user-plus"></i><a href="#"> Create Account</a>
+                </li>
+            </ul>
+        </div>
+        <!-- END PAGE HEADER-->
+        <div class="clearfix"></div>
+        <div class="row ">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet box blue-steel">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-user-plus"></i>Create Account
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div id="myform" class="form-horizontal">
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Client:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="client" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Opening Date:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="firstSavingDate" placeholder="Opening Date" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Account Type:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="savingType" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Annual Interest Rate:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="annualInterestRate" placeholder="Annual Interest Rate" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Monthly Interest Rate:</label>
+                                        <div class="input-group input-large">
+                                            <input type="date" id="monthlyInterestRate" placeholder="Monthly Interest Rate" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Deposit Plan:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="savingPlan" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Deposit Plan Amount:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="savingPlanAmount" placeholder="Deposit Plan Amount" required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Principal Repayment Freq.:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="principalRepaymentMode" placeholder="Principal Repayment Freq." required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Interest Repayment Freq.:</label>
+                                        <div class="input-group input-large">
+                                            <input type="date" id="interestRepaymentMode" placeholder="Interest Repayment Freq." required />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="col-md-3">Field Agent:</label>
+                                        <div class="input-group input-large">
+                                            <input type="text" id="agent" placeholder="Select..." required />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-actions" style="text-align:right; clear:both">
+                                <div class="row">
+                                    <div class="col-md-offset-4 col-md-8">
+                                        <button type="submit" id="save" class="btn green"><i class="fa fa-user-plus"></i> Create Account</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END CONTENT -->
+
+@section scripts{
+    <script>
+        var savingId = @ViewBag.id;
+    </script>
+    <script src="~/Scripts/app/account/savingAccount.js"></script>
+}

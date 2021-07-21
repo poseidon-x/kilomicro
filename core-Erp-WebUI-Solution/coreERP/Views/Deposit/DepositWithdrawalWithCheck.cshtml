@@ -1,0 +1,141 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Deposit Withdrawal";
+}
+
+<h2>Investment Withdrawal</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6 col-xs-6" align="center">
+                    <img id="clientImage" class="img-rounded" alt="Client Image" height="170" width="170" />
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Client: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="client"  />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Account: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="account" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Product: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="depositType" readonly />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Avialable Principal: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="avaialablePrincipalBalance" readonly/>
+                        </div>
+                    </div>
+                 </div>
+
+
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Avialable Interest: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="avaialableInterestBalance" readonly/>
+                </div>
+                <div class="col-md-2 col-xs-2">Interest Rate: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestRate" readonly />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Investment Period: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="period" readonly/>
+                </div>
+                <div class="col-md-2 col-xs-2">
+                    Withdrawal Type
+                </div>
+                <div class="col-md-1 col-xs-1">
+                    <input type="radio" name="withdrawalType" id="interest" class="k-radio" value="interest">
+                    <label class="k-radio-label" for="interest">Interest</label>
+                </div>
+                <div class="col-md-1 col-xs-1">
+                    <input type="radio" name="withdrawalType" id="principal" class="k-radio" value="principal">
+                    <label class="k-radio-label" for="principal">Principal</label>
+                </div>
+                <div class="col-md-2 col-xs-2">
+                    <input type="radio" name="withdrawalType" id="both" class="k-radio" value="both">
+                    <label class="k-radio-label" for="both">Both.</label>
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Withdrawal Date: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="withdrawalDate" readonly/>
+                </div>
+                <div class="col-md-2 col-xs-2">Payment Type: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="paymentType" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Withdrawal Amount: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="withdrawalAmount" readonly />
+                </div>
+                <div class="col-md-2 col-xs-2">Naration: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="naration" />
+                </div>
+            </div><br/>
+            <div class="row" id="chequeDetails">
+                <div class="col-md-2 col-xs-2">Cheque No.: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="checkNo" />
+                </div>
+                <div class="col-md-2 col-xs-2">Bank: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="bank" />
+                </div>
+            </div><br />
+        </div>
+        <br/>
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Notes</li>
+                    <li>Coins</li>
+                </ul>
+                <div>
+                    <div id="notes"></div>
+                </div>
+                <div>
+                    <div id="coins"></div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Withdrawal Investment &raquo; </button>
+            </div> 
+            <br />
+        </div>
+        <br />
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var id = '@ViewBag.Id';
+        var depId = '@ViewBag.depId';
+    </script>
+    
+<script src="~/scripts/app/Loans/Deposit/DepositWithdrawalWithCheck.js"></script>
+}

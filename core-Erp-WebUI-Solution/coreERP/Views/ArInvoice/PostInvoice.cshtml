@@ -1,0 +1,107 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Post Transfer";
+}
+
+<h2>Post Transfer</h2>
+
+<hr>
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <div class="form-horizontal" type="form">
+        <div class="row">
+            <center><h4>Select Invoice Type</h4></center>
+            <div class="col-md-3"></div>
+            <div class="col-md-3">
+                <input type="radio" id="salesOrder1" name="salesOrder" class="k-radio" # disabled />
+                <label class="k-radio-label" for="salesOrder1">Invoice With Sales Order</label>
+            </div>
+            <div class="col-md-3">
+                <input type="radio" id="salesOrder2" name="salesOrder" class="k-radio" # disabled />
+                <label class="k-radio-label" for="salesOrder2">Invoice Without Sales Order</label>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Sales Order</div>
+            <div class="col-md-3">
+                <input type="text" id="salesOrder" class="form-control" required data-required-msg="Invalid" readonly />
+            </div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2" >Invoice Date</div>
+            <div class="col-md-3">
+                <input type="text" id="invoiceDate" class="form-control" required data-required-msg="Invalid" readonly />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Customer: </div>
+            <div class="col-md-3">
+                <input type="text" id="customer" class="form-control" readonly />
+            </div>
+
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Payment Term: </div>
+            <div class="col-md-3">
+                <input type="text" id="paymentTerm" class="form-control" readonly />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Currency: </div>
+            <div class="col-md-3">
+                <input type="text" id="currency" class="form-control" readonly />
+            </div>
+        </div>
+        <br />
+        <div class="demo-section k-header">
+            <div class="row">
+                <center><h4>Choose Taxes That Apply</h4></center>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+					<input type="checkbox" id="isWith" name="isWith" value="With" class="k-checkbox" # disabled>
+                    <label class="k-checkbox-label" for="isWith">Apply WITHHOLDING TAX</label>
+                    
+                </div>
+                <div class="col-md-2">
+                    <input type="checkbox" id="isNHIL" name="isNHIL" value="NHIL" class="k-checkbox" # disabled>
+                    <label class="k-checkbox-label" for="isNHIL">Apply NHIL </label>
+                </div>
+                <div class="col-md-2">
+                    <input type="checkbox" id="isVAT" name="isVat" value="VAT" class="k-checkbox" # disabled>
+                    <label class="k-checkbox-label" for="isVAT">Apply VAT</label>
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-12" id="grid">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2" id="postButton"></div>
+                <div class="col-md-2"></div>
+                <div class="col-md-4"></div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var invoiceId = '@ViewBag.id';
+    </script>
+<script src="~/scripts/app/AccountRecievable/Invoice/PostInvoice.js"></script>
+}
+

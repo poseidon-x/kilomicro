@@ -1,0 +1,49 @@
+﻿@{
+
+    Layout = "/Views/shared/_Layout.cshtml";
+    ViewBag.Title = "Credit Line";
+
+}
+
+<h2>Credit Line</h2>
+<div class="w-section inverse 1w boxed container form-horizontal">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Credit Line Number</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="creditLine" >
+            </div>
+            <div class="col-md-2">Loan No</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="loan" >
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">Amount Remaining</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="amount remaining" readonly>
+            </div>
+            <div class="col-md-2">Tenure Remaining</div>
+            <div class="col-md-3">
+                <input class="form-control" type="text" id="tenureRemaining" readonly>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        
+        <hr />
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary" id="save">Assign &raquo;</button>
+            </div>
+        </div>
+
+</div>
+
+@section FootScripts{
+<script src="~/scripts/app/Loans/CreditLine/assignLoanToCreditLine.js"></script>
+}

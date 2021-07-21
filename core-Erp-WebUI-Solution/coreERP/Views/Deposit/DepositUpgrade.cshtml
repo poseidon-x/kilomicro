@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "Investment Upgrade";
+}
+
+<h2>Upgrade Investment</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-2 col-xs-2" ></div>
+                <div class="col-md-4 col-xs-4" align="center">
+                    <img id="clientImage" class="img-rounded" alt="Client Image" height="120" width="120" />
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Client: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="deposit" readonly />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Current balance: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="balance" readonly />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Upgrade Date: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="upgradeDate" />
+                        </div>
+                    </div>
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Upgrade Product:: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="upgradeDepositType"/>
+                </div>
+                <div class="col-md-2 col-xs-2">Annual Rate </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="annualInterestRate" />
+                </div>  
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Period </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="period"/>
+                </div>
+                <div class="col-md-2 col-xs-2">Maturity date: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="maturityDate" readonly />
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Expected Intrst. </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interest"/>
+                </div>
+                <div class="col-md-2 col-xs-2">Maturity Sum: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="maturitySum" readonly />
+                </div>
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Top up Amount </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="topUpAmount" />
+                </div>
+                <div class="col-md-2 col-xs-2">Top up Payment Mode. </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="topupPaymentMode" />
+                </div> 
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Bank </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="bank" />
+                </div>
+                <div class="col-md-2 col-xs-2">Cheque No: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="checkNo" />
+                </div>
+            </div><br />
+        </div>
+        <br />
+
+        <div class="row">
+            <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-primary" id="save">Upgrade Account &raquo; </button>
+                </div><!--SaveButton-->
+                <br />
+            </div>
+        <br />
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+    var previousDepositId = '@ViewBag.Id';
+    </script>
+    <script src="~/scripts/app/Loans/Deposit/DepositUpgrade.js"></script>
+}

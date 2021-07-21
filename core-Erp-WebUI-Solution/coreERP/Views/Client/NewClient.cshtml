@@ -1,0 +1,351 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "New Client";
+}
+
+<h2>Create New Client</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="col-md-1"></div>
+        <div class="form-horizontal col-md-10">
+            <br />
+            <div id="details">
+
+                <div class="row">
+
+                    <div class="col-md-6 col-xs-6" align="center">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <video id="webcam" autoplay playsinline width="250" height="250"></video>
+                                <audio id="snapSound" src="~/audio/snap.wav" preload="auto"></audio>
+                                <button class="btn btn-secondary-outline pull-left" id="useCam">Use Camera</button>
+                                <button class="btn btn-secondary-outline" id="cameraFlip" disabled><i class="fa fa-toggle-on" aria-hidden="true"></i></button>
+                                <button class="btn btn-secondary-outline pull-right" id="snapCam" disabled>Snap &nbsp; <i class="fa fa-camera-retro" aria-hidden="true"></i></button>
+                            </div>
+
+                            <div class="col-md-6">
+                                <canvas id="canvas" class="d-none img-rounded" height="150" hidden></canvas>
+                                <img id="clientImage" class="img-rounded" alt="Client Image" height="200" width="220" style="margin-top:3rem;" />
+
+                                <label>Select a picture</label>
+                                <input type="file" accept=".png,.jpeg,.jpg" id="clientImageChoose" class="form-control" />
+                                <!--Hidden Image-->
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-6 col-xs-6">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4"> <label>Surname:</label></div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="surName" required/>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">
+                            <label>Other Names:</label>  </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="otherNames" required/>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">
+                            <label>Date of Birth:</label>  </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="DOB" required/>
+                            </div>
+                        </div><br />
+                        
+                        
+
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4"><label>Gender : </label> </div>
+                            <div class="col-md-4 col-xs-4">
+                                <input type="radio" name="sex" id="male" class="k-radio" value="male">
+                                <label class="k-radio-label" for="male">Male</label>
+                            </div>
+                            <div class="col-md-4 col-xs-4">
+                                <input type="radio" name="sex" id="female" class="k-radio" value="female">
+                                <label class="k-radio-label" for="female">Female</label>
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">
+                            <label>Marital Status: </label> </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="maritalStatus" required/>
+                            </div>
+                        </div><br />
+
+                        <div class="row">
+                            <div class="col-md-4 col-xs-4">
+                            <label>Client Type: </label> </div>
+                            <div class="col-md-8 col-xs-8">
+                                <input type="text" id="clientType" required />
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                </div>
+                <br />
+                <hr />
+
+
+                <div class="row">
+
+                    <div class="col-md-4 col-xs-4">
+                        <label>Branch</label>
+                        <input type="text" id="branch" required/>
+                    </div>
+
+                    <div class="col-md-4 col-xs-4">
+                        <label>Group</label>
+                        <input type="text" id="group" required />
+                    </div>
+
+                </div><br />
+
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        <label>Primary ID:</label> 
+                        <input type="text" id="primaryIdType" />
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <label>ID Number:</label> 
+                        <input type="text" id="primaryIdNo" />
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <label>Primary ID Expiry :</label> 
+                        <input type="text" id="primaryIdExpiry" />
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        <label>Secondary ID Type:</label> 
+                        <input type="text" id="secondaryIdType" />
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <label>Secondary ID Number:</label> 
+                        <input type="text" id="secondaryIdNo" />
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <label>Secondary ID Expiry :</label> 
+                        <input type="text" id="secondaryIdExpiry" />
+                    </div>
+                </div><br />
+                <div class="row">
+                    <div class="col-md-4 col-xs-4">
+                        <label>Industry:</label> 
+                        <input type="text" id="industry" />
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <label>Client Category:</label> 
+                        <input type="text" id="clientCategory" />
+                    </div>
+                    <div class="col-md-4 col-xs-4">
+                        <label>Sector:</label>
+                        <input type="text" id="sector" />
+                    </div>
+                </div><br />
+
+                <hr />
+
+                <div id="row">
+                    <div id="tabs">
+                        <ul>
+                            <li class="k-state-active">Physical Address</li>
+                            <li>Mailing Address</li>
+                            <li>Phone</li>
+                            <li>Email</li>
+                            <li>Next Of Kin</li>
+                            @*<li>Supporting Documents</li>*@                            
+                        </ul>
+                        <div>
+                            <!--PHYSICAL ADDRESS INFO-->
+                            <br />
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label>City</label>
+                                    <input class="form-control" type="text" id="city" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Landmark</label>
+                                    <input class="form-control" type="text" id="landmark" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Physical Address</label>
+                                    <textarea class="form-control" id="physicaladdress" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                                </div>
+
+                                <!--
+                                <div class="col-md-2"> Location(Map/Pic) </div>
+                                <div class="col-md-3">
+                                    <input type="text" id="location"/>
+                                </div>-->
+
+
+                            </div>
+                            <br />
+                            
+                        </div>
+                        <div>
+                            <!--MAILING ADDRESS INFO-->
+                            <br />
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <label>City</label>
+                                    <input class="form-control" type="text" id="mailingCity" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Address Line1</label>
+                                    <textarea class="form-control" id="mailingPhysicaladdress1" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Address Line2</label>
+                                    <textarea class="form-control" id="mailingPhysicaladdress2" rows="2" cols="80" style="width: 210px; height: 60px"></textarea>
+                                </div>
+
+
+                                
+                            </div>
+                            <br />
+                            
+                        </div>
+                        <div>
+                            <!--PHONE DETAILS-->
+                            <br />
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <label>Mobile No.</label>
+                                    <input class="form-control space-below" type="text" id="mobilePhone" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Work Phone</label>
+                                    <input class="form-control space-below" type="text" id="workPhone" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Home Phone</label>
+                                    <input class="form-control space-below" type="text" id="homePhone" />
+                                </div>
+
+                            </div>
+                            <br />
+
+                        </div>
+                        <div>
+                            <!--EMAIL INFO-->
+                            <br />
+                            <div class="row">
+
+                                <div class="col-md-3">
+                                    <label>Personal Email</label>
+                                    <input class="form-control space-below" type="text" id="personalEmail" />
+                                </div>
+
+                                <div class="col-md-3">
+                                    <label>Office Email</label>
+                                    <input class="form-control space-below" type="text" id="officeEmail" />
+                                </div>
+
+                            </div>
+                            <br />
+
+                        </div>
+                        
+                        <!--NEXT OF KIN-->
+                        <div class="row">
+                            <div class="col-md-3">
+                                <br />
+                                <label>Surname</label><br />
+                                <input class="form-control space-below" type="text" id="nokSurname" name="nokSurname" />
+
+                                <label>Email</label><br />
+                                <input class="form-control space-below" type="email" id="nokEmail" name="nokEmail" />
+
+                                <br />
+                                <label>ID Type</label><br />
+                                <input class="form-control space-below" type="text" id="nokIdType" name="nokIdType" />
+
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3">
+                                <br />
+                                <label>Other Names</label><br />
+                                <input class="form-control space-below" type="text" id="nokOthername" name="nokOthername" />
+
+                                <label>Phone Number</label><br />
+                                <input class="form-control space-below" type="tel" id="nokPhone" name="nokPhone" />
+
+                                <label>ID Number</label><br />
+                                <input class="form-control space-below" type="text" id="nokIdNumber" name="nokIdNumber" />
+
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-2">
+                                <br />
+                                <label>Relation to Client</label><br />
+                                <input class="form-control space-below" type="text" id="nokRelation" name="nokRelation" />
+
+                                <label>Picture</label><br />
+                                <input class="form-control space-below" type="file" accept=".png,.jpg,.jpeg" id="nokPicture" name="nokPicture" />
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div>
+                            <!--SUPPORTING DOCUMENTS-->
+                            <div id="documents"></div>
+                        </div>
+
+                    </div> <!--EndTab--><br />
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-primary" id="save">Save Client &nbsp;&nbsp; <i class="fa fa-paper-plane" aria-hidden="true"></i> </button>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <br />
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+<style>
+
+    .space-below{
+        margin-bottom: 2rem;
+    }
+</style>
+@section FootScripts{
+    <script src="~/scripts/app/webcam-easy.min.js"></script>
+    <script src="~/scripts/app/Clients/newClient.js"></script>
+
+}

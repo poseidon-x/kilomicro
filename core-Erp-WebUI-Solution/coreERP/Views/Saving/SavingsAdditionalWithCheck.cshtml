@@ -1,0 +1,127 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Savings Additional";
+}
+
+<h2>Saving Additional</h2>
+
+<div id="myform">
+    <div id="form-container" style="position: relative">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6 col-xs-6" align="center">
+                    <img id="clientImage" class="img-rounded" alt="Client Image" height="170" width="170" />
+                </div>
+                <div class="col-md-6 col-xs-6">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Client: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="client"  />
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Account: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="account" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Account Type: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="savingType" readonly />
+                        </div>
+                    </div><br />
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">Principal Bal: </div>
+                        <div class="col-md-8 col-xs-8">
+                            <input type="text" id="principalBalance" readonly/>
+                        </div>
+                    </div>
+                 </div>
+
+
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Available Principal: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="availablePrincipalBalance" readonly/>
+                </div>
+                <div class="col-md-2 col-xs-2">Interest Bal: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="interestBalance" readonly />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Avialable Interest: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="availableInterestBalance" readonly/>
+                </div>
+                <div class="col-md-2 col-xs-2">Deposit Date: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="depositDate" readonly />
+                </div>
+                
+            </div><br/>
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Payment Type: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="paymentType" />
+                </div>
+                <div class="col-md-2 col-xs-2">Deposit Amount: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="savingAmount" />
+                </div>
+            </div><br/>
+            <div class="row" id="chequeDetails">
+                <div class="col-md-2 col-xs-2">Cheque No.: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="checkNo" />
+                </div>
+                <div class="col-md-2 col-xs-2">Bank: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="bank" />
+                </div>
+            </div><br />
+            <div class="row">
+                <div class="col-md-2 col-xs-2">Naration: </div>
+                <div class="col-md-4 col-xs-4">
+                    <input type="text" id="naration" />
+                </div>
+            </div><br />
+        </div>
+        <br/>
+        <div id="row">
+            <div id="tabs">
+                <ul>
+                    <li class="k-state-active">Notes</li>
+                    <li>Coins</li>
+                </ul>
+                <div>
+                    <div id="notes"></div>
+                </div>
+                <div>
+                    <div id="coins"></div>
+                </div>
+            </div> <!--EndTab--><br />
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" id="save">Receive Deposit &raquo; </button>
+            </div> 
+            <br />
+        </div>
+        <br />
+    </div>
+</div>
+
+@section FootScripts{
+    <script type="text/javascript">
+        var id = '@ViewBag.Id';
+        var savId = '@ViewBag.savId';
+    </script>
+
+    <script src="~/scripts/app/Loans/savings/savingsAdditionalWithCheck.js"></script>
+}

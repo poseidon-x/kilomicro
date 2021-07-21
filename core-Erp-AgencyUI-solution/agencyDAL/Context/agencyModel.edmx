@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="coreDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="authToken">
+          <Key>
+            <PropertyRef Name="authTokenID" />
+          </Key>
+          <Property Name="authTokenID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="token" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="grantedDate" Type="datetime" Nullable="false" />
+          <Property Name="expiryDate" Type="datetime" Nullable="false" />
+          <Property Name="clientHostName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="users">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="100" />
+          <Property Name="is_active" Type="bit" Nullable="false" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="last_activity_date" Type="datetime" />
+          <Property Name="last_login_date" Type="datetime" />
+          <Property Name="last_password_changed_date" Type="datetime" />
+          <Property Name="is_onLine" Type="bit" />
+          <Property Name="is_locked_out" Type="bit" />
+          <Property Name="last_locked_out_date" Type="datetime" />
+          <Property Name="login_failure_count" Type="int" Nullable="false" />
+          <Property Name="creation_date" Type="datetime" Nullable="false" />
+          <Property Name="creator" Type="nvarchar" MaxLength="50" />
+          <Property Name="modification_date" Type="datetime" />
+          <Property Name="last_modifier" Type="nvarchar" MaxLength="50" />
+          <Property Name="accessLevelID" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_authToken_users">
+          <End Role="users" Type="Self.users" Multiplicity="1" />
+          <End Role="authToken" Type="Self.authToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="authToken">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coreDBModelStoreContainer">
+          <EntitySet Name="authToken" EntityType="Self.authToken" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_authToken_users" Association="Self.fk_authToken_users">
+            <End Role="users" EntitySet="users" />
+            <End Role="authToken" EntitySet="authToken" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="coreDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="user_name" />
+          </Key>
+          <Property Name="user_name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="full_name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="is_active" Type="Boolean" Nullable="false" />
+          <Property Name="emp_id" Type="Int32" />
+          <Property Name="last_activity_date" Type="DateTime" Precision="3" />
+          <Property Name="last_login_date" Type="DateTime" Precision="3" />
+          <Property Name="last_password_changed_date" Type="DateTime" Precision="3" />
+          <Property Name="is_onLine" Type="Boolean" />
+          <Property Name="is_locked_out" Type="Boolean" />
+          <Property Name="last_locked_out_date" Type="DateTime" Precision="3" />
+          <Property Name="login_failure_count" Type="Int32" Nullable="false" />
+          <Property Name="creation_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="creator" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="modification_date" Type="DateTime" Precision="3" />
+          <Property Name="last_modifier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="accessLevelID" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="authTokens" Relationship="coreDBModel.fk_authToken_users" FromRole="user" ToRole="authToken" />
+        </EntityType>
+        <EntityContainer Name="coreDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="authTokens" EntityType="coreDBModel.authToken" />
+          <AssociationSet Name="fk_authToken_users" Association="coreDBModel.fk_authToken_users">
+            <End Role="user" EntitySet="users" />
+            <End Role="authToken" EntitySet="authTokens" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="authToken">
+          <Key>
+            <PropertyRef Name="authTokenID" />
+          </Key>
+          <Property Name="authTokenID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="grantedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="expiryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="clientHostName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="user" Relationship="coreDBModel.fk_authToken_users" FromRole="authToken" ToRole="user" />
+        </EntityType>
+        <Association Name="fk_authToken_users">
+          <End Type="coreDBModel.user" Role="user" Multiplicity="1" />
+          <End Type="coreDBModel.authToken" Role="authToken" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="user_name" />
+            </Principal>
+            <Dependent Role="authToken">
+              <PropertyRef Name="userName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="coreDBModelStoreContainer" CdmEntityContainer="coreDBEntities">
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="coreDBModel.user">
+              <MappingFragment StoreEntitySet="users">
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="last_activity_date" ColumnName="last_activity_date" />
+                <ScalarProperty Name="last_login_date" ColumnName="last_login_date" />
+                <ScalarProperty Name="last_password_changed_date" ColumnName="last_password_changed_date" />
+                <ScalarProperty Name="is_onLine" ColumnName="is_onLine" />
+                <ScalarProperty Name="is_locked_out" ColumnName="is_locked_out" />
+                <ScalarProperty Name="last_locked_out_date" ColumnName="last_locked_out_date" />
+                <ScalarProperty Name="login_failure_count" ColumnName="login_failure_count" />
+                <ScalarProperty Name="creation_date" ColumnName="creation_date" />
+                <ScalarProperty Name="creator" ColumnName="creator" />
+                <ScalarProperty Name="modification_date" ColumnName="modification_date" />
+                <ScalarProperty Name="last_modifier" ColumnName="last_modifier" />
+                <ScalarProperty Name="accessLevelID" ColumnName="accessLevelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="authTokens">
+            <EntityTypeMapping TypeName="coreDBModel.authToken">
+              <MappingFragment StoreEntitySet="authToken">
+                <ScalarProperty Name="clientHostName" ColumnName="clientHostName" />
+                <ScalarProperty Name="expiryDate" ColumnName="expiryDate" />
+                <ScalarProperty Name="grantedDate" ColumnName="grantedDate" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="authTokenID" ColumnName="authTokenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

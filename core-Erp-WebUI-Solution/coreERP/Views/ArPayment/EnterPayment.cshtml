@@ -1,0 +1,87 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Enter Payment";
+}
+
+<hr>
+<div id="myform" class="w-section inverse 1w boxed container">
+    <h3 class="pageBanner">Enter Payment</h3>
+	<hr>
+	<br/>
+    <div class="form-horizontal" type="form">
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-1"> Customer: </div>
+            <div class="col-md-3">
+                <input type="text" id="customer" class="form-control" placeholder="--------- Select Customer Here ---------" required data-required-msg="Invalid"/>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <hr/>
+
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> Payment Date: </div>
+        <div class="col-md-3">
+            <input type="text" id="paymentDate" class="form-control" readonly/>
+        </div>
+
+        <div class="col-md-1"></div>
+        <div class="col-md-2"> currency: </div>
+        <div class="col-md-3">
+            <input type="text" id="currency" class="form-control" required data-required-msg="Invalid" />
+        </div>
+    </div>
+    <div class="row">
+                <div class="col-md-1"></div>
+        <div class="col-md-2"> Payment Method: </div>
+        <div class="col-md-3">
+            <input type="text" id="paymentMethod" class="form-control" required data-required-msg="Invalid"/>
+        </div>
+
+        <div class="col-md-1"></div>
+        <div class="col-md-2">Payment Number</div>
+        <div class="col-md-3" id="payment">
+        </div>
+    </div>
+    <div>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2"> Total Amount Paid: </div>
+            <div class="col-md-3">
+                <input type="text"  min="1" id="totalAmountPaid" class="form-control" required data-required-msg="Invalid" />
+            </div>
+
+        </div>
+
+        <hr>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10" id="grid"></div>
+            <div class="col-md-1"></div>
+        </div>
+        <hr>
+        <div class="row">
+            <div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <input type="button" class="btn btn-primary" id="save" value="Save Payment" />
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-4"></div>
+            </div><!--SaveButton-->
+        </div>
+    </div>
+</div>
+</div>
+
+
+@section FootScripts{
+    <script type="text/javascript">
+        var arPaymentId = '@ViewBag.Id';
+    </script>
+<script src="~/scripts/app/AccountRecievable/Payment/EnterPayment.js"></script>
+}
+

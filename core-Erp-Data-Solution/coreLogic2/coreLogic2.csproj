@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{22D34F74-BCF1-4C65-8062-0E43238FEB01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>coreLogic</RootNamespace>
+    <AssemblyName>coreLogic2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.4\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contexts\CommerceEntities.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommerceEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\CommonModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\coreSecurityModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>coreSecurityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\CreditUnionModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreditUnionModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\GLModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GLModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\LoansModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoansModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\momoModels.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>momoModels.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contexts\ReportModel.Context1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\CommonModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\GLModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GLModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Designer\LoansModel.Designer.cs">
+      <DependentUpon>LoansModel.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreCreditUnionRepository.cs" />
+    <Compile Include="Designer\Repositories\Real\coreCreditUnionReposittory.cs" />
+    <Compile Include="Designer\Repositories\Real\coreGLRepository.cs" />
+    <Compile Include="Designer\Repositories\Real\coreMomoRepository.cs" />
+    <Compile Include="Designer\Repositories\Real\coreCommerceRepository.cs" />
+    <Compile Include="Designer\Repositories\Real\coreReportsRepository.cs" />
+    <Compile Include="Designer\Repositories\Real\coreSecurityRepository.cs" />
+    <Compile Include="Designer\Repositories\Base\genericRepository.cs" />
+    <Compile Include="Designer\Repositories\Real\coreDBReposittory.cs" />
+    <Compile Include="Designer\Repositories\Real\coreLoansRepository.cs" />
+    <Compile Include="Designer\Repositories\Base\ICoreRepository.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreCommerceRepository.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreDBReposittory.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreGLRepository.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreLoansRepository.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreMomoRepository.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreReportsRepository.cs" />
+    <Compile Include="Designer\Repositories\Interfaces\ICoreSecurityRepository.cs" />
+    <Compile Include="ReportModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportModel.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Designer\CommonModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CommonModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Designer\CommerceEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CommerceEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Designer\CommerceEntities.edmx.diagram">
+      <DependentUpon>CommerceEntities.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Designer\GLModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GLModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Designer\coreSecurityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>coreSecurityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Designer\LoansModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LoansModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Designer\momoModels.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>momoModels.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Designer\CreditUnionModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CreditUnionModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Designer\CreditUnionModel.edmx.diagram">
+      <DependentUpon>CreditUnionModel.edmx</DependentUpon>
+    </None>
+    <None Include="Designer\momoModels.edmx.diagram">
+      <DependentUpon>momoModels.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <EntityDeploy Include="ReportModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ReportModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\coreInterfaces\coreInterfaces.csproj">
+      <Project>{5d9a635f-75b3-4e7b-971d-9a6a8ba90d23}</Project>
+      <Name>coreInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreLibrary\coreLibrary.csproj">
+      <Project>{8748d2b0-9cab-4195-8651-a2cf24da61c4}</Project>
+      <Name>coreLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\coreReports\coreReports.csproj">
+      <Project>{67ec67fc-73d8-4060-a88e-31fdd1c97a92}</Project>
+      <Name>coreReports</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Contexts\CommerceEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommerceEntities.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\CommonModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CommonModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\coreSecurityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>coreSecurityModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\CreditUnionModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CreditUnionModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\GLModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GLModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\LoansModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LoansModel.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\momoModels.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>momoModels.Context1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Contexts\ReportModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ReportModel.Context1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
